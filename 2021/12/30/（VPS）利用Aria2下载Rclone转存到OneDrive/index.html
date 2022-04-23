@@ -18,20 +18,23 @@
   <meta name="author" content="咳咳怪">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="一、 安装Aria2需要到【https:&#x2F;&#x2F;github.com&#x2F;P3TERX&#x2F;aria2.sh】一键安装Aria2 二、 安装和配置 RcloneRCLONE 官方提供了一键安装脚本： curl https:&#x2F;&#x2F;rclone.org&#x2F;install.sh | sudo bash 安装完后，输入 rclone config 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://yorg.top/2022/04/23/hello-world/index.html">
+<meta property="og:title" content="（VPS）利用Aria2下载Rclone转存到OneDrive">
+<meta property="og:url" content="https://yorg.top/2021/12/30/%EF%BC%88VPS%EF%BC%89%E5%88%A9%E7%94%A8Aria2%E4%B8%8B%E8%BD%BDRclone%E8%BD%AC%E5%AD%98%E5%88%B0OneDrive/index.html">
 <meta property="og:site_name" content="咳咳怪的小站">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="一、 安装Aria2需要到【https:&#x2F;&#x2F;github.com&#x2F;P3TERX&#x2F;aria2.sh】一键安装Aria2 二、 安装和配置 RcloneRCLONE 官方提供了一键安装脚本： curl https:&#x2F;&#x2F;rclone.org&#x2F;install.sh | sudo bash 安装完后，输入 rclone config 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-23T02:57:37.638Z">
-<meta property="article:modified_time" content="2022-04-23T02:57:37.639Z">
+<meta property="og:image" content="https://api.codeanime.cn/animation/random.php">
+<meta property="article:published_time" content="2021-12-30T04:53:00.000Z">
+<meta property="article:modified_time" content="2022-04-23T13:43:57.849Z">
 <meta property="article:author" content="咳咳怪">
+<meta property="article:tag" content="VPS">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://api.codeanime.cn/animation/random.php">
   
   
-  <title>Hello World - 咳咳怪的小站</title>
+  <title>（VPS）利用Aria2下载Rclone转存到OneDrive - 咳咳怪的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -237,7 +240,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="（VPS）利用Aria2下载Rclone转存到OneDrive">
               
             </span>
 
@@ -247,8 +250,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-23 10:57" pubdate>
-        2022年4月23日 上午
+      <time datetime="2021-12-30 12:53" pubdate>
+        2021年12月30日 下午
       </time>
     </span>
   
@@ -258,7 +261,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      367 字
+      2.4k 字
     </span>
   
 
@@ -267,7 +270,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      21 分钟
     </span>
   
 
@@ -296,28 +299,125 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">（VPS）利用Aria2下载Rclone转存到OneDrive</h1>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+              <p>一、</p>
+<h2 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到【<a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh%E3%80%91%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85Aria2">https://github.com/P3TERX/aria2.sh】一键安装Aria2</a></p>
+<p>二、</p>
+<h2 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
+<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
+<p>安装完后，输入 rclone config 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a target="_blank" rel="noopener" href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把<strong>clean.sh</strong>替换为<strong>upload.sh</strong>。</li>
+</ul>
+<blockquote>
+<p>nano 编辑器的操作方法参见<a target="_blank" rel="noopener" href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs"># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre></div>
+<h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
+<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a target="_blank" rel="noopener" href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
+</blockquote>
+<div class="code-wrapper"><pre><code class="hljs">rclone authorize &quot;onedrive&quot;
+</code></pre></div>
+<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
+<div class="code-wrapper"><pre><code class="hljs">If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+Paste the following into your remote machine ---&gt;
+&#123;&quot;access_token&quot;:&quot;xxxxxxxx&quot;&#125;  # 注意!复制&#123;xxxxxxxx&#125;整个内容，并保存好，后面需要用到
+&lt;---End paste
+</code></pre></div>
+<p>输入</p>
+<blockquote>
+<p><strong>rclone config</strong></p>
+</blockquote>
+<p>命令，会出现以下信息，参照下面的注释进行操作。<br><a target="_blank" rel="noopener" href="https://www.dayline.top/usr/uploads/2022/04/3598178842.png" title="RC1"><img src="https://www.dayline.top/usr/uploads/2022/04/3598178842.png" srcset="/img/loading.gif" lazyload alt="RC1" title="RC1"></a></p>
+<blockquote>
+<p><strong>选27 Microsoft OneDrive</strong></p>
+</blockquote>
+<p><img src="https://www.dayline.top/usr/uploads/2022/04/1795894733.png" srcset="/img/loading.gif" lazyload alt="Rclone2"><br><img src="https://www.dayline.top/usr/uploads/2022/04/3576903067.png" srcset="/img/loading.gif" lazyload alt="Rclone3"><br><img src="https://www.dayline.top/usr/uploads/2022/04/2500164218.png" srcset="/img/loading.gif" lazyload alt="Rclone4"></p>
+<blockquote>
+<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
+</ul>
+<h1 id="网盘名称-RCLONE-配置时填写的-name"><a href="#网盘名称-RCLONE-配置时填写的-name" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
+<p><strong>drive-name&#x3D;OneDrive</strong></p>
+</blockquote>
+<ul>
+<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
+<p>  service aria2 restart</p>
+</li>
+</ul>
+<h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
+<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
+<p>  &#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
+</li>
+<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
+</li>
+<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
+</li>
+</ul>
+<p>三、<br>部署Ar­i­aNg 页面</p>
+<div class="code-wrapper"><pre><code class="hljs"># bridge 网络模式
+docker run -d \
+    --name ariang \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -p 6880:6880 \
+    p3terx/ariang
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
+docker run -d \
+    --name ariang \
+    --log-opt max-size=1m \
+    --restart unless-stopped \
+    --network host \
+    p3terx/ariang --port 6880 --ipv6
+</code></pre></div>
+<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://www.dayline.top/usr/uploads/2022/04/3259952806.png" srcset="/img/loading.gif" lazyload alt="Aria1"></p>
+<blockquote>
+<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
+</blockquote>
+<hr>
+<h2 id="AriaNg-使用注意事项"><a href="#AriaNg-使用注意事项" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
+<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug ，所以必要的设置需写入到 Aria2 配置文件中。</li>
+<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
+<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
+<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
+</ul>
+<hr>
+<p>本文参考的文章来自：**<a target="_blank" rel="noopener" href="https://p3terx.com/">P3terx</a>**</p>
+<blockquote>
+<p>Aria2 新手入门教程<br><a target="_blank" rel="noopener" href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<a target="_blank" rel="noopener" href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<a target="_blank" rel="noopener" href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
+</blockquote>
+<hr>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/">简易教程</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VPS/">VPS</a>
+                    
+                  </div>
                 
               </div>
               
@@ -332,12 +432,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2021/12/31/%E5%88%A9%E7%94%A8VPS%E6%90%AD%E5%BB%BA%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF-Ninja-2022-3-6%E6%97%A5%E6%9B%B4%E6%96%B0%E6%90%AD%E5%BB%BAJDX%E5%B9%B6%E5%AF%B9%E6%8E%A5%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/11/%E3%80%8A%E5%A2%A8%E8%8F%B2%E5%AE%9A%E5%BE%8B%E3%80%8B%EF%BC%88%E4%B8%8B%EF%BC%89/">
-                        <span class="hidden-mobile">《墨菲定律》（下）</span>
+                      <a href="/2021/12/12/%E5%88%A9%E7%94%A8OneinStack%E4%B8%80%E9%94%AE%E6%90%AD%E5%BB%BALNMP%E5%92%8CTypecho/">
+                        <span class="hidden-mobile">利用OneinStack一键搭建LNMP和Typecho</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
