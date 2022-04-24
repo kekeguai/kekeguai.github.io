@@ -1,6 +1,6 @@
 var now = new Date();
 function createtime() {
-    var grt= new Date("08/30/2021 12:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+    var grt= new Date("08/30/2021 20:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
     now.setTime(now.getTime()+250);
     days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
     hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
@@ -12,4 +12,3 @@ function createtime() {
     document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
 }
 setInterval("createtime()",250);
-
