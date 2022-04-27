@@ -267,6 +267,11 @@
             
               <div class="mt-3">
   
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      咳咳怪
+    </span>
+  
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
@@ -331,7 +336,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 天前
+                  本文最后更新于：3 天前
                 
               </p>
             
@@ -349,16 +354,16 @@
 <blockquote>
 <p>nano 编辑器的操作方法参见<a target="_blank" rel="noopener" href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
 </blockquote>
-<div class="code-wrapper"><pre><code class="hljs"># 下载完成后执行的命令
+<div class="hljs code-wrapper"><pre><code class="hljs"># 下载完成后执行的命令
 on-download-complete=/root/.aria2c/upload.sh
 </code></pre></div>
 <h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
 <p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a target="_blank" rel="noopener" href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
 </blockquote>
-<div class="code-wrapper"><pre><code class="hljs">rclone authorize &quot;onedrive&quot;
+<div class="hljs code-wrapper"><pre><code class="hljs">rclone authorize &quot;onedrive&quot;
 </code></pre></div>
 <p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
-<div class="code-wrapper"><pre><code class="hljs">If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+<div class="hljs code-wrapper"><pre><code class="hljs">If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
 Log in and authorize rclone for access
 Waiting for code...
 Got code
@@ -399,7 +404,7 @@ Paste the following into your remote machine ---&gt;
 </li>
 </ul>
 <p>三、<br>部署Ar­i­aNg 页面</p>
-<div class="code-wrapper"><pre><code class="hljs"># bridge 网络模式
+<div class="hljs code-wrapper"><pre><code class="hljs"># bridge 网络模式
 docker run -d \
     --name ariang \
     --restart unless-stopped \
@@ -499,7 +504,7 @@ docker run -d \
     Fluid.utils.loadComments('#waline', function() {
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@waline/client@1/dist/Waline.min.js', function() {
         var options = Object.assign(
-          {"serverURL":"https://waline.yorg.top","path":"window.location.pathname","placeholder":null,"meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili"],"dark":"html[data-user-color-scheme=\"dark\"]","avatar":"retro","avatarCDN":"https://seccdn.libravatar.org/avatar/","avatarForce":false,"wordLimit":0,"pageSize":10,"highlight":true},
+          {"serverURL":"https://waline.yorg.top","path":"window.location.pathname","placeholder":null,"meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili","https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tieba"],"dark":"html[data-user-color-scheme=\"dark\"]","avatar":"retro","avatarCDN":"https://seccdn.libravatar.org/avatar/","avatarForce":true,"wordLimit":0,"pageSize":10,"highlight":true},
           {
             el: '#waline',
             path: window.location.pathname
@@ -713,6 +718,7 @@ docker run -d \
   
 <script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js"></script>
 <script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/love.min.js"></script>
 
 
 
