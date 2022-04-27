@@ -18,21 +18,31 @@
   <meta name="author" content="咳咳怪">
   <meta name="keywords" content="Hexo,hexo,博客,咳咳怪,咳咳怪的小站">
   
-    <meta name="description" content="一、生活就是对人的兴趣，就是成为整体中的一份子，将自己的力量贡献出来，谋求人类的福祉。">
+    <meta name="description" content="TG人形自走机器人项目PagerMaid安装在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人   准备 一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）   Te">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《自卑与超越》">
-<meta property="og:url" content="https://yorg.top/2022/04/26/zbycy/index.html">
+<meta property="og:title" content="TG人形自走机器人项目PagerMaid安装">
+<meta property="og:url" content="https://yorg.top/2022/04/27/TGbot/index.html">
 <meta property="og:site_name" content="咳咳怪的小站">
-<meta property="og:description" content="一、生活就是对人的兴趣，就是成为整体中的一份子，将自己的力量贡献出来，谋求人类的福祉。">
+<meta property="og:description" content="TG人形自走机器人项目PagerMaid安装在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人   准备 一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）   Te">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-26T05:21:53.000Z">
-<meta property="article:modified_time" content="2022-04-26T05:41:41.320Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/7.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/6.png">
+<meta property="article:published_time" content="2022-04-27T08:57:14.000Z">
+<meta property="article:modified_time" content="2022-04-27T10:17:31.573Z">
 <meta property="article:author" content="咳咳怪">
-<meta property="article:tag" content="书摘">
+<meta property="article:tag" content="VPS">
+<meta property="article:tag" content="Telegram">
+<meta property="article:tag" content="Bot">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/1.png">
   
   
-  <title>《自卑与超越》 - 咳咳怪的小站</title>
+  <title>TG人形自走机器人项目PagerMaid安装 - 咳咳怪的小站</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -254,7 +264,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="《自卑与超越》">
+            <span class="h2" id="subtitle" title="TG人形自走机器人项目PagerMaid安装">
               
             </span>
 
@@ -269,8 +279,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-26 13:21" pubdate>
-        2022年4月26日 下午
+      <time datetime="2022-04-27 16:57" pubdate>
+        2022年4月27日 下午
       </time>
     </span>
   
@@ -280,7 +290,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      596 字
+      1.7k 字
     </span>
   
 
@@ -289,7 +299,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      15 分钟
     </span>
   
 
@@ -326,81 +336,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">《自卑与超越》</h1>
+            <h1 style="display: none">TG人形自走机器人项目PagerMaid安装</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 天前
+                  本文最后更新于：3 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <ul>
-<li>一、生活就是对人的兴趣，就是成为整体中的一份子，将自己的力量贡献出来，谋求人类的福祉。</li>
+              <h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人  </p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）  </li>
+<li>Telegram官方申请的APP ID和APP HASH  <h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3></li>
 </ul>
-<span id="more"></span>
-
-<ul>
-<li>二、人一旦确立人生目标，随之便会展开自我管理  。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>三、一个人的经历虽然不会决定其一生的命运，但会对人的命运产生影响。如果将某种特殊经历作为自己未来人生的基础，那么我们势必会收到误导。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>四、存留于脑海中的记忆会凝结成我们的生活经验，记忆让我们通过这些经验找到人生意义之所在</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>五、人的一生，从始至终，心灵与肉体之间的合作就一直进行着，两者犹如一个整体，不可分割</li>
-</ul>
-<!--more-->
-<ul>
-<li>六、愤怒事实上是一种用于控制某个人或某种情形的工具，可我们不满足于描述他的愤怒。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>七、在任何一种凌驾于他人之上的举止背后都有一种急需隐藏的自卑感存在。</li>
-</ul>
-<!--more-->
-<ul>
-<li>八、人一旦坠入爱河，就会变得温柔起来，而且爱的深的那个人更容易受伤。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>九、梦是用来麻醉和欺骗我们自己的，要理解们美国不是一件容易的事。如果我们都理解了梦的含义，便不会再被梦所愚弄，那梦也就不再具有唤起感觉和情绪的力量。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十、无论何时，人们都想成为征服者，想要战胜，征服别人。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十一、人们不断奋斗，试图从卑微走向高贵，从失败走向胜利，从底层走向高层。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十二、如果人与人之间，没有感情，没有合作，没有奉献，那人生将是一篇沙漠。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十三、当今这个时代，只是历史长河中的一个阶段，在人类过去、现在、未来的整个进程中，他只属于其中的一部分。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十四、世上会有邪恶和困难、偏见和灾难，但这是我们自己的世界，长处和弊端都是这个世界的一部分。</li>
-</ul>
+<ol>
+<li>打开<a target="_blank" rel="noopener" href="https://my.telegram.org/auth">官网</a></li>
+<li>输入手机号登录<br><img src="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/1.png" srcset="/img/loading.gif" lazyload alt="1"></li>
+<li>点击“API development tools”<br><img src="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/2.png" srcset="/img/loading.gif" lazyload alt="2"></li>
+<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/3.png" srcset="/img/loading.gif" lazyload alt="3"><h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4>复制APP ID和APP HASH，备用<br><img src="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/7.png" srcset="/img/loading.gif" lazyload alt="7"><h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3>SSH登录至VPS<br>执行以下命令，安装依赖<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">Debian/Ubuntu:<br>    apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span><br>    apt-<span class="hljs-built_in">get</span> install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-<span class="hljs-keyword">sim</span> redis-server <span class="hljs-keyword">python3</span>-pip -<span class="hljs-keyword">y</span><br>    git clone https://gitlab.<span class="hljs-keyword">com</span>/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; <span class="hljs-keyword">cd</span> pagermaid<br>    pip3 install -r requirements.txt<br>    <span class="hljs-keyword">cp</span> config.gen.yml config.yml<br>Centos:<br>    yum <span class="hljs-keyword">update</span> -<span class="hljs-keyword">y</span><br>    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-<span class="hljs-keyword">sim</span> redis-server <span class="hljs-keyword">python3</span>-pip -<span class="hljs-keyword">y</span><br>    git clone https://gitlab.<span class="hljs-keyword">com</span>/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; <span class="hljs-keyword">cd</span> pagermaid<br>    pip3 install -r requirements.txt<br>    <span class="hljs-keyword">cp</span> config.gen.yml config.yml<br></code></pre></div></td></tr></table></figure>
+编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/4.png" srcset="/img/loading.gif" lazyload alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/5.png" srcset="/img/loading.gif" lazyload alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://cdn.jsdelivr.net/gh/kekeguai/blog_img@main/TGbot/6.png" srcset="/img/loading.gif" lazyload alt="6"><br>设置守护进程<figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros">cat &lt;&lt;<span class="hljs-string">&#x27;TEXT&#x27;</span> &gt; /etc/systemd/system/pagermaid.service<br>[Unit]<br><span class="hljs-attribute">Description</span>=PagerMaid-Modify telegram utility daemon<br><span class="hljs-attribute">After</span>=network.target<br>[Install]<br><span class="hljs-attribute">WantedBy</span>=multi-user.target<br>[Service]<br><span class="hljs-attribute">Type</span>=simple<br><span class="hljs-attribute">WorkingDirectory</span>=/root/pagermaid<br><span class="hljs-attribute">ExecStart</span>=/usr/bin/python3 -m pagermaid<br><span class="hljs-attribute">Restart</span>=always<br>TEXT<br></code></pre></div></td></tr></table></figure>
+<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4></li>
+<li>启动程序：<code>systemctl start pagermaid</code>；</li>
+<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
+<li>停止程序：<code>systemctl stop pagermaid</code>;<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2></li>
+</ol>
+<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a target="_blank" rel="noopener" href="https://index.xtaolabs.com/">安装地址</a><br><a target="_blank" rel="noopener" href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a target="_blank" rel="noopener" href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a target="_blank" rel="noopener" href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a target="_blank" rel="noopener" href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】  </p>
 
             </div>
             <hr>
@@ -410,7 +372,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E9%98%85%E8%AF%BB/">阅读</a>
+                      <a class="hover-with-bg" href="/categories/%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/">简易教程</a>
                     
                   </div>
                 
@@ -418,7 +380,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E4%B9%A6%E6%91%98/">书摘</a>
+                      <a class="hover-with-bg" href="/tags/VPS/">VPS</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Telegram/">Telegram</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Bot/">Bot</a>
                     
                   </div>
                 
@@ -435,18 +401,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/27/TGbot/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">TG人形自走机器人项目PagerMaid安装</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/24/Markdown/">
-                        <span class="hidden-mobile">Markdown（笔记）</span>
+                      <a href="/2022/04/26/zbycy/">
+                        <span class="hidden-mobile">《自卑与超越》</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
