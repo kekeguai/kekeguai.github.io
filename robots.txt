@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+Crawl-delay: 5
+Disallow: /source
+Disallow: /_posts
+Disallow: /about
+Sitemap: sitemap.xml
