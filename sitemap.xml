@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yorg.top/ql_jdx.html</loc>
+    <loc>https://yorg.top/Alist.html</loc>
     
     <lastmod>2022-07-07</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/Alist.html</loc>
+    <loc>https://yorg.top/ql_jdx.html</loc>
     
     <lastmod>2022-07-07</lastmod>
     
@@ -173,20 +173,6 @@
 
   
   <url>
-    <loc>https://yorg.top/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-07-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/tags/Markdown/</loc>
-    <lastmod>2022-07-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yorg.top/tags/VPS/</loc>
     <lastmod>2022-07-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -202,6 +188,20 @@
   
   <url>
     <loc>https://yorg.top/tags/Bot/</loc>
+    <lastmod>2022-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/tags/Markdown/</loc>
     <lastmod>2022-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
