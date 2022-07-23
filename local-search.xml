@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>拥有域名总结以及搭建的网页</title>
+    <link href="/domain.html"/>
+    <url>/domain.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="手上目前拥有的域名"><a href="#手上目前拥有的域名" class="headerlink" title="手上目前拥有的域名"></a>手上目前拥有的域名</h1><table><thead><tr><th align="center">域名</th><th align="center">状态</th></tr></thead><tbody><tr><td align="center">007.al</td><td align="center">自用</td></tr><tr><td align="center">yorg.top</td><td align="center">自用</td></tr><tr><td align="center">lliii.net</td><td align="center">闲置</td></tr><tr><td align="center">llloli.com</td><td align="center">闲置</td></tr><tr><td align="center">llloli.net</td><td align="center">闲置</td></tr></tbody></table><h1 id="搭建的网页"><a href="#搭建的网页" class="headerlink" title="搭建的网页"></a>搭建的网页</h1><table><thead><tr><th align="center">域名</th><th align="center">简介</th></tr></thead><tbody><tr><td align="center">007.al</td><td align="center">个人主页</td></tr><tr><td align="center">yorg.top</td><td align="center">个人博客</td></tr><tr><td align="center">lliii.net</td><td align="center">短链接生成</td></tr><tr><td align="center">llloli.com</td><td align="center">个人主页</td></tr><tr><td align="center">llloli.net</td><td align="center">301跳转至个人博客</td></tr><tr><td align="center">od.007.al</td><td align="center">Alist</td></tr><tr><td align="center">drive.007.al</td><td align="center">onedrive-vercel-index</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>begin</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>VPS</tag>
+      
+      <tag>域名</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Alist搭建教程</title>
     <link href="/Alist.html"/>
     <url>/Alist.html</url>
