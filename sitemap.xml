@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/domain.html</loc>
-    
-    <lastmod>2022-07-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yorg.top/Markdown.html</loc>
     
     <lastmod>2022-07-07</lastmod>
@@ -182,6 +173,20 @@
 
   
   <url>
+    <loc>https://yorg.top/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/tags/Markdown/</loc>
+    <lastmod>2022-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://yorg.top/tags/VPS/</loc>
     <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -197,27 +202,6 @@
   
   <url>
     <loc>https://yorg.top/tags/Bot/</loc>
-    <lastmod>2022-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/tags/Markdown/</loc>
-    <lastmod>2022-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/tags/%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2022-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
