@@ -189,20 +189,6 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/tags/Telegram/</loc>
-    <lastmod>2022-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/tags/Bot/</loc>
-    <lastmod>2022-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yorg.top/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -218,6 +204,20 @@
   
   <url>
     <loc>https://yorg.top/tags/%E4%B9%A6%E6%91%98/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/tags/Telegram/</loc>
+    <lastmod>2022-10-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/tags/Bot/</loc>
     <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
