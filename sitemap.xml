@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yorg.top/link/index.html</loc>
+    <loc>https://yorg.top/tags/index.html</loc>
     
     <lastmod>2022-12-29</lastmod>
     
@@ -20,7 +20,16 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/tags/index.html</loc>
+    <loc>https://yorg.top/link/index.html</loc>
+    
+    <lastmod>2022-12-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/about/index.html</loc>
     
     <lastmod>2022-12-29</lastmod>
     
@@ -128,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/p/42946.html</loc>
+    <loc>https://yorg.top/p/45975.html</loc>
     
     <lastmod>2022-12-18</lastmod>
     
@@ -137,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/p/45975.html</loc>
+    <loc>https://yorg.top/p/42946.html</loc>
     
     <lastmod>2022-12-18</lastmod>
     
@@ -164,6 +173,15 @@
   </url>
   
   <url>
+    <loc>https://yorg.top/p/17371.html</loc>
+    
+    <lastmod>2022-12-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://yorg.top/p/16272.html</loc>
     
     <lastmod>2022-12-18</lastmod>
@@ -182,27 +200,9 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/p/17371.html</loc>
-    
-    <lastmod>2022-12-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yorg.top/bangumis/index.html</loc>
     
     <lastmod>2022-04-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/about/index.html</loc>
-    
-    <lastmod>2022-04-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -216,6 +216,13 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://yorg.top/tags/VPS/</loc>
+    <lastmod>2022-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://yorg.top/tags/hexo/</loc>
@@ -239,27 +246,6 @@
   </url>
   
   <url>
-    <loc>https://yorg.top/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/tags/Markdown/</loc>
-    <lastmod>2022-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yorg.top/tags/VPS/</loc>
-    <lastmod>2022-12-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yorg.top/tags/Telegram/</loc>
     <lastmod>2022-12-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -268,6 +254,20 @@
   
   <url>
     <loc>https://yorg.top/tags/Bot/</loc>
+    <lastmod>2022-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-12-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yorg.top/tags/Markdown/</loc>
     <lastmod>2022-12-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
