@@ -67,44 +67,6 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
-    <title>TG人形自走机器人项目PagerMaid安装</title>
-    <url>/p/31299.html</url>
-    <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
-<li>Telegram官方申请的APP ID和APP HASH</li>
-</ul>
-<h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
-<li>打开<a href="https://my.telegram.org/auth">官网</a></li>
-<li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
-<li>点击“API development tools”<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/2.png" alt="2"></li>
-<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/3.png" alt="3"></li>
-</ol>
-<h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
-<h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/4.png" alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/5.png" alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/6.png" alt="6"><br>设置守护进程</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#x27;TEXT&#x27; &gt; /etc/systemd/system/pagermaid.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=PagerMaid-Modify telegram utility daemon</span><br><span class="line">After=network.target</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/pagermaid</span><br><span class="line">ExecStart=/usr/bin/python3 -m pagermaid</span><br><span class="line">Restart=always</span><br><span class="line">TEXT</span><br></pre></td></tr></table></figure>
-
-<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4><ol>
-<li>启动程序：<code>systemctl start pagermaid</code>；</li>
-<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
-<li>停止程序：<code>systemctl stop pagermaid</code>;</li>
-</ol>
-<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a href="https://index.xtaolabs.com/">安装地址</a><br><a href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】</p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>Telegram</tag>
-        <tag>Bot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown（笔记）</title>
     <url>/p/16272.html</url>
     <content><![CDATA[<h1 id="Markdown语法大全"><a href="#Markdown语法大全" class="headerlink" title="Markdown语法大全"></a>Markdown语法大全</h1><h2 id="一、-注释"><a href="#一、-注释" class="headerlink" title="一、 注释"></a>一、 注释</h2><h4 id="1-代码法"><a href="#1-代码法" class="headerlink" title="1.代码法"></a>1.代码法</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#x27;display: none&#x27;</span>&gt;</span></span></span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -536,6 +498,146 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
+    <title>利用OneinStack一键搭建LNMP和Typecho</title>
+    <url>/p/42946.html</url>
+    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
+<p>环境安装完成后</p>
+<pre><code>#进入oneinstack
+cd oneinstack
+#添加网站
+./vhost.sh
+</code></pre>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
+<pre><code>#进入网站目录
+cd /data/wwwroot/xxx.xxxx.xxx
+#一键安装命令
+wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
+tar xzf 1.1.17.10.30.-release.tar.gz
+cd build
+mv * .. 
+cd ..
+rm -rf 1.1.17.10.30.-release.tar.gz build
+</code></pre>
+<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
+<p>之后就可以访问你的网站 进行Typecho的安装</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TG人形自走机器人项目PagerMaid安装</title>
+    <url>/p/31299.html</url>
+    <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
+<li>Telegram官方申请的APP ID和APP HASH</li>
+</ul>
+<h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
+<li>打开<a href="https://my.telegram.org/auth">官网</a></li>
+<li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
+<li>点击“API development tools”<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/2.png" alt="2"></li>
+<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/3.png" alt="3"></li>
+</ol>
+<h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
+<h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/4.png" alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/5.png" alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/6.png" alt="6"><br>设置守护进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#x27;TEXT&#x27; &gt; /etc/systemd/system/pagermaid.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=PagerMaid-Modify telegram utility daemon</span><br><span class="line">After=network.target</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/pagermaid</span><br><span class="line">ExecStart=/usr/bin/python3 -m pagermaid</span><br><span class="line">Restart=always</span><br><span class="line">TEXT</span><br></pre></td></tr></table></figure>
+
+<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4><ol>
+<li>启动程序：<code>systemctl start pagermaid</code>；</li>
+<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
+<li>停止程序：<code>systemctl stop pagermaid</code>;</li>
+</ol>
+<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a href="https://index.xtaolabs.com/">安装地址</a><br><a href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>Telegram</tag>
+        <tag>Bot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《墨菲定律》（上）</title>
+    <url>/p/24.html</url>
+    <content><![CDATA[<h4 id="NO-1-一件事只要有可能出错，就一定会出错"><a href="#NO-1-一件事只要有可能出错，就一定会出错" class="headerlink" title="NO.1 一件事只要有可能出错，就一定会出错"></a>NO.1 一件事只要有可能出错，就一定会出错</h4><ol>
+<li><p>犯错是人类与生俱来的弱点</p>
+</li>
+<li><p>人类再聪明，也无法把事情做到尽善尽美，但人类又习惯心存侥幸，认为“不太可能”的事情就不会发生。</p>
+</li>
+<li><p>人生不是每时每刻都那么幸运，任何一件事情，只要有大于零的出错概率，我们就不能假设它不会发生。</p>
+</li>
+</ol>
+<h4 id="NO-2-越害怕某件事情发生，它就越有可能发生"><a href="#NO-2-越害怕某件事情发生，它就越有可能发生" class="headerlink" title="NO.2 越害怕某件事情发生，它就越有可能发生"></a>NO.2 越害怕某件事情发生，它就越有可能发生</h4><ol>
+<li>卡尔·瓦伦达说：“生活如同走钢丝，一切都是机会和挑战”</li>
+</ol>
+<h4 id="NO-3-你不担忧某件事发生，它也可能会发生"><a href="#NO-3-你不担忧某件事发生，它也可能会发生" class="headerlink" title="NO.3 你不担忧某件事发生，它也可能会发生"></a>NO.3 你不担忧某件事发生，它也可能会发生</h4><ol>
+<li><p>我们都不过是芸芸众生中的普通人，这个世界上有太多的事情是我们无法控制的，甚至是我们无能为力的。</p>
+</li>
+<li><p>害怕、担忧、抗拒、愤怒，都不能解决问题，只会让事情变得更糟。</p>
+</li>
+</ol>
+<h4 id="NO-4-当你咒骂倒霉时，那不过是一个开始"><a href="#NO-4-当你咒骂倒霉时，那不过是一个开始" class="headerlink" title="NO.4 当你咒骂倒霉时，那不过是一个开始"></a>NO.4 当你咒骂倒霉时，那不过是一个开始</h4><h4 id="NO-5-一切太过顺利的话，好日子就快到头了"><a href="#NO-5-一切太过顺利的话，好日子就快到头了" class="headerlink" title="NO.5 一切太过顺利的话，好日子就快到头了"></a>NO.5 一切太过顺利的话，好日子就快到头了</h4><ol>
+<li><p>生活也是一样，就算你足够幸运，也不要沉浸在成功的喜悦和顺风顺水的境遇里，对小问题视而不见。</p>
+</li>
+<li><p>凡事只有居安思危、常备不懈，才能避免功败垂成的情况发生</p>
+</li>
+</ol>
+<h4 id="NO-6-如果事情可以更糟，别着急，它肯定会的"><a href="#NO-6-如果事情可以更糟，别着急，它肯定会的" class="headerlink" title="NO.6 如果事情可以更糟，别着急，它肯定会的"></a>NO.6 如果事情可以更糟，别着急，它肯定会的</h4><h4 id="NO-7-别再垂头丧气了，明天未必比今天好"><a href="#NO-7-别再垂头丧气了，明天未必比今天好" class="headerlink" title="NO.7 别再垂头丧气了，明天未必比今天好"></a>NO.7 别再垂头丧气了，明天未必比今天好</h4><ol>
+<li>“不要为昨天叹息，不要为明天忧虑。因为明天只是个未来，昨天已成为过去”</li>
+</ol>
+<h4 id="NO-8-越是心心念念的东西，越是得不到"><a href="#NO-8-越是心心念念的东西，越是得不到" class="headerlink" title="NO.8 越是心心念念的东西，越是得不到"></a>NO.8 越是心心念念的东西，越是得不到</h4><ol>
+<li><p>人们对于那些越是得不到的东西，就越是想得到。</p>
+</li>
+<li><p>那些你心心念念的、自认为“好”的东西，未必真有那么好，不过是没有得到的不甘罢了。</p>
+</li>
+</ol>
+<h4 id="NO-9-那些容易做出改变的，往往越变越糟"><a href="#NO-9-那些容易做出改变的，往往越变越糟" class="headerlink" title="NO.9 那些容易做出改变的，往往越变越糟"></a>NO.9 那些容易做出改变的，往往越变越糟</h4><h4 id="NO-10-纠结于两个选择时，没有被选的总是对的"><a href="#NO-10-纠结于两个选择时，没有被选的总是对的" class="headerlink" title="NO.10 纠结于两个选择时，没有被选的总是对的"></a>NO.10 纠结于两个选择时，没有被选的总是对的</h4><h4 id="NO-11-得意的时候刚一忘形，灾祸立马就降临了"><a href="#NO-11-得意的时候刚一忘形，灾祸立马就降临了" class="headerlink" title="NO.11 得意的时候刚一忘形，灾祸立马就降临了"></a>NO.11 得意的时候刚一忘形，灾祸立马就降临了</h4><ol>
+<li>世间没有永恒的事物，一切都是暂时的、相对的、发展的。</li>
+</ol>
+<h4 id="NO-12-你认为别人是怎样的人，你就会成为那样的人"><a href="#NO-12-你认为别人是怎样的人，你就会成为那样的人" class="headerlink" title="NO.12 你认为别人是怎样的人，你就会成为那样的人"></a>NO.12 你认为别人是怎样的人，你就会成为那样的人</h4><h4 id="NO-13-不是星座书写的太准了，是你相信了"><a href="#NO-13-不是星座书写的太准了，是你相信了" class="headerlink" title="NO.13 不是星座书写的太准了，是你相信了"></a>NO.13 不是星座书写的太准了，是你相信了</h4><ol>
+<li>命运只掌握在一个人手里，那个人就是我们自己。每一个努力生活的人，运气都不会太差。</li>
+</ol>
+<h4 id="NO-14-如果你认为自己做不到，你就永远做不到"><a href="#NO-14-如果你认为自己做不到，你就永远做不到" class="headerlink" title="NO.14 如果你认为自己做不到，你就永远做不到"></a>NO.14 如果你认为自己做不到，你就永远做不到</h4><ol>
+<li>创造精彩人生的密钥不是机遇，不是运气，而是勇敢地去尝试！</li>
+</ol>
+<h4 id="NO-15-意识到自己谦虚的时候，就不是谦虚了"><a href="#NO-15-意识到自己谦虚的时候，就不是谦虚了" class="headerlink" title="NO.15 意识到自己谦虚的时候，就不是谦虚了"></a>NO.15 意识到自己谦虚的时候，就不是谦虚了</h4><h4 id="NO-16-自欺欺人的时候，没有人觉得自己是骗子"><a href="#NO-16-自欺欺人的时候，没有人觉得自己是骗子" class="headerlink" title="NO.16 自欺欺人的时候，没有人觉得自己是骗子"></a>NO.16 自欺欺人的时候，没有人觉得自己是骗子</h4><h4 id="NO-17-当所有人的想法都一样时，每个人都可能是错的"><a href="#NO-17-当所有人的想法都一样时，每个人都可能是错的" class="headerlink" title="NO.17 当所有人的想法都一样时，每个人都可能是错的"></a>NO.17 当所有人的想法都一样时，每个人都可能是错的</h4><h4 id="NO-18-再聪明的人，也会做愚蠢的事"><a href="#NO-18-再聪明的人，也会做愚蠢的事" class="headerlink" title="NO.18 再聪明的人，也会做愚蠢的事"></a>NO.18 再聪明的人，也会做愚蠢的事</h4><ol>
+<li>偶尔的愚蠢不可怕，可怕的是常常愚蠢，甚至无休止的愚蠢下去。</li>
+</ol>
+<h4 id="NO-19-别人的缺点显而易见，自己的缺点视而不见"><a href="#NO-19-别人的缺点显而易见，自己的缺点视而不见" class="headerlink" title="NO.19 别人的缺点显而易见，自己的缺点视而不见"></a>NO.19 别人的缺点显而易见，自己的缺点视而不见</h4><h4 id="NO-20-犯错之后，总想让人觉得错误不是自己造成的"><a href="#NO-20-犯错之后，总想让人觉得错误不是自己造成的" class="headerlink" title="NO.20 犯错之后，总想让人觉得错误不是自己造成的"></a>NO.20 犯错之后，总想让人觉得错误不是自己造成的</h4><h4 id="NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"><a href="#NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人" class="headerlink" title="NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"></a>NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人</h4><h4 id="NO-22-凭着热心帮人做事，最后那些事就变成了你的事"><a href="#NO-22-凭着热心帮人做事，最后那些事就变成了你的事" class="headerlink" title="NO.22 凭着热心帮人做事，最后那些事就变成了你的事"></a>NO.22 凭着热心帮人做事，最后那些事就变成了你的事</h4><ol>
+<li>黄桐说：“玫瑰花上的刺，不是为了伤害别人，而是为了保护自己。想当个好人，很好，但绝没有必要让自己成为一个来者不拒的烂好人，总是成全别人，却让自己不断受到伤害”</li>
+</ol>
+<h4 id="NO-23-不用担心别人怎么看你，他们也在为此担心"><a href="#NO-23-不用担心别人怎么看你，他们也在为此担心" class="headerlink" title="NO.23 不用担心别人怎么看你，他们也在为此担心"></a>NO.23 不用担心别人怎么看你，他们也在为此担心</h4><ol>
+<li>每个人都在担心别人怎么看自己，每个人都喜欢被别人关注，而不是关注其他人</li>
+<li>你不是别人生活的重心，谁会花费所有的精力一直关注着你？在这个世界上，没有一个人和我们一样在意自己，我们的耿耿于怀，很多时候都是多余的</li>
+</ol>
+<h4 id="NO-24-怨恨不一定能伤到别人，但一定能伤到自己"><a href="#NO-24-怨恨不一定能伤到别人，但一定能伤到自己" class="headerlink" title="NO.24 怨恨不一定能伤到别人，但一定能伤到自己"></a>NO.24 怨恨不一定能伤到别人，但一定能伤到自己</h4><ol>
+<li>生活本已够累，若在精神上还不懂得善待自己，释放心灵，实则是苦了自己</li>
+</ol>
+<h4 id="NO-25-别把自己太当回事，没有你太阳依旧会升起"><a href="#NO-25-别把自己太当回事，没有你太阳依旧会升起" class="headerlink" title="NO.25 别把自己太当回事，没有你太阳依旧会升起"></a>NO.25 别把自己太当回事，没有你太阳依旧会升起</h4><ol>
+<li>人生的常态就是平凡，平凡的人生，才是真实的人生</li>
+</ol>
+<h4 id="NO-26-有人旁观的时候，事情一定会出错"><a href="#NO-26-有人旁观的时候，事情一定会出错" class="headerlink" title="NO.26 有人旁观的时候，事情一定会出错"></a>NO.26 有人旁观的时候，事情一定会出错</h4><h4 id="NO-27-你永远没有第二次机会去塑造第一印象"><a href="#NO-27-你永远没有第二次机会去塑造第一印象" class="headerlink" title="NO.27 你永远没有第二次机会去塑造第一印象"></a>NO.27 你永远没有第二次机会去塑造第一印象</h4><h4 id="NO-28-你把自己塑造的很完美时，就没有朋友了"><a href="#NO-28-你把自己塑造的很完美时，就没有朋友了" class="headerlink" title="NO.28 你把自己塑造的很完美时，就没有朋友了"></a>NO.28 你把自己塑造的很完美时，就没有朋友了</h4><h4 id="NO-29-长得漂亮的人，总是比长得丑的人获得的更多"><a href="#NO-29-长得漂亮的人，总是比长得丑的人获得的更多" class="headerlink" title="NO.29 长得漂亮的人，总是比长得丑的人获得的更多"></a>NO.29 长得漂亮的人，总是比长得丑的人获得的更多</h4><h4 id="NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫"><a href="#NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫" class="headerlink" title="NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫"></a>NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫</h4><ol>
+<li>当我们温柔地对待这个世界的时候，世界才会同样温柔地对待我们</li>
+</ol>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>（VPS）利用Aria2下载Rclone转存到OneDrive</title>
     <url>/p/45975.html</url>
     <content><![CDATA[<p>一、</p>
@@ -643,34 +745,27 @@ docker run -d \
       </tags>
   </entry>
   <entry>
-    <title>利用OneinStack一键搭建LNMP和Typecho</title>
-    <url>/p/42946.html</url>
-    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
-<p>环境安装完成后</p>
-<pre><code>#进入oneinstack
-cd oneinstack
-#添加网站
-./vhost.sh
-</code></pre>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
-<pre><code>#进入网站目录
-cd /data/wwwroot/xxx.xxxx.xxx
-#一键安装命令
-wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
-tar xzf 1.1.17.10.30.-release.tar.gz
-cd build
-mv * .. 
-cd ..
-rm -rf 1.1.17.10.30.-release.tar.gz build
-</code></pre>
-<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
-<p>之后就可以访问你的网站 进行Typecho的安装</p>
+    <title>Hello World</title>
+    <url>/p/16107.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>简易教程</category>
+        <category>begin</category>
       </categories>
       <tags>
-        <tag>VPS</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -705,30 +800,6 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </categories>
       <tags>
         <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/p/16107.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>begin</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -822,69 +893,33 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </tags>
   </entry>
   <entry>
-    <title>《墨菲定律》（上）</title>
-    <url>/p/24.html</url>
-    <content><![CDATA[<h4 id="NO-1-一件事只要有可能出错，就一定会出错"><a href="#NO-1-一件事只要有可能出错，就一定会出错" class="headerlink" title="NO.1 一件事只要有可能出错，就一定会出错"></a>NO.1 一件事只要有可能出错，就一定会出错</h4><ol>
-<li><p>犯错是人类与生俱来的弱点</p>
-</li>
-<li><p>人类再聪明，也无法把事情做到尽善尽美，但人类又习惯心存侥幸，认为“不太可能”的事情就不会发生。</p>
-</li>
-<li><p>人生不是每时每刻都那么幸运，任何一件事情，只要有大于零的出错概率，我们就不能假设它不会发生。</p>
-</li>
+    <title>《墨菲定律》（下）</title>
+    <url>/p/64537.html</url>
+    <content><![CDATA[<h4 id="NO-61-认定了一件事不值得去做，就不可能做好"><a href="#NO-61-认定了一件事不值得去做，就不可能做好" class="headerlink" title="NO.61 认定了一件事不值得去做，就不可能做好"></a>NO.61 认定了一件事不值得去做，就不可能做好</h4><h4 id="NO-76-你和好友爱上同一个女人时，就没有朋友可做了"><a href="#NO-76-你和好友爱上同一个女人时，就没有朋友可做了" class="headerlink" title="NO.76 你和好友爱上同一个女人时，就没有朋友可做了"></a>NO.76 你和好友爱上同一个女人时，就没有朋友可做了</h4><ol>
+<li>喜欢一朵花，才想要摘下它；爱一朵花，却会浇灌它呵护它</li>
+<li>真爱一个人，应当是在关注对方的同时，给予对方一片自由的天空，让爱有呼吸的余地</li>
 </ol>
-<h4 id="NO-2-越害怕某件事情发生，它就越有可能发生"><a href="#NO-2-越害怕某件事情发生，它就越有可能发生" class="headerlink" title="NO.2 越害怕某件事情发生，它就越有可能发生"></a>NO.2 越害怕某件事情发生，它就越有可能发生</h4><ol>
-<li>卡尔·瓦伦达说：“生活如同走钢丝，一切都是机会和挑战”</li>
+<h4 id="NO-77-爱情无价，但也不是绝对，还得看钱多钱少"><a href="#NO-77-爱情无价，但也不是绝对，还得看钱多钱少" class="headerlink" title="NO.77 爱情无价，但也不是绝对，还得看钱多钱少"></a>NO.77 爱情无价，但也不是绝对，还得看钱多钱少</h4><h4 id="NO-78-你爱上一个人是因为，TA让你想起了旧情人"><a href="#NO-78-你爱上一个人是因为，TA让你想起了旧情人" class="headerlink" title="NO.78 你爱上一个人是因为，TA让你想起了旧情人"></a>NO.78 你爱上一个人是因为，TA让你想起了旧情人</h4><h4 id="NO-79-总相信最好的还在前面，结果好的都被人捡走了"><a href="#NO-79-总相信最好的还在前面，结果好的都被人捡走了" class="headerlink" title="NO.79 总相信最好的还在前面，结果好的都被人捡走了"></a>NO.79 总相信最好的还在前面，结果好的都被人捡走了</h4><ol>
+<li>和我们共度余生的那个人，很可能也不是人群中最出众的，但只要他是喜欢你的，你满意的，就足够了</li>
 </ol>
-<h4 id="NO-3-你不担忧某件事发生，它也可能会发生"><a href="#NO-3-你不担忧某件事发生，它也可能会发生" class="headerlink" title="NO.3 你不担忧某件事发生，它也可能会发生"></a>NO.3 你不担忧某件事发生，它也可能会发生</h4><ol>
-<li><p>我们都不过是芸芸众生中的普通人，这个世界上有太多的事情是我们无法控制的，甚至是我们无能为力的。</p>
-</li>
-<li><p>害怕、担忧、抗拒、愤怒，都不能解决问题，只会让事情变得更糟。</p>
-</li>
+<h4 id="NO-80-世界上没有免费的午餐，爱情也不例外"><a href="#NO-80-世界上没有免费的午餐，爱情也不例外" class="headerlink" title="NO.80 世界上没有免费的午餐，爱情也不例外"></a>NO.80 世界上没有免费的午餐，爱情也不例外</h4><ol>
+<li>婚恋也是需要巨大的成本付出的，同时也会获得收益，大多数人都会在恋爱对象与恋爱方式的选择上自觉或不自觉地进行成本收益的权衡与比较</li>
 </ol>
-<h4 id="NO-4-当你咒骂倒霉时，那不过是一个开始"><a href="#NO-4-当你咒骂倒霉时，那不过是一个开始" class="headerlink" title="NO.4 当你咒骂倒霉时，那不过是一个开始"></a>NO.4 当你咒骂倒霉时，那不过是一个开始</h4><h4 id="NO-5-一切太过顺利的话，好日子就快到头了"><a href="#NO-5-一切太过顺利的话，好日子就快到头了" class="headerlink" title="NO.5 一切太过顺利的话，好日子就快到头了"></a>NO.5 一切太过顺利的话，好日子就快到头了</h4><ol>
-<li><p>生活也是一样，就算你足够幸运，也不要沉浸在成功的喜悦和顺风顺水的境遇里，对小问题视而不见。</p>
-</li>
-<li><p>凡事只有居安思危、常备不懈，才能避免功败垂成的情况发生</p>
-</li>
+<h4 id="NO-81-原本不笨的孩子，被责骂多了也会真的变笨"><a href="#NO-81-原本不笨的孩子，被责骂多了也会真的变笨" class="headerlink" title="NO.81 原本不笨的孩子，被责骂多了也会真的变笨"></a>NO.81 原本不笨的孩子，被责骂多了也会真的变笨</h4><h4 id="NO-82-越是品学兼优的孩子，越容易出现心理问题"><a href="#NO-82-越是品学兼优的孩子，越容易出现心理问题" class="headerlink" title="NO.82 越是品学兼优的孩子，越容易出现心理问题"></a>NO.82 越是品学兼优的孩子，越容易出现心理问题</h4><ol>
+<li>品学兼优的孩子，头上顶着闪耀的光环，在学习和生活中承受着很大的压力，缺少宣泄的机会和环境，心里有了不愉快时，不敢对长辈和同伴倾诉，时间久了，心理上就容易出现问题。</li>
 </ol>
-<h4 id="NO-6-如果事情可以更糟，别着急，它肯定会的"><a href="#NO-6-如果事情可以更糟，别着急，它肯定会的" class="headerlink" title="NO.6 如果事情可以更糟，别着急，它肯定会的"></a>NO.6 如果事情可以更糟，别着急，它肯定会的</h4><h4 id="NO-7-别再垂头丧气了，明天未必比今天好"><a href="#NO-7-别再垂头丧气了，明天未必比今天好" class="headerlink" title="NO.7 别再垂头丧气了，明天未必比今天好"></a>NO.7 别再垂头丧气了，明天未必比今天好</h4><ol>
-<li>“不要为昨天叹息，不要为明天忧虑。因为明天只是个未来，昨天已成为过去”</li>
+<h4 id="NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"><a href="#NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜" class="headerlink" title="NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"></a>NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜</h4><h4 id="NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"><a href="#NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福" class="headerlink" title="NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"></a>NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福</h4><ol>
+<li></li>
 </ol>
-<h4 id="NO-8-越是心心念念的东西，越是得不到"><a href="#NO-8-越是心心念念的东西，越是得不到" class="headerlink" title="NO.8 越是心心念念的东西，越是得不到"></a>NO.8 越是心心念念的东西，越是得不到</h4><ol>
-<li><p>人们对于那些越是得不到的东西，就越是想得到。</p>
-</li>
-<li><p>那些你心心念念的、自认为“好”的东西，未必真有那么好，不过是没有得到的不甘罢了。</p>
-</li>
+<p>边际效用递减的原理广泛存在于日常生活中，很多人感觉幸福在不断的递减，两个人从最初的相识，相爱，情人眼里出西施，再到后来的习以为常，不再有激动和浪漫，幸福的效用开始在生活中慢慢地递减，所以很多人都在抱怨：日子越过越平淡，没有什么新鲜感，相爱容易，可相处太难了</p>
+<h4 id="NO-85-有时间旅行的时候没有钱，等有钱时又没时间了"><a href="#NO-85-有时间旅行的时候没有钱，等有钱时又没时间了" class="headerlink" title="NO.85 有时间旅行的时候没有钱，等有钱时又没时间了"></a>NO.85 有时间旅行的时候没有钱，等有钱时又没时间了</h4><h4 id="NO-86-接受了最坏的东西，也就没什么可怕的了"><a href="#NO-86-接受了最坏的东西，也就没什么可怕的了" class="headerlink" title="NO.86 接受了最坏的东西，也就没什么可怕的了"></a>NO.86 接受了最坏的东西，也就没什么可怕的了</h4><h4 id="NO-87-不要太自以为是，带着谦卑的心对待万物众生"><a href="#NO-87-不要太自以为是，带着谦卑的心对待万物众生" class="headerlink" title="NO.87 不要太自以为是，带着谦卑的心对待万物众生"></a>NO.87 不要太自以为是，带着谦卑的心对待万物众生</h4><ol>
+<li>人的感觉是很敏锐的，但也有惰性，会蒙骗我们的眼睛，加重我们的感受而迷失理性</li>
+<li>当我们给予他人关爱时，要尽量雪中送炭，而不是锦上添花；倘若是别人给予我们关爱，那更要懂得珍惜，善待这份心意</li>
 </ol>
-<h4 id="NO-9-那些容易做出改变的，往往越变越糟"><a href="#NO-9-那些容易做出改变的，往往越变越糟" class="headerlink" title="NO.9 那些容易做出改变的，往往越变越糟"></a>NO.9 那些容易做出改变的，往往越变越糟</h4><h4 id="NO-10-纠结于两个选择时，没有被选的总是对的"><a href="#NO-10-纠结于两个选择时，没有被选的总是对的" class="headerlink" title="NO.10 纠结于两个选择时，没有被选的总是对的"></a>NO.10 纠结于两个选择时，没有被选的总是对的</h4><h4 id="NO-11-得意的时候刚一忘形，灾祸立马就降临了"><a href="#NO-11-得意的时候刚一忘形，灾祸立马就降临了" class="headerlink" title="NO.11 得意的时候刚一忘形，灾祸立马就降临了"></a>NO.11 得意的时候刚一忘形，灾祸立马就降临了</h4><ol>
-<li>世间没有永恒的事物，一切都是暂时的、相对的、发展的。</li>
+<h4 id="NO-88-所有的不幸，只有被认为不幸时才是真的不幸"><a href="#NO-88-所有的不幸，只有被认为不幸时才是真的不幸" class="headerlink" title="NO.88 所有的不幸，只有被认为不幸时才是真的不幸"></a>NO.88 所有的不幸，只有被认为不幸时才是真的不幸</h4><ol>
+<li>世间每件事都不是绝对的，看似好的开始，却未必有好的结局；看似坏的开始，却未必真的那么糟糕</li>
 </ol>
-<h4 id="NO-12-你认为别人是怎样的人，你就会成为那样的人"><a href="#NO-12-你认为别人是怎样的人，你就会成为那样的人" class="headerlink" title="NO.12 你认为别人是怎样的人，你就会成为那样的人"></a>NO.12 你认为别人是怎样的人，你就会成为那样的人</h4><h4 id="NO-13-不是星座书写的太准了，是你相信了"><a href="#NO-13-不是星座书写的太准了，是你相信了" class="headerlink" title="NO.13 不是星座书写的太准了，是你相信了"></a>NO.13 不是星座书写的太准了，是你相信了</h4><ol>
-<li>命运只掌握在一个人手里，那个人就是我们自己。每一个努力生活的人，运气都不会太差。</li>
-</ol>
-<h4 id="NO-14-如果你认为自己做不到，你就永远做不到"><a href="#NO-14-如果你认为自己做不到，你就永远做不到" class="headerlink" title="NO.14 如果你认为自己做不到，你就永远做不到"></a>NO.14 如果你认为自己做不到，你就永远做不到</h4><ol>
-<li>创造精彩人生的密钥不是机遇，不是运气，而是勇敢地去尝试！</li>
-</ol>
-<h4 id="NO-15-意识到自己谦虚的时候，就不是谦虚了"><a href="#NO-15-意识到自己谦虚的时候，就不是谦虚了" class="headerlink" title="NO.15 意识到自己谦虚的时候，就不是谦虚了"></a>NO.15 意识到自己谦虚的时候，就不是谦虚了</h4><h4 id="NO-16-自欺欺人的时候，没有人觉得自己是骗子"><a href="#NO-16-自欺欺人的时候，没有人觉得自己是骗子" class="headerlink" title="NO.16 自欺欺人的时候，没有人觉得自己是骗子"></a>NO.16 自欺欺人的时候，没有人觉得自己是骗子</h4><h4 id="NO-17-当所有人的想法都一样时，每个人都可能是错的"><a href="#NO-17-当所有人的想法都一样时，每个人都可能是错的" class="headerlink" title="NO.17 当所有人的想法都一样时，每个人都可能是错的"></a>NO.17 当所有人的想法都一样时，每个人都可能是错的</h4><h4 id="NO-18-再聪明的人，也会做愚蠢的事"><a href="#NO-18-再聪明的人，也会做愚蠢的事" class="headerlink" title="NO.18 再聪明的人，也会做愚蠢的事"></a>NO.18 再聪明的人，也会做愚蠢的事</h4><ol>
-<li>偶尔的愚蠢不可怕，可怕的是常常愚蠢，甚至无休止的愚蠢下去。</li>
-</ol>
-<h4 id="NO-19-别人的缺点显而易见，自己的缺点视而不见"><a href="#NO-19-别人的缺点显而易见，自己的缺点视而不见" class="headerlink" title="NO.19 别人的缺点显而易见，自己的缺点视而不见"></a>NO.19 别人的缺点显而易见，自己的缺点视而不见</h4><h4 id="NO-20-犯错之后，总想让人觉得错误不是自己造成的"><a href="#NO-20-犯错之后，总想让人觉得错误不是自己造成的" class="headerlink" title="NO.20 犯错之后，总想让人觉得错误不是自己造成的"></a>NO.20 犯错之后，总想让人觉得错误不是自己造成的</h4><h4 id="NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"><a href="#NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人" class="headerlink" title="NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"></a>NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人</h4><h4 id="NO-22-凭着热心帮人做事，最后那些事就变成了你的事"><a href="#NO-22-凭着热心帮人做事，最后那些事就变成了你的事" class="headerlink" title="NO.22 凭着热心帮人做事，最后那些事就变成了你的事"></a>NO.22 凭着热心帮人做事，最后那些事就变成了你的事</h4><ol>
-<li>黄桐说：“玫瑰花上的刺，不是为了伤害别人，而是为了保护自己。想当个好人，很好，但绝没有必要让自己成为一个来者不拒的烂好人，总是成全别人，却让自己不断受到伤害”</li>
-</ol>
-<h4 id="NO-23-不用担心别人怎么看你，他们也在为此担心"><a href="#NO-23-不用担心别人怎么看你，他们也在为此担心" class="headerlink" title="NO.23 不用担心别人怎么看你，他们也在为此担心"></a>NO.23 不用担心别人怎么看你，他们也在为此担心</h4><ol>
-<li>每个人都在担心别人怎么看自己，每个人都喜欢被别人关注，而不是关注其他人</li>
-<li>你不是别人生活的重心，谁会花费所有的精力一直关注着你？在这个世界上，没有一个人和我们一样在意自己，我们的耿耿于怀，很多时候都是多余的</li>
-</ol>
-<h4 id="NO-24-怨恨不一定能伤到别人，但一定能伤到自己"><a href="#NO-24-怨恨不一定能伤到别人，但一定能伤到自己" class="headerlink" title="NO.24 怨恨不一定能伤到别人，但一定能伤到自己"></a>NO.24 怨恨不一定能伤到别人，但一定能伤到自己</h4><ol>
-<li>生活本已够累，若在精神上还不懂得善待自己，释放心灵，实则是苦了自己</li>
-</ol>
-<h4 id="NO-25-别把自己太当回事，没有你太阳依旧会升起"><a href="#NO-25-别把自己太当回事，没有你太阳依旧会升起" class="headerlink" title="NO.25 别把自己太当回事，没有你太阳依旧会升起"></a>NO.25 别把自己太当回事，没有你太阳依旧会升起</h4><ol>
-<li>人生的常态就是平凡，平凡的人生，才是真实的人生</li>
-</ol>
-<h4 id="NO-26-有人旁观的时候，事情一定会出错"><a href="#NO-26-有人旁观的时候，事情一定会出错" class="headerlink" title="NO.26 有人旁观的时候，事情一定会出错"></a>NO.26 有人旁观的时候，事情一定会出错</h4><h4 id="NO-27-你永远没有第二次机会去塑造第一印象"><a href="#NO-27-你永远没有第二次机会去塑造第一印象" class="headerlink" title="NO.27 你永远没有第二次机会去塑造第一印象"></a>NO.27 你永远没有第二次机会去塑造第一印象</h4><h4 id="NO-28-你把自己塑造的很完美时，就没有朋友了"><a href="#NO-28-你把自己塑造的很完美时，就没有朋友了" class="headerlink" title="NO.28 你把自己塑造的很完美时，就没有朋友了"></a>NO.28 你把自己塑造的很完美时，就没有朋友了</h4><h4 id="NO-29-长得漂亮的人，总是比长得丑的人获得的更多"><a href="#NO-29-长得漂亮的人，总是比长得丑的人获得的更多" class="headerlink" title="NO.29 长得漂亮的人，总是比长得丑的人获得的更多"></a>NO.29 长得漂亮的人，总是比长得丑的人获得的更多</h4><h4 id="NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫"><a href="#NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫" class="headerlink" title="NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫"></a>NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫</h4><ol>
-<li>当我们温柔地对待这个世界的时候，世界才会同样温柔地对待我们</li>
-</ol>
-]]></content>
+<h4 id="NO-89-假装生气会变成真生气，假装快乐也会变得真快乐"><a href="#NO-89-假装生气会变成真生气，假装快乐也会变得真快乐" class="headerlink" title="NO.89 假装生气会变成真生气，假装快乐也会变得真快乐"></a>NO.89 假装生气会变成真生气，假装快乐也会变得真快乐</h4>]]></content>
       <categories>
         <category>阅读</category>
       </categories>
@@ -942,110 +977,6 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </tags>
   </entry>
   <entry>
-    <title>《墨菲定律》（下）</title>
-    <url>/p/64537.html</url>
-    <content><![CDATA[<h4 id="NO-61-认定了一件事不值得去做，就不可能做好"><a href="#NO-61-认定了一件事不值得去做，就不可能做好" class="headerlink" title="NO.61 认定了一件事不值得去做，就不可能做好"></a>NO.61 认定了一件事不值得去做，就不可能做好</h4><h4 id="NO-76-你和好友爱上同一个女人时，就没有朋友可做了"><a href="#NO-76-你和好友爱上同一个女人时，就没有朋友可做了" class="headerlink" title="NO.76 你和好友爱上同一个女人时，就没有朋友可做了"></a>NO.76 你和好友爱上同一个女人时，就没有朋友可做了</h4><ol>
-<li>喜欢一朵花，才想要摘下它；爱一朵花，却会浇灌它呵护它</li>
-<li>真爱一个人，应当是在关注对方的同时，给予对方一片自由的天空，让爱有呼吸的余地</li>
-</ol>
-<h4 id="NO-77-爱情无价，但也不是绝对，还得看钱多钱少"><a href="#NO-77-爱情无价，但也不是绝对，还得看钱多钱少" class="headerlink" title="NO.77 爱情无价，但也不是绝对，还得看钱多钱少"></a>NO.77 爱情无价，但也不是绝对，还得看钱多钱少</h4><h4 id="NO-78-你爱上一个人是因为，TA让你想起了旧情人"><a href="#NO-78-你爱上一个人是因为，TA让你想起了旧情人" class="headerlink" title="NO.78 你爱上一个人是因为，TA让你想起了旧情人"></a>NO.78 你爱上一个人是因为，TA让你想起了旧情人</h4><h4 id="NO-79-总相信最好的还在前面，结果好的都被人捡走了"><a href="#NO-79-总相信最好的还在前面，结果好的都被人捡走了" class="headerlink" title="NO.79 总相信最好的还在前面，结果好的都被人捡走了"></a>NO.79 总相信最好的还在前面，结果好的都被人捡走了</h4><ol>
-<li>和我们共度余生的那个人，很可能也不是人群中最出众的，但只要他是喜欢你的，你满意的，就足够了</li>
-</ol>
-<h4 id="NO-80-世界上没有免费的午餐，爱情也不例外"><a href="#NO-80-世界上没有免费的午餐，爱情也不例外" class="headerlink" title="NO.80 世界上没有免费的午餐，爱情也不例外"></a>NO.80 世界上没有免费的午餐，爱情也不例外</h4><ol>
-<li>婚恋也是需要巨大的成本付出的，同时也会获得收益，大多数人都会在恋爱对象与恋爱方式的选择上自觉或不自觉地进行成本收益的权衡与比较</li>
-</ol>
-<h4 id="NO-81-原本不笨的孩子，被责骂多了也会真的变笨"><a href="#NO-81-原本不笨的孩子，被责骂多了也会真的变笨" class="headerlink" title="NO.81 原本不笨的孩子，被责骂多了也会真的变笨"></a>NO.81 原本不笨的孩子，被责骂多了也会真的变笨</h4><h4 id="NO-82-越是品学兼优的孩子，越容易出现心理问题"><a href="#NO-82-越是品学兼优的孩子，越容易出现心理问题" class="headerlink" title="NO.82 越是品学兼优的孩子，越容易出现心理问题"></a>NO.82 越是品学兼优的孩子，越容易出现心理问题</h4><ol>
-<li>品学兼优的孩子，头上顶着闪耀的光环，在学习和生活中承受着很大的压力，缺少宣泄的机会和环境，心里有了不愉快时，不敢对长辈和同伴倾诉，时间久了，心理上就容易出现问题。</li>
-</ol>
-<h4 id="NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"><a href="#NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜" class="headerlink" title="NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"></a>NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜</h4><h4 id="NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"><a href="#NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福" class="headerlink" title="NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"></a>NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福</h4><ol>
-<li></li>
-</ol>
-<p>边际效用递减的原理广泛存在于日常生活中，很多人感觉幸福在不断的递减，两个人从最初的相识，相爱，情人眼里出西施，再到后来的习以为常，不再有激动和浪漫，幸福的效用开始在生活中慢慢地递减，所以很多人都在抱怨：日子越过越平淡，没有什么新鲜感，相爱容易，可相处太难了</p>
-<h4 id="NO-85-有时间旅行的时候没有钱，等有钱时又没时间了"><a href="#NO-85-有时间旅行的时候没有钱，等有钱时又没时间了" class="headerlink" title="NO.85 有时间旅行的时候没有钱，等有钱时又没时间了"></a>NO.85 有时间旅行的时候没有钱，等有钱时又没时间了</h4><h4 id="NO-86-接受了最坏的东西，也就没什么可怕的了"><a href="#NO-86-接受了最坏的东西，也就没什么可怕的了" class="headerlink" title="NO.86 接受了最坏的东西，也就没什么可怕的了"></a>NO.86 接受了最坏的东西，也就没什么可怕的了</h4><h4 id="NO-87-不要太自以为是，带着谦卑的心对待万物众生"><a href="#NO-87-不要太自以为是，带着谦卑的心对待万物众生" class="headerlink" title="NO.87 不要太自以为是，带着谦卑的心对待万物众生"></a>NO.87 不要太自以为是，带着谦卑的心对待万物众生</h4><ol>
-<li>人的感觉是很敏锐的，但也有惰性，会蒙骗我们的眼睛，加重我们的感受而迷失理性</li>
-<li>当我们给予他人关爱时，要尽量雪中送炭，而不是锦上添花；倘若是别人给予我们关爱，那更要懂得珍惜，善待这份心意</li>
-</ol>
-<h4 id="NO-88-所有的不幸，只有被认为不幸时才是真的不幸"><a href="#NO-88-所有的不幸，只有被认为不幸时才是真的不幸" class="headerlink" title="NO.88 所有的不幸，只有被认为不幸时才是真的不幸"></a>NO.88 所有的不幸，只有被认为不幸时才是真的不幸</h4><ol>
-<li>世间每件事都不是绝对的，看似好的开始，却未必有好的结局；看似坏的开始，却未必真的那么糟糕</li>
-</ol>
-<h4 id="NO-89-假装生气会变成真生气，假装快乐也会变得真快乐"><a href="#NO-89-假装生气会变成真生气，假装快乐也会变得真快乐" class="headerlink" title="NO.89 假装生气会变成真生气，假装快乐也会变得真快乐"></a>NO.89 假装生气会变成真生气，假装快乐也会变得真快乐</h4>]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《世界上最爱我的人》</title>
-    <url>/p/5802.html</url>
-    <content><![CDATA[<ul>
-<li>一、“你错了……我们这些人，在金钱面前，根本连做奴隶的资格都没有！……是钱把我们变成了生活的奴隶，我们是生活的奴隶，没有资格做钱的奴隶。”</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li>二、夜越深，海边便越显得深邃，这种深邃不是一种禁锢，反而会解放人的思想，让人不自觉去想一些超越了生活范畴的事情，比如，爱情到底是什么？是一只彩色的蝴蝶？开了屏的孔雀？或者，单单只是一种心花怒放的感觉；悲观一点去想：也许这个世界上并没有真正意义上的爱情，因为它已经是一种超越生命的信仰，而我们活在被欲望堆砌的世界里，终究只是一介凡人。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>三、如果，我是无所不能的神就好了，我要用手上的裁决之杖，荡清这个世界上的一切不公平和满是罪孽之人……</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>四、“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>五、我们为什么要活着？而同一具躯体活着和死了又到底有什么区别？活着是为了死去吗？死去之后，又是否有重生？</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>六、“为什么爱情就不能变得简单一些呢？喜欢就在一起，不喜欢就拒绝，这样瞻前顾后、来来回回，真的让人觉得疲倦！”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>七、“因为我们活在一个复杂的世界里，而爱情本身就是一个随波逐流的东西，它只是时代的附属品，所以当下的爱情要靠金钱去实现……你说对吗？”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>八、我从来没有像此时这么困惑过，我已经忘了爱情存在的意义，因为这个世界上有太多的曲折离奇，将本该存在于男人和女人之间的真情弄得面目全非，继而造出了一个又一个的感情悲剧</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>九、我们都不想痛苦的活着，可痛苦却无处不在：饥饿、失业、失恋、破财、病痛、孤独、家破、离别、欺压、背叛、战争、杀戮、颠沛、流离、死亡……每一个词，都是诛心的杀器；所以，人死了，一定都会去天堂，不要问地狱在哪里，人间就是地狱。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十、因为我不知道在这个一个极其复杂的世界里，到底该怎么去定义好人和坏人？我甚至不确定自己是好是坏，或者换个方式说，我本质是好的，可是因为某些原因，却被贴上了坏的标签，我撕不掉这个标签，索性自甘堕落，越来越坏……我用力甩了甩头，这才猛然清醒了过来：人都是在为了立场活着，为什么一定要去分所谓的好坏呢？</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十一、人就是一列永不停止的火车，有时驶过山区，有时驶过平原，有时沿海行驶，不一样的风景，会造就不一样的心情，不一样的心情之下又会做出不一样的选择，你可以想象一下，当无数辆列车行驶在没有边际的土地上，你能找到一个固定的点，或是方向吗？……人就是这样，走一步一个变化，所以，我们总是习惯去说：走一步看一步.也有一些曾经让你绝对信任的人，忽然有一天就对你疏远了，你们渐渐开始变得不联系，最后甚至会变成仇人、敌人……这些，都是因为人在变，只要思想不静止，人就一定会变。</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>十二、“我真的是你在这个世界上最爱的人吗？”“你是我在这个世界上最爱的人，但我却不是这个世界上最爱你的人。”</li>
-</ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
     <url>/p/40025.html</url>
     <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
@@ -1091,30 +1022,6 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
       </categories>
       <tags>
         <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《我的二十六岁女房客》又名《天空的城》</title>
-    <url>/p/14555.html</url>
-    <content><![CDATA[<ul>
-<li>爱情到底是什么，又产生何处呢？我有些想不透，或许所谓的爱情只是一只彩色的蝴蝶，看起来美丽，却永远也不能接近，倘若你真的想把她攥紧在手里，她便会挣扎，然后在挣扎中摩擦掉了所有的色彩，从此苍白。</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li>我好似有点明白，为什么我会如此的小心翼翼了，因为害怕触及不到她的灵魂，却擦掉了那层美丽的色彩</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>到底是什么让如今的爱情变得这么复杂？又为什么，越来越多的人不能为了相爱两个字在一起？</li>
-</ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
       </tags>
   </entry>
   <entry>
@@ -1187,6 +1094,99 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
 
 <ul>
 <li>十四、世上会有邪恶和困难、偏见和灾难，但这是我们自己的世界，长处和弊端都是这个世界的一部分。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《我的二十六岁女房客》又名《天空的城》</title>
+    <url>/p/14555.html</url>
+    <content><![CDATA[<ul>
+<li>爱情到底是什么，又产生何处呢？我有些想不透，或许所谓的爱情只是一只彩色的蝴蝶，看起来美丽，却永远也不能接近，倘若你真的想把她攥紧在手里，她便会挣扎，然后在挣扎中摩擦掉了所有的色彩，从此苍白。</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>我好似有点明白，为什么我会如此的小心翼翼了，因为害怕触及不到她的灵魂，却擦掉了那层美丽的色彩</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>到底是什么让如今的爱情变得这么复杂？又为什么，越来越多的人不能为了相爱两个字在一起？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《世界上最爱我的人》</title>
+    <url>/p/5802.html</url>
+    <content><![CDATA[<ul>
+<li>一、“你错了……我们这些人，在金钱面前，根本连做奴隶的资格都没有！……是钱把我们变成了生活的奴隶，我们是生活的奴隶，没有资格做钱的奴隶。”</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、夜越深，海边便越显得深邃，这种深邃不是一种禁锢，反而会解放人的思想，让人不自觉去想一些超越了生活范畴的事情，比如，爱情到底是什么？是一只彩色的蝴蝶？开了屏的孔雀？或者，单单只是一种心花怒放的感觉；悲观一点去想：也许这个世界上并没有真正意义上的爱情，因为它已经是一种超越生命的信仰，而我们活在被欲望堆砌的世界里，终究只是一介凡人。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、如果，我是无所不能的神就好了，我要用手上的裁决之杖，荡清这个世界上的一切不公平和满是罪孽之人……</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>四、“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>五、我们为什么要活着？而同一具躯体活着和死了又到底有什么区别？活着是为了死去吗？死去之后，又是否有重生？</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>六、“为什么爱情就不能变得简单一些呢？喜欢就在一起，不喜欢就拒绝，这样瞻前顾后、来来回回，真的让人觉得疲倦！”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>七、“因为我们活在一个复杂的世界里，而爱情本身就是一个随波逐流的东西，它只是时代的附属品，所以当下的爱情要靠金钱去实现……你说对吗？”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>八、我从来没有像此时这么困惑过，我已经忘了爱情存在的意义，因为这个世界上有太多的曲折离奇，将本该存在于男人和女人之间的真情弄得面目全非，继而造出了一个又一个的感情悲剧</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>九、我们都不想痛苦的活着，可痛苦却无处不在：饥饿、失业、失恋、破财、病痛、孤独、家破、离别、欺压、背叛、战争、杀戮、颠沛、流离、死亡……每一个词，都是诛心的杀器；所以，人死了，一定都会去天堂，不要问地狱在哪里，人间就是地狱。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十、因为我不知道在这个一个极其复杂的世界里，到底该怎么去定义好人和坏人？我甚至不确定自己是好是坏，或者换个方式说，我本质是好的，可是因为某些原因，却被贴上了坏的标签，我撕不掉这个标签，索性自甘堕落，越来越坏……我用力甩了甩头，这才猛然清醒了过来：人都是在为了立场活着，为什么一定要去分所谓的好坏呢？</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十一、人就是一列永不停止的火车，有时驶过山区，有时驶过平原，有时沿海行驶，不一样的风景，会造就不一样的心情，不一样的心情之下又会做出不一样的选择，你可以想象一下，当无数辆列车行驶在没有边际的土地上，你能找到一个固定的点，或是方向吗？……人就是这样，走一步一个变化，所以，我们总是习惯去说：走一步看一步.也有一些曾经让你绝对信任的人，忽然有一天就对你疏远了，你们渐渐开始变得不联系，最后甚至会变成仇人、敌人……这些，都是因为人在变，只要思想不静止，人就一定会变。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十二、“我真的是你在这个世界上最爱的人吗？”“你是我在这个世界上最爱的人，但我却不是这个世界上最爱你的人。”</li>
 </ul>
 ]]></content>
       <categories>
