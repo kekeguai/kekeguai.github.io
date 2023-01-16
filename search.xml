@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Alist搭建教程</title>
+    <url>//17371.html</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Alist是一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav，后端基于gin，前端使用react。<br>支持挂载多种网盘<br>可以使用多种方式进行搭建，本文介绍的是宝塔&#x2F;Aapanel搭建教程</p>
+<h2 id="一、安装宝塔-x2F-Aapanel"><a href="#一、安装宝塔-x2F-Aapanel" class="headerlink" title="一、安装宝塔&#x2F;Aapanel"></a>一、安装宝塔&#x2F;Aapanel</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">国外VPS  </span><br><span class="line">wget https://raw.githubusercontent.com/AaronYES/aaPanel/main/script/aapanel.sh  -O aapanel.sh &amp;&amp; chmod +x aapanel.sh &amp;&amp; clear &amp;&amp; ./aapanel.sh  </span><br><span class="line"></span><br><span class="line">国内VPS  </span><br><span class="line">wget https://ghproxy.com/https://raw.githubusercontent.com/AaronYES/aaPanel/main/script/aapanel.sh  -O aapanel.sh &amp;&amp; chmod +x aapanel.sh &amp;&amp; clear &amp;&amp; ./aapanel.sh</span><br></pre></td></tr></table></figure>
+<p>安装完成宝塔&#x2F;Aapanel后 会在VPS显示给你一个链接</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">aaPanel Internet Address: https://127.0.1.1:7800/8位随机数  </span><br><span class="line">username: 随机的  </span><br><span class="line">password: 随机的</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>PS：注意八位随机数也要一起复制到浏览器打开  </p>
+</blockquote>
+<h2 id="二、安装Alist"><a href="#二、安装Alist" class="headerlink" title="二、安装Alist"></a>二、安装Alist</h2><p>打开宝塔&#x2F;Aapanel页面会跳出提示框 选择安装lnmp 默认就行 等安装完毕  </p>
+<p>看左侧选项卡选择网站&#x3D;&#x3D;&gt;添加站点&#x3D;&#x3D;&gt;域名填你解析到VPS的域名【按照图片进行操作】<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/Alist/Snipaste_2022-07-07_13-00-25.png" alt="Alist_1" title="Alist"></p>
+<p>之后进入到wwwroot&#x2F;创建的网站目录 选择终端  </p>
+<blockquote>
+<p>安装<br>curl -fsSL “<a href="https://nn.ci/alist.sh&quot;">https://nn.ci/alist.sh&quot;</a> | bash -s install &#x2F;www&#x2F;wwwroot&#x2F;你的域名<br>更新<br>curl -fsSL “<a href="https://nn.ci/alist.sh&quot;">https://nn.ci/alist.sh&quot;</a> | bash -s update &#x2F;www&#x2F;wwwroot&#x2F;你的域名<br>卸载<br>curl -fsSL “<a href="https://nn.ci/alist.sh&quot;">https://nn.ci/alist.sh&quot;</a> | bash -s uninstall &#x2F;www&#x2F;wwwroot&#x2F;你的域名  </p>
+</blockquote>
+<p>等待提示 YOUR_IP:5244 消息之后就成功了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alist 安装成功！</span><br><span class="line"> </span><br><span class="line">访问地址：http://YOUR_IP:5244/</span><br><span class="line"> </span><br><span class="line">配置文件：/opt/alist/data/config.json</span><br><span class="line">初始管理密码：mI74sSab</span><br><span class="line"> </span><br><span class="line">查看状态：systemctl status alist</span><br><span class="line">启动服务：systemctl start alist</span><br><span class="line">重启服务：systemctl restart alist</span><br><span class="line">停止服务：systemctl stop alist</span><br></pre></td></tr></table></figure>
+
+
+<p>然后左侧选项卡 选择网站&#x3D;&#x3D;&gt;点击conf&#x2F;配置&#x3D;&#x3D;&gt;Reverse proxy&#x2F;反向代理<br>按照图上配置<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/Alist/Snipaste_2022-07-07_13-14-36.png" alt="Alist_1" title="Alist_2"></p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>经过上面的配置 你已经可以打开你的域名 来访问自己的Alist程序啦~</p>
+<hr>
+<p><a href="https://github.com/AaronYES/aaPanel">Aapanel小助手</a><br><a href="https://github.com/Xhofe/alist">Alist程序</a><br><a href="https://alist-doc.nn.ci/docs/intro">Alist官方文档</a>  </p>
+<hr>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建Book-searcher（Zlib-searcher）</title>
+    <url>//35058.html</url>
+    <content><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h3 id="1-1-Z-Library简介"><a href="#1-1-Z-Library简介" class="headerlink" title="1.1 Z-Library简介"></a>1.1 Z-Library简介</h3><p>Z-Library是一个影子图书馆和开放获取文件分享计划，用户可在此网站下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”，并在文章搜索页面上称自身是“全球最大的科学文章存储库”。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。目前Z-Library官网已经不能访问了，但暗网中还有可访问的镜像站，全部资源的离线种子包也已经有人公开出来了。</p>
+<h3 id="1-2-Book-Searcher简介"><a href="#1-2-Book-Searcher简介" class="headerlink" title="1.2 Book-Searcher简介"></a>1.2 Book-Searcher简介</h3><p>项目介绍：搜索书籍索引，创建您的私人本地图书馆。不保存和提供文件，仅提供书籍搜索。<br>项目地址：<a href="https://github.com/book-searcher-org/book-searcher">https://github.com/book-searcher-org/book-searcher</a></p>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/Book_searcher/Snipaste_2023-01-16_12-50-56.png" alt="Book-searcher" title="Book-searcher">  </p>
+<p>网友分享的Demo站点：<br><a href="https://zlib.knat.network/">https://zlib.knat.network/</a><br><a href="https://zlib.freedit.eu/">https://zlib.freedit.eu/</a><br><a href="https://zlib.007.al/">https://zlib.007.al</a>  </p>
+<h2 id="2-搭建"><a href="#2-搭建" class="headerlink" title="2.搭建"></a>2.搭建</h2><p>以下所有服务均选择自建，我将采用Docker部署的方式，VPS系统用的是Debian 11   </p>
+<h3 id="2-1-Docker及Docker-Compose环境搭建"><a href="#2-1-Docker及Docker-Compose环境搭建" class="headerlink" title="2.1 Docker及Docker Compose环境搭建"></a>2.1 Docker及Docker Compose环境搭建</h3><h4 id="2-1-1-Docker环境搭建"><a href="#2-1-1-Docker环境搭建" class="headerlink" title="2.1.1 Docker环境搭建"></a>2.1.1 Docker环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">国外鸡：  </span><br><span class="line">curl -sSL https://get.docker.com/ | sh</span><br><span class="line"></span><br><span class="line">国内鸡：  </span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br><span class="line"></span><br><span class="line">卸载docker： </span><br><span class="line">sudo apt-get remove docker docker-engine </span><br><span class="line"></span><br><span class="line">rm -fr /var/lib/docker/</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-1-2-Docker-Compose环境搭建"><a href="#2-1-2-Docker-Compose环境搭建" class="headerlink" title="2.1.2 Docker Compose环境搭建"></a>2.1.2 Docker Compose环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Book-Searcher书籍检索"><a href="#3-Book-Searcher书籍检索" class="headerlink" title="3. Book-Searcher书籍检索"></a>3. Book-Searcher书籍检索</h2><h3 id="3-1-搭建Book-Searcher书籍检索"><a href="#3-1-搭建Book-Searcher书籍检索" class="headerlink" title="3.1 搭建Book-Searcher书籍检索"></a>3.1 搭建Book-Searcher书籍检索</h3><h4 id="3-1-1首先创建用于存放book-searcher的文件夹"><a href="#3-1-1首先创建用于存放book-searcher的文件夹" class="headerlink" title="3.1.1首先创建用于存放book-searcher的文件夹"></a>3.1.1首先创建用于存放book-searcher的文件夹</h4><p><code>mkdir book-searcher &amp;&amp; cd book-searcher</code>  </p>
+<h4 id="3-1-2然后拉取docker-compose的文件"><a href="#3-1-2然后拉取docker-compose的文件" class="headerlink" title="3.1.2然后拉取docker-compose的文件"></a>3.1.2然后拉取docker-compose的文件</h4><p><code>wget https://raw.githubusercontent.com/book-searcher-org/book-searcher/master/docker-compose.yml</code>  </p>
+<p>或者直接编写docker-compose.yml  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  book-searcher:</span><br><span class="line">    image: ghcr.io/book-searcher-org/book-searcher:latest</span><br><span class="line">    container_name: book-searcher</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;7070:7070&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - ./index:/index</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-3-拉取Z-Library书库索引文件"><a href="#3-1-3-拉取Z-Library书库索引文件" class="headerlink" title="3.1.3 拉取Z-Library书库索引文件"></a>3.1.3 拉取Z-Library书库索引文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd book-searcher  </span><br><span class="line">wget --no-check-certificate https://od.007.al/d/OneDrive/Zlib_Searcher/index_none_0.8.3.zip</span><br><span class="line">unzip -o index_none_0.8.3.zip</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注: 注意3.1的操作均在book-searcher文件夹中 </p>
+<p>原作者没有将Z-Library书库索引文件放置到镜像里，如果没有自己挂载进去的话，搭建后的服务什么都搜不到。</p>
+</blockquote>
+<h4 id="3-1-4-拉取镜像构建容器"><a href="#3-1-4-拉取镜像构建容器" class="headerlink" title="3.1.4 拉取镜像构建容器"></a>3.1.4 拉取镜像构建容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输入<a href="http://ip:7070/">http://IP:7070</a>  即可访问 如需域名访问 可以搭配 Nginx Proxy Manager使用</p>
+</blockquote>
+<h3 id="3-2-检索下载Z-Library资源"><a href="#3-2-检索下载Z-Library资源" class="headerlink" title="3.2 检索下载Z-Library资源"></a>3.2 检索下载Z-Library资源</h3><p>打开页面右上角的设置，配置IPFS网关，以下是找的5个可用地址。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://cloudflare-ipfs.com  </span><br><span class="line">http://ipfs.io  </span><br><span class="line">http://dweb.link  </span><br><span class="line">http://gateway.pinata.cloud  </span><br><span class="line">https://ipfs.best-practice.se  </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：如果没有配置IPFS网关的话，就仅能检索Z-Library资源，但不能下载。<br>这个IPFS网关你可以自己去部署，也可以用别人搭建好的。</p>
+</blockquote>
+<h2 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4. 参考资料"></a>4. 参考资料</h2><p><a href="https://github.com/book-searcher-org/book-searcher">book-searcher</a><br><a href="https://github.com/book-searcher-org/book-searcher/issues/72">关于索引问题</a></p>
+<h2 id="5-VPS推荐"><a href="#5-VPS推荐" class="headerlink" title="5. VPS推荐"></a>5. VPS推荐</h2><p><a href="https://www.w3d.host/aff.php?aff=73">W3D.host</a>  </p>
+<blockquote>
+<p>美西洛杉矶VPS三网联通精品网AS9929优化线路  </p>
+</blockquote>
+<p><a href="https://t.me/w3dhostcs">Telegram群组</a><br><a href="https://t.me/w3dhc">Telegram频道</a>  </p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>Z-Library</tag>
+        <tag>IPFS书籍检索</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo永久化链接</title>
+    <url>//9382.html</url>
+    <content><![CDATA[<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>要用到 <a href="https://github.com/rozbo/hexo-abbrlink">abbrlink</a> 插件来使文章永久化，以下是npm安装包，安装在hexo文件中  </p>
+<p><code>npm install hexo-abbrlink --save</code>  </p>
+<blockquote>
+<p>可能会出现依赖，依据提示安装即可。</p>
+</blockquote>
+<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h2><p>修改博客根目录配置文件 <code>_config.yml</code> 的 <code>permalink：</code>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: p/:abbrlink.html  # p 是自定义的前缀</span><br><span class="line">abbrlink:</span><br><span class="line">alg: crc32   #算法： crc16(default) and crc32</span><br><span class="line">rep: dec     #进制： dec(default) and hex</span><br></pre></td></tr></table></figure>
+<p>不同算法和进制生成不同的格式：  </p>
+<pre><code>crc16 &amp; hex
+https://xxx.com/posts/66c8.html
+crc16 &amp; dec
+https://xxx.com/posts/65535.html
+
+crc32 &amp; hex
+https://xxx.com/posts/8ddf18fb.html
+crc32 &amp; dec
+https://xxx.com/posts/1690090958.html
+</code></pre>
+<p>先清理下本地的文件 hexo clean，然后重新生成 hexo g，启动博客 hexo s 或hexo d。</p>
+<h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><p><a href="https://linyin022.top/posts/816768764.html">Hexo永久化链接 【Linyin】</a>  </p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github</tag>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TG人形自走机器人项目PagerMaid和PagerMaid-Pyro安装</title>
+    <url>//31299.html</url>
+    <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
+<li>Telegram官方申请的APP ID和APP HASH</li>
+</ul>
+<h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
+<li>打开<a href="https://my.telegram.org/auth">官网</a></li>
+<li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
+<li>点击“API development tools”<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/2.png" alt="2"></li>
+<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/3.png" alt="3"></li>
+</ol>
+<h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
+<h3 id="手动部署PagerMaid-Pyro"><a href="#手动部署PagerMaid-Pyro" class="headerlink" title="手动部署PagerMaid-Pyro"></a>手动部署PagerMaid-Pyro</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/4.png" alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/5.png" alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/6.png" alt="6"><br>设置守护进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#x27;TEXT&#x27; &gt; /etc/systemd/system/pagermaid.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=PagerMaid-Modify telegram utility daemon</span><br><span class="line">After=network.target</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/pagermaid</span><br><span class="line">ExecStart=/usr/bin/python3 -m pagermaid</span><br><span class="line">Restart=always</span><br><span class="line">TEXT</span><br></pre></td></tr></table></figure>
+
+<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4><ol>
+<li>启动程序：<code>systemctl start pagermaid</code>；</li>
+<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
+<li>停止程序：<code>systemctl stop pagermaid</code>;</li>
+</ol>
+<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a href="https://index.xtaolabs.com/">安装地址</a><br><a href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>Telegram</tag>
+        <tag>Bot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>遥远的救世主</title>
+    <url>//34887.html</url>
+    <content><![CDATA[<ul>
+<li><p>一、传统文化和传统观念是不是一个炉子里的两个烧饼？如果我们的文化适应生产力发展的要求，那就不用转变观念了，中国人坐庄家，让别人跟我们接轨好了。我们老是躲在屋里唱《我的中国心》，多辛酸！</p>
+<span id="more"></span>
+</li>
+<li><p>二、中国的传统文化是皇恩浩大的文化，它的实用是以皇天在上为先决条件。中国为什么穷？穷就穷在幼稚的思维，穷在期望救主、期望救恩的文化上，这是一个渗透到民族骨子里的价值判断体系，太可怕了。</p>
+<!--more-->
+</li>
+<li><p>三、透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家一个民族，任何一种命运归根到底都是那种文化属性的产物。强势文化造就强者，弱势文化造就弱者，这是规律，也可以理解为天道，不以人的意志为转移。</p>
+<!--more-->
+</li>
+<li><p>四、强势文化就是遵循事物规律的文化，弱势文化就是依赖强者的道德期望破格获取的文化，也是期望救主的文化。强势文化在武学上被称为「秘笈”，而弱势文化由于易学、易懂、易用，成了流行品种。</p>
+<!--more-->
+</li>
+<li><p>五、强盗的本质是破格获取，破格获取与直接获取是两个不同的概念。你们没有自信与强者在同一个规则下公平竞争，这只能说明你是弱者，因为弱势文化所追求的最高价值就是破格获取。所以，强盗的逻辑从本质上讲是最懦弱的生存哲学。</p>
+<!--more-->
+</li>
+<li><p>六、你不知道你，所以你是你，如果你知道了你，你就不是你了。</p>
+<!--more-->
+</li>
+<li><p>七、传统观念的死结就在一个『靠』字上，在家靠父母，出门靠朋友，靠上帝、靠菩萨、靠皇恩……总之靠什么都行，就是别靠自己。这是一个沉积了几千年的文化属性问题，非几次新文化运动就能开悟。</p>
+<!--more-->
+</li>
+<li><p>八、没有竞争的社会就没有活力，而竞争必然会产生贫富、等级，此乃天道，乃社会进步的必然代价。无弱，强焉在？一个『强』字，弱已经在其中了。故而，佛度心苦，修的是一颗平常心。</p>
+<!--more-->
+</li>
+<li><p>九、等级一直是我们社会文化的禁区，大家所以小心翼翼绕开禁区，是唯恐平等、尊严之类的东西受到伤害。</p>
+<!--more-->
+</li>
+<li><p>十、释、道、儒均是博大精深的学派，支撑中华民族走过了几千年的文明历程，是伟大的文明。但是，社会在发展，传统文化毕竟是以皇恩浩荡为先决条件的文化，讲的都是皆空、无为、中庸的理，以抑制个性而求生求解。当今社会已经发展到了市场经济的民主与法制，诸家学说也面临一个如实观照而俱进的课题，是传统？还是传承？统则僵死，承则光大。</p>
+<!--more-->
+</li>
+<li><p>十一、当人一旦从危险里跳出来，他就不再去关注这个事物的危险了，他的目光就会全部落在这个事物的利益上，这就是人。</p>
+<!--more-->
+</li>
+<li><p>十二、杀富富不去，救贫贫不离。救主的文化唯救主可说，救主不是人，是道，得救不是破了戒的狼吞虎咽，是觉悟。</p>
+<!--more-->
+</li>
+<li><p>十三、法律是社会道德的底线，是解决最基本、最表面的问题，不解决文化的根本问题，文化的问题只能由文化的觉悟解决。一个民族的文化属性就是这个民族的主，主宰着这个民族的文明、荣辱、兴衰。一个民族最强调道德的时候，正是这个民族道德最沦丧的时候。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown（笔记）</title>
+    <url>//16272.html</url>
+    <content><![CDATA[<h1 id="Markdown语法大全"><a href="#Markdown语法大全" class="headerlink" title="Markdown语法大全"></a>Markdown语法大全</h1><h2 id="一、-注释"><a href="#一、-注释" class="headerlink" title="一、 注释"></a>一、 注释</h2><h4 id="1-代码法"><a href="#1-代码法" class="headerlink" title="1.代码法"></a>1.代码法</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#x27;display: none&#x27;</span>&gt;</span></span></span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、html注释"><a href="#2、html注释" class="headerlink" title="2、html注释"></a>2、html注释</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--哈哈我是注释，不会在浏览器中显示。--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">哈哈我是多段注释，</span></span><br><span class="line"><span class="comment">不会在浏览器中显示。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、hack方法"><a href="#3、hack方法" class="headerlink" title="3、hack方法"></a>3、hack方法</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="symbol">//</span>]: <span class="link"># (哈哈我是最强注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">^_^</span>]: <span class="link"># (哈哈我是最萌注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">//</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">comment</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、标题"><a href="#二、标题" class="headerlink" title="二、标题"></a>二、标题</h2><p>Markdown 标题有两种格式</p>
+<h4 id="1、使用-x3D-和-标记"><a href="#1、使用-x3D-和-标记" class="headerlink" title="1、使用 &#x3D; 和 - 标记"></a>1、使用 &#x3D; 和 - 标记</h4><p>一级标题和二级标题</p>
+<p>&#x3D; 和 - 标记语法格式如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">我是一级标题</span></span><br><span class="line"><span class="section">=================</span></span><br><span class="line"></span><br><span class="line"><span class="section">我是二级标题</span></span><br><span class="line"><span class="section">-----------------</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、使用-标记"><a href="#2、使用-标记" class="headerlink" title="2、使用 # 标记"></a>2、使用 # 标记</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、缩进、换行、空行、对齐方式"><a href="#三、缩进、换行、空行、对齐方式" class="headerlink" title="三、缩进、换行、空行、对齐方式"></a>三、缩进、换行、空行、对齐方式</h2><ul>
+<li>首行缩进<br>不同特殊占位符所占空白是不一样大的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">【1】 &amp;emsp;或&amp;#8195; //全角</span><br><span class="line">【2】 &amp;ensp;或&amp;#8194; //半角</span><br><span class="line">【3】 &amp;nbsp;或&amp;#160;  //半角之半角</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>换行<br>由于markdown编辑器的不同,可能在一行字后面，直接换行回车，也能实现换行，但是在Visual Studio Code上，想要换行必须得在一行字后面空两个格子才行。</li>
+<li>空行<br>在编辑的时候有多少个空行(只要这一行只有回车或者space没有其他的字符就算空行)，在渲染之后，只隔着一行。</li>
+<li>对齐方式</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;center&gt;行中心对齐&lt;/center&gt;</span><br><span class="line">&lt;p align=&quot;left&quot;&gt;行左对齐&lt;/p&gt;</span><br><span class="line">&lt;p align=&quot;right&quot;&gt;行右对齐&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<center>行中心对齐</center>
+<p align="left">行左对齐</p>
+<p align="right">行右对齐</p>
+
+<h2 id="四、字体"><a href="#四、字体" class="headerlink" title="四、字体"></a>四、字体</h2><p>Markdown 可以使用以下几种字体：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*斜体文本*</span></span><br><span class="line"><span class="emphasis">_斜体文本_</span></span><br><span class="line"><span class="strong">**粗体文本**</span></span><br><span class="line"><span class="strong">__粗体文本__</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*粗斜体文本*</span>**</span></span><br><span class="line"><span class="strong">__<span class="emphasis">_粗斜体文本_</span>__</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<br><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
+<h2 id="五、分割线"><a href="#五、分割线" class="headerlink" title="五、分割线"></a>五、分割线</h2><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">**** * ******- - -----------</span><br></pre></td></tr></table></figure>
+
+<p>显示效果都一样</p>
+<h2 id="六、删除线"><a href="#六、删除线" class="headerlink" title="六、删除线"></a>六、删除线</h2><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">我是正常的  ~~我是删除线~~</span><br></pre></td></tr></table></figure>
+
+<p>我是正常的 <del>我是删除线</del></p>
+<h2 id="七、下划线"><a href="#七、下划线" class="headerlink" title="七、下划线"></a>七、下划线</h2><p>下划线可以通过 HTML 的 标签来实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;u&gt;我是下划线&lt;/u&gt;</span><br></pre></td></tr></table></figure>
+
+<p><u>我是下划线</u></p>
+<h2 id="八、脚注"><a href="#八、脚注" class="headerlink" title="八、脚注"></a>八、脚注</h2><p>脚注是对文本的补充说明，Markdown 脚注的格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[^我是脚注]</span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了脚注的用法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">创建脚注格式类似这样 [^RUNOOB]。[^RUNOOB]: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！</span><br></pre></td></tr></table></figure>
+
+<p>演示效果如下：</p>
+<p>创建脚注格式类似这样 [^RUNOOB]。</p>
+<h2 id="九、列表"><a href="#九、列表" class="headerlink" title="九、列表"></a>九、列表</h2><p>Markdown 支持有序列表和无序列表。</p>
+<h4 id="1、无序列表"><a href="#1、无序列表" class="headerlink" title="1、无序列表"></a>1、无序列表</h4><p>无序列表使用星号(*)、加号(+)或是减号(-)作为列表标记：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* 第一项* 第二项* 第三项------ 分割线 ------+ 第一项+ 第二项+ 第三项------ 分割线 ------- 第一项- 第二项- 第三项</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<p>—— 分割线 ——</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<p>—— 分割线 ——-</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<h4 id="2、有序列表"><a href="#2、有序列表" class="headerlink" title="2、有序列表"></a>2、有序列表</h4><p>使用数字并加上 . 号来表示，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 第一项</span><br><span class="line">2. 第二项</span><br><span class="line">3. 第三项</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<h4 id="3、列表嵌套"><a href="#3、列表嵌套" class="headerlink" title="3、列表嵌套"></a>3、列表嵌套</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 第一项：    </span><br><span class="line">- 第一项嵌套的第一个元素    </span><br><span class="line">- 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：    </span><br><span class="line">- 第二项嵌套的第一个元素    </span><br><span class="line">- 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>第一项：</li>
+</ol>
+<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+<ol start="2">
+<li>第二项：</li>
+</ol>
+<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+<h2 id="十、区块"><a href="#十、区块" class="headerlink" title="十、区块"></a>十、区块</h2><h4 id="1、区块引用"><a href="#1、区块引用" class="headerlink" title="1、区块引用"></a>1、区块引用</h4><p>Markdown 区块引用是在段落开头使用 &gt; 符号 ，然后后面紧跟一个空格符号：<br><code>&gt; 区块引用&gt; 菜鸟教程&gt; 学的不仅是技术更是梦想</code><br>效果如下：</p>
+<blockquote>
+<p>区块引用<br>菜鸟教程<br>学的不仅是技术更是梦想</p>
+</blockquote>
+<h4 id="2、区块中使用列表"><a href="#2、区块中使用列表" class="headerlink" title="2、区块中使用列表"></a>2、区块中使用列表</h4><p>区块中使用列表实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; 区块中使用列表</span><br><span class="line">&gt; 1. 第一项</span><br><span class="line">&gt; 2. 第二项</span><br><span class="line">&gt; + 第一项</span><br><span class="line">&gt; + 第二项</span><br><span class="line">&gt; + 第三项</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<blockquote>
+<p>区块中使用列表</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+</blockquote>
+<h4 id="3、列表中使用区块"><a href="#3、列表中使用区块" class="headerlink" title="3、列表中使用区块"></a>3、列表中使用区块</h4><p>如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。</p>
+<p>区块中使用列表实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">* 第一项    </span><br><span class="line">&gt; 菜鸟教程    </span><br><span class="line">&gt; 学的不仅是技术更是梦想</span><br><span class="line">* 第二项</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ul>
+<li>第一项</li>
+</ul>
+<blockquote>
+<p>菜鸟教程<br>学的不仅是技术更是梦想</p>
+</blockquote>
+<ul>
+<li>第二项</li>
+</ul>
+<h4 id="4、多级引用"><a href="#4、多级引用" class="headerlink" title="4、多级引用"></a>4、多级引用</h4><p>语法说明：</p>
+<p>引用需要在被引用的文本前加上&gt;符号和空格，允许多层嵌套，也允许你偷懒只在整个段落的第一行最前面加上 &gt; 。</p>
+<p>代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; 请问 Markdwon 怎么用？ - 小白&gt;&gt; 自己看教程！ - 愤青&gt; 教程在哪？ - 小白</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>请问 Markdwon 怎么用？- 小白</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><blockquote>
+<blockquote>
+<p>自己看教程！- 愤青</p>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<p>教程在哪？- 小白</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="十一、代码"><a href="#十一、代码" class="headerlink" title="十一、代码"></a>十一、代码</h2><h4 id="1、单行代码"><a href="#1、单行代码" class="headerlink" title="1、单行代码"></a>1、单行代码</h4><p>如果是单行代码或段落上的一个函数或片段的代码可以用反引号把它包起来（<code>** **</code>），<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">`printf()` 函数</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、代码区块"><a href="#2、代码区块" class="headerlink" title="2、代码区块"></a>2、代码区块</h4><p>代码区块使用三个反引号对**&#96;&#96;&#96;** 包裹一段代码，并指定一种语言（也可以不指定）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class CaseData:    &quot;&quot;&quot;这是一个存放测试用例数据的类&quot;&quot;&quot;    pass</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：<br>class CaseData:<br>“””这是一个存放测试用例数据的类”””<br>pass</p>
+<h2 id="十二、链接"><a href="#十二、链接" class="headerlink" title="十二、链接"></a>十二、链接</h2><h4 id="1、使用方法："><a href="#1、使用方法：" class="headerlink" title="1、使用方法："></a>1、使用方法：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[链接名称](链接地址)或者&lt;链接地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<p><a href="https://yorg.top/">这是一个链接</a></p>
+<p>直接使用链接地址：<br><a href="https://yorg.top/">https://yorg.top</a></p>
+<h4 id="2、高级链接"><a href="#2、高级链接" class="headerlink" title="2、高级链接"></a>2、高级链接</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">链接也可以用变量来代替，文档末尾附带变量地址：</span><br><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）  </span><br><span class="line">[1]: https://www.google.com/  </span><br><span class="line">[runoob]: https://www.runoob.com/</span><br></pre></td></tr></table></figure>
+
+<p>这个链接用 1 作为网址变量 <a href="http://static.runoob.com/images/runoob-logo.png">Google</a><br>这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>然后在文档的结尾为变量赋值（网址）<br><a href="http://static.runoob.com/images/runoob-logo.png">1</a>: <a href="http://www.google.com/">http://www.google.com/</a><br>[runoob]: <a href="http://www.runoob.com/">http://www.runoob.com/</a></p>
+<h2 id="十三、图片"><a href="#十三、图片" class="headerlink" title="十三、图片"></a>十三、图片</h2><p>Markdown 图片语法格式如下<br><code>![alt 属性文本](图片地址) </code><br><code>![alt 属性文本](图片地址 &quot;可选标题&quot;)</code></p>
+<p>开头一个感叹号 !<br>接着一个方括号，里面放上图片的替代文字<br>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。<br>使用实例： </p>
+<p><img src="https://www.cnblogs.com/images/logo_small.gif" alt="RUNOOB 图标"><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB"></p>
+<p>当然，你也可以像网址那样对图片网址使用变量:  </p>
+<p>这个链接用 1 作为网址变量<br><code>![RUNOOB][1].然后在文档的结尾位变量赋值（网址）[1]: http://static.runoob.com/images/runoob-logo.png</code></p>
+<p>显示结果如下：</p>
+<p>这个链接用 1 作为网址变量 <img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB">.然后在文档的结尾位变量赋值（网址）</p>
+<p>然后在文档的结尾位变量赋值（网址）</p>
+<p>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的标签。</p>
+<p><code>&lt;img src=&quot;http://static.runoob.com/images/runoob-logo.png&quot; width=&quot;50%&quot;&gt;</code></p>
+<h2 id="十四、表格"><a href="#十四、表格" class="headerlink" title="十四、表格"></a>十四、表格</h2><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。</p>
+<p>语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">|  表头   | 表头  ||  ----  | ----  || 单元格  | 单元格 || 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<p>对齐方式</p>
+<p>我们可以设置表格的对齐方式：</p>
+<p>-: 设置内容和标题栏居右对齐。<br>:- 设置内容和标题栏居左对齐。<br>:-: 设置内容和标题栏居中对齐。<br>实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+<h2 id="十五、高级技巧"><a href="#十五、高级技巧" class="headerlink" title="十五、高级技巧"></a>十五、高级技巧</h2><h4 id="1、支持HTML元素"><a href="#1、支持HTML元素" class="headerlink" title="1、支持HTML元素"></a>1、支持HTML元素</h4><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。</p>
+<p>目前支持的 HTML 元素有： 等 ，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</span><br></pre></td></tr></table></figure>
+
+<p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
+<h4 id="2、转义"><a href="#2、转义" class="headerlink" title="2、转义"></a>2、转义</h4><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">**文本加粗** \*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：<br><strong>文本加粗</strong><br>** 正常显示星号 **<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\   反斜线   </span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   感叹号`</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、流程图"><a href="#3、流程图" class="headerlink" title="3、流程图"></a>3、流程图</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```graph LRA--&gt;B``````sequenceDiagramA-&gt;&gt;B: How are you?B-&gt;&gt;A: Great!```</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<br><code>graph LRA--&gt;B</code><br><code>sequenceDiagramA-&gt;&gt;B: How are you?B-&gt;&gt;A: Great!</code></p>
+<h4 id="4、LaTex公式"><a href="#4、LaTex公式" class="headerlink" title="4、LaTex公式"></a>4、LaTex公式</h4><p>代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">质能守恒方程可以用一个很简洁的方程式 `$E = m c^2 $`来表达。</span><br></pre></td></tr></table></figure>
+
+<p>质能守恒方程可以用一个很简洁的方程式 <code>$E = m c^2 $</code>来表达。</p>
+<ul>
+<li>表示整行公式<br>大部分的浏览器支持的<br><code>$$ 公式 $$</code></li>
+<li>有道云笔记 使用格式，<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```mathE = mc^2```</span><br></pre></td></tr></table></figure></li>
+<li>块级公式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```mathx = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; ```</span><br><span class="line">```math[\frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125;]```</span><br></pre></td></tr></table></figure>
+
+<p><code>mathx = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; </code><br><code>math[\frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125;]</code></p>
+<p>访问 <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax</a> 参考更多使用方法。</p>
+<h4 id="5、特殊字符"><a href="#5、特殊字符" class="headerlink" title="5、特殊字符"></a>5、特殊字符</h4><table>
+<thead>
+<tr>
+<th align="left">特殊的字符</th>
+<th align="right">描述</th>
+<th align="center">字符的代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"></td>
+<td align="right">空格符</td>
+<td align="center"><code> </code></td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="right">小于号</td>
+<td align="center"><code>&lt;</code></td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="right">大于号</td>
+<td align="center"><code> &gt;</code></td>
+</tr>
+<tr>
+<td align="left">&amp;</td>
+<td align="right">和号</td>
+<td align="center"><code>&amp;</code></td>
+</tr>
+<tr>
+<td align="left">￥</td>
+<td align="right">人民币</td>
+<td align="center"><code>¥</code></td>
+</tr>
+<tr>
+<td align="left">©</td>
+<td align="right">版权</td>
+<td align="center"><code>©</code></td>
+</tr>
+<tr>
+<td align="left">®</td>
+<td align="right">注册商标</td>
+<td align="center"><code>®</code></td>
+</tr>
+<tr>
+<td align="left">°C</td>
+<td align="right">摄氏度</td>
+<td align="center"><code>°C</code></td>
+</tr>
+<tr>
+<td align="left">±</td>
+<td align="right">正负号</td>
+<td align="center"><code> ±</code></td>
+</tr>
+<tr>
+<td align="left">×</td>
+<td align="right">乘号</td>
+<td align="center"><code>×</code></td>
+</tr>
+<tr>
+<td align="left">÷</td>
+<td align="right">除号</td>
+<td align="center"><code>÷</code></td>
+</tr>
+<tr>
+<td align="left">²</td>
+<td align="right">平方（上标²）</td>
+<td align="center"><code>²</code></td>
+</tr>
+<tr>
+<td align="left">³</td>
+<td align="right">立方（上标³）</td>
+<td align="center"><code>³</code></td>
+</tr>
+</tbody></table>
+<h2 id="十六、文字颜色、大小、字体"><a href="#十六、文字颜色、大小、字体" class="headerlink" title="十六、文字颜色、大小、字体"></a>十六、文字颜色、大小、字体</h2><h4 id="1、颜色"><a href="#1、颜色" class="headerlink" title="1、颜色"></a>1、颜色</h4><p>在markdown中采用如下方式能够控制文字的颜色：<br><code>&lt;font color=&quot;#dd0000&quot;&gt;文字颜色预览&lt;/font&gt;</code></p>
+<h4 id="2、字体大小"><a href="#2、字体大小" class="headerlink" title="2、字体大小"></a>2、字体大小</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">size为 1：&lt;font size=&quot;1&quot;&gt;size为1&lt;/font&gt;</span><br><span class="line">size为 2：&lt;font size=&quot;2&quot;&gt;size为2&lt;/font&gt;</span><br><span class="line">size为 3：&lt;font size=&quot;3&quot;&gt;size为3&lt;/font&gt;</span><br><span class="line">size为 4：&lt;font size=&quot;4&quot;&gt;size为4&lt;/font&gt;</span><br><span class="line">size为 6：&lt;font size=&quot;6&quot;&gt;size为6&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+
+<p>size为 1：<font size="1">size为1</font><br>size为 2：<font size="2">size为2</font><br>size为 3：<font size="3">size为3</font><br>size为 4：<font size="4">size为4</font><br>size为 6：<font size="6">size为6</font></p>
+<h4 id="3、字体"><a href="#3、字体" class="headerlink" title="3、字体"></a>3、字体</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;font face=&quot;黑体&quot;&gt;我是黑体字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;宋体&quot;&gt;我是宋体字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;楷体&quot;&gt;我是楷体字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;微软雅黑&quot;&gt;我是微软雅黑字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;fantasy&quot;&gt;我是fantasy字&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;Helvetica&quot;&gt;我是Helvetica字&lt;/font&gt; </span><br></pre></td></tr></table></figure>
+
+<p><font face="黑体">我是黑体字</font><br><font face="宋体">我是宋体字</font><br><font face="楷体">我是楷体字</font><br><font face="微软雅黑">我是微软雅黑字</font><br><font face="fantasy">我是fantasy字</font><br><font face="Helvetica">我是Helvetica字</font></p>
+<h4 id="4、背景色"><a href="#4、背景色" class="headerlink" title="4、背景色"></a>4、背景色</h4><p>语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line"> &lt;td bgcolor=#F4A460&gt;背景色的设置是按照十六进制颜色值：#F4A460&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line"> &lt;td bgcolor=#FF6347&gt;背景色的设置是按照十六进制颜色值：#FF6347&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line"> &lt;td bgcolor=#D8BFD8&gt;背景色的设置是按照十六进制颜色值：#D8BFD8&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line">  &lt;td bgcolor=#008080&gt;背景色的设置是按照十六进制颜色值：#008080&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line">  &lt;td bgcolor=#FFD700&gt;背景色的设置是按照十六进制颜色值：#FFD700&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br></pre></td></tr></table></figure>
+
+<table>
+ <tr>
+ <td bgcolor=#F4A460>背景色的设置是按照十六进制颜色值：#F4A460</td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td bgcolor=#FF6347>背景色的设置是按照十六进制颜色值：#FF6347</td>
+ </tr>
+</table>  
+<table>
+ <tr>
+ <td bgcolor=#D8BFD8>背景色的设置是按照十六进制颜色值：#D8BFD8</td>
+ </tr>
+</table>  
+<table>
+ <tr>
+  <td bgcolor=#008080>背景色的设置是按照十六进制颜色值：#008080</td>
+ </tr>
+</table>  
+<table>
+ <tr>
+  <td bgcolor=#FFD700>背景色的设置是按照十六进制颜色值：#FFD700</td>
+ </tr>
+</table>    
+参考:
+
+<p><a href="https://www.cnblogs.com/miki-peng/articles/12502985.html">Markdown语法大全</a>【作者】<br><a href="https://www.jianshu.com/p/ebe52d2d468f">Markdown语法大全(超级版)</a>【择势量投】<br><a href="https://codeanime.cc/Markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89.html">Markdown语法大全（笔记）</a><br>【codeanime】</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用OneinStack一键搭建LNMP和Typecho</title>
+    <url>//42946.html</url>
+    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
+<p>环境安装完成后</p>
+<pre><code>#进入oneinstack
+cd oneinstack
+#添加网站
+./vhost.sh
+</code></pre>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
+<pre><code>#进入网站目录
+cd /data/wwwroot/xxx.xxxx.xxx
+#一键安装命令
+wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
+tar xzf 1.1.17.10.30.-release.tar.gz
+cd build
+mv * .. 
+cd ..
+rm -rf 1.1.17.10.30.-release.tar.gz build
+</code></pre>
+<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
+<p>之后就可以访问你的网站 进行Typecho的安装</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>（VPS）利用Aria2下载Rclone转存到OneDrive</title>
+    <url>//45975.html</url>
+    <content><![CDATA[<p>一、</p>
+<h2 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到<a href="https://github.com/P3TERX/aria2.sh">一键安装Aria2</a></p>
+<p>二、</p>
+<h2 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
+<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把**<br>clean.sh<strong>替换为</strong>upload.sh**。</li>
+</ul>
+<blockquote>
+<p>nano 编辑器的操作方法参见<a href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
+</blockquote>
+<pre><code># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
+<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
+</blockquote>
+<pre><code>rclone authorize &quot;onedrive&quot;
+</code></pre>
+<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
+<pre><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+Paste the following into your remote machine ---&gt;
+&#123;&quot;access_token&quot;:&quot;xxxxxxxx&quot;&#125;  # 注意!复制&#123;xxxxxxxx&#125;整个内容，并保存好，后面需要用到
+&lt;---End paste
+</code></pre>
+<p>输入</p>
+<blockquote>
+<p><strong>rclone config</strong></p>
+</blockquote>
+<p>命令，会出现以下信息，参照下面的注释进行操作。<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-39-58.png" alt="RC1" title="RC1"></p>
+<blockquote>
+<p><strong>选27 Microsoft OneDrive</strong></p>
+</blockquote>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-16.png" alt="Rclone2"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-31.png" alt="Rclone3"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-39.png" alt="Rclone4"></p>
+<blockquote>
+<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
+</ul>
+<h1 id="网盘名称-RCLONE-配置时填写的-name"><a href="#网盘名称-RCLONE-配置时填写的-name" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
+<p><strong>drive-name&#x3D;OneDrive</strong></p>
+</blockquote>
+<ul>
+<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
+<p>service aria2 restart</p>
+</li>
+</ul>
+<h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
+<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
+<p>&#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
+</li>
+<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
+</li>
+<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
+</li>
+</ul>
+<p>三、<br>部署Ar­i­aNg 页面</p>
+<pre><code># bridge 网络模式
+docker run -d \
+    --name ariang \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -p 6880:6880 \
+    p3terx/ariang
+
+# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
+docker run -d \
+    --name ariang \
+    --log-opt max-size=1m \
+    --restart unless-stopped \
+    --network host \
+    p3terx/ariang --port 6880 --ipv6
+</code></pre>
+<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/20181227201030.png" alt="Aria1"></p>
+<blockquote>
+<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
+</blockquote>
+<hr>
+<h2 id="AriaNg-使用注意事项"><a href="#AriaNg-使用注意事项" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
+<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug<br>，所以必要的设置需写入到 Aria2 配置文件中。</li>
+<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
+<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
+<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
+</ul>
+<hr>
+<p>本文参考的文章来自：**<a href="https://p3terx.com/">P3terx</a>**</p>
+<blockquote>
+<p>Aria2 新手入门教程<br><a href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<br><a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<br><a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《我的房客大小姐》</title>
+    <url>//32219.html</url>
+    <content><![CDATA[<ul>
+<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《墨菲定律》（上）</title>
+    <url>//24.html</url>
+    <content><![CDATA[<h4 id="NO-1-一件事只要有可能出错，就一定会出错"><a href="#NO-1-一件事只要有可能出错，就一定会出错" class="headerlink" title="NO.1 一件事只要有可能出错，就一定会出错"></a>NO.1 一件事只要有可能出错，就一定会出错</h4><ol>
+<li><p>犯错是人类与生俱来的弱点</p>
+</li>
+<li><p>人类再聪明，也无法把事情做到尽善尽美，但人类又习惯心存侥幸，认为“不太可能”的事情就不会发生。</p>
+</li>
+<li><p>人生不是每时每刻都那么幸运，任何一件事情，只要有大于零的出错概率，我们就不能假设它不会发生。</p>
+</li>
+</ol>
+<h4 id="NO-2-越害怕某件事情发生，它就越有可能发生"><a href="#NO-2-越害怕某件事情发生，它就越有可能发生" class="headerlink" title="NO.2 越害怕某件事情发生，它就越有可能发生"></a>NO.2 越害怕某件事情发生，它就越有可能发生</h4><ol>
+<li>卡尔·瓦伦达说：“生活如同走钢丝，一切都是机会和挑战”</li>
+</ol>
+<h4 id="NO-3-你不担忧某件事发生，它也可能会发生"><a href="#NO-3-你不担忧某件事发生，它也可能会发生" class="headerlink" title="NO.3 你不担忧某件事发生，它也可能会发生"></a>NO.3 你不担忧某件事发生，它也可能会发生</h4><ol>
+<li><p>我们都不过是芸芸众生中的普通人，这个世界上有太多的事情是我们无法控制的，甚至是我们无能为力的。</p>
+</li>
+<li><p>害怕、担忧、抗拒、愤怒，都不能解决问题，只会让事情变得更糟。</p>
+</li>
+</ol>
+<h4 id="NO-4-当你咒骂倒霉时，那不过是一个开始"><a href="#NO-4-当你咒骂倒霉时，那不过是一个开始" class="headerlink" title="NO.4 当你咒骂倒霉时，那不过是一个开始"></a>NO.4 当你咒骂倒霉时，那不过是一个开始</h4><h4 id="NO-5-一切太过顺利的话，好日子就快到头了"><a href="#NO-5-一切太过顺利的话，好日子就快到头了" class="headerlink" title="NO.5 一切太过顺利的话，好日子就快到头了"></a>NO.5 一切太过顺利的话，好日子就快到头了</h4><ol>
+<li><p>生活也是一样，就算你足够幸运，也不要沉浸在成功的喜悦和顺风顺水的境遇里，对小问题视而不见。</p>
+</li>
+<li><p>凡事只有居安思危、常备不懈，才能避免功败垂成的情况发生</p>
+</li>
+</ol>
+<h4 id="NO-6-如果事情可以更糟，别着急，它肯定会的"><a href="#NO-6-如果事情可以更糟，别着急，它肯定会的" class="headerlink" title="NO.6 如果事情可以更糟，别着急，它肯定会的"></a>NO.6 如果事情可以更糟，别着急，它肯定会的</h4><h4 id="NO-7-别再垂头丧气了，明天未必比今天好"><a href="#NO-7-别再垂头丧气了，明天未必比今天好" class="headerlink" title="NO.7 别再垂头丧气了，明天未必比今天好"></a>NO.7 别再垂头丧气了，明天未必比今天好</h4><ol>
+<li>“不要为昨天叹息，不要为明天忧虑。因为明天只是个未来，昨天已成为过去”</li>
+</ol>
+<h4 id="NO-8-越是心心念念的东西，越是得不到"><a href="#NO-8-越是心心念念的东西，越是得不到" class="headerlink" title="NO.8 越是心心念念的东西，越是得不到"></a>NO.8 越是心心念念的东西，越是得不到</h4><ol>
+<li><p>人们对于那些越是得不到的东西，就越是想得到。</p>
+</li>
+<li><p>那些你心心念念的、自认为“好”的东西，未必真有那么好，不过是没有得到的不甘罢了。</p>
+</li>
+</ol>
+<h4 id="NO-9-那些容易做出改变的，往往越变越糟"><a href="#NO-9-那些容易做出改变的，往往越变越糟" class="headerlink" title="NO.9 那些容易做出改变的，往往越变越糟"></a>NO.9 那些容易做出改变的，往往越变越糟</h4><h4 id="NO-10-纠结于两个选择时，没有被选的总是对的"><a href="#NO-10-纠结于两个选择时，没有被选的总是对的" class="headerlink" title="NO.10 纠结于两个选择时，没有被选的总是对的"></a>NO.10 纠结于两个选择时，没有被选的总是对的</h4><h4 id="NO-11-得意的时候刚一忘形，灾祸立马就降临了"><a href="#NO-11-得意的时候刚一忘形，灾祸立马就降临了" class="headerlink" title="NO.11 得意的时候刚一忘形，灾祸立马就降临了"></a>NO.11 得意的时候刚一忘形，灾祸立马就降临了</h4><ol>
+<li>世间没有永恒的事物，一切都是暂时的、相对的、发展的。</li>
+</ol>
+<h4 id="NO-12-你认为别人是怎样的人，你就会成为那样的人"><a href="#NO-12-你认为别人是怎样的人，你就会成为那样的人" class="headerlink" title="NO.12 你认为别人是怎样的人，你就会成为那样的人"></a>NO.12 你认为别人是怎样的人，你就会成为那样的人</h4><h4 id="NO-13-不是星座书写的太准了，是你相信了"><a href="#NO-13-不是星座书写的太准了，是你相信了" class="headerlink" title="NO.13 不是星座书写的太准了，是你相信了"></a>NO.13 不是星座书写的太准了，是你相信了</h4><ol>
+<li>命运只掌握在一个人手里，那个人就是我们自己。每一个努力生活的人，运气都不会太差。</li>
+</ol>
+<h4 id="NO-14-如果你认为自己做不到，你就永远做不到"><a href="#NO-14-如果你认为自己做不到，你就永远做不到" class="headerlink" title="NO.14 如果你认为自己做不到，你就永远做不到"></a>NO.14 如果你认为自己做不到，你就永远做不到</h4><ol>
+<li>创造精彩人生的密钥不是机遇，不是运气，而是勇敢地去尝试！</li>
+</ol>
+<h4 id="NO-15-意识到自己谦虚的时候，就不是谦虚了"><a href="#NO-15-意识到自己谦虚的时候，就不是谦虚了" class="headerlink" title="NO.15 意识到自己谦虚的时候，就不是谦虚了"></a>NO.15 意识到自己谦虚的时候，就不是谦虚了</h4><h4 id="NO-16-自欺欺人的时候，没有人觉得自己是骗子"><a href="#NO-16-自欺欺人的时候，没有人觉得自己是骗子" class="headerlink" title="NO.16 自欺欺人的时候，没有人觉得自己是骗子"></a>NO.16 自欺欺人的时候，没有人觉得自己是骗子</h4><h4 id="NO-17-当所有人的想法都一样时，每个人都可能是错的"><a href="#NO-17-当所有人的想法都一样时，每个人都可能是错的" class="headerlink" title="NO.17 当所有人的想法都一样时，每个人都可能是错的"></a>NO.17 当所有人的想法都一样时，每个人都可能是错的</h4><h4 id="NO-18-再聪明的人，也会做愚蠢的事"><a href="#NO-18-再聪明的人，也会做愚蠢的事" class="headerlink" title="NO.18 再聪明的人，也会做愚蠢的事"></a>NO.18 再聪明的人，也会做愚蠢的事</h4><ol>
+<li>偶尔的愚蠢不可怕，可怕的是常常愚蠢，甚至无休止的愚蠢下去。</li>
+</ol>
+<h4 id="NO-19-别人的缺点显而易见，自己的缺点视而不见"><a href="#NO-19-别人的缺点显而易见，自己的缺点视而不见" class="headerlink" title="NO.19 别人的缺点显而易见，自己的缺点视而不见"></a>NO.19 别人的缺点显而易见，自己的缺点视而不见</h4><h4 id="NO-20-犯错之后，总想让人觉得错误不是自己造成的"><a href="#NO-20-犯错之后，总想让人觉得错误不是自己造成的" class="headerlink" title="NO.20 犯错之后，总想让人觉得错误不是自己造成的"></a>NO.20 犯错之后，总想让人觉得错误不是自己造成的</h4><h4 id="NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"><a href="#NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人" class="headerlink" title="NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"></a>NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人</h4><h4 id="NO-22-凭着热心帮人做事，最后那些事就变成了你的事"><a href="#NO-22-凭着热心帮人做事，最后那些事就变成了你的事" class="headerlink" title="NO.22 凭着热心帮人做事，最后那些事就变成了你的事"></a>NO.22 凭着热心帮人做事，最后那些事就变成了你的事</h4><ol>
+<li>黄桐说：“玫瑰花上的刺，不是为了伤害别人，而是为了保护自己。想当个好人，很好，但绝没有必要让自己成为一个来者不拒的烂好人，总是成全别人，却让自己不断受到伤害”</li>
+</ol>
+<h4 id="NO-23-不用担心别人怎么看你，他们也在为此担心"><a href="#NO-23-不用担心别人怎么看你，他们也在为此担心" class="headerlink" title="NO.23 不用担心别人怎么看你，他们也在为此担心"></a>NO.23 不用担心别人怎么看你，他们也在为此担心</h4><ol>
+<li>每个人都在担心别人怎么看自己，每个人都喜欢被别人关注，而不是关注其他人</li>
+<li>你不是别人生活的重心，谁会花费所有的精力一直关注着你？在这个世界上，没有一个人和我们一样在意自己，我们的耿耿于怀，很多时候都是多余的</li>
+</ol>
+<h4 id="NO-24-怨恨不一定能伤到别人，但一定能伤到自己"><a href="#NO-24-怨恨不一定能伤到别人，但一定能伤到自己" class="headerlink" title="NO.24 怨恨不一定能伤到别人，但一定能伤到自己"></a>NO.24 怨恨不一定能伤到别人，但一定能伤到自己</h4><ol>
+<li>生活本已够累，若在精神上还不懂得善待自己，释放心灵，实则是苦了自己</li>
+</ol>
+<h4 id="NO-25-别把自己太当回事，没有你太阳依旧会升起"><a href="#NO-25-别把自己太当回事，没有你太阳依旧会升起" class="headerlink" title="NO.25 别把自己太当回事，没有你太阳依旧会升起"></a>NO.25 别把自己太当回事，没有你太阳依旧会升起</h4><ol>
+<li>人生的常态就是平凡，平凡的人生，才是真实的人生</li>
+</ol>
+<h4 id="NO-26-有人旁观的时候，事情一定会出错"><a href="#NO-26-有人旁观的时候，事情一定会出错" class="headerlink" title="NO.26 有人旁观的时候，事情一定会出错"></a>NO.26 有人旁观的时候，事情一定会出错</h4><h4 id="NO-27-你永远没有第二次机会去塑造第一印象"><a href="#NO-27-你永远没有第二次机会去塑造第一印象" class="headerlink" title="NO.27 你永远没有第二次机会去塑造第一印象"></a>NO.27 你永远没有第二次机会去塑造第一印象</h4><h4 id="NO-28-你把自己塑造的很完美时，就没有朋友了"><a href="#NO-28-你把自己塑造的很完美时，就没有朋友了" class="headerlink" title="NO.28 你把自己塑造的很完美时，就没有朋友了"></a>NO.28 你把自己塑造的很完美时，就没有朋友了</h4><h4 id="NO-29-长得漂亮的人，总是比长得丑的人获得的更多"><a href="#NO-29-长得漂亮的人，总是比长得丑的人获得的更多" class="headerlink" title="NO.29 长得漂亮的人，总是比长得丑的人获得的更多"></a>NO.29 长得漂亮的人，总是比长得丑的人获得的更多</h4><h4 id="NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫"><a href="#NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫" class="headerlink" title="NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫"></a>NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫</h4><ol>
+<li>当我们温柔地对待这个世界的时候，世界才会同样温柔地对待我们</li>
+</ol>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>//16107.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>begin</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《墨菲定律》（下）</title>
+    <url>//64537.html</url>
+    <content><![CDATA[<h4 id="NO-61-认定了一件事不值得去做，就不可能做好"><a href="#NO-61-认定了一件事不值得去做，就不可能做好" class="headerlink" title="NO.61 认定了一件事不值得去做，就不可能做好"></a>NO.61 认定了一件事不值得去做，就不可能做好</h4><h4 id="NO-76-你和好友爱上同一个女人时，就没有朋友可做了"><a href="#NO-76-你和好友爱上同一个女人时，就没有朋友可做了" class="headerlink" title="NO.76 你和好友爱上同一个女人时，就没有朋友可做了"></a>NO.76 你和好友爱上同一个女人时，就没有朋友可做了</h4><ol>
+<li>喜欢一朵花，才想要摘下它；爱一朵花，却会浇灌它呵护它</li>
+<li>真爱一个人，应当是在关注对方的同时，给予对方一片自由的天空，让爱有呼吸的余地</li>
+</ol>
+<h4 id="NO-77-爱情无价，但也不是绝对，还得看钱多钱少"><a href="#NO-77-爱情无价，但也不是绝对，还得看钱多钱少" class="headerlink" title="NO.77 爱情无价，但也不是绝对，还得看钱多钱少"></a>NO.77 爱情无价，但也不是绝对，还得看钱多钱少</h4><h4 id="NO-78-你爱上一个人是因为，TA让你想起了旧情人"><a href="#NO-78-你爱上一个人是因为，TA让你想起了旧情人" class="headerlink" title="NO.78 你爱上一个人是因为，TA让你想起了旧情人"></a>NO.78 你爱上一个人是因为，TA让你想起了旧情人</h4><h4 id="NO-79-总相信最好的还在前面，结果好的都被人捡走了"><a href="#NO-79-总相信最好的还在前面，结果好的都被人捡走了" class="headerlink" title="NO.79 总相信最好的还在前面，结果好的都被人捡走了"></a>NO.79 总相信最好的还在前面，结果好的都被人捡走了</h4><ol>
+<li>和我们共度余生的那个人，很可能也不是人群中最出众的，但只要他是喜欢你的，你满意的，就足够了</li>
+</ol>
+<h4 id="NO-80-世界上没有免费的午餐，爱情也不例外"><a href="#NO-80-世界上没有免费的午餐，爱情也不例外" class="headerlink" title="NO.80 世界上没有免费的午餐，爱情也不例外"></a>NO.80 世界上没有免费的午餐，爱情也不例外</h4><ol>
+<li>婚恋也是需要巨大的成本付出的，同时也会获得收益，大多数人都会在恋爱对象与恋爱方式的选择上自觉或不自觉地进行成本收益的权衡与比较</li>
+</ol>
+<h4 id="NO-81-原本不笨的孩子，被责骂多了也会真的变笨"><a href="#NO-81-原本不笨的孩子，被责骂多了也会真的变笨" class="headerlink" title="NO.81 原本不笨的孩子，被责骂多了也会真的变笨"></a>NO.81 原本不笨的孩子，被责骂多了也会真的变笨</h4><h4 id="NO-82-越是品学兼优的孩子，越容易出现心理问题"><a href="#NO-82-越是品学兼优的孩子，越容易出现心理问题" class="headerlink" title="NO.82 越是品学兼优的孩子，越容易出现心理问题"></a>NO.82 越是品学兼优的孩子，越容易出现心理问题</h4><ol>
+<li>品学兼优的孩子，头上顶着闪耀的光环，在学习和生活中承受着很大的压力，缺少宣泄的机会和环境，心里有了不愉快时，不敢对长辈和同伴倾诉，时间久了，心理上就容易出现问题。</li>
+</ol>
+<h4 id="NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"><a href="#NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜" class="headerlink" title="NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"></a>NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜</h4><h4 id="NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"><a href="#NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福" class="headerlink" title="NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"></a>NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福</h4><ol>
+<li></li>
+</ol>
+<p>边际效用递减的原理广泛存在于日常生活中，很多人感觉幸福在不断的递减，两个人从最初的相识，相爱，情人眼里出西施，再到后来的习以为常，不再有激动和浪漫，幸福的效用开始在生活中慢慢地递减，所以很多人都在抱怨：日子越过越平淡，没有什么新鲜感，相爱容易，可相处太难了</p>
+<h4 id="NO-85-有时间旅行的时候没有钱，等有钱时又没时间了"><a href="#NO-85-有时间旅行的时候没有钱，等有钱时又没时间了" class="headerlink" title="NO.85 有时间旅行的时候没有钱，等有钱时又没时间了"></a>NO.85 有时间旅行的时候没有钱，等有钱时又没时间了</h4><h4 id="NO-86-接受了最坏的东西，也就没什么可怕的了"><a href="#NO-86-接受了最坏的东西，也就没什么可怕的了" class="headerlink" title="NO.86 接受了最坏的东西，也就没什么可怕的了"></a>NO.86 接受了最坏的东西，也就没什么可怕的了</h4><h4 id="NO-87-不要太自以为是，带着谦卑的心对待万物众生"><a href="#NO-87-不要太自以为是，带着谦卑的心对待万物众生" class="headerlink" title="NO.87 不要太自以为是，带着谦卑的心对待万物众生"></a>NO.87 不要太自以为是，带着谦卑的心对待万物众生</h4><ol>
+<li>人的感觉是很敏锐的，但也有惰性，会蒙骗我们的眼睛，加重我们的感受而迷失理性</li>
+<li>当我们给予他人关爱时，要尽量雪中送炭，而不是锦上添花；倘若是别人给予我们关爱，那更要懂得珍惜，善待这份心意</li>
+</ol>
+<h4 id="NO-88-所有的不幸，只有被认为不幸时才是真的不幸"><a href="#NO-88-所有的不幸，只有被认为不幸时才是真的不幸" class="headerlink" title="NO.88 所有的不幸，只有被认为不幸时才是真的不幸"></a>NO.88 所有的不幸，只有被认为不幸时才是真的不幸</h4><ol>
+<li>世间每件事都不是绝对的，看似好的开始，却未必有好的结局；看似坏的开始，却未必真的那么糟糕</li>
+</ol>
+<h4 id="NO-89-假装生气会变成真生气，假装快乐也会变得真快乐"><a href="#NO-89-假装生气会变成真生气，假装快乐也会变得真快乐" class="headerlink" title="NO.89 假装生气会变成真生气，假装快乐也会变得真快乐"></a>NO.89 假装生气会变成真生气，假装快乐也会变得真快乐</h4>]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客搭建（含美化）</title>
+    <url>//50650.html</url>
+    <content><![CDATA[<h1 id="Hexo博客搭建教程（包括上传到GitHub和博客美化）"><a href="#Hexo博客搭建教程（包括上传到GitHub和博客美化）" class="headerlink" title="Hexo博客搭建教程（包括上传到GitHub和博客美化）"></a>Hexo博客搭建教程（包括上传到GitHub和博客美化）</h1><h2 id="需要的工具"><a href="#需要的工具" class="headerlink" title="需要的工具"></a>需要的工具</h2><ul>
+<li>node.js</li>
+<li>git</li>
+</ul>
+<h2 id="安装and部署"><a href="#安装and部署" class="headerlink" title="安装and部署"></a>安装and部署</h2><ol>
+<li><p>安装node.js和git<br><a href="https://nodejs.org/zh-cn/">node.js</a><br><a href="https://git-scm.com/downloads">git</a></p>
+</li>
+<li><p>安装hexo<br><code>npm install hexo -g</code><br>安装后使用<code>hexo -v</code>查看hexo是否安装完成</p>
+</li>
+<li><p>创建hexo项目文件夹作为博客的目录<br>创建完成后在该目录使用cmd命令<code>hexo init</code>初始化博客</p>
+</li>
+<li><p>使用<code>hexo generate</code>或<code>hexo g</code>生成当前的博客</p>
+</li>
+<li><p>使用<code>hexo server</code>或<code>hexo s</code>启动服务器<br>可以用<code>localhost:4000</code>访问博客（此时博客是在本地运行）</p>
+</li>
+<li><p>生成ssh密钥<br>打开Git Bash，使用以下命令配置git，（推荐在博客目录下）<br><code>git config --global user.name &quot;你的github用户的名字&quot;</code><br><code>git config --global user.name &quot;你的github用户的邮箱&quot;</code><br><code>ssh-keygen -t rsa -C &quot;你的github账户邮箱&quot;</code><br>连续三次回车<br><code>eval &quot;$(ssh-agent -s)&quot;</code>,添加到ssh-agent<br><code>ssh-add ~/.ssh/id_rsa</code>,添加生成的SSH密钥到ssh-agen<br><code>cat ~/.ssh/id_rsa.pub</code><br>复制此时显示的内容，内容应该是ssh-rsa简介</p>
+</li>
+<li><p>Ctrl+C退出后，在GitHub上新建一个新的仓库，仓库名为(你的用户名.github.io)<br>然后到仓库页面上有个setting点击后进入页面<br>页面的左侧的选项卡，部署选择添加部署键，添加密钥。</p>
+</li>
+<li><p>修改hexo配置文件<br>打开本地博客的根目录，找到_config.yml文件<br>在文件的开头处，第二部分，URL部分改成如下内容：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: https://(你的用户名).github.io/ (后面如果需要域名访问改成你的域名)</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p>在文件的结尾处，改成如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: &#x27;git&#x27;</span><br><span class="line">  repo: &#x27;https://github.com/(你的用户名)/(你的用户名).github.io.git&#x27;</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>使用<code>hexo clean</code>清除扫描</li>
+<li>使用<code>hexo g</code>生成博客</li>
+<li>使用<code>npm install hexo-deployer-git --save</code>安装插件</li>
+<li>使用<code>hexo deploy</code>或<code>hexo d</code>将部署到GitHub上，打开你的GitHub Pages设置进入输入的url，就可以的博客了。以上两步也可以连写为<code>hexo d -g</code>。</li>
+</ol>
+<h2 id="博客美化（本文使用Fluid主题）"><a href="#博客美化（本文使用Fluid主题）" class="headerlink" title="博客美化（本文使用Fluid主题）"></a>博客美化（本文使用Fluid主题）</h2><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>Fluid 是基于 Hexo 的一款 Material Design 风格的主题</p>
+<blockquote>
+<p>TIP<br>致主题的新用户：</p>
+<p>本指南经过数个版本打磨，绝大部分的功能都有详细说明，请仔细阅读，节约自己和他人的时间；</p>
+<p>本指南中提到的：”博客配置” 指的 Hexo 博客目录下的 _config.yml，”主题配置” 指的是 theme&#x2F;fluid&#x2F;_config.yml 或者 _config.fluid.yml ，注意区分；</p>
+<p>本指南中提到的 source 目录都指的是博客目录下的 source 文件夹，不推荐修改主题内 source 目录；</p>
+<p>每次无论 <code>hexo g</code> 或 <code>hexo s</code>，都最好先使用 <code>hexo clean</code> 清除本地缓存；</p>
+<p>页面结果以本地 <code>hexo s</code> 为准，部署后的异常大部分是线上缓存原因，在确认没有报错的情况下，等待若干时间后即可正常；</p>
+<p>由于主题的不同版本会存在配置差异，本指南以最新版本为准。</p>
+</blockquote>
+<h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p>Hexo 5.0.0 版本以上，推荐通过 npm 直接安装，进入博客目录执行命令：<br><code>npm install --save hexo-theme-fluid</code><br>然后在博客目录下创建<code>_config.fluid.yml</code>，将主题的<a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a><br>内容复制过去。</p>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>下载<a href="https://github.com/fluid-dev/hexo-theme-fluid/releases">最新release版本</a>解压到 themes 目录，并将解压出的文件夹重命名为 fluid。</p>
+<h2 id="指定主题"><a href="#指定主题" class="headerlink" title="指定主题"></a>指定主题</h2><p>如下修改 Hexo 博客目录中的 <code>_config.yml</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: fluid  # 指定主题</span><br><span class="line">language: zh-CN  # 指定语言，会影响主题显示的语言，按需修改</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建关于页"><a href="#创建关于页" class="headerlink" title="创建关于页"></a>创建关于页</h2><p>在git-bash或cmd里执行命令<br><code>hexo new page about</code><br>创建成功后修改 <code>/source/about/index.md</code>，添加 <code>layout</code> 属性。<br>修改后的文件示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标题</span><br><span class="line">layout: about</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">这里写关于页的正文，支持 Markdown, HTML</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>WARNING<br><code>layout: about</code> 必须存在，并且不能修改成其他值，否则不会显示头像等样式。</p>
+</blockquote>
+<h3 id="关于更多"><a href="#关于更多" class="headerlink" title="关于更多"></a>关于更多</h3><p>可以看<a href="https://hexo.fluid-dev.com/docs/start/">Fluid主题使用手册</a></p>
+<h2 id="添加网站运行时间"><a href="#添加网站运行时间" class="headerlink" title="添加网站运行时间"></a>添加网站运行时间</h2><p>注意缩进</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">content: &#x27;</span><br><span class="line">    &lt;a href=&quot;https://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;&lt;span&gt;Hexo&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">    &lt;i class=&quot;iconfont icon-love&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;a href=&quot;https://github.com/fluid-dev/hexo-theme-fluid&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;&lt;span&gt;Fluid&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;span id=&quot;timeDate&quot;&gt;载入天数...&lt;/span&gt;</span><br><span class="line">        &lt;span id=&quot;times&quot;&gt;载入时分秒...&lt;/span&gt;</span><br><span class="line">        &lt;script src=&quot;/js/duration.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JS文件"><a href="#JS文件" class="headerlink" title="JS文件"></a>JS文件</h4><p>如果是npm安装则在 博客目录下 <code>blog/node_modules/hexo-theme-fluid/source</code>创建 <code>duration.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createtime</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> grt = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;08/30/2021 20:00:00&quot;</span>);<span class="comment">//在此处修改你的建站时间，格式：月/日/年 时:分:秒</span></span><br><span class="line">    now.<span class="title function_">setTime</span>(now.<span class="title function_">getTime</span>() + <span class="number">250</span>);</span><br><span class="line">    days = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>;</span><br><span class="line">    dnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(days);</span><br><span class="line">    hours = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum);</span><br><span class="line">    hnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(hours);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(hnum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        hnum = <span class="string">&quot;0&quot;</span> + hnum;</span><br><span class="line">    &#125;</span><br><span class="line">    minutes = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span><br><span class="line">    mnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(minutes);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(mnum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        mnum = <span class="string">&quot;0&quot;</span> + mnum;</span><br><span class="line">    &#125;</span><br><span class="line">    seconds = (now - grt) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span><br><span class="line">    snum = <span class="title class_">Math</span>.<span class="title function_">round</span>(seconds);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(snum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        snum = <span class="string">&quot;0&quot;</span> + snum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;timeDate&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;本站已安全运行 &quot;</span> + dnum + <span class="string">&quot; 天 &quot;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;times&quot;</span>).<span class="property">innerHTML</span> = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>, <span class="number">250</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加访客量"><a href="#添加访客量" class="headerlink" title="添加访客量"></a>添加访客量</h2><p>主题配置文件 大概431行（展示网站的 PV、UV 统计数）<br><code>enable: true</code><br><code>source: &quot;busuanzi&quot;</code><br>leancloud需要注册且设置（busuanzi不用）</p>
+<h4 id="更多样式（在主题配置下"><a href="#更多样式（在主题配置下" class="headerlink" title="更多样式（在主题配置下"></a>更多样式（在主题配置下</h4><p>custom_js:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">custom_js:</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js # 动态彩带</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Ribbon.min.js # 静态彩带</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicLine.min.js # 动态黑色线条</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js # 小雪花飘落</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js #樱花飘落</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js # 鼠标跟随小星星</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/containsWord.min.js # 鼠标点击出字</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/love.min.js #鼠标点击出爱心</span><br></pre></td></tr></table></figure>
+
+<p>启用某个就把注释删除掉<br>custom_css:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#  - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/shubiao.css #鼠标指针</span><br><span class="line">#  - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css # 滚动条颜色</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用所购买的域名访问博客"><a href="#使用所购买的域名访问博客" class="headerlink" title="使用所购买的域名访问博客"></a>使用所购买的域名访问博客</h2><p>GitHub Pages 可使用两种类型的域名：子域名和 apex 域名。 有关不支持的自定义域名列表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">支持的自定义域类型	示例</span><br><span class="line"></span><br><span class="line">www 子域	    www.example.com  </span><br><span class="line">自定义子域	    blog.example.com</span><br><span class="line">Apex 域	            example.com</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://docs.github.com/cn/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain">管理 GitHub Pages 站点的自定义域</a><br>在主题目录下 source下创建一个文件CNAME 该文件无后辍，内容为你所解析的域名内容<br>例如：我的是yorg.top 文件内就写 yorg.top</p>
+<h2 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h2><p>主题文件搜索<code>Comment plugin</code>打开评论插件 类型选waline<br>配置waline</p>
+<p><a href="https://waline.js.org/">waline</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">serverURLs: &#x27;(填写你的站点)&#x27; </span><br><span class="line">emoji: [&#x27;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="本文参考："><a href="#本文参考：" class="headerlink" title="本文参考："></a>本文参考：</h2><p><a href="https://codeanime.cc/%E5%9C%A8GitHub%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2.html">在GitHub上部署hexo博客</a>【作者：codeanime】<br><a href="https://davidham3.github.io/blog/2018/02/20/%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2hexo/">在github上部署hexo</a>【作者：戴维汉姆】<br><a href="https://emoryhuang.cn/blog/1729600336.html">Hexo + Fluid 美化</a>  【作者：EmoryHuang】<br><a href="https://hexo.fluid-dev.com/docs/guide/">Hexo Fluid 用户手册</a>  </p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github</tag>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《墨菲定律》（中）</title>
+    <url>//46098.html</url>
+    <content><![CDATA[<h4 id="NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服"><a href="#NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服" class="headerlink" title="NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服"></a>NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服</h4><h4 id="NO-32-讨好所有人这件事，谁做都会碰一鼻子灰"><a href="#NO-32-讨好所有人这件事，谁做都会碰一鼻子灰" class="headerlink" title="NO.32 讨好所有人这件事，谁做都会碰一鼻子灰"></a>NO.32 讨好所有人这件事，谁做都会碰一鼻子灰</h4><h4 id="NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你"><a href="#NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你" class="headerlink" title="NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你"></a>NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你</h4><h4 id="NO-34-如果不能解决某个问题，就不要制造这个问题"><a href="#NO-34-如果不能解决某个问题，就不要制造这个问题" class="headerlink" title="NO.34 如果不能解决某个问题，就不要制造这个问题"></a>NO.34 如果不能解决某个问题，就不要制造这个问题</h4><h4 id="NO-35-最好的玩具，永远是别人手里正在玩的那个"><a href="#NO-35-最好的玩具，永远是别人手里正在玩的那个" class="headerlink" title="NO.35 最好的玩具，永远是别人手里正在玩的那个"></a>NO.35 最好的玩具，永远是别人手里正在玩的那个</h4><ol>
+<li>生活的差别无处不在，每个人的生命都是被上苍划了一道缺口。你若不是牡丹，就不必追求娇艳；你若不是蔷薇，就不必象征爱的誓言。你若只是小草，就展现顽强的生命；你若是一颗树，就散发出独立的气息。</li>
+</ol>
+<h4 id="NO-36-人迷惑时不可怜，不知道迷惑时才是最可怜的"><a href="#NO-36-人迷惑时不可怜，不知道迷惑时才是最可怜的" class="headerlink" title="NO.36 人迷惑时不可怜，不知道迷惑时才是最可怜的"></a>NO.36 人迷惑时不可怜，不知道迷惑时才是最可怜的</h4><h4 id="NO-37-越把失败当回事的人，越是容易遭遇失败"><a href="#NO-37-越把失败当回事的人，越是容易遭遇失败" class="headerlink" title="NO.37 越把失败当回事的人，越是容易遭遇失败"></a>NO.37 越把失败当回事的人，越是容易遭遇失败</h4><h4 id="NO-38-说自己绝对不会错的时候，往往错的就是你"><a href="#NO-38-说自己绝对不会错的时候，往往错的就是你" class="headerlink" title="NO.38 说自己绝对不会错的时候，往往错的就是你"></a>NO.38 说自己绝对不会错的时候，往往错的就是你</h4><h4 id="NO-39-千万不要跟傻瓜争论，一不留神你可能就成了傻瓜"><a href="#NO-39-千万不要跟傻瓜争论，一不留神你可能就成了傻瓜" class="headerlink" title="NO.39 千万不要跟傻瓜争论，一不留神你可能就成了傻瓜"></a>NO.39 千万不要跟傻瓜争论，一不留神你可能就成了傻瓜</h4><ol>
+<li>争吵无法给你带来任何好处，只会让你活在愤怒之中</li>
+</ol>
+<h4 id="NO-40-有人说不是钱的问题时，多半就是钱的问题"><a href="#NO-40-有人说不是钱的问题时，多半就是钱的问题" class="headerlink" title="NO.40 有人说不是钱的问题时，多半就是钱的问题"></a>NO.40 有人说不是钱的问题时，多半就是钱的问题</h4><h4 id="NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境"><a href="#NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境" class="headerlink" title="NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境"></a>NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境</h4><h4 id="NO-42-让别人感受到你的善意，而不是不顾别人的自尊"><a href="#NO-42-让别人感受到你的善意，而不是不顾别人的自尊" class="headerlink" title="NO.42 让别人感受到你的善意，而不是不顾别人的自尊"></a>NO.42 让别人感受到你的善意，而不是不顾别人的自尊</h4><ol>
+<li>任何人都有缺点，都会犯错，我们只能要求自己尽量把事情做到最好，尽量不犯错，但这并不意味着要把自己摆到很高的位置，以此去要求别人，指责别人。每个人都有自尊心，尤其是在人前，谁也不愿意被批判。</li>
+</ol>
+<h4 id="NO-43-给一个人贴上什么样的标签，他就会变成什么样的人"><a href="#NO-43-给一个人贴上什么样的标签，他就会变成什么样的人" class="headerlink" title="NO.43 给一个人贴上什么样的标签，他就会变成什么样的人"></a>NO.43 给一个人贴上什么样的标签，他就会变成什么样的人</h4><h4 id="NO-44-每个人都打算做事，但最后做的往往不是当初打算的事"><a href="#NO-44-每个人都打算做事，但最后做的往往不是当初打算的事" class="headerlink" title="NO.44 每个人都打算做事，但最后做的往往不是当初打算的事"></a>NO.44 每个人都打算做事，但最后做的往往不是当初打算的事</h4><ol>
+<li>戒掉理想的生活是什么样的？肉体虽然活着，但灵魂却死了，只是毫无目标地随波逐流，既没有固定的方向，也不知道停靠在何方。在浑浑噩噩中虚度了宝贵的光阴，荒废了青春的岁月；在做任何事时都不知道其意义何在，只是被挟裹在拥挤的人流中被动前进。</li>
+</ol>
+<h4 id="NO-45-知道自己想要什么的人，比什么都想要的人更容易成功"><a href="#NO-45-知道自己想要什么的人，比什么都想要的人更容易成功" class="headerlink" title="NO.45 知道自己想要什么的人，比什么都想要的人更容易成功"></a>NO.45 知道自己想要什么的人，比什么都想要的人更容易成功</h4><h4 id="NO-46-能让人感觉你是权威，就能让人相信你的话"><a href="#NO-46-能让人感觉你是权威，就能让人相信你的话" class="headerlink" title="NO.46 能让人感觉你是权威，就能让人相信你的话"></a>NO.46 能让人感觉你是权威，就能让人相信你的话</h4><h4 id="NO-47-人总是用自己的标准去衡量世界"><a href="#NO-47-人总是用自己的标准去衡量世界" class="headerlink" title="NO.47 人总是用自己的标准去衡量世界"></a>NO.47 人总是用自己的标准去衡量世界</h4><h4 id="NO-48-找到与对方的共同之处，就有成为朋友的可能"><a href="#NO-48-找到与对方的共同之处，就有成为朋友的可能" class="headerlink" title="NO.48 找到与对方的共同之处，就有成为朋友的可能"></a>NO.48 找到与对方的共同之处，就有成为朋友的可能</h4><h4 id="NO-49-经常看到的东西，你未必真的记得它"><a href="#NO-49-经常看到的东西，你未必真的记得它" class="headerlink" title="NO.49 经常看到的东西，你未必真的记得它"></a>NO.49 经常看到的东西，你未必真的记得它</h4><h4 id="NO-50-好事总为等它的人来临，但是等太久也会错过"><a href="#NO-50-好事总为等它的人来临，但是等太久也会错过" class="headerlink" title="NO.50 好事总为等它的人来临，但是等太久也会错过"></a>NO.50 好事总为等它的人来临，但是等太久也会错过</h4><ol>
+<li>当机立断地做出选择，或许会成功，或许会失败，但如果优柔寡断，畏首畏尾，结果就只有失败</li>
+</ol>
+<h4 id="NO-51-无论多么简单的事情，都会有人把它做错"><a href="#NO-51-无论多么简单的事情，都会有人把它做错" class="headerlink" title="NO.51 无论多么简单的事情，都会有人把它做错"></a>NO.51 无论多么简单的事情，都会有人把它做错</h4><h4 id="NO-52-老板走过你的办公桌时，你总在做工作以外的事情"><a href="#NO-52-老板走过你的办公桌时，你总在做工作以外的事情" class="headerlink" title="NO.52 老板走过你的办公桌时，你总在做工作以外的事情"></a>NO.52 老板走过你的办公桌时，你总在做工作以外的事情</h4><h4 id="NO-53-别被加班加点干活的人感动，他也许是能力不足"><a href="#NO-53-别被加班加点干活的人感动，他也许是能力不足" class="headerlink" title="NO.53 别被加班加点干活的人感动，他也许是能力不足"></a>NO.53 别被加班加点干活的人感动，他也许是能力不足</h4><h4 id="NO-54-你可以不知道谁对，但一定要知道谁说了算"><a href="#NO-54-你可以不知道谁对，但一定要知道谁说了算" class="headerlink" title="NO.54 你可以不知道谁对，但一定要知道谁说了算"></a>NO.54 你可以不知道谁对，但一定要知道谁说了算</h4><h4 id="NO-55-自以为买到了便宜货，出门就发现还有更便宜的"><a href="#NO-55-自以为买到了便宜货，出门就发现还有更便宜的" class="headerlink" title="NO.55 自以为买到了便宜货，出门就发现还有更便宜的"></a>NO.55 自以为买到了便宜货，出门就发现还有更便宜的</h4><h4 id="NO-56-堵车的时候，总是旁边的行车道动得快"><a href="#NO-56-堵车的时候，总是旁边的行车道动得快" class="headerlink" title="NO.56 堵车的时候，总是旁边的行车道动得快"></a>NO.56 堵车的时候，总是旁边的行车道动得快</h4><h4 id="NO-57-越为已经失去的伤心，便会失去得更多"><a href="#NO-57-越为已经失去的伤心，便会失去得更多" class="headerlink" title="NO.57 越为已经失去的伤心，便会失去得更多"></a>NO.57 越为已经失去的伤心，便会失去得更多</h4><h4 id="NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙"><a href="#NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙" class="headerlink" title="NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙"></a>NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙</h4><h4 id="NO-59-最好的游戏分数，一定是你独自玩的时候得到的"><a href="#NO-59-最好的游戏分数，一定是你独自玩的时候得到的" class="headerlink" title="NO.59 最好的游戏分数，一定是你独自玩的时候得到的"></a>NO.59 最好的游戏分数，一定是你独自玩的时候得到的</h4><h4 id="NO-60-说原则上同意的人，并没有付诸行动的意思"><a href="#NO-60-说原则上同意的人，并没有付诸行动的意思" class="headerlink" title="NO.60 说原则上同意的人，并没有付诸行动的意思"></a>NO.60 说原则上同意的人，并没有付诸行动的意思</h4>]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
+    <url>//40025.html</url>
+    <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
+<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
+
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
+<p>输入命令</p>
+<p><code>docker logs -f qinglong</code></p>
+<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
+<span id="more"></span>
+<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
+<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
+<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
+
+<p>这时候访问 <a href="http://ip:port" title="http://ip:port">http://ip:port</a> 就能访问了</p>
+<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http://ip:port/admin/">http://ip:port/admin/</a></p>
+<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
+<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
+<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
+<p>任务仓库：</p>
+<pre><code>【Faker2】
+ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+
+【Faker3】
+ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+</code></pre>
+<hr>
+<p>该文章内容部分来自于：<br><a href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小说书摘</title>
+    <url>//42458.html</url>
+    <content><![CDATA[<ul>
+<li><p>一、<br>“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</p>
+</li>
+<li><p>二、<br>人总在一次次犹豫，摇摆，选择中，破碎迷雾，追溯本源，找到自己真正在意的东西。中间肯定有弯路，但无用功，同样也是有用功。</p>
+</li>
+<li><p>三、<br>还没相遇前，我俩各自修行，为的不是要到达彼岸，而是要找到彼此；我俩各自旅行，为的不是要找到自己，而是要寻遇对方。</p>
+</li>
+<li><p>四、<br>月色千古如斯，不知换了多少人看，它只是静静的挂在天上，平淡但坚贞。——如爱情。</p>
+</li>
+<li><p>五、<br>回忆是个怪物，它让人沉沦在过去，然后轻易把人摧毁。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《我的二十六岁女房客》又名《天空的城》</title>
+    <url>//14555.html</url>
+    <content><![CDATA[<ul>
+<li>爱情到底是什么，又产生何处呢？我有些想不透，或许所谓的爱情只是一只彩色的蝴蝶，看起来美丽，却永远也不能接近，倘若你真的想把她攥紧在手里，她便会挣扎，然后在挣扎中摩擦掉了所有的色彩，从此苍白。</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>我好似有点明白，为什么我会如此的小心翼翼了，因为害怕触及不到她的灵魂，却擦掉了那层美丽的色彩</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>到底是什么让如今的爱情变得这么复杂？又为什么，越来越多的人不能为了相爱两个字在一起？</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《世界上最爱我的人》</title>
+    <url>//5802.html</url>
+    <content><![CDATA[<ul>
+<li>一、“你错了……我们这些人，在金钱面前，根本连做奴隶的资格都没有！……是钱把我们变成了生活的奴隶，我们是生活的奴隶，没有资格做钱的奴隶。”</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、夜越深，海边便越显得深邃，这种深邃不是一种禁锢，反而会解放人的思想，让人不自觉去想一些超越了生活范畴的事情，比如，爱情到底是什么？是一只彩色的蝴蝶？开了屏的孔雀？或者，单单只是一种心花怒放的感觉；悲观一点去想：也许这个世界上并没有真正意义上的爱情，因为它已经是一种超越生命的信仰，而我们活在被欲望堆砌的世界里，终究只是一介凡人。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、如果，我是无所不能的神就好了，我要用手上的裁决之杖，荡清这个世界上的一切不公平和满是罪孽之人……</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>四、“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>五、我们为什么要活着？而同一具躯体活着和死了又到底有什么区别？活着是为了死去吗？死去之后，又是否有重生？</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>六、“为什么爱情就不能变得简单一些呢？喜欢就在一起，不喜欢就拒绝，这样瞻前顾后、来来回回，真的让人觉得疲倦！”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>七、“因为我们活在一个复杂的世界里，而爱情本身就是一个随波逐流的东西，它只是时代的附属品，所以当下的爱情要靠金钱去实现……你说对吗？”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>八、我从来没有像此时这么困惑过，我已经忘了爱情存在的意义，因为这个世界上有太多的曲折离奇，将本该存在于男人和女人之间的真情弄得面目全非，继而造出了一个又一个的感情悲剧</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>九、我们都不想痛苦的活着，可痛苦却无处不在：饥饿、失业、失恋、破财、病痛、孤独、家破、离别、欺压、背叛、战争、杀戮、颠沛、流离、死亡……每一个词，都是诛心的杀器；所以，人死了，一定都会去天堂，不要问地狱在哪里，人间就是地狱。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十、因为我不知道在这个一个极其复杂的世界里，到底该怎么去定义好人和坏人？我甚至不确定自己是好是坏，或者换个方式说，我本质是好的，可是因为某些原因，却被贴上了坏的标签，我撕不掉这个标签，索性自甘堕落，越来越坏……我用力甩了甩头，这才猛然清醒了过来：人都是在为了立场活着，为什么一定要去分所谓的好坏呢？</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十一、人就是一列永不停止的火车，有时驶过山区，有时驶过平原，有时沿海行驶，不一样的风景，会造就不一样的心情，不一样的心情之下又会做出不一样的选择，你可以想象一下，当无数辆列车行驶在没有边际的土地上，你能找到一个固定的点，或是方向吗？……人就是这样，走一步一个变化，所以，我们总是习惯去说：走一步看一步.也有一些曾经让你绝对信任的人，忽然有一天就对你疏远了，你们渐渐开始变得不联系，最后甚至会变成仇人、敌人……这些，都是因为人在变，只要思想不静止，人就一定会变。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十二、“我真的是你在这个世界上最爱的人吗？”“你是我在这个世界上最爱的人，但我却不是这个世界上最爱你的人。”</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《自卑与超越》</title>
+    <url>//42791.html</url>
+    <content><![CDATA[<ul>
+<li>一、生活就是对人的兴趣，就是成为整体中的一份子，将自己的力量贡献出来，谋求人类的福祉。</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、人一旦确立人生目标，随之便会展开自我管理 。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、一个人的经历虽然不会决定其一生的命运，但会对人的命运产生影响。如果将某种特殊经历作为自己未来人生的基础，那么我们势必会收到误导。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>四、存留于脑海中的记忆会凝结成我们的生活经验，记忆让我们通过这些经验找到人生意义之所在</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>五、人的一生，从始至终，心灵与肉体之间的合作就一直进行着，两者犹如一个整体，不可分割</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>六、愤怒事实上是一种用于控制某个人或某种情形的工具，可我们不满足于描述他的愤怒。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>七、在任何一种凌驾于他人之上的举止背后都有一种急需隐藏的自卑感存在。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>八、人一旦坠入爱河，就会变得温柔起来，而且爱的深的那个人更容易受伤。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>九、梦是用来麻醉和欺骗我们自己的，要理解梦不是一件容易的事。如果我们都理解了梦的含义，便不会再被梦所愚弄，那梦也就不再具有唤起感觉和情绪的力量。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十、无论何时，人们都想成为征服者，想要战胜，征服别人。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十一、人们不断奋斗，试图从卑微走向高贵，从失败走向胜利，从底层走向高层。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十二、如果人与人之间，没有感情，没有合作，没有奉献，那人生将是一片沙漠。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十三、当今这个时代，只是历史长河中的一个阶段，在人类过去、现在、未来的整个进程中，他只属于其中的一部分。</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>十四、世上会有邪恶和困难、偏见和灾难，但这是我们自己的世界，长处和弊端都是这个世界的一部分。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+</search>
