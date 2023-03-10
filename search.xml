@@ -117,6 +117,271 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
+    <title>TG人形自走机器人项目PagerMaid和PagerMaid-Pyro安装</title>
+    <url>//31299.html</url>
+    <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
+<li>Telegram官方申请的APP ID和APP HASH</li>
+</ul>
+<h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
+<li>打开<a href="https://my.telegram.org/auth">官网</a></li>
+<li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
+<li>点击“API development tools”<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/2.png" alt="2"></li>
+<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/3.png" alt="3"></li>
+</ol>
+<h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
+<h3 id="手动部署PagerMaid-Pyro"><a href="#手动部署PagerMaid-Pyro" class="headerlink" title="手动部署PagerMaid-Pyro"></a>手动部署PagerMaid-Pyro</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/4.png" alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/5.png" alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/6.png" alt="6"><br>设置守护进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#x27;TEXT&#x27; &gt; /etc/systemd/system/pagermaid.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=PagerMaid-Modify telegram utility daemon</span><br><span class="line">After=network.target</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/pagermaid</span><br><span class="line">ExecStart=/usr/bin/python3 -m pagermaid</span><br><span class="line">Restart=always</span><br><span class="line">TEXT</span><br></pre></td></tr></table></figure>
+
+<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4><ol>
+<li>启动程序：<code>systemctl start pagermaid</code>；</li>
+<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
+<li>停止程序：<code>systemctl stop pagermaid</code>;</li>
+</ol>
+<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a href="https://index.xtaolabs.com/">安装地址</a><br><a href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>Telegram</tag>
+        <tag>Bot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>遥远的救世主</title>
+    <url>//34887.html</url>
+    <content><![CDATA[<ul>
+<li><p>一、传统文化和传统观念是不是一个炉子里的两个烧饼？如果我们的文化适应生产力发展的要求，那就不用转变观念了，中国人坐庄家，让别人跟我们接轨好了。我们老是躲在屋里唱《我的中国心》，多辛酸！</p>
+<span id="more"></span>
+</li>
+<li><p>二、中国的传统文化是皇恩浩大的文化，它的实用是以皇天在上为先决条件。中国为什么穷？穷就穷在幼稚的思维，穷在期望救主、期望救恩的文化上，这是一个渗透到民族骨子里的价值判断体系，太可怕了。</p>
+<!--more-->
+</li>
+<li><p>三、透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家一个民族，任何一种命运归根到底都是那种文化属性的产物。强势文化造就强者，弱势文化造就弱者，这是规律，也可以理解为天道，不以人的意志为转移。</p>
+<!--more-->
+</li>
+<li><p>四、强势文化就是遵循事物规律的文化，弱势文化就是依赖强者的道德期望破格获取的文化，也是期望救主的文化。强势文化在武学上被称为「秘笈”，而弱势文化由于易学、易懂、易用，成了流行品种。</p>
+<!--more-->
+</li>
+<li><p>五、强盗的本质是破格获取，破格获取与直接获取是两个不同的概念。你们没有自信与强者在同一个规则下公平竞争，这只能说明你是弱者，因为弱势文化所追求的最高价值就是破格获取。所以，强盗的逻辑从本质上讲是最懦弱的生存哲学。</p>
+<!--more-->
+</li>
+<li><p>六、你不知道你，所以你是你，如果你知道了你，你就不是你了。</p>
+<!--more-->
+</li>
+<li><p>七、传统观念的死结就在一个『靠』字上，在家靠父母，出门靠朋友，靠上帝、靠菩萨、靠皇恩……总之靠什么都行，就是别靠自己。这是一个沉积了几千年的文化属性问题，非几次新文化运动就能开悟。</p>
+<!--more-->
+</li>
+<li><p>八、没有竞争的社会就没有活力，而竞争必然会产生贫富、等级，此乃天道，乃社会进步的必然代价。无弱，强焉在？一个『强』字，弱已经在其中了。故而，佛度心苦，修的是一颗平常心。</p>
+<!--more-->
+</li>
+<li><p>九、等级一直是我们社会文化的禁区，大家所以小心翼翼绕开禁区，是唯恐平等、尊严之类的东西受到伤害。</p>
+<!--more-->
+</li>
+<li><p>十、释、道、儒均是博大精深的学派，支撑中华民族走过了几千年的文明历程，是伟大的文明。但是，社会在发展，传统文化毕竟是以皇恩浩荡为先决条件的文化，讲的都是皆空、无为、中庸的理，以抑制个性而求生求解。当今社会已经发展到了市场经济的民主与法制，诸家学说也面临一个如实观照而俱进的课题，是传统？还是传承？统则僵死，承则光大。</p>
+<!--more-->
+</li>
+<li><p>十一、当人一旦从危险里跳出来，他就不再去关注这个事物的危险了，他的目光就会全部落在这个事物的利益上，这就是人。</p>
+<!--more-->
+</li>
+<li><p>十二、杀富富不去，救贫贫不离。救主的文化唯救主可说，救主不是人，是道，得救不是破了戒的狼吞虎咽，是觉悟。</p>
+<!--more-->
+</li>
+<li><p>十三、法律是社会道德的底线，是解决最基本、最表面的问题，不解决文化的根本问题，文化的问题只能由文化的觉悟解决。一个民族的文化属性就是这个民族的主，主宰着这个民族的文明、荣辱、兴衰。一个民族最强调道德的时候，正是这个民族道德最沦丧的时候。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>（VPS）利用Aria2下载Rclone转存到OneDrive</title>
+    <url>//45975.html</url>
+    <content><![CDATA[<p>一、</p>
+<h2 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到<a href="https://github.com/P3TERX/aria2.sh">一键安装Aria2</a></p>
+<p>二、</p>
+<h2 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
+<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把**<br>clean.sh<strong>替换为</strong>upload.sh**。</li>
+</ul>
+<blockquote>
+<p>nano 编辑器的操作方法参见<a href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
+</blockquote>
+<pre><code># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
+<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
+</blockquote>
+<pre><code>rclone authorize &quot;onedrive&quot;
+</code></pre>
+<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
+<pre><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+Paste the following into your remote machine ---&gt;
+&#123;&quot;access_token&quot;:&quot;xxxxxxxx&quot;&#125;  # 注意!复制&#123;xxxxxxxx&#125;整个内容，并保存好，后面需要用到
+&lt;---End paste
+</code></pre>
+<p>输入</p>
+<blockquote>
+<p><strong>rclone config</strong></p>
+</blockquote>
+<p>命令，会出现以下信息，参照下面的注释进行操作。<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-39-58.png" alt="RC1" title="RC1"></p>
+<blockquote>
+<p><strong>选27 Microsoft OneDrive</strong></p>
+</blockquote>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-16.png" alt="Rclone2"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-31.png" alt="Rclone3"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-39.png" alt="Rclone4"></p>
+<blockquote>
+<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
+</ul>
+<h1 id="网盘名称-RCLONE-配置时填写的-name"><a href="#网盘名称-RCLONE-配置时填写的-name" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
+<p><strong>drive-name&#x3D;OneDrive</strong></p>
+</blockquote>
+<ul>
+<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
+<p>service aria2 restart</p>
+</li>
+</ul>
+<h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
+<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
+<p>&#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
+</li>
+<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
+</li>
+<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
+</li>
+</ul>
+<p>三、<br>部署Ar­i­aNg 页面</p>
+<pre><code># bridge 网络模式
+docker run -d \
+    --name ariang \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -p 6880:6880 \
+    p3terx/ariang
+
+# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
+docker run -d \
+    --name ariang \
+    --log-opt max-size=1m \
+    --restart unless-stopped \
+    --network host \
+    p3terx/ariang --port 6880 --ipv6
+</code></pre>
+<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/20181227201030.png" alt="Aria1"></p>
+<blockquote>
+<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
+</blockquote>
+<hr>
+<h2 id="AriaNg-使用注意事项"><a href="#AriaNg-使用注意事项" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
+<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug<br>，所以必要的设置需写入到 Aria2 配置文件中。</li>
+<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
+<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
+<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
+</ul>
+<hr>
+<p>本文参考的文章来自：**<a href="https://p3terx.com/">P3terx</a>**</p>
+<blockquote>
+<p>Aria2 新手入门教程<br><a href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<br><a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<br><a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用OneinStack一键搭建LNMP和Typecho</title>
+    <url>//42946.html</url>
+    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
+<p>环境安装完成后</p>
+<pre><code>#进入oneinstack
+cd oneinstack
+#添加网站
+./vhost.sh
+</code></pre>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
+<pre><code>#进入网站目录
+cd /data/wwwroot/xxx.xxxx.xxx
+#一键安装命令
+wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
+tar xzf 1.1.17.10.30.-release.tar.gz
+cd build
+mv * .. 
+cd ..
+rm -rf 1.1.17.10.30.-release.tar.gz build
+</code></pre>
+<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
+<p>之后就可以访问你的网站 进行Typecho的安装</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《我的房客大小姐》</title>
+    <url>//32219.html</url>
+    <content><![CDATA[<ul>
+<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Markdown（笔记）</title>
     <url>//16272.html</url>
     <content><![CDATA[<h1 id="Markdown语法大全"><a href="#Markdown语法大全" class="headerlink" title="Markdown语法大全"></a>Markdown语法大全</h1><h2 id="一、-注释"><a href="#一、-注释" class="headerlink" title="一、 注释"></a>一、 注释</h2><h4 id="1-代码法"><a href="#1-代码法" class="headerlink" title="1.代码法"></a>1.代码法</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#x27;display: none&#x27;</span>&gt;</span></span></span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -497,237 +762,6 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
-    <title>遥远的救世主</title>
-    <url>//34887.html</url>
-    <content><![CDATA[<ul>
-<li><p>一、传统文化和传统观念是不是一个炉子里的两个烧饼？如果我们的文化适应生产力发展的要求，那就不用转变观念了，中国人坐庄家，让别人跟我们接轨好了。我们老是躲在屋里唱《我的中国心》，多辛酸！</p>
-<span id="more"></span>
-</li>
-<li><p>二、中国的传统文化是皇恩浩大的文化，它的实用是以皇天在上为先决条件。中国为什么穷？穷就穷在幼稚的思维，穷在期望救主、期望救恩的文化上，这是一个渗透到民族骨子里的价值判断体系，太可怕了。</p>
-<!--more-->
-</li>
-<li><p>三、透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家一个民族，任何一种命运归根到底都是那种文化属性的产物。强势文化造就强者，弱势文化造就弱者，这是规律，也可以理解为天道，不以人的意志为转移。</p>
-<!--more-->
-</li>
-<li><p>四、强势文化就是遵循事物规律的文化，弱势文化就是依赖强者的道德期望破格获取的文化，也是期望救主的文化。强势文化在武学上被称为「秘笈”，而弱势文化由于易学、易懂、易用，成了流行品种。</p>
-<!--more-->
-</li>
-<li><p>五、强盗的本质是破格获取，破格获取与直接获取是两个不同的概念。你们没有自信与强者在同一个规则下公平竞争，这只能说明你是弱者，因为弱势文化所追求的最高价值就是破格获取。所以，强盗的逻辑从本质上讲是最懦弱的生存哲学。</p>
-<!--more-->
-</li>
-<li><p>六、你不知道你，所以你是你，如果你知道了你，你就不是你了。</p>
-<!--more-->
-</li>
-<li><p>七、传统观念的死结就在一个『靠』字上，在家靠父母，出门靠朋友，靠上帝、靠菩萨、靠皇恩……总之靠什么都行，就是别靠自己。这是一个沉积了几千年的文化属性问题，非几次新文化运动就能开悟。</p>
-<!--more-->
-</li>
-<li><p>八、没有竞争的社会就没有活力，而竞争必然会产生贫富、等级，此乃天道，乃社会进步的必然代价。无弱，强焉在？一个『强』字，弱已经在其中了。故而，佛度心苦，修的是一颗平常心。</p>
-<!--more-->
-</li>
-<li><p>九、等级一直是我们社会文化的禁区，大家所以小心翼翼绕开禁区，是唯恐平等、尊严之类的东西受到伤害。</p>
-<!--more-->
-</li>
-<li><p>十、释、道、儒均是博大精深的学派，支撑中华民族走过了几千年的文明历程，是伟大的文明。但是，社会在发展，传统文化毕竟是以皇恩浩荡为先决条件的文化，讲的都是皆空、无为、中庸的理，以抑制个性而求生求解。当今社会已经发展到了市场经济的民主与法制，诸家学说也面临一个如实观照而俱进的课题，是传统？还是传承？统则僵死，承则光大。</p>
-<!--more-->
-</li>
-<li><p>十一、当人一旦从危险里跳出来，他就不再去关注这个事物的危险了，他的目光就会全部落在这个事物的利益上，这就是人。</p>
-<!--more-->
-</li>
-<li><p>十二、杀富富不去，救贫贫不离。救主的文化唯救主可说，救主不是人，是道，得救不是破了戒的狼吞虎咽，是觉悟。</p>
-<!--more-->
-</li>
-<li><p>十三、法律是社会道德的底线，是解决最基本、最表面的问题，不解决文化的根本问题，文化的问题只能由文化的觉悟解决。一个民族的文化属性就是这个民族的主，主宰着这个民族的文明、荣辱、兴衰。一个民族最强调道德的时候，正是这个民族道德最沦丧的时候。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TG人形自走机器人项目PagerMaid和PagerMaid-Pyro安装</title>
-    <url>//31299.html</url>
-    <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
-<li>Telegram官方申请的APP ID和APP HASH</li>
-</ul>
-<h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
-<li>打开<a href="https://my.telegram.org/auth">官网</a></li>
-<li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
-<li>点击“API development tools”<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/2.png" alt="2"></li>
-<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/3.png" alt="3"></li>
-</ol>
-<h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
-<h3 id="手动部署PagerMaid-Pyro"><a href="#手动部署PagerMaid-Pyro" class="headerlink" title="手动部署PagerMaid-Pyro"></a>手动部署PagerMaid-Pyro</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/4.png" alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/5.png" alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/6.png" alt="6"><br>设置守护进程</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#x27;TEXT&#x27; &gt; /etc/systemd/system/pagermaid.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=PagerMaid-Modify telegram utility daemon</span><br><span class="line">After=network.target</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/pagermaid</span><br><span class="line">ExecStart=/usr/bin/python3 -m pagermaid</span><br><span class="line">Restart=always</span><br><span class="line">TEXT</span><br></pre></td></tr></table></figure>
-
-<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4><ol>
-<li>启动程序：<code>systemctl start pagermaid</code>；</li>
-<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
-<li>停止程序：<code>systemctl stop pagermaid</code>;</li>
-</ol>
-<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a href="https://index.xtaolabs.com/">安装地址</a><br><a href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】</p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>Telegram</tag>
-        <tag>Bot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用OneinStack一键搭建LNMP和Typecho</title>
-    <url>//42946.html</url>
-    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
-<p>环境安装完成后</p>
-<pre><code>#进入oneinstack
-cd oneinstack
-#添加网站
-./vhost.sh
-</code></pre>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
-<pre><code>#进入网站目录
-cd /data/wwwroot/xxx.xxxx.xxx
-#一键安装命令
-wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
-tar xzf 1.1.17.10.30.-release.tar.gz
-cd build
-mv * .. 
-cd ..
-rm -rf 1.1.17.10.30.-release.tar.gz build
-</code></pre>
-<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
-<p>之后就可以访问你的网站 进行Typecho的安装</p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>（VPS）利用Aria2下载Rclone转存到OneDrive</title>
-    <url>//45975.html</url>
-    <content><![CDATA[<p>一、</p>
-<h2 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到<a href="https://github.com/P3TERX/aria2.sh">一键安装Aria2</a></p>
-<p>二、</p>
-<h2 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
-<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
-<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
-<h2 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
-<ul>
-<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把**<br>clean.sh<strong>替换为</strong>upload.sh**。</li>
-</ul>
-<blockquote>
-<p>nano 编辑器的操作方法参见<a href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
-</blockquote>
-<pre><code># 下载完成后执行的命令
-on-download-complete=/root/.aria2c/upload.sh
-</code></pre>
-<h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
-<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
-</blockquote>
-<pre><code>rclone authorize &quot;onedrive&quot;
-</code></pre>
-<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
-<pre><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
-Log in and authorize rclone for access
-Waiting for code...
-Got code
-Paste the following into your remote machine ---&gt;
-&#123;&quot;access_token&quot;:&quot;xxxxxxxx&quot;&#125;  # 注意!复制&#123;xxxxxxxx&#125;整个内容，并保存好，后面需要用到
-&lt;---End paste
-</code></pre>
-<p>输入</p>
-<blockquote>
-<p><strong>rclone config</strong></p>
-</blockquote>
-<p>命令，会出现以下信息，参照下面的注释进行操作。<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-39-58.png" alt="RC1" title="RC1"></p>
-<blockquote>
-<p><strong>选27 Microsoft OneDrive</strong></p>
-</blockquote>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-16.png" alt="Rclone2"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-31.png" alt="Rclone3"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-39.png" alt="Rclone4"></p>
-<blockquote>
-<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
-</blockquote>
-<ul>
-<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
-</ul>
-<h1 id="网盘名称-RCLONE-配置时填写的-name"><a href="#网盘名称-RCLONE-配置时填写的-name" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
-<p><strong>drive-name&#x3D;OneDrive</strong></p>
-</blockquote>
-<ul>
-<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
-<p>service aria2 restart</p>
-</li>
-</ul>
-<h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
-<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
-<p>&#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
-</li>
-<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
-</li>
-<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
-</li>
-</ul>
-<p>三、<br>部署Ar­i­aNg 页面</p>
-<pre><code># bridge 网络模式
-docker run -d \
-    --name ariang \
-    --restart unless-stopped \
-    --log-opt max-size=1m \
-    -p 6880:6880 \
-    p3terx/ariang
-
-# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
-docker run -d \
-    --name ariang \
-    --log-opt max-size=1m \
-    --restart unless-stopped \
-    --network host \
-    p3terx/ariang --port 6880 --ipv6
-</code></pre>
-<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/20181227201030.png" alt="Aria1"></p>
-<blockquote>
-<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
-</blockquote>
-<hr>
-<h2 id="AriaNg-使用注意事项"><a href="#AriaNg-使用注意事项" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
-<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug<br>，所以必要的设置需写入到 Aria2 配置文件中。</li>
-<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
-<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
-<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
-</ul>
-<hr>
-<p>本文参考的文章来自：**<a href="https://p3terx.com/">P3terx</a>**</p>
-<blockquote>
-<p>Aria2 新手入门教程<br><a href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<br><a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<br><a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>//16107.html</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -749,40 +783,6 @@ docker run -d \
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《我的房客大小姐》</title>
-    <url>//32219.html</url>
-    <content><![CDATA[<ul>
-<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
       </tags>
   </entry>
   <entry>
@@ -876,41 +876,6 @@ docker run -d \
       </tags>
   </entry>
   <entry>
-    <title>《墨菲定律》（下）</title>
-    <url>//64537.html</url>
-    <content><![CDATA[<h4 id="NO-61-认定了一件事不值得去做，就不可能做好"><a href="#NO-61-认定了一件事不值得去做，就不可能做好" class="headerlink" title="NO.61 认定了一件事不值得去做，就不可能做好"></a>NO.61 认定了一件事不值得去做，就不可能做好</h4><h4 id="NO-76-你和好友爱上同一个女人时，就没有朋友可做了"><a href="#NO-76-你和好友爱上同一个女人时，就没有朋友可做了" class="headerlink" title="NO.76 你和好友爱上同一个女人时，就没有朋友可做了"></a>NO.76 你和好友爱上同一个女人时，就没有朋友可做了</h4><ol>
-<li>喜欢一朵花，才想要摘下它；爱一朵花，却会浇灌它呵护它</li>
-<li>真爱一个人，应当是在关注对方的同时，给予对方一片自由的天空，让爱有呼吸的余地</li>
-</ol>
-<h4 id="NO-77-爱情无价，但也不是绝对，还得看钱多钱少"><a href="#NO-77-爱情无价，但也不是绝对，还得看钱多钱少" class="headerlink" title="NO.77 爱情无价，但也不是绝对，还得看钱多钱少"></a>NO.77 爱情无价，但也不是绝对，还得看钱多钱少</h4><h4 id="NO-78-你爱上一个人是因为，TA让你想起了旧情人"><a href="#NO-78-你爱上一个人是因为，TA让你想起了旧情人" class="headerlink" title="NO.78 你爱上一个人是因为，TA让你想起了旧情人"></a>NO.78 你爱上一个人是因为，TA让你想起了旧情人</h4><h4 id="NO-79-总相信最好的还在前面，结果好的都被人捡走了"><a href="#NO-79-总相信最好的还在前面，结果好的都被人捡走了" class="headerlink" title="NO.79 总相信最好的还在前面，结果好的都被人捡走了"></a>NO.79 总相信最好的还在前面，结果好的都被人捡走了</h4><ol>
-<li>和我们共度余生的那个人，很可能也不是人群中最出众的，但只要他是喜欢你的，你满意的，就足够了</li>
-</ol>
-<h4 id="NO-80-世界上没有免费的午餐，爱情也不例外"><a href="#NO-80-世界上没有免费的午餐，爱情也不例外" class="headerlink" title="NO.80 世界上没有免费的午餐，爱情也不例外"></a>NO.80 世界上没有免费的午餐，爱情也不例外</h4><ol>
-<li>婚恋也是需要巨大的成本付出的，同时也会获得收益，大多数人都会在恋爱对象与恋爱方式的选择上自觉或不自觉地进行成本收益的权衡与比较</li>
-</ol>
-<h4 id="NO-81-原本不笨的孩子，被责骂多了也会真的变笨"><a href="#NO-81-原本不笨的孩子，被责骂多了也会真的变笨" class="headerlink" title="NO.81 原本不笨的孩子，被责骂多了也会真的变笨"></a>NO.81 原本不笨的孩子，被责骂多了也会真的变笨</h4><h4 id="NO-82-越是品学兼优的孩子，越容易出现心理问题"><a href="#NO-82-越是品学兼优的孩子，越容易出现心理问题" class="headerlink" title="NO.82 越是品学兼优的孩子，越容易出现心理问题"></a>NO.82 越是品学兼优的孩子，越容易出现心理问题</h4><ol>
-<li>品学兼优的孩子，头上顶着闪耀的光环，在学习和生活中承受着很大的压力，缺少宣泄的机会和环境，心里有了不愉快时，不敢对长辈和同伴倾诉，时间久了，心理上就容易出现问题。</li>
-</ol>
-<h4 id="NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"><a href="#NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜" class="headerlink" title="NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"></a>NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜</h4><h4 id="NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"><a href="#NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福" class="headerlink" title="NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"></a>NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福</h4><ol>
-<li></li>
-</ol>
-<p>边际效用递减的原理广泛存在于日常生活中，很多人感觉幸福在不断的递减，两个人从最初的相识，相爱，情人眼里出西施，再到后来的习以为常，不再有激动和浪漫，幸福的效用开始在生活中慢慢地递减，所以很多人都在抱怨：日子越过越平淡，没有什么新鲜感，相爱容易，可相处太难了</p>
-<h4 id="NO-85-有时间旅行的时候没有钱，等有钱时又没时间了"><a href="#NO-85-有时间旅行的时候没有钱，等有钱时又没时间了" class="headerlink" title="NO.85 有时间旅行的时候没有钱，等有钱时又没时间了"></a>NO.85 有时间旅行的时候没有钱，等有钱时又没时间了</h4><h4 id="NO-86-接受了最坏的东西，也就没什么可怕的了"><a href="#NO-86-接受了最坏的东西，也就没什么可怕的了" class="headerlink" title="NO.86 接受了最坏的东西，也就没什么可怕的了"></a>NO.86 接受了最坏的东西，也就没什么可怕的了</h4><h4 id="NO-87-不要太自以为是，带着谦卑的心对待万物众生"><a href="#NO-87-不要太自以为是，带着谦卑的心对待万物众生" class="headerlink" title="NO.87 不要太自以为是，带着谦卑的心对待万物众生"></a>NO.87 不要太自以为是，带着谦卑的心对待万物众生</h4><ol>
-<li>人的感觉是很敏锐的，但也有惰性，会蒙骗我们的眼睛，加重我们的感受而迷失理性</li>
-<li>当我们给予他人关爱时，要尽量雪中送炭，而不是锦上添花；倘若是别人给予我们关爱，那更要懂得珍惜，善待这份心意</li>
-</ol>
-<h4 id="NO-88-所有的不幸，只有被认为不幸时才是真的不幸"><a href="#NO-88-所有的不幸，只有被认为不幸时才是真的不幸" class="headerlink" title="NO.88 所有的不幸，只有被认为不幸时才是真的不幸"></a>NO.88 所有的不幸，只有被认为不幸时才是真的不幸</h4><ol>
-<li>世间每件事都不是绝对的，看似好的开始，却未必有好的结局；看似坏的开始，却未必真的那么糟糕</li>
-</ol>
-<h4 id="NO-89-假装生气会变成真生气，假装快乐也会变得真快乐"><a href="#NO-89-假装生气会变成真生气，假装快乐也会变得真快乐" class="headerlink" title="NO.89 假装生气会变成真生气，假装快乐也会变得真快乐"></a>NO.89 假装生气会变成真生气，假装快乐也会变得真快乐</h4>]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《墨菲定律》（上）</title>
     <url>//24.html</url>
     <content><![CDATA[<h4 id="NO-1-一件事只要有可能出错，就一定会出错"><a href="#NO-1-一件事只要有可能出错，就一定会出错" class="headerlink" title="NO.1 一件事只要有可能出错，就一定会出错"></a>NO.1 一件事只要有可能出错，就一定会出错</h4><ol>
@@ -982,21 +947,33 @@ docker run -d \
       </tags>
   </entry>
   <entry>
-    <title>小说书摘</title>
-    <url>//42458.html</url>
-    <content><![CDATA[<ul>
-<li><p>一、<br>“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</p>
-</li>
-<li><p>二、<br>人总在一次次犹豫，摇摆，选择中，破碎迷雾，追溯本源，找到自己真正在意的东西。中间肯定有弯路，但无用功，同样也是有用功。</p>
-</li>
-<li><p>三、<br>还没相遇前，我俩各自修行，为的不是要到达彼岸，而是要找到彼此；我俩各自旅行，为的不是要找到自己，而是要寻遇对方。</p>
-</li>
-<li><p>四、<br>月色千古如斯，不知换了多少人看，它只是静静的挂在天上，平淡但坚贞。——如爱情。</p>
-</li>
-<li><p>五、<br>回忆是个怪物，它让人沉沦在过去，然后轻易把人摧毁。</p>
-</li>
-</ul>
-]]></content>
+    <title>《墨菲定律》（下）</title>
+    <url>//64537.html</url>
+    <content><![CDATA[<h4 id="NO-61-认定了一件事不值得去做，就不可能做好"><a href="#NO-61-认定了一件事不值得去做，就不可能做好" class="headerlink" title="NO.61 认定了一件事不值得去做，就不可能做好"></a>NO.61 认定了一件事不值得去做，就不可能做好</h4><h4 id="NO-76-你和好友爱上同一个女人时，就没有朋友可做了"><a href="#NO-76-你和好友爱上同一个女人时，就没有朋友可做了" class="headerlink" title="NO.76 你和好友爱上同一个女人时，就没有朋友可做了"></a>NO.76 你和好友爱上同一个女人时，就没有朋友可做了</h4><ol>
+<li>喜欢一朵花，才想要摘下它；爱一朵花，却会浇灌它呵护它</li>
+<li>真爱一个人，应当是在关注对方的同时，给予对方一片自由的天空，让爱有呼吸的余地</li>
+</ol>
+<h4 id="NO-77-爱情无价，但也不是绝对，还得看钱多钱少"><a href="#NO-77-爱情无价，但也不是绝对，还得看钱多钱少" class="headerlink" title="NO.77 爱情无价，但也不是绝对，还得看钱多钱少"></a>NO.77 爱情无价，但也不是绝对，还得看钱多钱少</h4><h4 id="NO-78-你爱上一个人是因为，TA让你想起了旧情人"><a href="#NO-78-你爱上一个人是因为，TA让你想起了旧情人" class="headerlink" title="NO.78 你爱上一个人是因为，TA让你想起了旧情人"></a>NO.78 你爱上一个人是因为，TA让你想起了旧情人</h4><h4 id="NO-79-总相信最好的还在前面，结果好的都被人捡走了"><a href="#NO-79-总相信最好的还在前面，结果好的都被人捡走了" class="headerlink" title="NO.79 总相信最好的还在前面，结果好的都被人捡走了"></a>NO.79 总相信最好的还在前面，结果好的都被人捡走了</h4><ol>
+<li>和我们共度余生的那个人，很可能也不是人群中最出众的，但只要他是喜欢你的，你满意的，就足够了</li>
+</ol>
+<h4 id="NO-80-世界上没有免费的午餐，爱情也不例外"><a href="#NO-80-世界上没有免费的午餐，爱情也不例外" class="headerlink" title="NO.80 世界上没有免费的午餐，爱情也不例外"></a>NO.80 世界上没有免费的午餐，爱情也不例外</h4><ol>
+<li>婚恋也是需要巨大的成本付出的，同时也会获得收益，大多数人都会在恋爱对象与恋爱方式的选择上自觉或不自觉地进行成本收益的权衡与比较</li>
+</ol>
+<h4 id="NO-81-原本不笨的孩子，被责骂多了也会真的变笨"><a href="#NO-81-原本不笨的孩子，被责骂多了也会真的变笨" class="headerlink" title="NO.81 原本不笨的孩子，被责骂多了也会真的变笨"></a>NO.81 原本不笨的孩子，被责骂多了也会真的变笨</h4><h4 id="NO-82-越是品学兼优的孩子，越容易出现心理问题"><a href="#NO-82-越是品学兼优的孩子，越容易出现心理问题" class="headerlink" title="NO.82 越是品学兼优的孩子，越容易出现心理问题"></a>NO.82 越是品学兼优的孩子，越容易出现心理问题</h4><ol>
+<li>品学兼优的孩子，头上顶着闪耀的光环，在学习和生活中承受着很大的压力，缺少宣泄的机会和环境，心里有了不愉快时，不敢对长辈和同伴倾诉，时间久了，心理上就容易出现问题。</li>
+</ol>
+<h4 id="NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"><a href="#NO-83-吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜" class="headerlink" title="NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜"></a>NO.83 吃不着葡萄说葡萄酸，吃了柠檬就说柠檬甜</h4><h4 id="NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"><a href="#NO-84-穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福" class="headerlink" title="NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福"></a>NO.84 穷的时候觉得有钱幸福，有钱了却又觉得钱带不来幸福</h4><ol>
+<li></li>
+</ol>
+<p>边际效用递减的原理广泛存在于日常生活中，很多人感觉幸福在不断的递减，两个人从最初的相识，相爱，情人眼里出西施，再到后来的习以为常，不再有激动和浪漫，幸福的效用开始在生活中慢慢地递减，所以很多人都在抱怨：日子越过越平淡，没有什么新鲜感，相爱容易，可相处太难了</p>
+<h4 id="NO-85-有时间旅行的时候没有钱，等有钱时又没时间了"><a href="#NO-85-有时间旅行的时候没有钱，等有钱时又没时间了" class="headerlink" title="NO.85 有时间旅行的时候没有钱，等有钱时又没时间了"></a>NO.85 有时间旅行的时候没有钱，等有钱时又没时间了</h4><h4 id="NO-86-接受了最坏的东西，也就没什么可怕的了"><a href="#NO-86-接受了最坏的东西，也就没什么可怕的了" class="headerlink" title="NO.86 接受了最坏的东西，也就没什么可怕的了"></a>NO.86 接受了最坏的东西，也就没什么可怕的了</h4><h4 id="NO-87-不要太自以为是，带着谦卑的心对待万物众生"><a href="#NO-87-不要太自以为是，带着谦卑的心对待万物众生" class="headerlink" title="NO.87 不要太自以为是，带着谦卑的心对待万物众生"></a>NO.87 不要太自以为是，带着谦卑的心对待万物众生</h4><ol>
+<li>人的感觉是很敏锐的，但也有惰性，会蒙骗我们的眼睛，加重我们的感受而迷失理性</li>
+<li>当我们给予他人关爱时，要尽量雪中送炭，而不是锦上添花；倘若是别人给予我们关爱，那更要懂得珍惜，善待这份心意</li>
+</ol>
+<h4 id="NO-88-所有的不幸，只有被认为不幸时才是真的不幸"><a href="#NO-88-所有的不幸，只有被认为不幸时才是真的不幸" class="headerlink" title="NO.88 所有的不幸，只有被认为不幸时才是真的不幸"></a>NO.88 所有的不幸，只有被认为不幸时才是真的不幸</h4><ol>
+<li>世间每件事都不是绝对的，看似好的开始，却未必有好的结局；看似坏的开始，却未必真的那么糟糕</li>
+</ol>
+<h4 id="NO-89-假装生气会变成真生气，假装快乐也会变得真快乐"><a href="#NO-89-假装生气会变成真生气，假装快乐也会变得真快乐" class="headerlink" title="NO.89 假装生气会变成真生气，假装快乐也会变得真快乐"></a>NO.89 假装生气会变成真生气，假装快乐也会变得真快乐</h4>]]></content>
       <categories>
         <category>阅读</category>
       </categories>
@@ -1028,6 +1005,77 @@ docker run -d \
       </categories>
       <tags>
         <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小说书摘</title>
+    <url>//42458.html</url>
+    <content><![CDATA[<ul>
+<li><p>一、<br>“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</p>
+</li>
+<li><p>二、<br>人总在一次次犹豫，摇摆，选择中，破碎迷雾，追溯本源，找到自己真正在意的东西。中间肯定有弯路，但无用功，同样也是有用功。</p>
+</li>
+<li><p>三、<br>还没相遇前，我俩各自修行，为的不是要到达彼岸，而是要找到彼此；我俩各自旅行，为的不是要找到自己，而是要寻遇对方。</p>
+</li>
+<li><p>四、<br>月色千古如斯，不知换了多少人看，它只是静静的挂在天上，平淡但坚贞。——如爱情。</p>
+</li>
+<li><p>五、<br>回忆是个怪物，它让人沉沦在过去，然后轻易把人摧毁。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
+    <url>//40025.html</url>
+    <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
+<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
+
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
+<p>输入命令</p>
+<p><code>docker logs -f qinglong</code></p>
+<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
+<span id="more"></span>
+<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
+<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
+<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
+
+<p>这时候访问 <a href="http://ip:port" title="http://ip:port">http://ip:port</a> 就能访问了</p>
+<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http://ip:port/admin/">http://ip:port/admin/</a></p>
+<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
+<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
+<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
+<p>任务仓库：</p>
+<pre><code>【Faker2】
+ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+
+【Faker3】
+ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+</code></pre>
+<hr>
+<p>该文章内容部分来自于：<br><a href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
       </tags>
   </entry>
   <entry>
@@ -1097,54 +1145,6 @@ docker run -d \
       </categories>
       <tags>
         <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
-    <url>//40025.html</url>
-    <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
-<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
-
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
-<p>输入命令</p>
-<p><code>docker logs -f qinglong</code></p>
-<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
-<span id="more"></span>
-<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
-<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
-<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
-
-<p>这时候访问 <a href="http://ip:port" title="http://ip:port">http://ip:port</a> 就能访问了</p>
-<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http://ip:port/admin/">http://ip:port/admin/</a></p>
-<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
-<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
-<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
-<p>任务仓库：</p>
-<pre><code>【Faker2】
-ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-
-【Faker3】
-ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-</code></pre>
-<hr>
-<p>该文章内容部分来自于：<br><a href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
       </tags>
   </entry>
   <entry>
