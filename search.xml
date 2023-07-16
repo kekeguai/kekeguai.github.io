@@ -159,229 +159,6 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
-    <title>遥远的救世主</title>
-    <url>//34887.html</url>
-    <content><![CDATA[<ul>
-<li><p>一、传统文化和传统观念是不是一个炉子里的两个烧饼？如果我们的文化适应生产力发展的要求，那就不用转变观念了，中国人坐庄家，让别人跟我们接轨好了。我们老是躲在屋里唱《我的中国心》，多辛酸！</p>
-<span id="more"></span>
-</li>
-<li><p>二、中国的传统文化是皇恩浩大的文化，它的实用是以皇天在上为先决条件。中国为什么穷？穷就穷在幼稚的思维，穷在期望救主、期望救恩的文化上，这是一个渗透到民族骨子里的价值判断体系，太可怕了。</p>
-<!--more-->
-</li>
-<li><p>三、透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家一个民族，任何一种命运归根到底都是那种文化属性的产物。强势文化造就强者，弱势文化造就弱者，这是规律，也可以理解为天道，不以人的意志为转移。</p>
-<!--more-->
-</li>
-<li><p>四、强势文化就是遵循事物规律的文化，弱势文化就是依赖强者的道德期望破格获取的文化，也是期望救主的文化。强势文化在武学上被称为「秘笈”，而弱势文化由于易学、易懂、易用，成了流行品种。</p>
-<!--more-->
-</li>
-<li><p>五、强盗的本质是破格获取，破格获取与直接获取是两个不同的概念。你们没有自信与强者在同一个规则下公平竞争，这只能说明你是弱者，因为弱势文化所追求的最高价值就是破格获取。所以，强盗的逻辑从本质上讲是最懦弱的生存哲学。</p>
-<!--more-->
-</li>
-<li><p>六、你不知道你，所以你是你，如果你知道了你，你就不是你了。</p>
-<!--more-->
-</li>
-<li><p>七、传统观念的死结就在一个『靠』字上，在家靠父母，出门靠朋友，靠上帝、靠菩萨、靠皇恩……总之靠什么都行，就是别靠自己。这是一个沉积了几千年的文化属性问题，非几次新文化运动就能开悟。</p>
-<!--more-->
-</li>
-<li><p>八、没有竞争的社会就没有活力，而竞争必然会产生贫富、等级，此乃天道，乃社会进步的必然代价。无弱，强焉在？一个『强』字，弱已经在其中了。故而，佛度心苦，修的是一颗平常心。</p>
-<!--more-->
-</li>
-<li><p>九、等级一直是我们社会文化的禁区，大家所以小心翼翼绕开禁区，是唯恐平等、尊严之类的东西受到伤害。</p>
-<!--more-->
-</li>
-<li><p>十、释、道、儒均是博大精深的学派，支撑中华民族走过了几千年的文明历程，是伟大的文明。但是，社会在发展，传统文化毕竟是以皇恩浩荡为先决条件的文化，讲的都是皆空、无为、中庸的理，以抑制个性而求生求解。当今社会已经发展到了市场经济的民主与法制，诸家学说也面临一个如实观照而俱进的课题，是传统？还是传承？统则僵死，承则光大。</p>
-<!--more-->
-</li>
-<li><p>十一、当人一旦从危险里跳出来，他就不再去关注这个事物的危险了，他的目光就会全部落在这个事物的利益上，这就是人。</p>
-<!--more-->
-</li>
-<li><p>十二、杀富富不去，救贫贫不离。救主的文化唯救主可说，救主不是人，是道，得救不是破了戒的狼吞虎咽，是觉悟。</p>
-<!--more-->
-</li>
-<li><p>十三、法律是社会道德的底线，是解决最基本、最表面的问题，不解决文化的根本问题，文化的问题只能由文化的觉悟解决。一个民族的文化属性就是这个民族的主，主宰着这个民族的文明、荣辱、兴衰。一个民族最强调道德的时候，正是这个民族道德最沦丧的时候。</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>（VPS）利用Aria2下载Rclone转存到OneDrive</title>
-    <url>//45975.html</url>
-    <content><![CDATA[<p>一、</p>
-<h2 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到<a href="https://github.com/P3TERX/aria2.sh">一键安装Aria2</a></p>
-<p>二、</p>
-<h2 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
-<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
-<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
-<h2 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
-<ul>
-<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把**<br>clean.sh<strong>替换为</strong>upload.sh**。</li>
-</ul>
-<blockquote>
-<p>nano 编辑器的操作方法参见<a href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
-</blockquote>
-<pre><code># 下载完成后执行的命令
-on-download-complete=/root/.aria2c/upload.sh
-</code></pre>
-<h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
-<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
-</blockquote>
-<pre><code>rclone authorize &quot;onedrive&quot;
-</code></pre>
-<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
-<pre><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
-Log in and authorize rclone for access
-Waiting for code...
-Got code
-Paste the following into your remote machine ---&gt;
-&#123;&quot;access_token&quot;:&quot;xxxxxxxx&quot;&#125;  # 注意!复制&#123;xxxxxxxx&#125;整个内容，并保存好，后面需要用到
-&lt;---End paste
-</code></pre>
-<p>输入</p>
-<blockquote>
-<p><strong>rclone config</strong></p>
-</blockquote>
-<p>命令，会出现以下信息，参照下面的注释进行操作。<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-39-58.png" alt="RC1" title="RC1"></p>
-<blockquote>
-<p><strong>选27 Microsoft OneDrive</strong></p>
-</blockquote>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-16.png" alt="Rclone2"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-31.png" alt="Rclone3"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-39.png" alt="Rclone4"></p>
-<blockquote>
-<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
-</blockquote>
-<ul>
-<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
-</ul>
-<h1 id="网盘名称-RCLONE-配置时填写的-name"><a href="#网盘名称-RCLONE-配置时填写的-name" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
-<p><strong>drive-name&#x3D;OneDrive</strong></p>
-</blockquote>
-<ul>
-<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
-<p>service aria2 restart</p>
-</li>
-</ul>
-<h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
-<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
-<p>&#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
-</li>
-<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
-</li>
-<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
-</li>
-</ul>
-<p>三、<br>部署Ar­i­aNg 页面</p>
-<pre><code># bridge 网络模式
-docker run -d \
-    --name ariang \
-    --restart unless-stopped \
-    --log-opt max-size=1m \
-    -p 6880:6880 \
-    p3terx/ariang
-
-# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
-docker run -d \
-    --name ariang \
-    --log-opt max-size=1m \
-    --restart unless-stopped \
-    --network host \
-    p3terx/ariang --port 6880 --ipv6
-</code></pre>
-<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/20181227201030.png" alt="Aria1"></p>
-<blockquote>
-<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
-</blockquote>
-<hr>
-<h2 id="AriaNg-使用注意事项"><a href="#AriaNg-使用注意事项" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
-<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug<br>，所以必要的设置需写入到 Aria2 配置文件中。</li>
-<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
-<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
-<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
-</ul>
-<hr>
-<p>本文参考的文章来自：**<a href="https://p3terx.com/">P3terx</a>**</p>
-<blockquote>
-<p>Aria2 新手入门教程<br><a href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<br><a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<br><a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用OneinStack一键搭建LNMP和Typecho</title>
-    <url>//42946.html</url>
-    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
-<p>环境安装完成后</p>
-<pre><code>#进入oneinstack
-cd oneinstack
-#添加网站
-./vhost.sh
-</code></pre>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
-<pre><code>#进入网站目录
-cd /data/wwwroot/xxx.xxxx.xxx
-#一键安装命令
-wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
-tar xzf 1.1.17.10.30.-release.tar.gz
-cd build
-mv * .. 
-cd ..
-rm -rf 1.1.17.10.30.-release.tar.gz build
-</code></pre>
-<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
-<p>之后就可以访问你的网站 进行Typecho的安装</p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《我的房客大小姐》</title>
-    <url>//32219.html</url>
-    <content><![CDATA[<ul>
-<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown（笔记）</title>
     <url>//16272.html</url>
     <content><![CDATA[<h1 id="Markdown语法大全"><a href="#Markdown语法大全" class="headerlink" title="Markdown语法大全"></a>Markdown语法大全</h1><h2 id="一、-注释"><a href="#一、-注释" class="headerlink" title="一、 注释"></a>一、 注释</h2><h4 id="1-代码法"><a href="#1-代码法" class="headerlink" title="1.代码法"></a>1.代码法</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#x27;display: none&#x27;</span>&gt;</span></span></span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -762,6 +539,255 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </tags>
   </entry>
   <entry>
+    <title>小说书摘2</title>
+    <url>//20133.html</url>
+    <content><![CDATA[<ul>
+<li>一、这世上只有我是真正爱你的，我会向你证明，我就是你命中注定的那个人，当然，你也是。</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、原来大脑的记忆力如此差劲，你再珍惜再重视一个人，可当她真的消失后，你也会不知不觉中忘记她，也忘怀掉过去的点点滴滴。这到底是大脑皮层的一种自我保护的分泌？还是因为她在心中的地位没有自己想象中的那么刻骨铭心？</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、在政府任职的高低，企业总资产的排名，将直接影响着你个人的社会地位！有钱有权，自然就高人一等，可以肆无忌惮地将普通人踩在脚下！而反过来，处在底层的普通人，却一样对权力与金钱有着深深的渴望，他们期望通过任何可能实现的手段，去完成去权力或是金钱追求的梦想</li>
+</ul>
+<!--more-->
+
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>遥远的救世主</title>
+    <url>//34887.html</url>
+    <content><![CDATA[<ul>
+<li><p>一、传统文化和传统观念是不是一个炉子里的两个烧饼？如果我们的文化适应生产力发展的要求，那就不用转变观念了，中国人坐庄家，让别人跟我们接轨好了。我们老是躲在屋里唱《我的中国心》，多辛酸！</p>
+<span id="more"></span>
+</li>
+<li><p>二、中国的传统文化是皇恩浩大的文化，它的实用是以皇天在上为先决条件。中国为什么穷？穷就穷在幼稚的思维，穷在期望救主、期望救恩的文化上，这是一个渗透到民族骨子里的价值判断体系，太可怕了。</p>
+<!--more-->
+</li>
+<li><p>三、透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家一个民族，任何一种命运归根到底都是那种文化属性的产物。强势文化造就强者，弱势文化造就弱者，这是规律，也可以理解为天道，不以人的意志为转移。</p>
+<!--more-->
+</li>
+<li><p>四、强势文化就是遵循事物规律的文化，弱势文化就是依赖强者的道德期望破格获取的文化，也是期望救主的文化。强势文化在武学上被称为「秘笈”，而弱势文化由于易学、易懂、易用，成了流行品种。</p>
+<!--more-->
+</li>
+<li><p>五、强盗的本质是破格获取，破格获取与直接获取是两个不同的概念。你们没有自信与强者在同一个规则下公平竞争，这只能说明你是弱者，因为弱势文化所追求的最高价值就是破格获取。所以，强盗的逻辑从本质上讲是最懦弱的生存哲学。</p>
+<!--more-->
+</li>
+<li><p>六、你不知道你，所以你是你，如果你知道了你，你就不是你了。</p>
+<!--more-->
+</li>
+<li><p>七、传统观念的死结就在一个『靠』字上，在家靠父母，出门靠朋友，靠上帝、靠菩萨、靠皇恩……总之靠什么都行，就是别靠自己。这是一个沉积了几千年的文化属性问题，非几次新文化运动就能开悟。</p>
+<!--more-->
+</li>
+<li><p>八、没有竞争的社会就没有活力，而竞争必然会产生贫富、等级，此乃天道，乃社会进步的必然代价。无弱，强焉在？一个『强』字，弱已经在其中了。故而，佛度心苦，修的是一颗平常心。</p>
+<!--more-->
+</li>
+<li><p>九、等级一直是我们社会文化的禁区，大家所以小心翼翼绕开禁区，是唯恐平等、尊严之类的东西受到伤害。</p>
+<!--more-->
+</li>
+<li><p>十、释、道、儒均是博大精深的学派，支撑中华民族走过了几千年的文明历程，是伟大的文明。但是，社会在发展，传统文化毕竟是以皇恩浩荡为先决条件的文化，讲的都是皆空、无为、中庸的理，以抑制个性而求生求解。当今社会已经发展到了市场经济的民主与法制，诸家学说也面临一个如实观照而俱进的课题，是传统？还是传承？统则僵死，承则光大。</p>
+<!--more-->
+</li>
+<li><p>十一、当人一旦从危险里跳出来，他就不再去关注这个事物的危险了，他的目光就会全部落在这个事物的利益上，这就是人。</p>
+<!--more-->
+</li>
+<li><p>十二、杀富富不去，救贫贫不离。救主的文化唯救主可说，救主不是人，是道，得救不是破了戒的狼吞虎咽，是觉悟。</p>
+<!--more-->
+</li>
+<li><p>十三、法律是社会道德的底线，是解决最基本、最表面的问题，不解决文化的根本问题，文化的问题只能由文化的觉悟解决。一个民族的文化属性就是这个民族的主，主宰着这个民族的文明、荣辱、兴衰。一个民族最强调道德的时候，正是这个民族道德最沦丧的时候。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用OneinStack一键搭建LNMP和Typecho</title>
+    <url>//42946.html</url>
+    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
+<p>环境安装完成后</p>
+<pre><code>#进入oneinstack
+cd oneinstack
+#添加网站
+./vhost.sh
+</code></pre>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
+<pre><code>#进入网站目录
+cd /data/wwwroot/xxx.xxxx.xxx
+#一键安装命令
+wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
+tar xzf 1.1.17.10.30.-release.tar.gz
+cd build
+mv * .. 
+cd ..
+rm -rf 1.1.17.10.30.-release.tar.gz build
+</code></pre>
+<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
+<p>之后就可以访问你的网站 进行Typecho的安装</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>（VPS）利用Aria2下载Rclone转存到OneDrive</title>
+    <url>//45975.html</url>
+    <content><![CDATA[<p>一、</p>
+<h2 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到<a href="https://github.com/P3TERX/aria2.sh">一键安装Aria2</a></p>
+<p>二、</p>
+<h2 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
+<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把**<br>clean.sh<strong>替换为</strong>upload.sh**。</li>
+</ul>
+<blockquote>
+<p>nano 编辑器的操作方法参见<a href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
+</blockquote>
+<pre><code># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
+<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
+</blockquote>
+<pre><code>rclone authorize &quot;onedrive&quot;
+</code></pre>
+<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
+<pre><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+Paste the following into your remote machine ---&gt;
+&#123;&quot;access_token&quot;:&quot;xxxxxxxx&quot;&#125;  # 注意!复制&#123;xxxxxxxx&#125;整个内容，并保存好，后面需要用到
+&lt;---End paste
+</code></pre>
+<p>输入</p>
+<blockquote>
+<p><strong>rclone config</strong></p>
+</blockquote>
+<p>命令，会出现以下信息，参照下面的注释进行操作。<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-39-58.png" alt="RC1" title="RC1"></p>
+<blockquote>
+<p><strong>选27 Microsoft OneDrive</strong></p>
+</blockquote>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-16.png" alt="Rclone2"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-31.png" alt="Rclone3"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-39.png" alt="Rclone4"></p>
+<blockquote>
+<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
+</ul>
+<h1 id="网盘名称-RCLONE-配置时填写的-name"><a href="#网盘名称-RCLONE-配置时填写的-name" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
+<p><strong>drive-name&#x3D;OneDrive</strong></p>
+</blockquote>
+<ul>
+<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
+<p>service aria2 restart</p>
+</li>
+</ul>
+<h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
+<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
+<p>&#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
+</li>
+<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
+</li>
+<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
+</li>
+</ul>
+<p>三、<br>部署Ar­i­aNg 页面</p>
+<pre><code># bridge 网络模式
+docker run -d \
+    --name ariang \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -p 6880:6880 \
+    p3terx/ariang
+
+# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
+docker run -d \
+    --name ariang \
+    --log-opt max-size=1m \
+    --restart unless-stopped \
+    --network host \
+    p3terx/ariang --port 6880 --ipv6
+</code></pre>
+<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/20181227201030.png" alt="Aria1"></p>
+<blockquote>
+<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
+</blockquote>
+<hr>
+<h2 id="AriaNg-使用注意事项"><a href="#AriaNg-使用注意事项" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
+<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug<br>，所以必要的设置需写入到 Aria2 配置文件中。</li>
+<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
+<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
+<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
+</ul>
+<hr>
+<p>本文参考的文章来自：**<a href="https://p3terx.com/">P3terx</a>**</p>
+<blockquote>
+<p>Aria2 新手入门教程<br><a href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<br><a href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<br><a href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《我的房客大小姐》</title>
+    <url>//32219.html</url>
+    <content><![CDATA[<ul>
+<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>//16107.html</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -982,6 +1008,29 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </tags>
   </entry>
   <entry>
+    <title>小说书摘</title>
+    <url>//42458.html</url>
+    <content><![CDATA[<ul>
+<li><p>一、<br>“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</p>
+</li>
+<li><p>二、<br>人总在一次次犹豫，摇摆，选择中，破碎迷雾，追溯本源，找到自己真正在意的东西。中间肯定有弯路，但无用功，同样也是有用功。</p>
+</li>
+<li><p>三、<br>还没相遇前，我俩各自修行，为的不是要到达彼岸，而是要找到彼此；我俩各自旅行，为的不是要找到自己，而是要寻遇对方。</p>
+</li>
+<li><p>四、<br>月色千古如斯，不知换了多少人看，它只是静静的挂在天上，平淡但坚贞。——如爱情。</p>
+</li>
+<li><p>五、<br>回忆是个怪物，它让人沉沦在过去，然后轻易把人摧毁。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《墨菲定律》（中）</title>
     <url>//46098.html</url>
     <content><![CDATA[<h4 id="NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服"><a href="#NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服" class="headerlink" title="NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服"></a>NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服</h4><h4 id="NO-32-讨好所有人这件事，谁做都会碰一鼻子灰"><a href="#NO-32-讨好所有人这件事，谁做都会碰一鼻子灰" class="headerlink" title="NO.32 讨好所有人这件事，谁做都会碰一鼻子灰"></a>NO.32 讨好所有人这件事，谁做都会碰一鼻子灰</h4><h4 id="NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你"><a href="#NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你" class="headerlink" title="NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你"></a>NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你</h4><h4 id="NO-34-如果不能解决某个问题，就不要制造这个问题"><a href="#NO-34-如果不能解决某个问题，就不要制造这个问题" class="headerlink" title="NO.34 如果不能解决某个问题，就不要制造这个问题"></a>NO.34 如果不能解决某个问题，就不要制造这个问题</h4><h4 id="NO-35-最好的玩具，永远是别人手里正在玩的那个"><a href="#NO-35-最好的玩具，永远是别人手里正在玩的那个" class="headerlink" title="NO.35 最好的玩具，永远是别人手里正在玩的那个"></a>NO.35 最好的玩具，永远是别人手里正在玩的那个</h4><ol>
@@ -1000,29 +1049,6 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
 <li>当机立断地做出选择，或许会成功，或许会失败，但如果优柔寡断，畏首畏尾，结果就只有失败</li>
 </ol>
 <h4 id="NO-51-无论多么简单的事情，都会有人把它做错"><a href="#NO-51-无论多么简单的事情，都会有人把它做错" class="headerlink" title="NO.51 无论多么简单的事情，都会有人把它做错"></a>NO.51 无论多么简单的事情，都会有人把它做错</h4><h4 id="NO-52-老板走过你的办公桌时，你总在做工作以外的事情"><a href="#NO-52-老板走过你的办公桌时，你总在做工作以外的事情" class="headerlink" title="NO.52 老板走过你的办公桌时，你总在做工作以外的事情"></a>NO.52 老板走过你的办公桌时，你总在做工作以外的事情</h4><h4 id="NO-53-别被加班加点干活的人感动，他也许是能力不足"><a href="#NO-53-别被加班加点干活的人感动，他也许是能力不足" class="headerlink" title="NO.53 别被加班加点干活的人感动，他也许是能力不足"></a>NO.53 别被加班加点干活的人感动，他也许是能力不足</h4><h4 id="NO-54-你可以不知道谁对，但一定要知道谁说了算"><a href="#NO-54-你可以不知道谁对，但一定要知道谁说了算" class="headerlink" title="NO.54 你可以不知道谁对，但一定要知道谁说了算"></a>NO.54 你可以不知道谁对，但一定要知道谁说了算</h4><h4 id="NO-55-自以为买到了便宜货，出门就发现还有更便宜的"><a href="#NO-55-自以为买到了便宜货，出门就发现还有更便宜的" class="headerlink" title="NO.55 自以为买到了便宜货，出门就发现还有更便宜的"></a>NO.55 自以为买到了便宜货，出门就发现还有更便宜的</h4><h4 id="NO-56-堵车的时候，总是旁边的行车道动得快"><a href="#NO-56-堵车的时候，总是旁边的行车道动得快" class="headerlink" title="NO.56 堵车的时候，总是旁边的行车道动得快"></a>NO.56 堵车的时候，总是旁边的行车道动得快</h4><h4 id="NO-57-越为已经失去的伤心，便会失去得更多"><a href="#NO-57-越为已经失去的伤心，便会失去得更多" class="headerlink" title="NO.57 越为已经失去的伤心，便会失去得更多"></a>NO.57 越为已经失去的伤心，便会失去得更多</h4><h4 id="NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙"><a href="#NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙" class="headerlink" title="NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙"></a>NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙</h4><h4 id="NO-59-最好的游戏分数，一定是你独自玩的时候得到的"><a href="#NO-59-最好的游戏分数，一定是你独自玩的时候得到的" class="headerlink" title="NO.59 最好的游戏分数，一定是你独自玩的时候得到的"></a>NO.59 最好的游戏分数，一定是你独自玩的时候得到的</h4><h4 id="NO-60-说原则上同意的人，并没有付诸行动的意思"><a href="#NO-60-说原则上同意的人，并没有付诸行动的意思" class="headerlink" title="NO.60 说原则上同意的人，并没有付诸行动的意思"></a>NO.60 说原则上同意的人，并没有付诸行动的意思</h4>]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小说书摘</title>
-    <url>//42458.html</url>
-    <content><![CDATA[<ul>
-<li><p>一、<br>“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</p>
-</li>
-<li><p>二、<br>人总在一次次犹豫，摇摆，选择中，破碎迷雾，追溯本源，找到自己真正在意的东西。中间肯定有弯路，但无用功，同样也是有用功。</p>
-</li>
-<li><p>三、<br>还没相遇前，我俩各自修行，为的不是要到达彼岸，而是要找到彼此；我俩各自旅行，为的不是要找到自己，而是要寻遇对方。</p>
-</li>
-<li><p>四、<br>月色千古如斯，不知换了多少人看，它只是静静的挂在天上，平淡但坚贞。——如爱情。</p>
-</li>
-<li><p>五、<br>回忆是个怪物，它让人沉沦在过去，然后轻易把人摧毁。</p>
-</li>
-</ul>
-]]></content>
       <categories>
         <category>阅读</category>
       </categories>
