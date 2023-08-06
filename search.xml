@@ -34,89 +34,6 @@
       </tags>
   </entry>
   <entry>
-    <title>搭建Book-searcher（Zlib-searcher）</title>
-    <url>//35058.html</url>
-    <content><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h3 id="1-1-Z-Library简介"><a href="#1-1-Z-Library简介" class="headerlink" title="1.1 Z-Library简介"></a>1.1 Z-Library简介</h3><p>Z-Library是一个影子图书馆和开放获取文件分享计划，用户可在此网站下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”，并在文章搜索页面上称自身是“全球最大的科学文章存储库”。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。目前Z-Library官网已经不能访问了，但暗网中还有可访问的镜像站，全部资源的离线种子包也已经有人公开出来了。</p>
-<h3 id="1-2-Book-Searcher简介"><a href="#1-2-Book-Searcher简介" class="headerlink" title="1.2 Book-Searcher简介"></a>1.2 Book-Searcher简介</h3><p>项目介绍：搜索书籍索引，创建您的私人本地图书馆。不保存和提供文件，仅提供书籍搜索。<br>项目地址：<a href="https://github.com/book-searcher-org/book-searcher">https://github.com/book-searcher-org/book-searcher</a></p>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/book-searcher/Snipaste_2023-01-16_12-50-56.png" alt="Book-searcher" title="Book-searcher">  </p>
-<p>网友分享的Demo站点：<br><a href="https://zlib.knat.network/">https://zlib.knat.network/</a><br><a href="https://zlib.freedit.eu/">https://zlib.freedit.eu/</a><br><a href="https://zlib.007.al/">https://zlib.007.al</a>  </p>
-<h2 id="2-搭建"><a href="#2-搭建" class="headerlink" title="2.搭建"></a>2.搭建</h2><p>以下所有服务均选择自建，我将采用Docker部署的方式，VPS系统用的是Debian 11   </p>
-<h3 id="2-1-Docker及Docker-Compose环境搭建"><a href="#2-1-Docker及Docker-Compose环境搭建" class="headerlink" title="2.1 Docker及Docker Compose环境搭建"></a>2.1 Docker及Docker Compose环境搭建</h3><h4 id="2-1-1-Docker环境搭建"><a href="#2-1-1-Docker环境搭建" class="headerlink" title="2.1.1 Docker环境搭建"></a>2.1.1 Docker环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">国外鸡：  </span><br><span class="line">curl -sSL https://get.docker.com/ | sh</span><br><span class="line"></span><br><span class="line">国内鸡：  </span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br><span class="line"></span><br><span class="line">卸载docker： </span><br><span class="line">sudo apt-get remove docker docker-engine </span><br><span class="line"></span><br><span class="line">rm -fr /var/lib/docker/</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="2-1-2-Docker-Compose环境搭建"><a href="#2-1-2-Docker-Compose环境搭建" class="headerlink" title="2.1.2 Docker Compose环境搭建"></a>2.1.2 Docker Compose环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Book-Searcher书籍检索"><a href="#3-Book-Searcher书籍检索" class="headerlink" title="3. Book-Searcher书籍检索"></a>3. Book-Searcher书籍检索</h2><h3 id="3-1-搭建Book-Searcher书籍检索"><a href="#3-1-搭建Book-Searcher书籍检索" class="headerlink" title="3.1 搭建Book-Searcher书籍检索"></a>3.1 搭建Book-Searcher书籍检索</h3><h4 id="3-1-1首先创建用于存放book-searcher的文件夹"><a href="#3-1-1首先创建用于存放book-searcher的文件夹" class="headerlink" title="3.1.1首先创建用于存放book-searcher的文件夹"></a>3.1.1首先创建用于存放book-searcher的文件夹</h4><p><code>mkdir book-searcher &amp;&amp; cd book-searcher</code>  </p>
-<h4 id="3-1-2然后拉取docker-compose的文件"><a href="#3-1-2然后拉取docker-compose的文件" class="headerlink" title="3.1.2然后拉取docker-compose的文件"></a>3.1.2然后拉取docker-compose的文件</h4><p><code>wget https://raw.githubusercontent.com/book-searcher-org/book-searcher/master/docker-compose.yml</code>  </p>
-<p>或者直接编写docker-compose.yml  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  book-searcher:</span><br><span class="line">    image: ghcr.io/book-searcher-org/book-searcher:latest</span><br><span class="line">    container_name: book-searcher</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;7070:7070&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - ./index:/index</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-1-3-拉取Z-Library书库索引文件"><a href="#3-1-3-拉取Z-Library书库索引文件" class="headerlink" title="3.1.3 拉取Z-Library书库索引文件"></a>3.1.3 拉取Z-Library书库索引文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd book-searcher  </span><br><span class="line">wget --no-check-certificate https://od.007.al/d/OneDrive/Zlib_Searcher/index_none_0.8.3.zip</span><br><span class="line">unzip -o index_none_0.8.3.zip</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注: 注意3.1的操作均在book-searcher文件夹中 </p>
-<p>原作者没有将Z-Library书库索引文件放置到镜像里，如果没有自己挂载进去的话，搭建后的服务什么都搜不到。</p>
-</blockquote>
-<h4 id="3-1-4-拉取镜像构建容器"><a href="#3-1-4-拉取镜像构建容器" class="headerlink" title="3.1.4 拉取镜像构建容器"></a>3.1.4 拉取镜像构建容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>输入<a href="http://ip:7070/">http://IP:7070</a>  即可访问 如需域名访问 可以搭配 Nginx Proxy Manager使用</p>
-</blockquote>
-<h3 id="3-2-检索下载Z-Library资源"><a href="#3-2-检索下载Z-Library资源" class="headerlink" title="3.2 检索下载Z-Library资源"></a>3.2 检索下载Z-Library资源</h3><p>打开页面右上角的设置，配置IPFS网关，以下是找的5个可用地址。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://cloudflare-ipfs.com  </span><br><span class="line">http://ipfs.io  </span><br><span class="line">http://dweb.link  </span><br><span class="line">http://gateway.pinata.cloud  </span><br><span class="line">https://ipfs.best-practice.se  </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注：如果没有配置IPFS网关的话，就仅能检索Z-Library资源，但不能下载。<br>这个IPFS网关你可以自己去部署，也可以用别人搭建好的。</p>
-</blockquote>
-<h2 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4. 参考资料"></a>4. 参考资料</h2><p><a href="https://github.com/book-searcher-org/book-searcher">book-searcher</a><br><a href="https://github.com/book-searcher-org/book-searcher/issues/72">关于索引问题</a></p>
-<h2 id="5-VPS推荐"><a href="#5-VPS推荐" class="headerlink" title="5. VPS推荐"></a>5. VPS推荐</h2><p><a href="https://www.w3d.host/aff.php?aff=73">W3D.host</a>  </p>
-<blockquote>
-<p>美西洛杉矶VPS三网联通精品网AS9929优化线路  </p>
-</blockquote>
-<p><a href="https://t.me/w3dhostcs">Telegram群组</a><br><a href="https://t.me/w3dhc">Telegram频道</a>  </p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>Z-Library</tag>
-        <tag>IPFS书籍检索</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo永久化链接</title>
-    <url>//9382.html</url>
-    <content><![CDATA[<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>要用到 <a href="https://github.com/rozbo/hexo-abbrlink">abbrlink</a> 插件来使文章永久化，以下是npm安装包，安装在hexo文件中  </p>
-<p><code>npm install hexo-abbrlink --save</code>  </p>
-<blockquote>
-<p>可能会出现依赖，依据提示安装即可。</p>
-</blockquote>
-<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h2><p>修改博客根目录配置文件 <code>_config.yml</code> 的 <code>permalink：</code>  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: p/:abbrlink.html  # p 是自定义的前缀</span><br><span class="line">abbrlink:</span><br><span class="line">alg: crc32   #算法： crc16(default) and crc32</span><br><span class="line">rep: dec     #进制： dec(default) and hex</span><br></pre></td></tr></table></figure>
-<p>不同算法和进制生成不同的格式：  </p>
-<pre><code>crc16 &amp; hex
-https://xxx.com/posts/66c8.html
-crc16 &amp; dec
-https://xxx.com/posts/65535.html
-
-crc32 &amp; hex
-https://xxx.com/posts/8ddf18fb.html
-crc32 &amp; dec
-https://xxx.com/posts/1690090958.html
-</code></pre>
-<p>先清理下本地的文件 hexo clean，然后重新生成 hexo g，启动博客 hexo s 或hexo d。</p>
-<h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><p><a href="https://linyin022.top/posts/816768764.html">Hexo永久化链接 【Linyin】</a>  </p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Github</tag>
-        <tag>博客搭建</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown（笔记）</title>
     <url>//16272.html</url>
     <content><![CDATA[<h1 id="Markdown语法大全"><a href="#Markdown语法大全" class="headerlink" title="Markdown语法大全"></a>Markdown语法大全</h1><h2 id="一、-注释"><a href="#一、-注释" class="headerlink" title="一、 注释"></a>一、 注释</h2><h4 id="1-代码法"><a href="#1-代码法" class="headerlink" title="1.代码法"></a>1.代码法</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#x27;display: none&#x27;</span>&gt;</span></span></span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -497,6 +414,89 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
+    <title>搭建Book-searcher（Zlib-searcher）</title>
+    <url>//35058.html</url>
+    <content><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h3 id="1-1-Z-Library简介"><a href="#1-1-Z-Library简介" class="headerlink" title="1.1 Z-Library简介"></a>1.1 Z-Library简介</h3><p>Z-Library是一个影子图书馆和开放获取文件分享计划，用户可在此网站下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”，并在文章搜索页面上称自身是“全球最大的科学文章存储库”。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。目前Z-Library官网已经不能访问了，但暗网中还有可访问的镜像站，全部资源的离线种子包也已经有人公开出来了。</p>
+<h3 id="1-2-Book-Searcher简介"><a href="#1-2-Book-Searcher简介" class="headerlink" title="1.2 Book-Searcher简介"></a>1.2 Book-Searcher简介</h3><p>项目介绍：搜索书籍索引，创建您的私人本地图书馆。不保存和提供文件，仅提供书籍搜索。<br>项目地址：<a href="https://github.com/book-searcher-org/book-searcher">https://github.com/book-searcher-org/book-searcher</a></p>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/book-searcher/Snipaste_2023-01-16_12-50-56.png" alt="Book-searcher" title="Book-searcher">  </p>
+<p>网友分享的Demo站点：<br><a href="https://zlib.knat.network/">https://zlib.knat.network/</a><br><a href="https://zlib.freedit.eu/">https://zlib.freedit.eu/</a><br><a href="https://zlib.007.al/">https://zlib.007.al</a>  </p>
+<h2 id="2-搭建"><a href="#2-搭建" class="headerlink" title="2.搭建"></a>2.搭建</h2><p>以下所有服务均选择自建，我将采用Docker部署的方式，VPS系统用的是Debian 11   </p>
+<h3 id="2-1-Docker及Docker-Compose环境搭建"><a href="#2-1-Docker及Docker-Compose环境搭建" class="headerlink" title="2.1 Docker及Docker Compose环境搭建"></a>2.1 Docker及Docker Compose环境搭建</h3><h4 id="2-1-1-Docker环境搭建"><a href="#2-1-1-Docker环境搭建" class="headerlink" title="2.1.1 Docker环境搭建"></a>2.1.1 Docker环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">国外鸡：  </span><br><span class="line">curl -sSL https://get.docker.com/ | sh</span><br><span class="line"></span><br><span class="line">国内鸡：  </span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br><span class="line"></span><br><span class="line">卸载docker： </span><br><span class="line">sudo apt-get remove docker docker-engine </span><br><span class="line"></span><br><span class="line">rm -fr /var/lib/docker/</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-1-2-Docker-Compose环境搭建"><a href="#2-1-2-Docker-Compose环境搭建" class="headerlink" title="2.1.2 Docker Compose环境搭建"></a>2.1.2 Docker Compose环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Book-Searcher书籍检索"><a href="#3-Book-Searcher书籍检索" class="headerlink" title="3. Book-Searcher书籍检索"></a>3. Book-Searcher书籍检索</h2><h3 id="3-1-搭建Book-Searcher书籍检索"><a href="#3-1-搭建Book-Searcher书籍检索" class="headerlink" title="3.1 搭建Book-Searcher书籍检索"></a>3.1 搭建Book-Searcher书籍检索</h3><h4 id="3-1-1首先创建用于存放book-searcher的文件夹"><a href="#3-1-1首先创建用于存放book-searcher的文件夹" class="headerlink" title="3.1.1首先创建用于存放book-searcher的文件夹"></a>3.1.1首先创建用于存放book-searcher的文件夹</h4><p><code>mkdir book-searcher &amp;&amp; cd book-searcher</code>  </p>
+<h4 id="3-1-2然后拉取docker-compose的文件"><a href="#3-1-2然后拉取docker-compose的文件" class="headerlink" title="3.1.2然后拉取docker-compose的文件"></a>3.1.2然后拉取docker-compose的文件</h4><p><code>wget https://raw.githubusercontent.com/book-searcher-org/book-searcher/master/docker-compose.yml</code>  </p>
+<p>或者直接编写docker-compose.yml  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  book-searcher:</span><br><span class="line">    image: ghcr.io/book-searcher-org/book-searcher:latest</span><br><span class="line">    container_name: book-searcher</span><br><span class="line">    restart: always</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;7070:7070&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - ./index:/index</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-1-3-拉取Z-Library书库索引文件"><a href="#3-1-3-拉取Z-Library书库索引文件" class="headerlink" title="3.1.3 拉取Z-Library书库索引文件"></a>3.1.3 拉取Z-Library书库索引文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd book-searcher  </span><br><span class="line">wget --no-check-certificate https://od.007.al/d/OneDrive/Zlib_Searcher/index_none_0.8.3.zip</span><br><span class="line">unzip -o index_none_0.8.3.zip</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注: 注意3.1的操作均在book-searcher文件夹中 </p>
+<p>原作者没有将Z-Library书库索引文件放置到镜像里，如果没有自己挂载进去的话，搭建后的服务什么都搜不到。</p>
+</blockquote>
+<h4 id="3-1-4-拉取镜像构建容器"><a href="#3-1-4-拉取镜像构建容器" class="headerlink" title="3.1.4 拉取镜像构建容器"></a>3.1.4 拉取镜像构建容器</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输入<a href="http://ip:7070/">http://IP:7070</a>  即可访问 如需域名访问 可以搭配 Nginx Proxy Manager使用</p>
+</blockquote>
+<h3 id="3-2-检索下载Z-Library资源"><a href="#3-2-检索下载Z-Library资源" class="headerlink" title="3.2 检索下载Z-Library资源"></a>3.2 检索下载Z-Library资源</h3><p>打开页面右上角的设置，配置IPFS网关，以下是找的5个可用地址。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://cloudflare-ipfs.com  </span><br><span class="line">http://ipfs.io  </span><br><span class="line">http://dweb.link  </span><br><span class="line">http://gateway.pinata.cloud  </span><br><span class="line">https://ipfs.best-practice.se  </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：如果没有配置IPFS网关的话，就仅能检索Z-Library资源，但不能下载。<br>这个IPFS网关你可以自己去部署，也可以用别人搭建好的。</p>
+</blockquote>
+<h2 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4. 参考资料"></a>4. 参考资料</h2><p><a href="https://github.com/book-searcher-org/book-searcher">book-searcher</a><br><a href="https://github.com/book-searcher-org/book-searcher/issues/72">关于索引问题</a></p>
+<h2 id="5-VPS推荐"><a href="#5-VPS推荐" class="headerlink" title="5. VPS推荐"></a>5. VPS推荐</h2><p><a href="https://www.w3d.host/aff.php?aff=73">W3D.host</a>  </p>
+<blockquote>
+<p>美西洛杉矶VPS三网联通精品网AS9929优化线路  </p>
+</blockquote>
+<p><a href="https://t.me/w3dhostcs">Telegram群组</a><br><a href="https://t.me/w3dhc">Telegram频道</a>  </p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+        <tag>Z-Library</tag>
+        <tag>IPFS书籍检索</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo永久化链接</title>
+    <url>//9382.html</url>
+    <content><![CDATA[<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h2><p>要用到 <a href="https://github.com/rozbo/hexo-abbrlink">abbrlink</a> 插件来使文章永久化，以下是npm安装包，安装在hexo文件中  </p>
+<p><code>npm install hexo-abbrlink --save</code>  </p>
+<blockquote>
+<p>可能会出现依赖，依据提示安装即可。</p>
+</blockquote>
+<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h2><p>修改博客根目录配置文件 <code>_config.yml</code> 的 <code>permalink：</code>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: p/:abbrlink.html  # p 是自定义的前缀</span><br><span class="line">abbrlink:</span><br><span class="line">alg: crc32   #算法： crc16(default) and crc32</span><br><span class="line">rep: dec     #进制： dec(default) and hex</span><br></pre></td></tr></table></figure>
+<p>不同算法和进制生成不同的格式：  </p>
+<pre><code>crc16 &amp; hex
+https://xxx.com/posts/66c8.html
+crc16 &amp; dec
+https://xxx.com/posts/65535.html
+
+crc32 &amp; hex
+https://xxx.com/posts/8ddf18fb.html
+crc32 &amp; dec
+https://xxx.com/posts/1690090958.html
+</code></pre>
+<p>先清理下本地的文件 hexo clean，然后重新生成 hexo g，启动博客 hexo s 或hexo d。</p>
+<h2 id="3-参考"><a href="#3-参考" class="headerlink" title="3.参考"></a>3.参考</h2><p><a href="https://linyin022.top/posts/816768764.html">Hexo永久化链接 【Linyin】</a>  </p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github</tag>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TG人形自走机器人项目PagerMaid和PagerMaid-Pyro安装</title>
     <url>//31299.html</url>
     <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
@@ -581,15 +581,15 @@ https://xxx.com/posts/1690090958.html
 </blockquote>
 </blockquote>
 <blockquote>
-<p> 第二步：用 大陆 的欧易账户购买 USDT 入金欧易（支持微信+支付宝），然后将购买到的 USDT 发送到 台湾 欧易账户（选择站内转账，否则需要支付 0.8 usdt 手续费）</p>
+<p> 第二步：用 <strong>大陆</strong> 的欧易账户购买 USDT 入金欧易（支持微信+支付宝），然后将购买到的 USDT 发送到 <strong>台湾</strong> 欧易账户（选择站内转账，否则需要支付 0.8 usdt 手续费）</p>
 </blockquote>
 <blockquote>
-<p> 第三步：使用 台湾 欧易账户 C2C 交易 → 选择货币为 TRY → 交易方式为银行转账 → 直接发送你的Ozan Account &#x2F; 选择 ozan 支持的银行并填入信息，然后按照如下格式填入发送到聊天框</p>
+<p> 第三步：使用 <strong>台湾</strong> 欧易账户 C2C 交易 → 选择货币为 TRY → 交易方式为银行转账 → 直接发送你的Ozan Account &#x2F; 选择 ozan 支持的银行并填入信息，然后按照如下格式填入发送到聊天框</p>
 <blockquote>
 <p>IBAN:<br>Name:<br>Card Number:  </p>
 </blockquote>
 </blockquote>
-<h3 id="花费损耗（汇率存在时效性）："><a href="#花费损耗（汇率存在时效性）：" class="headerlink" title="花费损耗（汇率存在时效性）："></a>花费损耗（汇率存在时效性）：</h3><p>目前购买市价约为 7.22 CNY&#x2F;USDT ，购买 10 USDT 花费 72.2 CNY，出售市价约 18 里拉&#x2F;USDT ，预计获得 10x18&#x3D;180 里拉，一般来说 72.2CNY≈191里拉，损耗约为 4.2 CNY</p>
+<h3 id="花费损耗（汇率存在时效性）："><a href="#花费损耗（汇率存在时效性）：" class="headerlink" title="花费损耗（汇率存在时效性）："></a>花费损耗（汇率存在时效性）：</h3><p>目前购买市价约为 7.2 CNY&#x2F;USDT ，购买 10 USDT 花费 72 CNY，出售市价约 26.9 里拉&#x2F;USDT ，预计获得 26.9*10&#x3D;269 里拉，一般来说 71.59CNY≈269里拉，损耗约为 0.41 CNY</p>
 <blockquote>
 <p>站内转账无手续费，因此产生的损耗就是 USDT 市价与 CNY 之间的汇率差。</p>
 </blockquote>
@@ -798,30 +798,6 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>//16107.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>begin</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《我的房客大小姐》</title>
     <url>//32219.html</url>
     <content><![CDATA[<ul>
@@ -847,77 +823,6 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
 <ul>
 <li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
 </ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《墨菲定律》（上）</title>
-    <url>//24.html</url>
-    <content><![CDATA[<h4 id="NO-1-一件事只要有可能出错，就一定会出错"><a href="#NO-1-一件事只要有可能出错，就一定会出错" class="headerlink" title="NO.1 一件事只要有可能出错，就一定会出错"></a>NO.1 一件事只要有可能出错，就一定会出错</h4><ol>
-<li><p>犯错是人类与生俱来的弱点</p>
-</li>
-<li><p>人类再聪明，也无法把事情做到尽善尽美，但人类又习惯心存侥幸，认为“不太可能”的事情就不会发生。</p>
-</li>
-<li><p>人生不是每时每刻都那么幸运，任何一件事情，只要有大于零的出错概率，我们就不能假设它不会发生。</p>
-</li>
-</ol>
-<h4 id="NO-2-越害怕某件事情发生，它就越有可能发生"><a href="#NO-2-越害怕某件事情发生，它就越有可能发生" class="headerlink" title="NO.2 越害怕某件事情发生，它就越有可能发生"></a>NO.2 越害怕某件事情发生，它就越有可能发生</h4><ol>
-<li>卡尔·瓦伦达说：“生活如同走钢丝，一切都是机会和挑战”</li>
-</ol>
-<h4 id="NO-3-你不担忧某件事发生，它也可能会发生"><a href="#NO-3-你不担忧某件事发生，它也可能会发生" class="headerlink" title="NO.3 你不担忧某件事发生，它也可能会发生"></a>NO.3 你不担忧某件事发生，它也可能会发生</h4><ol>
-<li><p>我们都不过是芸芸众生中的普通人，这个世界上有太多的事情是我们无法控制的，甚至是我们无能为力的。</p>
-</li>
-<li><p>害怕、担忧、抗拒、愤怒，都不能解决问题，只会让事情变得更糟。</p>
-</li>
-</ol>
-<h4 id="NO-4-当你咒骂倒霉时，那不过是一个开始"><a href="#NO-4-当你咒骂倒霉时，那不过是一个开始" class="headerlink" title="NO.4 当你咒骂倒霉时，那不过是一个开始"></a>NO.4 当你咒骂倒霉时，那不过是一个开始</h4><h4 id="NO-5-一切太过顺利的话，好日子就快到头了"><a href="#NO-5-一切太过顺利的话，好日子就快到头了" class="headerlink" title="NO.5 一切太过顺利的话，好日子就快到头了"></a>NO.5 一切太过顺利的话，好日子就快到头了</h4><ol>
-<li><p>生活也是一样，就算你足够幸运，也不要沉浸在成功的喜悦和顺风顺水的境遇里，对小问题视而不见。</p>
-</li>
-<li><p>凡事只有居安思危、常备不懈，才能避免功败垂成的情况发生</p>
-</li>
-</ol>
-<h4 id="NO-6-如果事情可以更糟，别着急，它肯定会的"><a href="#NO-6-如果事情可以更糟，别着急，它肯定会的" class="headerlink" title="NO.6 如果事情可以更糟，别着急，它肯定会的"></a>NO.6 如果事情可以更糟，别着急，它肯定会的</h4><h4 id="NO-7-别再垂头丧气了，明天未必比今天好"><a href="#NO-7-别再垂头丧气了，明天未必比今天好" class="headerlink" title="NO.7 别再垂头丧气了，明天未必比今天好"></a>NO.7 别再垂头丧气了，明天未必比今天好</h4><ol>
-<li>“不要为昨天叹息，不要为明天忧虑。因为明天只是个未来，昨天已成为过去”</li>
-</ol>
-<h4 id="NO-8-越是心心念念的东西，越是得不到"><a href="#NO-8-越是心心念念的东西，越是得不到" class="headerlink" title="NO.8 越是心心念念的东西，越是得不到"></a>NO.8 越是心心念念的东西，越是得不到</h4><ol>
-<li><p>人们对于那些越是得不到的东西，就越是想得到。</p>
-</li>
-<li><p>那些你心心念念的、自认为“好”的东西，未必真有那么好，不过是没有得到的不甘罢了。</p>
-</li>
-</ol>
-<h4 id="NO-9-那些容易做出改变的，往往越变越糟"><a href="#NO-9-那些容易做出改变的，往往越变越糟" class="headerlink" title="NO.9 那些容易做出改变的，往往越变越糟"></a>NO.9 那些容易做出改变的，往往越变越糟</h4><h4 id="NO-10-纠结于两个选择时，没有被选的总是对的"><a href="#NO-10-纠结于两个选择时，没有被选的总是对的" class="headerlink" title="NO.10 纠结于两个选择时，没有被选的总是对的"></a>NO.10 纠结于两个选择时，没有被选的总是对的</h4><h4 id="NO-11-得意的时候刚一忘形，灾祸立马就降临了"><a href="#NO-11-得意的时候刚一忘形，灾祸立马就降临了" class="headerlink" title="NO.11 得意的时候刚一忘形，灾祸立马就降临了"></a>NO.11 得意的时候刚一忘形，灾祸立马就降临了</h4><ol>
-<li>世间没有永恒的事物，一切都是暂时的、相对的、发展的。</li>
-</ol>
-<h4 id="NO-12-你认为别人是怎样的人，你就会成为那样的人"><a href="#NO-12-你认为别人是怎样的人，你就会成为那样的人" class="headerlink" title="NO.12 你认为别人是怎样的人，你就会成为那样的人"></a>NO.12 你认为别人是怎样的人，你就会成为那样的人</h4><h4 id="NO-13-不是星座书写的太准了，是你相信了"><a href="#NO-13-不是星座书写的太准了，是你相信了" class="headerlink" title="NO.13 不是星座书写的太准了，是你相信了"></a>NO.13 不是星座书写的太准了，是你相信了</h4><ol>
-<li>命运只掌握在一个人手里，那个人就是我们自己。每一个努力生活的人，运气都不会太差。</li>
-</ol>
-<h4 id="NO-14-如果你认为自己做不到，你就永远做不到"><a href="#NO-14-如果你认为自己做不到，你就永远做不到" class="headerlink" title="NO.14 如果你认为自己做不到，你就永远做不到"></a>NO.14 如果你认为自己做不到，你就永远做不到</h4><ol>
-<li>创造精彩人生的密钥不是机遇，不是运气，而是勇敢地去尝试！</li>
-</ol>
-<h4 id="NO-15-意识到自己谦虚的时候，就不是谦虚了"><a href="#NO-15-意识到自己谦虚的时候，就不是谦虚了" class="headerlink" title="NO.15 意识到自己谦虚的时候，就不是谦虚了"></a>NO.15 意识到自己谦虚的时候，就不是谦虚了</h4><h4 id="NO-16-自欺欺人的时候，没有人觉得自己是骗子"><a href="#NO-16-自欺欺人的时候，没有人觉得自己是骗子" class="headerlink" title="NO.16 自欺欺人的时候，没有人觉得自己是骗子"></a>NO.16 自欺欺人的时候，没有人觉得自己是骗子</h4><h4 id="NO-17-当所有人的想法都一样时，每个人都可能是错的"><a href="#NO-17-当所有人的想法都一样时，每个人都可能是错的" class="headerlink" title="NO.17 当所有人的想法都一样时，每个人都可能是错的"></a>NO.17 当所有人的想法都一样时，每个人都可能是错的</h4><h4 id="NO-18-再聪明的人，也会做愚蠢的事"><a href="#NO-18-再聪明的人，也会做愚蠢的事" class="headerlink" title="NO.18 再聪明的人，也会做愚蠢的事"></a>NO.18 再聪明的人，也会做愚蠢的事</h4><ol>
-<li>偶尔的愚蠢不可怕，可怕的是常常愚蠢，甚至无休止的愚蠢下去。</li>
-</ol>
-<h4 id="NO-19-别人的缺点显而易见，自己的缺点视而不见"><a href="#NO-19-别人的缺点显而易见，自己的缺点视而不见" class="headerlink" title="NO.19 别人的缺点显而易见，自己的缺点视而不见"></a>NO.19 别人的缺点显而易见，自己的缺点视而不见</h4><h4 id="NO-20-犯错之后，总想让人觉得错误不是自己造成的"><a href="#NO-20-犯错之后，总想让人觉得错误不是自己造成的" class="headerlink" title="NO.20 犯错之后，总想让人觉得错误不是自己造成的"></a>NO.20 犯错之后，总想让人觉得错误不是自己造成的</h4><h4 id="NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"><a href="#NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人" class="headerlink" title="NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"></a>NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人</h4><h4 id="NO-22-凭着热心帮人做事，最后那些事就变成了你的事"><a href="#NO-22-凭着热心帮人做事，最后那些事就变成了你的事" class="headerlink" title="NO.22 凭着热心帮人做事，最后那些事就变成了你的事"></a>NO.22 凭着热心帮人做事，最后那些事就变成了你的事</h4><ol>
-<li>黄桐说：“玫瑰花上的刺，不是为了伤害别人，而是为了保护自己。想当个好人，很好，但绝没有必要让自己成为一个来者不拒的烂好人，总是成全别人，却让自己不断受到伤害”</li>
-</ol>
-<h4 id="NO-23-不用担心别人怎么看你，他们也在为此担心"><a href="#NO-23-不用担心别人怎么看你，他们也在为此担心" class="headerlink" title="NO.23 不用担心别人怎么看你，他们也在为此担心"></a>NO.23 不用担心别人怎么看你，他们也在为此担心</h4><ol>
-<li>每个人都在担心别人怎么看自己，每个人都喜欢被别人关注，而不是关注其他人</li>
-<li>你不是别人生活的重心，谁会花费所有的精力一直关注着你？在这个世界上，没有一个人和我们一样在意自己，我们的耿耿于怀，很多时候都是多余的</li>
-</ol>
-<h4 id="NO-24-怨恨不一定能伤到别人，但一定能伤到自己"><a href="#NO-24-怨恨不一定能伤到别人，但一定能伤到自己" class="headerlink" title="NO.24 怨恨不一定能伤到别人，但一定能伤到自己"></a>NO.24 怨恨不一定能伤到别人，但一定能伤到自己</h4><ol>
-<li>生活本已够累，若在精神上还不懂得善待自己，释放心灵，实则是苦了自己</li>
-</ol>
-<h4 id="NO-25-别把自己太当回事，没有你太阳依旧会升起"><a href="#NO-25-别把自己太当回事，没有你太阳依旧会升起" class="headerlink" title="NO.25 别把自己太当回事，没有你太阳依旧会升起"></a>NO.25 别把自己太当回事，没有你太阳依旧会升起</h4><ol>
-<li>人生的常态就是平凡，平凡的人生，才是真实的人生</li>
-</ol>
-<h4 id="NO-26-有人旁观的时候，事情一定会出错"><a href="#NO-26-有人旁观的时候，事情一定会出错" class="headerlink" title="NO.26 有人旁观的时候，事情一定会出错"></a>NO.26 有人旁观的时候，事情一定会出错</h4><h4 id="NO-27-你永远没有第二次机会去塑造第一印象"><a href="#NO-27-你永远没有第二次机会去塑造第一印象" class="headerlink" title="NO.27 你永远没有第二次机会去塑造第一印象"></a>NO.27 你永远没有第二次机会去塑造第一印象</h4><h4 id="NO-28-你把自己塑造的很完美时，就没有朋友了"><a href="#NO-28-你把自己塑造的很完美时，就没有朋友了" class="headerlink" title="NO.28 你把自己塑造的很完美时，就没有朋友了"></a>NO.28 你把自己塑造的很完美时，就没有朋友了</h4><h4 id="NO-29-长得漂亮的人，总是比长得丑的人获得的更多"><a href="#NO-29-长得漂亮的人，总是比长得丑的人获得的更多" class="headerlink" title="NO.29 长得漂亮的人，总是比长得丑的人获得的更多"></a>NO.29 长得漂亮的人，总是比长得丑的人获得的更多</h4><h4 id="NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫"><a href="#NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫" class="headerlink" title="NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫"></a>NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫</h4><ol>
-<li>当我们温柔地对待这个世界的时候，世界才会同样温柔地对待我们</li>
-</ol>
 ]]></content>
       <categories>
         <category>阅读</category>
@@ -1017,6 +922,101 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>//16107.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>begin</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《墨菲定律》（上）</title>
+    <url>//24.html</url>
+    <content><![CDATA[<h4 id="NO-1-一件事只要有可能出错，就一定会出错"><a href="#NO-1-一件事只要有可能出错，就一定会出错" class="headerlink" title="NO.1 一件事只要有可能出错，就一定会出错"></a>NO.1 一件事只要有可能出错，就一定会出错</h4><ol>
+<li><p>犯错是人类与生俱来的弱点</p>
+</li>
+<li><p>人类再聪明，也无法把事情做到尽善尽美，但人类又习惯心存侥幸，认为“不太可能”的事情就不会发生。</p>
+</li>
+<li><p>人生不是每时每刻都那么幸运，任何一件事情，只要有大于零的出错概率，我们就不能假设它不会发生。</p>
+</li>
+</ol>
+<h4 id="NO-2-越害怕某件事情发生，它就越有可能发生"><a href="#NO-2-越害怕某件事情发生，它就越有可能发生" class="headerlink" title="NO.2 越害怕某件事情发生，它就越有可能发生"></a>NO.2 越害怕某件事情发生，它就越有可能发生</h4><ol>
+<li>卡尔·瓦伦达说：“生活如同走钢丝，一切都是机会和挑战”</li>
+</ol>
+<h4 id="NO-3-你不担忧某件事发生，它也可能会发生"><a href="#NO-3-你不担忧某件事发生，它也可能会发生" class="headerlink" title="NO.3 你不担忧某件事发生，它也可能会发生"></a>NO.3 你不担忧某件事发生，它也可能会发生</h4><ol>
+<li><p>我们都不过是芸芸众生中的普通人，这个世界上有太多的事情是我们无法控制的，甚至是我们无能为力的。</p>
+</li>
+<li><p>害怕、担忧、抗拒、愤怒，都不能解决问题，只会让事情变得更糟。</p>
+</li>
+</ol>
+<h4 id="NO-4-当你咒骂倒霉时，那不过是一个开始"><a href="#NO-4-当你咒骂倒霉时，那不过是一个开始" class="headerlink" title="NO.4 当你咒骂倒霉时，那不过是一个开始"></a>NO.4 当你咒骂倒霉时，那不过是一个开始</h4><h4 id="NO-5-一切太过顺利的话，好日子就快到头了"><a href="#NO-5-一切太过顺利的话，好日子就快到头了" class="headerlink" title="NO.5 一切太过顺利的话，好日子就快到头了"></a>NO.5 一切太过顺利的话，好日子就快到头了</h4><ol>
+<li><p>生活也是一样，就算你足够幸运，也不要沉浸在成功的喜悦和顺风顺水的境遇里，对小问题视而不见。</p>
+</li>
+<li><p>凡事只有居安思危、常备不懈，才能避免功败垂成的情况发生</p>
+</li>
+</ol>
+<h4 id="NO-6-如果事情可以更糟，别着急，它肯定会的"><a href="#NO-6-如果事情可以更糟，别着急，它肯定会的" class="headerlink" title="NO.6 如果事情可以更糟，别着急，它肯定会的"></a>NO.6 如果事情可以更糟，别着急，它肯定会的</h4><h4 id="NO-7-别再垂头丧气了，明天未必比今天好"><a href="#NO-7-别再垂头丧气了，明天未必比今天好" class="headerlink" title="NO.7 别再垂头丧气了，明天未必比今天好"></a>NO.7 别再垂头丧气了，明天未必比今天好</h4><ol>
+<li>“不要为昨天叹息，不要为明天忧虑。因为明天只是个未来，昨天已成为过去”</li>
+</ol>
+<h4 id="NO-8-越是心心念念的东西，越是得不到"><a href="#NO-8-越是心心念念的东西，越是得不到" class="headerlink" title="NO.8 越是心心念念的东西，越是得不到"></a>NO.8 越是心心念念的东西，越是得不到</h4><ol>
+<li><p>人们对于那些越是得不到的东西，就越是想得到。</p>
+</li>
+<li><p>那些你心心念念的、自认为“好”的东西，未必真有那么好，不过是没有得到的不甘罢了。</p>
+</li>
+</ol>
+<h4 id="NO-9-那些容易做出改变的，往往越变越糟"><a href="#NO-9-那些容易做出改变的，往往越变越糟" class="headerlink" title="NO.9 那些容易做出改变的，往往越变越糟"></a>NO.9 那些容易做出改变的，往往越变越糟</h4><h4 id="NO-10-纠结于两个选择时，没有被选的总是对的"><a href="#NO-10-纠结于两个选择时，没有被选的总是对的" class="headerlink" title="NO.10 纠结于两个选择时，没有被选的总是对的"></a>NO.10 纠结于两个选择时，没有被选的总是对的</h4><h4 id="NO-11-得意的时候刚一忘形，灾祸立马就降临了"><a href="#NO-11-得意的时候刚一忘形，灾祸立马就降临了" class="headerlink" title="NO.11 得意的时候刚一忘形，灾祸立马就降临了"></a>NO.11 得意的时候刚一忘形，灾祸立马就降临了</h4><ol>
+<li>世间没有永恒的事物，一切都是暂时的、相对的、发展的。</li>
+</ol>
+<h4 id="NO-12-你认为别人是怎样的人，你就会成为那样的人"><a href="#NO-12-你认为别人是怎样的人，你就会成为那样的人" class="headerlink" title="NO.12 你认为别人是怎样的人，你就会成为那样的人"></a>NO.12 你认为别人是怎样的人，你就会成为那样的人</h4><h4 id="NO-13-不是星座书写的太准了，是你相信了"><a href="#NO-13-不是星座书写的太准了，是你相信了" class="headerlink" title="NO.13 不是星座书写的太准了，是你相信了"></a>NO.13 不是星座书写的太准了，是你相信了</h4><ol>
+<li>命运只掌握在一个人手里，那个人就是我们自己。每一个努力生活的人，运气都不会太差。</li>
+</ol>
+<h4 id="NO-14-如果你认为自己做不到，你就永远做不到"><a href="#NO-14-如果你认为自己做不到，你就永远做不到" class="headerlink" title="NO.14 如果你认为自己做不到，你就永远做不到"></a>NO.14 如果你认为自己做不到，你就永远做不到</h4><ol>
+<li>创造精彩人生的密钥不是机遇，不是运气，而是勇敢地去尝试！</li>
+</ol>
+<h4 id="NO-15-意识到自己谦虚的时候，就不是谦虚了"><a href="#NO-15-意识到自己谦虚的时候，就不是谦虚了" class="headerlink" title="NO.15 意识到自己谦虚的时候，就不是谦虚了"></a>NO.15 意识到自己谦虚的时候，就不是谦虚了</h4><h4 id="NO-16-自欺欺人的时候，没有人觉得自己是骗子"><a href="#NO-16-自欺欺人的时候，没有人觉得自己是骗子" class="headerlink" title="NO.16 自欺欺人的时候，没有人觉得自己是骗子"></a>NO.16 自欺欺人的时候，没有人觉得自己是骗子</h4><h4 id="NO-17-当所有人的想法都一样时，每个人都可能是错的"><a href="#NO-17-当所有人的想法都一样时，每个人都可能是错的" class="headerlink" title="NO.17 当所有人的想法都一样时，每个人都可能是错的"></a>NO.17 当所有人的想法都一样时，每个人都可能是错的</h4><h4 id="NO-18-再聪明的人，也会做愚蠢的事"><a href="#NO-18-再聪明的人，也会做愚蠢的事" class="headerlink" title="NO.18 再聪明的人，也会做愚蠢的事"></a>NO.18 再聪明的人，也会做愚蠢的事</h4><ol>
+<li>偶尔的愚蠢不可怕，可怕的是常常愚蠢，甚至无休止的愚蠢下去。</li>
+</ol>
+<h4 id="NO-19-别人的缺点显而易见，自己的缺点视而不见"><a href="#NO-19-别人的缺点显而易见，自己的缺点视而不见" class="headerlink" title="NO.19 别人的缺点显而易见，自己的缺点视而不见"></a>NO.19 别人的缺点显而易见，自己的缺点视而不见</h4><h4 id="NO-20-犯错之后，总想让人觉得错误不是自己造成的"><a href="#NO-20-犯错之后，总想让人觉得错误不是自己造成的" class="headerlink" title="NO.20 犯错之后，总想让人觉得错误不是自己造成的"></a>NO.20 犯错之后，总想让人觉得错误不是自己造成的</h4><h4 id="NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"><a href="#NO-21-我们能宽容自己讨厌的人，却无法原谅讨厌自己的人" class="headerlink" title="NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人"></a>NO.21 我们能宽容自己讨厌的人，却无法原谅讨厌自己的人</h4><h4 id="NO-22-凭着热心帮人做事，最后那些事就变成了你的事"><a href="#NO-22-凭着热心帮人做事，最后那些事就变成了你的事" class="headerlink" title="NO.22 凭着热心帮人做事，最后那些事就变成了你的事"></a>NO.22 凭着热心帮人做事，最后那些事就变成了你的事</h4><ol>
+<li>黄桐说：“玫瑰花上的刺，不是为了伤害别人，而是为了保护自己。想当个好人，很好，但绝没有必要让自己成为一个来者不拒的烂好人，总是成全别人，却让自己不断受到伤害”</li>
+</ol>
+<h4 id="NO-23-不用担心别人怎么看你，他们也在为此担心"><a href="#NO-23-不用担心别人怎么看你，他们也在为此担心" class="headerlink" title="NO.23 不用担心别人怎么看你，他们也在为此担心"></a>NO.23 不用担心别人怎么看你，他们也在为此担心</h4><ol>
+<li>每个人都在担心别人怎么看自己，每个人都喜欢被别人关注，而不是关注其他人</li>
+<li>你不是别人生活的重心，谁会花费所有的精力一直关注着你？在这个世界上，没有一个人和我们一样在意自己，我们的耿耿于怀，很多时候都是多余的</li>
+</ol>
+<h4 id="NO-24-怨恨不一定能伤到别人，但一定能伤到自己"><a href="#NO-24-怨恨不一定能伤到别人，但一定能伤到自己" class="headerlink" title="NO.24 怨恨不一定能伤到别人，但一定能伤到自己"></a>NO.24 怨恨不一定能伤到别人，但一定能伤到自己</h4><ol>
+<li>生活本已够累，若在精神上还不懂得善待自己，释放心灵，实则是苦了自己</li>
+</ol>
+<h4 id="NO-25-别把自己太当回事，没有你太阳依旧会升起"><a href="#NO-25-别把自己太当回事，没有你太阳依旧会升起" class="headerlink" title="NO.25 别把自己太当回事，没有你太阳依旧会升起"></a>NO.25 别把自己太当回事，没有你太阳依旧会升起</h4><ol>
+<li>人生的常态就是平凡，平凡的人生，才是真实的人生</li>
+</ol>
+<h4 id="NO-26-有人旁观的时候，事情一定会出错"><a href="#NO-26-有人旁观的时候，事情一定会出错" class="headerlink" title="NO.26 有人旁观的时候，事情一定会出错"></a>NO.26 有人旁观的时候，事情一定会出错</h4><h4 id="NO-27-你永远没有第二次机会去塑造第一印象"><a href="#NO-27-你永远没有第二次机会去塑造第一印象" class="headerlink" title="NO.27 你永远没有第二次机会去塑造第一印象"></a>NO.27 你永远没有第二次机会去塑造第一印象</h4><h4 id="NO-28-你把自己塑造的很完美时，就没有朋友了"><a href="#NO-28-你把自己塑造的很完美时，就没有朋友了" class="headerlink" title="NO.28 你把自己塑造的很完美时，就没有朋友了"></a>NO.28 你把自己塑造的很完美时，就没有朋友了</h4><h4 id="NO-29-长得漂亮的人，总是比长得丑的人获得的更多"><a href="#NO-29-长得漂亮的人，总是比长得丑的人获得的更多" class="headerlink" title="NO.29 长得漂亮的人，总是比长得丑的人获得的更多"></a>NO.29 长得漂亮的人，总是比长得丑的人获得的更多</h4><h4 id="NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫"><a href="#NO-30-千挑万选的一件衣服，穿出去就会和别人撞衫" class="headerlink" title="NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫"></a>NO.30 千挑万选的一件衣服，穿出去就会和别人撞衫</h4><ol>
+<li>当我们温柔地对待这个世界的时候，世界才会同样温柔地对待我们</li>
+</ol>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《墨菲定律》（下）</title>
     <url>//64537.html</url>
     <content><![CDATA[<h4 id="NO-61-认定了一件事不值得去做，就不可能做好"><a href="#NO-61-认定了一件事不值得去做，就不可能做好" class="headerlink" title="NO.61 认定了一件事不值得去做，就不可能做好"></a>NO.61 认定了一件事不值得去做，就不可能做好</h4><h4 id="NO-76-你和好友爱上同一个女人时，就没有朋友可做了"><a href="#NO-76-你和好友爱上同一个女人时，就没有朋友可做了" class="headerlink" title="NO.76 你和好友爱上同一个女人时，就没有朋友可做了"></a>NO.76 你和好友爱上同一个女人时，就没有朋友可做了</h4><ol>
@@ -1049,54 +1049,6 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
       </categories>
       <tags>
         <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
-    <url>//40025.html</url>
-    <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
-<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
-
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
-<p>输入命令</p>
-<p><code>docker logs -f qinglong</code></p>
-<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
-<span id="more"></span>
-<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
-<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
-<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
-
-<p>这时候访问 <a href="http://ip:port" title="http://ip:port">http://ip:port</a> 就能访问了</p>
-<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http://ip:port/admin/">http://ip:port/admin/</a></p>
-<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
-<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
-<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
-<p>任务仓库：</p>
-<pre><code>【Faker2】
-ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-
-【Faker3】
-ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-</code></pre>
-<hr>
-<p>该文章内容部分来自于：<br><a href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
       </tags>
   </entry>
   <entry>
@@ -1215,6 +1167,54 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
       </categories>
       <tags>
         <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
+    <url>//40025.html</url>
+    <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
+<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
+
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
+<p>输入命令</p>
+<p><code>docker logs -f qinglong</code></p>
+<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
+<span id="more"></span>
+<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
+<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
+<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
+
+<p>这时候访问 <a href="http://ip:port" title="http://ip:port">http://ip:port</a> 就能访问了</p>
+<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http://ip:port/admin/">http://ip:port/admin/</a></p>
+<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
+<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
+<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
+<p>任务仓库：</p>
+<pre><code>【Faker2】
+ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+
+【Faker3】
+ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+</code></pre>
+<hr>
+<p>该文章内容部分来自于：<br><a href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
       </tags>
   </entry>
   <entry>
