@@ -117,118 +117,6 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
-    <title>小说书摘2</title>
-    <url>//20133.html</url>
-    <content><![CDATA[<ul>
-<li>一、这世上只有我是真正爱你的，我会向你证明，我就是你命中注定的那个人，当然，你也是。</li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li>二、原来大脑的记忆力如此差劲，你再珍惜再重视一个人，可当她真的消失后，你也会不知不觉中忘记她，也忘怀掉过去的点点滴滴。这到底是大脑皮层的一种自我保护的分泌？还是因为她在心中的地位没有自己想象中的那么刻骨铭心？</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>三、在政府任职的高低，企业总资产的排名，将直接影响着你个人的社会地位！有钱有权，自然就高人一等，可以肆无忌惮地将普通人踩在脚下！而反过来，处在底层的普通人，却一样对权力与金钱有着深深的渴望，他们期望通过任何可能实现的手段，去完成去权力或是金钱追求的梦想</li>
-</ul>
-<!--more-->
-
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TG人形自走机器人项目PagerMaid和PagerMaid-Pyro安装</title>
-    <url>//31299.html</url>
-    <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
-<li>Telegram官方申请的APP ID和APP HASH</li>
-</ul>
-<h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
-<li>打开<a href="https://my.telegram.org/auth">官网</a></li>
-<li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
-<li>点击“API development tools”<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/2.png" alt="2"></li>
-<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/3.png" alt="3"></li>
-</ol>
-<h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
-<h3 id="手动部署PagerMaid-Pyro"><a href="#手动部署PagerMaid-Pyro" class="headerlink" title="手动部署PagerMaid-Pyro"></a>手动部署PagerMaid-Pyro</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/4.png" alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/5.png" alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/6.png" alt="6"><br>设置守护进程</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#x27;TEXT&#x27; &gt; /etc/systemd/system/pagermaid.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=PagerMaid-Modify telegram utility daemon</span><br><span class="line">After=network.target</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/pagermaid</span><br><span class="line">ExecStart=/usr/bin/python3 -m pagermaid</span><br><span class="line">Restart=always</span><br><span class="line">TEXT</span><br></pre></td></tr></table></figure>
-
-<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4><ol>
-<li>启动程序：<code>systemctl start pagermaid</code>；</li>
-<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
-<li>停止程序：<code>systemctl stop pagermaid</code>;</li>
-</ol>
-<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a href="https://index.xtaolabs.com/">安装地址</a><br><a href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
-<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】</p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-        <tag>Telegram</tag>
-        <tag>Bot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>土耳其电子钱包入金教程</title>
-    <url>//31759.html</url>
-    <content><![CDATA[<h1 id="土耳其电子钱包：Ozan-Oldubil"><a href="#土耳其电子钱包：Ozan-Oldubil" class="headerlink" title="土耳其电子钱包：Ozan  Oldubil"></a>土耳其电子钱包：<a href="https://www.ozan.com/en">Ozan</a>  <a href="https://www.oldubil.com.tr/">Oldubil</a></h1><p><img src="https://asia.one.mvimg.co/1691311419/510f13b9a8bd2fea/64cf5d3b32566.png" alt="Ozan">  </p>
-<h4 id="Features"><a href="#Features" class="headerlink" title="Features:"></a>Features:</h4><ul>
-<li>可生成7张虚拟土耳其Visa prepaid卡  </li>
-<li>可使用IBAN充值、卡对卡转账充值  </li>
-<li>可绑定借记卡充值（不支持大陆卡）</li>
-<li>支持绑定土耳其App Store、Stream</li>
-</ul>
-<h2 id="入金步骤"><a href="#入金步骤" class="headerlink" title="入金步骤"></a>入金步骤</h2><blockquote>
-<p> 第一步：注册两个欧易账户，一个欧易账号身份认证选择 <strong>大陆+大陆身份证验证</strong>，另一欧易账户身份认证选择 <strong>台湾+大陆身份证认证</strong> 。 </p>
-<blockquote>
-<p>说明：选择台湾账户的账户只需要简单认证  <strong>L1</strong>  即可，不要验证到  <strong>L2</strong> 否则默认成为大陆欧易无法绕过 CNY 进行交易；另一个账户随便。</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p> 第二步：用 <strong>大陆</strong> 的欧易账户购买 USDT 入金欧易（支持微信+支付宝），然后将购买到的 USDT 发送到 <strong>台湾</strong> 欧易账户（选择站内转账，否则需要支付 0.8 usdt 手续费）</p>
-</blockquote>
-<blockquote>
-<p> 第三步：使用 <strong>台湾</strong> 欧易账户 C2C 交易 → 选择货币为 TRY → 交易方式为银行转账 → 直接发送你的Ozan Account &#x2F; 选择 ozan 支持的银行并填入信息，然后按照如下格式填入发送到聊天框</p>
-<blockquote>
-<p>IBAN:<br>Name:<br>Card Number:  </p>
-</blockquote>
-</blockquote>
-<h3 id="花费损耗（汇率存在时效性）："><a href="#花费损耗（汇率存在时效性）：" class="headerlink" title="花费损耗（汇率存在时效性）："></a>花费损耗（汇率存在时效性）：</h3><p>目前购买市价约为 7.2 CNY&#x2F;USDT ，购买 10 USDT 花费 72 CNY，出售市价约 26.9 里拉&#x2F;USDT ，预计获得 26.9*10&#x3D;269 里拉，一般来说 71.59CNY≈269里拉，损耗约为 0.41 CNY</p>
-<blockquote>
-<p>站内转账无手续费，因此产生的损耗就是 USDT 市价与 CNY 之间的汇率差。</p>
-</blockquote>
-<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><ul>
-<li>要买家支持，需要自己尝试并与买家沟通。</li>
-<li>卖出订单发出后不支持卖家手动取消，自动等一个小时后取消或者买家自行取消。</li>
-<li><strong>进行 USDT 交易，请先确认收到了钱，再确认收货。</strong></li>
-<li>Ozan和Oldubil入金基本一致，Ozan可以发送Account给卖家 【Try开头的】</li>
-</ul>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-      <tags>
-        <tag>土耳其</tag>
-        <tag>虚拟卡</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown（笔记）</title>
     <url>//16272.html</url>
     <content><![CDATA[<h1 id="Markdown语法大全"><a href="#Markdown语法大全" class="headerlink" title="Markdown语法大全"></a>Markdown语法大全</h1><h2 id="一、-注释"><a href="#一、-注释" class="headerlink" title="一、 注释"></a>一、 注释</h2><h4 id="1-代码法"><a href="#1-代码法" class="headerlink" title="1.代码法"></a>1.代码法</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#x27;display: none&#x27;</span>&gt;</span></span></span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -609,143 +497,115 @@ https://xxx.com/posts/1690090958.html
       </tags>
   </entry>
   <entry>
-    <title>遥远的救世主</title>
-    <url>//34887.html</url>
-    <content><![CDATA[<ul>
-<li><p>一、传统文化和传统观念是不是一个炉子里的两个烧饼？如果我们的文化适应生产力发展的要求，那就不用转变观念了，中国人坐庄家，让别人跟我们接轨好了。我们老是躲在屋里唱《我的中国心》，多辛酸！</p>
-<span id="more"></span>
-</li>
-<li><p>二、中国的传统文化是皇恩浩大的文化，它的实用是以皇天在上为先决条件。中国为什么穷？穷就穷在幼稚的思维，穷在期望救主、期望救恩的文化上，这是一个渗透到民族骨子里的价值判断体系，太可怕了。</p>
-<!--more-->
-</li>
-<li><p>三、透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家一个民族，任何一种命运归根到底都是那种文化属性的产物。强势文化造就强者，弱势文化造就弱者，这是规律，也可以理解为天道，不以人的意志为转移。</p>
-<!--more-->
-</li>
-<li><p>四、强势文化就是遵循事物规律的文化，弱势文化就是依赖强者的道德期望破格获取的文化，也是期望救主的文化。强势文化在武学上被称为「秘笈”，而弱势文化由于易学、易懂、易用，成了流行品种。</p>
-<!--more-->
-</li>
-<li><p>五、强盗的本质是破格获取，破格获取与直接获取是两个不同的概念。你们没有自信与强者在同一个规则下公平竞争，这只能说明你是弱者，因为弱势文化所追求的最高价值就是破格获取。所以，强盗的逻辑从本质上讲是最懦弱的生存哲学。</p>
-<!--more-->
-</li>
-<li><p>六、你不知道你，所以你是你，如果你知道了你，你就不是你了。</p>
-<!--more-->
-</li>
-<li><p>七、传统观念的死结就在一个『靠』字上，在家靠父母，出门靠朋友，靠上帝、靠菩萨、靠皇恩……总之靠什么都行，就是别靠自己。这是一个沉积了几千年的文化属性问题，非几次新文化运动就能开悟。</p>
-<!--more-->
-</li>
-<li><p>八、没有竞争的社会就没有活力，而竞争必然会产生贫富、等级，此乃天道，乃社会进步的必然代价。无弱，强焉在？一个『强』字，弱已经在其中了。故而，佛度心苦，修的是一颗平常心。</p>
-<!--more-->
-</li>
-<li><p>九、等级一直是我们社会文化的禁区，大家所以小心翼翼绕开禁区，是唯恐平等、尊严之类的东西受到伤害。</p>
-<!--more-->
-</li>
-<li><p>十、释、道、儒均是博大精深的学派，支撑中华民族走过了几千年的文明历程，是伟大的文明。但是，社会在发展，传统文化毕竟是以皇恩浩荡为先决条件的文化，讲的都是皆空、无为、中庸的理，以抑制个性而求生求解。当今社会已经发展到了市场经济的民主与法制，诸家学说也面临一个如实观照而俱进的课题，是传统？还是传承？统则僵死，承则光大。</p>
-<!--more-->
-</li>
-<li><p>十一、当人一旦从危险里跳出来，他就不再去关注这个事物的危险了，他的目光就会全部落在这个事物的利益上，这就是人。</p>
-<!--more-->
-</li>
-<li><p>十二、杀富富不去，救贫贫不离。救主的文化唯救主可说，救主不是人，是道，得救不是破了戒的狼吞虎咽，是觉悟。</p>
-<!--more-->
-</li>
-<li><p>十三、法律是社会道德的底线，是解决最基本、最表面的问题，不解决文化的根本问题，文化的问题只能由文化的觉悟解决。一个民族的文化属性就是这个民族的主，主宰着这个民族的文明、荣辱、兴衰。一个民族最强调道德的时候，正是这个民族道德最沦丧的时候。</p>
-</li>
+    <title>TG人形自走机器人项目PagerMaid和PagerMaid-Pyro安装</title>
+    <url>//31299.html</url>
+    <content><![CDATA[<h1 id="TG人形自走机器人项目PagerMaid安装"><a href="#TG人形自走机器人项目PagerMaid安装" class="headerlink" title="TG人形自走机器人项目PagerMaid安装"></a>TG人形自走机器人项目PagerMaid安装</h1><p>在Telegram电报聊天的时候，我们有时候会看到一些神奇的骚操作。这些骚操作如何实现的呢？我们又如何自己部署一个像模像样的呢？这个项目叫做PagerMaid，是一种人形自走机器人。这篇文章来和大家一起部署一个Pagermaid人形自走机器人</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
+<li>Telegram官方申请的APP ID和APP HASH</li>
 </ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《我的房客大小姐》</title>
-    <url>//32219.html</url>
-    <content><![CDATA[<ul>
-<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
-</ul>
-<span id="more"></span>
+<h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
+<li>打开<a href="https://my.telegram.org/auth">官网</a></li>
+<li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
+<li>点击“API development tools”<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/2.png" alt="2"></li>
+<li>输入应用名称，可以随便填写，点击“Create application”创建应用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/3.png" alt="3"></li>
+</ol>
+<h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
+<h3 id="手动部署PagerMaid-Pyro"><a href="#手动部署PagerMaid-Pyro" class="headerlink" title="手动部署PagerMaid-Pyro"></a>手动部署PagerMaid-Pyro</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
-</ul>
-<!--more-->
 
-<ul>
-<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
-</ul>
-<!--more-->
+<h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
-</ul>
-<!--more-->
+<p>编辑<code>config.yml</code>文件，替换为自己的APP ID和APP HASH<br>可以在VPS的pagermaid目录下利用<code>vim config.yml</code>进行更改<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/4.png" alt="4"><br>api_key &#x3D; your id<br>app_hash &#x3D; your hash<br>使用<code>python3 -m pagermaid</code>运行bot，进行授权登录<br>输入你的TG绑定的手机号后回车，然后输入TG给你的验证码<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/5.png" alt="5"><br>输入<code>-help</code>命令，查看运行状态<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/6.png" alt="6"><br>设置守护进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;&#x27;TEXT&#x27; &gt; /etc/systemd/system/pagermaid.service</span><br><span class="line">[Unit]</span><br><span class="line">Description=PagerMaid-Modify telegram utility daemon</span><br><span class="line">After=network.target</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">WorkingDirectory=/root/pagermaid</span><br><span class="line">ExecStart=/usr/bin/python3 -m pagermaid</span><br><span class="line">Restart=always</span><br><span class="line">TEXT</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用OneinStack一键搭建LNMP和Typecho</title>
-    <url>//42946.html</url>
-    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
-<p>环境安装完成后</p>
-<pre><code>#进入oneinstack
-cd oneinstack
-#添加网站
-./vhost.sh
-</code></pre>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
-<pre><code>#进入网站目录
-cd /data/wwwroot/xxx.xxxx.xxx
-#一键安装命令
-wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
-tar xzf 1.1.17.10.30.-release.tar.gz
-cd build
-mv * .. 
-cd ..
-rm -rf 1.1.17.10.30.-release.tar.gz build
-</code></pre>
-<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
-<p>之后就可以访问你的网站 进行Typecho的安装</p>
+<h4 id="PS-WorkingDirectory请按自己的环境配置"><a href="#PS-WorkingDirectory请按自己的环境配置" class="headerlink" title="PS: WorkingDirectory请按自己的环境配置"></a>PS: WorkingDirectory请按自己的环境配置</h4><ol>
+<li>启动程序：<code>systemctl start pagermaid</code>；</li>
+<li>设置为开机自启：<code>systemctl enable pagermaid</code>；</li>
+<li>停止程序：<code>systemctl stop pagermaid</code>;</li>
+</ol>
+<h2 id="搭建完成"><a href="#搭建完成" class="headerlink" title="搭建完成"></a>搭建完成</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>安装插件使用 <code>-apt install</code> 插件名。<br>插件<a href="https://index.xtaolabs.com/">安装地址</a><br><a href="https://wiki.xtaolabs.com/wiki/%E5%86%85%E7%BD%AE%E5%91%BD%E4%BB%A4">使用说明书</a><br><a href="https://gitlab.com/Xtao-Labs/pagermaid-modify">项目Gitlab</a></p>
+<h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p><a href="https://xtaolabs.com/#/">PagerMaid-Modify用户文档</a>【xtaolabs】<br><a href="https://xyzol.cn/archives/30/#h2aNvg5yLtNoiIroVM">TG人形自走机器人项目PagerMaid安装</a>【作者：xyzol】</p>
 ]]></content>
       <categories>
         <category>简易教程</category>
       </categories>
       <tags>
         <tag>VPS</tag>
+        <tag>Telegram</tag>
+        <tag>Bot</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>//16107.html</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>土耳其电子钱包入金教程</title>
+    <url>//31759.html</url>
+    <content><![CDATA[<h1 id="土耳其电子钱包：Ozan-Oldubil"><a href="#土耳其电子钱包：Ozan-Oldubil" class="headerlink" title="土耳其电子钱包：Ozan  Oldubil"></a>土耳其电子钱包：<a href="https://www.ozan.com/en">Ozan</a>  <a href="https://www.oldubil.com.tr/">Oldubil</a></h1><p><img src="https://asia.one.mvimg.co/1691311419/510f13b9a8bd2fea/64cf5d3b32566.png" alt="Ozan">  </p>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features:"></a>Features:</h4><ul>
+<li>可生成7张虚拟土耳其Visa prepaid卡  </li>
+<li>可使用IBAN充值、卡对卡转账充值  </li>
+<li>可绑定借记卡充值（不支持大陆卡）</li>
+<li>支持绑定土耳其App Store、Stream</li>
+</ul>
+<h2 id="入金步骤"><a href="#入金步骤" class="headerlink" title="入金步骤"></a>入金步骤</h2><blockquote>
+<p> 第一步：注册两个欧易账户，一个欧易账号身份认证选择 <strong>大陆+大陆身份证验证</strong>，另一欧易账户身份认证选择 <strong>台湾+大陆身份证认证</strong> 。 </p>
+<blockquote>
+<p>说明：选择台湾账户的账户只需要简单认证  <strong>L1</strong>  即可，不要验证到  <strong>L2</strong> 否则默认成为大陆欧易无法绕过 CNY 进行交易；另一个账户随便。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p> 第二步：用 <strong>大陆的欧易账户</strong> 购买 USDT 入金欧易（支持微信+支付宝），然后将购买到的 USDT 发送到 <strong>台湾欧易账户</strong>（选择站内转账，否则需要支付 1 usdt 手续费）</p>
+</blockquote>
+<blockquote>
+<p> 第三步：使用 <strong>台湾欧易账户</strong> C2C 交易 → 选择货币为 TRY → 交易方式为银行转账 → 直接发送你的Ozan Account &#x2F; 选择 ozan 支持的银行并填入信息，然后按照如下格式填入发送到聊天框</p>
+<blockquote>
+<p>IBAN:<br>Name:<br>Card Number:  </p>
+</blockquote>
+</blockquote>
+<h3 id="花费损耗（汇率存在时效性）："><a href="#花费损耗（汇率存在时效性）：" class="headerlink" title="花费损耗（汇率存在时效性）："></a>花费损耗（汇率存在时效性）：</h3><p>目前购买市价约为 7.2 CNY&#x2F;USDT ，购买 10 USDT 花费 72 CNY，出售市价约 26.9 里拉&#x2F;USDT ，预计获得 26.9*10&#x3D;269 里拉，一般来说 71.59CNY≈269里拉，损耗约为 0.41 CNY</p>
+<blockquote>
+<p>站内转账无手续费，因此产生的损耗就是 USDT 市价与 CNY 之间的汇率差。</p>
+</blockquote>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><ul>
+<li>要买家支持，需要自己尝试并与买家沟通。</li>
+<li>卖出订单发出后不支持卖家手动取消，自动等一个小时后取消或者买家自行取消。</li>
+<li><strong>进行 USDT 交易，请先确认收到了钱，再确认收货。</strong></li>
+<li>Ozan和Oldubil入金基本一致，Ozan可以发送Account给卖家 【Try开头的】</li>
+</ul>
 ]]></content>
       <categories>
-        <category>begin</category>
+        <category>教程</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>土耳其</tag>
+        <tag>虚拟卡</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小说书摘2</title>
+    <url>//20133.html</url>
+    <content><![CDATA[<ul>
+<li>一、这世上只有我是真正爱你的，我会向你证明，我就是你命中注定的那个人，当然，你也是。</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、原来大脑的记忆力如此差劲，你再珍惜再重视一个人，可当她真的消失后，你也会不知不觉中忘记她，也忘怀掉过去的点点滴滴。这到底是大脑皮层的一种自我保护的分泌？还是因为她在心中的地位没有自己想象中的那么刻骨铭心？</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、在政府任职的高低，企业总资产的排名，将直接影响着你个人的社会地位！有钱有权，自然就高人一等，可以肆无忌惮地将普通人踩在脚下！而反过来，处在底层的普通人，却一样对权力与金钱有着深深的渴望，他们期望通过任何可能实现的手段，去完成去权力或是金钱追求的梦想</li>
+</ul>
+<!--more-->
+
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
       </tags>
   </entry>
   <entry>
@@ -856,6 +716,172 @@ docker run -d \
       </tags>
   </entry>
   <entry>
+    <title>遥远的救世主</title>
+    <url>//34887.html</url>
+    <content><![CDATA[<ul>
+<li><p>一、传统文化和传统观念是不是一个炉子里的两个烧饼？如果我们的文化适应生产力发展的要求，那就不用转变观念了，中国人坐庄家，让别人跟我们接轨好了。我们老是躲在屋里唱《我的中国心》，多辛酸！</p>
+<span id="more"></span>
+</li>
+<li><p>二、中国的传统文化是皇恩浩大的文化，它的实用是以皇天在上为先决条件。中国为什么穷？穷就穷在幼稚的思维，穷在期望救主、期望救恩的文化上，这是一个渗透到民族骨子里的价值判断体系，太可怕了。</p>
+<!--more-->
+</li>
+<li><p>三、透视社会依次有三个层面：技术、制度和文化。小到一个人，大到一个国家一个民族，任何一种命运归根到底都是那种文化属性的产物。强势文化造就强者，弱势文化造就弱者，这是规律，也可以理解为天道，不以人的意志为转移。</p>
+<!--more-->
+</li>
+<li><p>四、强势文化就是遵循事物规律的文化，弱势文化就是依赖强者的道德期望破格获取的文化，也是期望救主的文化。强势文化在武学上被称为「秘笈”，而弱势文化由于易学、易懂、易用，成了流行品种。</p>
+<!--more-->
+</li>
+<li><p>五、强盗的本质是破格获取，破格获取与直接获取是两个不同的概念。你们没有自信与强者在同一个规则下公平竞争，这只能说明你是弱者，因为弱势文化所追求的最高价值就是破格获取。所以，强盗的逻辑从本质上讲是最懦弱的生存哲学。</p>
+<!--more-->
+</li>
+<li><p>六、你不知道你，所以你是你，如果你知道了你，你就不是你了。</p>
+<!--more-->
+</li>
+<li><p>七、传统观念的死结就在一个『靠』字上，在家靠父母，出门靠朋友，靠上帝、靠菩萨、靠皇恩……总之靠什么都行，就是别靠自己。这是一个沉积了几千年的文化属性问题，非几次新文化运动就能开悟。</p>
+<!--more-->
+</li>
+<li><p>八、没有竞争的社会就没有活力，而竞争必然会产生贫富、等级，此乃天道，乃社会进步的必然代价。无弱，强焉在？一个『强』字，弱已经在其中了。故而，佛度心苦，修的是一颗平常心。</p>
+<!--more-->
+</li>
+<li><p>九、等级一直是我们社会文化的禁区，大家所以小心翼翼绕开禁区，是唯恐平等、尊严之类的东西受到伤害。</p>
+<!--more-->
+</li>
+<li><p>十、释、道、儒均是博大精深的学派，支撑中华民族走过了几千年的文明历程，是伟大的文明。但是，社会在发展，传统文化毕竟是以皇恩浩荡为先决条件的文化，讲的都是皆空、无为、中庸的理，以抑制个性而求生求解。当今社会已经发展到了市场经济的民主与法制，诸家学说也面临一个如实观照而俱进的课题，是传统？还是传承？统则僵死，承则光大。</p>
+<!--more-->
+</li>
+<li><p>十一、当人一旦从危险里跳出来，他就不再去关注这个事物的危险了，他的目光就会全部落在这个事物的利益上，这就是人。</p>
+<!--more-->
+</li>
+<li><p>十二、杀富富不去，救贫贫不离。救主的文化唯救主可说，救主不是人，是道，得救不是破了戒的狼吞虎咽，是觉悟。</p>
+<!--more-->
+</li>
+<li><p>十三、法律是社会道德的底线，是解决最基本、最表面的问题，不解决文化的根本问题，文化的问题只能由文化的觉悟解决。一个民族的文化属性就是这个民族的主，主宰着这个民族的文明、荣辱、兴衰。一个民族最强调道德的时候，正是这个民族道德最沦丧的时候。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《我的房客大小姐》</title>
+    <url>//32219.html</url>
+    <content><![CDATA[<ul>
+<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
+</ul>
+<!--more-->
+
+<ul>
+<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>//16107.html</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more<br>info. If you get any problems when using Hexo, you can find the answer<br>in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me<br>on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>begin</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用OneinStack一键搭建LNMP和Typecho</title>
+    <url>//42946.html</url>
+    <content><![CDATA[<p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
+<p>环境安装完成后</p>
+<pre><code>#进入oneinstack
+cd oneinstack
+#添加网站
+./vhost.sh
+</code></pre>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
+<pre><code>#进入网站目录
+cd /data/wwwroot/xxx.xxxx.xxx
+#一键安装命令
+wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
+tar xzf 1.1.17.10.30.-release.tar.gz
+cd build
+mv * .. 
+cd ..
+rm -rf 1.1.17.10.30.-release.tar.gz build
+</code></pre>
+<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
+<p>之后就可以访问你的网站 进行Typecho的安装</p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《墨菲定律》（中）</title>
+    <url>//46098.html</url>
+    <content><![CDATA[<h4 id="NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服"><a href="#NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服" class="headerlink" title="NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服"></a>NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服</h4><h4 id="NO-32-讨好所有人这件事，谁做都会碰一鼻子灰"><a href="#NO-32-讨好所有人这件事，谁做都会碰一鼻子灰" class="headerlink" title="NO.32 讨好所有人这件事，谁做都会碰一鼻子灰"></a>NO.32 讨好所有人这件事，谁做都会碰一鼻子灰</h4><h4 id="NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你"><a href="#NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你" class="headerlink" title="NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你"></a>NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你</h4><h4 id="NO-34-如果不能解决某个问题，就不要制造这个问题"><a href="#NO-34-如果不能解决某个问题，就不要制造这个问题" class="headerlink" title="NO.34 如果不能解决某个问题，就不要制造这个问题"></a>NO.34 如果不能解决某个问题，就不要制造这个问题</h4><h4 id="NO-35-最好的玩具，永远是别人手里正在玩的那个"><a href="#NO-35-最好的玩具，永远是别人手里正在玩的那个" class="headerlink" title="NO.35 最好的玩具，永远是别人手里正在玩的那个"></a>NO.35 最好的玩具，永远是别人手里正在玩的那个</h4><ol>
+<li>生活的差别无处不在，每个人的生命都是被上苍划了一道缺口。你若不是牡丹，就不必追求娇艳；你若不是蔷薇，就不必象征爱的誓言。你若只是小草，就展现顽强的生命；你若是一颗树，就散发出独立的气息。</li>
+</ol>
+<h4 id="NO-36-人迷惑时不可怜，不知道迷惑时才是最可怜的"><a href="#NO-36-人迷惑时不可怜，不知道迷惑时才是最可怜的" class="headerlink" title="NO.36 人迷惑时不可怜，不知道迷惑时才是最可怜的"></a>NO.36 人迷惑时不可怜，不知道迷惑时才是最可怜的</h4><h4 id="NO-37-越把失败当回事的人，越是容易遭遇失败"><a href="#NO-37-越把失败当回事的人，越是容易遭遇失败" class="headerlink" title="NO.37 越把失败当回事的人，越是容易遭遇失败"></a>NO.37 越把失败当回事的人，越是容易遭遇失败</h4><h4 id="NO-38-说自己绝对不会错的时候，往往错的就是你"><a href="#NO-38-说自己绝对不会错的时候，往往错的就是你" class="headerlink" title="NO.38 说自己绝对不会错的时候，往往错的就是你"></a>NO.38 说自己绝对不会错的时候，往往错的就是你</h4><h4 id="NO-39-千万不要跟傻瓜争论，一不留神你可能就成了傻瓜"><a href="#NO-39-千万不要跟傻瓜争论，一不留神你可能就成了傻瓜" class="headerlink" title="NO.39 千万不要跟傻瓜争论，一不留神你可能就成了傻瓜"></a>NO.39 千万不要跟傻瓜争论，一不留神你可能就成了傻瓜</h4><ol>
+<li>争吵无法给你带来任何好处，只会让你活在愤怒之中</li>
+</ol>
+<h4 id="NO-40-有人说不是钱的问题时，多半就是钱的问题"><a href="#NO-40-有人说不是钱的问题时，多半就是钱的问题" class="headerlink" title="NO.40 有人说不是钱的问题时，多半就是钱的问题"></a>NO.40 有人说不是钱的问题时，多半就是钱的问题</h4><h4 id="NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境"><a href="#NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境" class="headerlink" title="NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境"></a>NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境</h4><h4 id="NO-42-让别人感受到你的善意，而不是不顾别人的自尊"><a href="#NO-42-让别人感受到你的善意，而不是不顾别人的自尊" class="headerlink" title="NO.42 让别人感受到你的善意，而不是不顾别人的自尊"></a>NO.42 让别人感受到你的善意，而不是不顾别人的自尊</h4><ol>
+<li>任何人都有缺点，都会犯错，我们只能要求自己尽量把事情做到最好，尽量不犯错，但这并不意味着要把自己摆到很高的位置，以此去要求别人，指责别人。每个人都有自尊心，尤其是在人前，谁也不愿意被批判。</li>
+</ol>
+<h4 id="NO-43-给一个人贴上什么样的标签，他就会变成什么样的人"><a href="#NO-43-给一个人贴上什么样的标签，他就会变成什么样的人" class="headerlink" title="NO.43 给一个人贴上什么样的标签，他就会变成什么样的人"></a>NO.43 给一个人贴上什么样的标签，他就会变成什么样的人</h4><h4 id="NO-44-每个人都打算做事，但最后做的往往不是当初打算的事"><a href="#NO-44-每个人都打算做事，但最后做的往往不是当初打算的事" class="headerlink" title="NO.44 每个人都打算做事，但最后做的往往不是当初打算的事"></a>NO.44 每个人都打算做事，但最后做的往往不是当初打算的事</h4><ol>
+<li>戒掉理想的生活是什么样的？肉体虽然活着，但灵魂却死了，只是毫无目标地随波逐流，既没有固定的方向，也不知道停靠在何方。在浑浑噩噩中虚度了宝贵的光阴，荒废了青春的岁月；在做任何事时都不知道其意义何在，只是被挟裹在拥挤的人流中被动前进。</li>
+</ol>
+<h4 id="NO-45-知道自己想要什么的人，比什么都想要的人更容易成功"><a href="#NO-45-知道自己想要什么的人，比什么都想要的人更容易成功" class="headerlink" title="NO.45 知道自己想要什么的人，比什么都想要的人更容易成功"></a>NO.45 知道自己想要什么的人，比什么都想要的人更容易成功</h4><h4 id="NO-46-能让人感觉你是权威，就能让人相信你的话"><a href="#NO-46-能让人感觉你是权威，就能让人相信你的话" class="headerlink" title="NO.46 能让人感觉你是权威，就能让人相信你的话"></a>NO.46 能让人感觉你是权威，就能让人相信你的话</h4><h4 id="NO-47-人总是用自己的标准去衡量世界"><a href="#NO-47-人总是用自己的标准去衡量世界" class="headerlink" title="NO.47 人总是用自己的标准去衡量世界"></a>NO.47 人总是用自己的标准去衡量世界</h4><h4 id="NO-48-找到与对方的共同之处，就有成为朋友的可能"><a href="#NO-48-找到与对方的共同之处，就有成为朋友的可能" class="headerlink" title="NO.48 找到与对方的共同之处，就有成为朋友的可能"></a>NO.48 找到与对方的共同之处，就有成为朋友的可能</h4><h4 id="NO-49-经常看到的东西，你未必真的记得它"><a href="#NO-49-经常看到的东西，你未必真的记得它" class="headerlink" title="NO.49 经常看到的东西，你未必真的记得它"></a>NO.49 经常看到的东西，你未必真的记得它</h4><h4 id="NO-50-好事总为等它的人来临，但是等太久也会错过"><a href="#NO-50-好事总为等它的人来临，但是等太久也会错过" class="headerlink" title="NO.50 好事总为等它的人来临，但是等太久也会错过"></a>NO.50 好事总为等它的人来临，但是等太久也会错过</h4><ol>
+<li>当机立断地做出选择，或许会成功，或许会失败，但如果优柔寡断，畏首畏尾，结果就只有失败</li>
+</ol>
+<h4 id="NO-51-无论多么简单的事情，都会有人把它做错"><a href="#NO-51-无论多么简单的事情，都会有人把它做错" class="headerlink" title="NO.51 无论多么简单的事情，都会有人把它做错"></a>NO.51 无论多么简单的事情，都会有人把它做错</h4><h4 id="NO-52-老板走过你的办公桌时，你总在做工作以外的事情"><a href="#NO-52-老板走过你的办公桌时，你总在做工作以外的事情" class="headerlink" title="NO.52 老板走过你的办公桌时，你总在做工作以外的事情"></a>NO.52 老板走过你的办公桌时，你总在做工作以外的事情</h4><h4 id="NO-53-别被加班加点干活的人感动，他也许是能力不足"><a href="#NO-53-别被加班加点干活的人感动，他也许是能力不足" class="headerlink" title="NO.53 别被加班加点干活的人感动，他也许是能力不足"></a>NO.53 别被加班加点干活的人感动，他也许是能力不足</h4><h4 id="NO-54-你可以不知道谁对，但一定要知道谁说了算"><a href="#NO-54-你可以不知道谁对，但一定要知道谁说了算" class="headerlink" title="NO.54 你可以不知道谁对，但一定要知道谁说了算"></a>NO.54 你可以不知道谁对，但一定要知道谁说了算</h4><h4 id="NO-55-自以为买到了便宜货，出门就发现还有更便宜的"><a href="#NO-55-自以为买到了便宜货，出门就发现还有更便宜的" class="headerlink" title="NO.55 自以为买到了便宜货，出门就发现还有更便宜的"></a>NO.55 自以为买到了便宜货，出门就发现还有更便宜的</h4><h4 id="NO-56-堵车的时候，总是旁边的行车道动得快"><a href="#NO-56-堵车的时候，总是旁边的行车道动得快" class="headerlink" title="NO.56 堵车的时候，总是旁边的行车道动得快"></a>NO.56 堵车的时候，总是旁边的行车道动得快</h4><h4 id="NO-57-越为已经失去的伤心，便会失去得更多"><a href="#NO-57-越为已经失去的伤心，便会失去得更多" class="headerlink" title="NO.57 越为已经失去的伤心，便会失去得更多"></a>NO.57 越为已经失去的伤心，便会失去得更多</h4><h4 id="NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙"><a href="#NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙" class="headerlink" title="NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙"></a>NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙</h4><h4 id="NO-59-最好的游戏分数，一定是你独自玩的时候得到的"><a href="#NO-59-最好的游戏分数，一定是你独自玩的时候得到的" class="headerlink" title="NO.59 最好的游戏分数，一定是你独自玩的时候得到的"></a>NO.59 最好的游戏分数，一定是你独自玩的时候得到的</h4><h4 id="NO-60-说原则上同意的人，并没有付诸行动的意思"><a href="#NO-60-说原则上同意的人，并没有付诸行动的意思" class="headerlink" title="NO.60 说原则上同意的人，并没有付诸行动的意思"></a>NO.60 说原则上同意的人，并没有付诸行动的意思</h4>]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《墨菲定律》（上）</title>
     <url>//24.html</url>
     <content><![CDATA[<h4 id="NO-1-一件事只要有可能出错，就一定会出错"><a href="#NO-1-一件事只要有可能出错，就一定会出错" class="headerlink" title="NO.1 一件事只要有可能出错，就一定会出错"></a>NO.1 一件事只要有可能出错，就一定会出错</h4><ol>
@@ -927,170 +953,6 @@ docker run -d \
       </tags>
   </entry>
   <entry>
-    <title>《墨菲定律》（中）</title>
-    <url>//46098.html</url>
-    <content><![CDATA[<h4 id="NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服"><a href="#NO-31-把穿着打扮放在第一位的人，自身价值比不上那些衣服" class="headerlink" title="NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服"></a>NO.31 把穿着打扮放在第一位的人，自身价值比不上那些衣服</h4><h4 id="NO-32-讨好所有人这件事，谁做都会碰一鼻子灰"><a href="#NO-32-讨好所有人这件事，谁做都会碰一鼻子灰" class="headerlink" title="NO.32 讨好所有人这件事，谁做都会碰一鼻子灰"></a>NO.32 讨好所有人这件事，谁做都会碰一鼻子灰</h4><h4 id="NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你"><a href="#NO-33-你觉得拍的最漂亮的那张照片，别人都说不像你" class="headerlink" title="NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你"></a>NO.33 你觉得拍的最漂亮的那张照片，别人都说不像你</h4><h4 id="NO-34-如果不能解决某个问题，就不要制造这个问题"><a href="#NO-34-如果不能解决某个问题，就不要制造这个问题" class="headerlink" title="NO.34 如果不能解决某个问题，就不要制造这个问题"></a>NO.34 如果不能解决某个问题，就不要制造这个问题</h4><h4 id="NO-35-最好的玩具，永远是别人手里正在玩的那个"><a href="#NO-35-最好的玩具，永远是别人手里正在玩的那个" class="headerlink" title="NO.35 最好的玩具，永远是别人手里正在玩的那个"></a>NO.35 最好的玩具，永远是别人手里正在玩的那个</h4><ol>
-<li>生活的差别无处不在，每个人的生命都是被上苍划了一道缺口。你若不是牡丹，就不必追求娇艳；你若不是蔷薇，就不必象征爱的誓言。你若只是小草，就展现顽强的生命；你若是一颗树，就散发出独立的气息。</li>
-</ol>
-<h4 id="NO-36-人迷惑时不可怜，不知道迷惑时才是最可怜的"><a href="#NO-36-人迷惑时不可怜，不知道迷惑时才是最可怜的" class="headerlink" title="NO.36 人迷惑时不可怜，不知道迷惑时才是最可怜的"></a>NO.36 人迷惑时不可怜，不知道迷惑时才是最可怜的</h4><h4 id="NO-37-越把失败当回事的人，越是容易遭遇失败"><a href="#NO-37-越把失败当回事的人，越是容易遭遇失败" class="headerlink" title="NO.37 越把失败当回事的人，越是容易遭遇失败"></a>NO.37 越把失败当回事的人，越是容易遭遇失败</h4><h4 id="NO-38-说自己绝对不会错的时候，往往错的就是你"><a href="#NO-38-说自己绝对不会错的时候，往往错的就是你" class="headerlink" title="NO.38 说自己绝对不会错的时候，往往错的就是你"></a>NO.38 说自己绝对不会错的时候，往往错的就是你</h4><h4 id="NO-39-千万不要跟傻瓜争论，一不留神你可能就成了傻瓜"><a href="#NO-39-千万不要跟傻瓜争论，一不留神你可能就成了傻瓜" class="headerlink" title="NO.39 千万不要跟傻瓜争论，一不留神你可能就成了傻瓜"></a>NO.39 千万不要跟傻瓜争论，一不留神你可能就成了傻瓜</h4><ol>
-<li>争吵无法给你带来任何好处，只会让你活在愤怒之中</li>
-</ol>
-<h4 id="NO-40-有人说不是钱的问题时，多半就是钱的问题"><a href="#NO-40-有人说不是钱的问题时，多半就是钱的问题" class="headerlink" title="NO.40 有人说不是钱的问题时，多半就是钱的问题"></a>NO.40 有人说不是钱的问题时，多半就是钱的问题</h4><h4 id="NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境"><a href="#NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境" class="headerlink" title="NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境"></a>NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境</h4><h4 id="NO-42-让别人感受到你的善意，而不是不顾别人的自尊"><a href="#NO-42-让别人感受到你的善意，而不是不顾别人的自尊" class="headerlink" title="NO.42 让别人感受到你的善意，而不是不顾别人的自尊"></a>NO.42 让别人感受到你的善意，而不是不顾别人的自尊</h4><ol>
-<li>任何人都有缺点，都会犯错，我们只能要求自己尽量把事情做到最好，尽量不犯错，但这并不意味着要把自己摆到很高的位置，以此去要求别人，指责别人。每个人都有自尊心，尤其是在人前，谁也不愿意被批判。</li>
-</ol>
-<h4 id="NO-43-给一个人贴上什么样的标签，他就会变成什么样的人"><a href="#NO-43-给一个人贴上什么样的标签，他就会变成什么样的人" class="headerlink" title="NO.43 给一个人贴上什么样的标签，他就会变成什么样的人"></a>NO.43 给一个人贴上什么样的标签，他就会变成什么样的人</h4><h4 id="NO-44-每个人都打算做事，但最后做的往往不是当初打算的事"><a href="#NO-44-每个人都打算做事，但最后做的往往不是当初打算的事" class="headerlink" title="NO.44 每个人都打算做事，但最后做的往往不是当初打算的事"></a>NO.44 每个人都打算做事，但最后做的往往不是当初打算的事</h4><ol>
-<li>戒掉理想的生活是什么样的？肉体虽然活着，但灵魂却死了，只是毫无目标地随波逐流，既没有固定的方向，也不知道停靠在何方。在浑浑噩噩中虚度了宝贵的光阴，荒废了青春的岁月；在做任何事时都不知道其意义何在，只是被挟裹在拥挤的人流中被动前进。</li>
-</ol>
-<h4 id="NO-45-知道自己想要什么的人，比什么都想要的人更容易成功"><a href="#NO-45-知道自己想要什么的人，比什么都想要的人更容易成功" class="headerlink" title="NO.45 知道自己想要什么的人，比什么都想要的人更容易成功"></a>NO.45 知道自己想要什么的人，比什么都想要的人更容易成功</h4><h4 id="NO-46-能让人感觉你是权威，就能让人相信你的话"><a href="#NO-46-能让人感觉你是权威，就能让人相信你的话" class="headerlink" title="NO.46 能让人感觉你是权威，就能让人相信你的话"></a>NO.46 能让人感觉你是权威，就能让人相信你的话</h4><h4 id="NO-47-人总是用自己的标准去衡量世界"><a href="#NO-47-人总是用自己的标准去衡量世界" class="headerlink" title="NO.47 人总是用自己的标准去衡量世界"></a>NO.47 人总是用自己的标准去衡量世界</h4><h4 id="NO-48-找到与对方的共同之处，就有成为朋友的可能"><a href="#NO-48-找到与对方的共同之处，就有成为朋友的可能" class="headerlink" title="NO.48 找到与对方的共同之处，就有成为朋友的可能"></a>NO.48 找到与对方的共同之处，就有成为朋友的可能</h4><h4 id="NO-49-经常看到的东西，你未必真的记得它"><a href="#NO-49-经常看到的东西，你未必真的记得它" class="headerlink" title="NO.49 经常看到的东西，你未必真的记得它"></a>NO.49 经常看到的东西，你未必真的记得它</h4><h4 id="NO-50-好事总为等它的人来临，但是等太久也会错过"><a href="#NO-50-好事总为等它的人来临，但是等太久也会错过" class="headerlink" title="NO.50 好事总为等它的人来临，但是等太久也会错过"></a>NO.50 好事总为等它的人来临，但是等太久也会错过</h4><ol>
-<li>当机立断地做出选择，或许会成功，或许会失败，但如果优柔寡断，畏首畏尾，结果就只有失败</li>
-</ol>
-<h4 id="NO-51-无论多么简单的事情，都会有人把它做错"><a href="#NO-51-无论多么简单的事情，都会有人把它做错" class="headerlink" title="NO.51 无论多么简单的事情，都会有人把它做错"></a>NO.51 无论多么简单的事情，都会有人把它做错</h4><h4 id="NO-52-老板走过你的办公桌时，你总在做工作以外的事情"><a href="#NO-52-老板走过你的办公桌时，你总在做工作以外的事情" class="headerlink" title="NO.52 老板走过你的办公桌时，你总在做工作以外的事情"></a>NO.52 老板走过你的办公桌时，你总在做工作以外的事情</h4><h4 id="NO-53-别被加班加点干活的人感动，他也许是能力不足"><a href="#NO-53-别被加班加点干活的人感动，他也许是能力不足" class="headerlink" title="NO.53 别被加班加点干活的人感动，他也许是能力不足"></a>NO.53 别被加班加点干活的人感动，他也许是能力不足</h4><h4 id="NO-54-你可以不知道谁对，但一定要知道谁说了算"><a href="#NO-54-你可以不知道谁对，但一定要知道谁说了算" class="headerlink" title="NO.54 你可以不知道谁对，但一定要知道谁说了算"></a>NO.54 你可以不知道谁对，但一定要知道谁说了算</h4><h4 id="NO-55-自以为买到了便宜货，出门就发现还有更便宜的"><a href="#NO-55-自以为买到了便宜货，出门就发现还有更便宜的" class="headerlink" title="NO.55 自以为买到了便宜货，出门就发现还有更便宜的"></a>NO.55 自以为买到了便宜货，出门就发现还有更便宜的</h4><h4 id="NO-56-堵车的时候，总是旁边的行车道动得快"><a href="#NO-56-堵车的时候，总是旁边的行车道动得快" class="headerlink" title="NO.56 堵车的时候，总是旁边的行车道动得快"></a>NO.56 堵车的时候，总是旁边的行车道动得快</h4><h4 id="NO-57-越为已经失去的伤心，便会失去得更多"><a href="#NO-57-越为已经失去的伤心，便会失去得更多" class="headerlink" title="NO.57 越为已经失去的伤心，便会失去得更多"></a>NO.57 越为已经失去的伤心，便会失去得更多</h4><h4 id="NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙"><a href="#NO-58-总有人爬到了梯子的顶端，才发现梯子架错了墙" class="headerlink" title="NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙"></a>NO.58 总有人爬到了梯子的顶端，才发现梯子架错了墙</h4><h4 id="NO-59-最好的游戏分数，一定是你独自玩的时候得到的"><a href="#NO-59-最好的游戏分数，一定是你独自玩的时候得到的" class="headerlink" title="NO.59 最好的游戏分数，一定是你独自玩的时候得到的"></a>NO.59 最好的游戏分数，一定是你独自玩的时候得到的</h4><h4 id="NO-60-说原则上同意的人，并没有付诸行动的意思"><a href="#NO-60-说原则上同意的人，并没有付诸行动的意思" class="headerlink" title="NO.60 说原则上同意的人，并没有付诸行动的意思"></a>NO.60 说原则上同意的人，并没有付诸行动的意思</h4>]]></content>
-      <categories>
-        <category>阅读</category>
-      </categories>
-      <tags>
-        <tag>书摘</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo博客搭建（含美化）</title>
-    <url>//50650.html</url>
-    <content><![CDATA[<h1 id="Hexo博客搭建教程（包括上传到GitHub和博客美化）"><a href="#Hexo博客搭建教程（包括上传到GitHub和博客美化）" class="headerlink" title="Hexo博客搭建教程（包括上传到GitHub和博客美化）"></a>Hexo博客搭建教程（包括上传到GitHub和博客美化）</h1><h2 id="需要的工具"><a href="#需要的工具" class="headerlink" title="需要的工具"></a>需要的工具</h2><ul>
-<li>node.js</li>
-<li>git</li>
-</ul>
-<h2 id="安装and部署"><a href="#安装and部署" class="headerlink" title="安装and部署"></a>安装and部署</h2><ol>
-<li><p>安装node.js和git<br><a href="https://nodejs.org/zh-cn/">node.js</a><br><a href="https://git-scm.com/downloads">git</a></p>
-</li>
-<li><p>安装hexo<br><code>npm install hexo -g</code><br>安装后使用<code>hexo -v</code>查看hexo是否安装完成</p>
-</li>
-<li><p>创建hexo项目文件夹作为博客的目录<br>创建完成后在该目录使用cmd命令<code>hexo init</code>初始化博客</p>
-</li>
-<li><p>使用<code>hexo generate</code>或<code>hexo g</code>生成当前的博客</p>
-</li>
-<li><p>使用<code>hexo server</code>或<code>hexo s</code>启动服务器<br>可以用<code>localhost:4000</code>访问博客（此时博客是在本地运行）</p>
-</li>
-<li><p>生成ssh密钥<br>打开Git Bash，使用以下命令配置git，（推荐在博客目录下）<br><code>git config --global user.name &quot;你的github用户的名字&quot;</code><br><code>git config --global user.name &quot;你的github用户的邮箱&quot;</code><br><code>ssh-keygen -t rsa -C &quot;你的github账户邮箱&quot;</code><br>连续三次回车<br><code>eval &quot;$(ssh-agent -s)&quot;</code>,添加到ssh-agent<br><code>ssh-add ~/.ssh/id_rsa</code>,添加生成的SSH密钥到ssh-agen<br><code>cat ~/.ssh/id_rsa.pub</code><br>复制此时显示的内容，内容应该是ssh-rsa简介</p>
-</li>
-<li><p>Ctrl+C退出后，在GitHub上新建一个新的仓库，仓库名为(你的用户名.github.io)<br>然后到仓库页面上有个setting点击后进入页面<br>页面的左侧的选项卡，部署选择添加部署键，添加密钥。</p>
-</li>
-<li><p>修改hexo配置文件<br>打开本地博客的根目录，找到_config.yml文件<br>在文件的开头处，第二部分，URL部分改成如下内容：</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: https://(你的用户名).github.io/ (后面如果需要域名访问改成你的域名)</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
-
-<p>在文件的结尾处，改成如下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: &#x27;git&#x27;</span><br><span class="line">  repo: &#x27;https://github.com/(你的用户名)/(你的用户名).github.io.git&#x27;</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-
-<ol start="9">
-<li>使用<code>hexo clean</code>清除扫描</li>
-<li>使用<code>hexo g</code>生成博客</li>
-<li>使用<code>npm install hexo-deployer-git --save</code>安装插件</li>
-<li>使用<code>hexo deploy</code>或<code>hexo d</code>将部署到GitHub上，打开你的GitHub Pages设置进入输入的url，就可以的博客了。以上两步也可以连写为<code>hexo d -g</code>。</li>
-</ol>
-<h2 id="博客美化（本文使用Fluid主题）"><a href="#博客美化（本文使用Fluid主题）" class="headerlink" title="博客美化（本文使用Fluid主题）"></a>博客美化（本文使用Fluid主题）</h2><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>Fluid 是基于 Hexo 的一款 Material Design 风格的主题</p>
-<blockquote>
-<p>TIP<br>致主题的新用户：</p>
-<p>本指南经过数个版本打磨，绝大部分的功能都有详细说明，请仔细阅读，节约自己和他人的时间；</p>
-<p>本指南中提到的：”博客配置” 指的 Hexo 博客目录下的 _config.yml，”主题配置” 指的是 theme&#x2F;fluid&#x2F;_config.yml 或者 _config.fluid.yml ，注意区分；</p>
-<p>本指南中提到的 source 目录都指的是博客目录下的 source 文件夹，不推荐修改主题内 source 目录；</p>
-<p>每次无论 <code>hexo g</code> 或 <code>hexo s</code>，都最好先使用 <code>hexo clean</code> 清除本地缓存；</p>
-<p>页面结果以本地 <code>hexo s</code> 为准，部署后的异常大部分是线上缓存原因，在确认没有报错的情况下，等待若干时间后即可正常；</p>
-<p>由于主题的不同版本会存在配置差异，本指南以最新版本为准。</p>
-</blockquote>
-<h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p>Hexo 5.0.0 版本以上，推荐通过 npm 直接安装，进入博客目录执行命令：<br><code>npm install --save hexo-theme-fluid</code><br>然后在博客目录下创建<code>_config.fluid.yml</code>，将主题的<a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a><br>内容复制过去。</p>
-<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>下载<a href="https://github.com/fluid-dev/hexo-theme-fluid/releases">最新release版本</a>解压到 themes 目录，并将解压出的文件夹重命名为 fluid。</p>
-<h2 id="指定主题"><a href="#指定主题" class="headerlink" title="指定主题"></a>指定主题</h2><p>如下修改 Hexo 博客目录中的 <code>_config.yml</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: fluid  # 指定主题</span><br><span class="line">language: zh-CN  # 指定语言，会影响主题显示的语言，按需修改</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建关于页"><a href="#创建关于页" class="headerlink" title="创建关于页"></a>创建关于页</h2><p>在git-bash或cmd里执行命令<br><code>hexo new page about</code><br>创建成功后修改 <code>/source/about/index.md</code>，添加 <code>layout</code> 属性。<br>修改后的文件示例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标题</span><br><span class="line">layout: about</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">这里写关于页的正文，支持 Markdown, HTML</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>WARNING<br><code>layout: about</code> 必须存在，并且不能修改成其他值，否则不会显示头像等样式。</p>
-</blockquote>
-<h3 id="关于更多"><a href="#关于更多" class="headerlink" title="关于更多"></a>关于更多</h3><p>可以看<a href="https://hexo.fluid-dev.com/docs/start/">Fluid主题使用手册</a></p>
-<h2 id="添加网站运行时间"><a href="#添加网站运行时间" class="headerlink" title="添加网站运行时间"></a>添加网站运行时间</h2><p>注意缩进</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">content: &#x27;</span><br><span class="line">    &lt;a href=&quot;https://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;&lt;span&gt;Hexo&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">    &lt;i class=&quot;iconfont icon-love&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;a href=&quot;https://github.com/fluid-dev/hexo-theme-fluid&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;&lt;span&gt;Fluid&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;span id=&quot;timeDate&quot;&gt;载入天数...&lt;/span&gt;</span><br><span class="line">        &lt;span id=&quot;times&quot;&gt;载入时分秒...&lt;/span&gt;</span><br><span class="line">        &lt;script src=&quot;/js/duration.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&#x27;</span><br></pre></td></tr></table></figure>
-
-<h4 id="JS文件"><a href="#JS文件" class="headerlink" title="JS文件"></a>JS文件</h4><p>如果是npm安装则在 博客目录下 <code>blog/node_modules/hexo-theme-fluid/source</code>创建 <code>duration.js</code></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createtime</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> grt = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;08/30/2021 20:00:00&quot;</span>);<span class="comment">//在此处修改你的建站时间，格式：月/日/年 时:分:秒</span></span><br><span class="line">    now.<span class="title function_">setTime</span>(now.<span class="title function_">getTime</span>() + <span class="number">250</span>);</span><br><span class="line">    days = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>;</span><br><span class="line">    dnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(days);</span><br><span class="line">    hours = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum);</span><br><span class="line">    hnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(hours);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(hnum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        hnum = <span class="string">&quot;0&quot;</span> + hnum;</span><br><span class="line">    &#125;</span><br><span class="line">    minutes = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span><br><span class="line">    mnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(minutes);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(mnum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        mnum = <span class="string">&quot;0&quot;</span> + mnum;</span><br><span class="line">    &#125;</span><br><span class="line">    seconds = (now - grt) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span><br><span class="line">    snum = <span class="title class_">Math</span>.<span class="title function_">round</span>(seconds);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(snum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        snum = <span class="string">&quot;0&quot;</span> + snum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;timeDate&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;本站已安全运行 &quot;</span> + dnum + <span class="string">&quot; 天 &quot;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;times&quot;</span>).<span class="property">innerHTML</span> = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>, <span class="number">250</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加访客量"><a href="#添加访客量" class="headerlink" title="添加访客量"></a>添加访客量</h2><p>主题配置文件 大概431行（展示网站的 PV、UV 统计数）<br><code>enable: true</code><br><code>source: &quot;busuanzi&quot;</code><br>leancloud需要注册且设置（busuanzi不用）</p>
-<h4 id="更多样式（在主题配置下"><a href="#更多样式（在主题配置下" class="headerlink" title="更多样式（在主题配置下"></a>更多样式（在主题配置下</h4><p>custom_js:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">custom_js:</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js # 动态彩带</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Ribbon.min.js # 静态彩带</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicLine.min.js # 动态黑色线条</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js # 小雪花飘落</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js #樱花飘落</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js # 鼠标跟随小星星</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/containsWord.min.js # 鼠标点击出字</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/love.min.js #鼠标点击出爱心</span><br></pre></td></tr></table></figure>
-
-<p>启用某个就把注释删除掉<br>custom_css:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#  - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/shubiao.css #鼠标指针</span><br><span class="line">#  - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css # 滚动条颜色</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用所购买的域名访问博客"><a href="#使用所购买的域名访问博客" class="headerlink" title="使用所购买的域名访问博客"></a>使用所购买的域名访问博客</h2><p>GitHub Pages 可使用两种类型的域名：子域名和 apex 域名。 有关不支持的自定义域名列表</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">支持的自定义域类型	示例</span><br><span class="line"></span><br><span class="line">www 子域	    www.example.com  </span><br><span class="line">自定义子域	    blog.example.com</span><br><span class="line">Apex 域	            example.com</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://docs.github.com/cn/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain">管理 GitHub Pages 站点的自定义域</a><br>在主题目录下 source下创建一个文件CNAME 该文件无后辍，内容为你所解析的域名内容<br>例如：我的是yorg.top 文件内就写 yorg.top</p>
-<h2 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h2><p>主题文件搜索<code>Comment plugin</code>打开评论插件 类型选waline<br>配置waline</p>
-<p><a href="https://waline.js.org/">waline</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">serverURLs: &#x27;(填写你的站点)&#x27; </span><br><span class="line">emoji: [&#x27;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&#x27;]</span><br></pre></td></tr></table></figure>
-
-<h2 id="本文参考："><a href="#本文参考：" class="headerlink" title="本文参考："></a>本文参考：</h2><p><a href="https://codeanime.cc/%E5%9C%A8GitHub%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2.html">在GitHub上部署hexo博客</a>【作者：codeanime】<br><a href="https://davidham3.github.io/blog/2018/02/20/%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2hexo/">在github上部署hexo</a>【作者：戴维汉姆】<br><a href="https://emoryhuang.cn/blog/1729600336.html">Hexo + Fluid 美化</a>  【作者：EmoryHuang】<br><a href="https://hexo.fluid-dev.com/docs/guide/">Hexo Fluid 用户手册</a>  </p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Github</tag>
-        <tag>博客搭建</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
-    <url>//40025.html</url>
-    <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
-<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
-
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
-<p>输入命令</p>
-<p><code>docker logs -f qinglong</code></p>
-<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
-<span id="more"></span>
-<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
-<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
-<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
-
-<p>这时候访问 <a href="http://ip:port" title="http://ip:port">http://ip:port</a> 就能访问了</p>
-<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http://ip:port/admin/">http://ip:port/admin/</a></p>
-<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
-<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
-<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
-<p>任务仓库：</p>
-<pre><code>【Faker2】
-ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-
-【Faker3】
-ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-</code></pre>
-<hr>
-<p>该文章内容部分来自于：<br><a href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
-]]></content>
-      <categories>
-        <category>简易教程</category>
-      </categories>
-      <tags>
-        <tag>VPS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《墨菲定律》（下）</title>
     <url>//64537.html</url>
     <content><![CDATA[<h4 id="NO-61-认定了一件事不值得去做，就不可能做好"><a href="#NO-61-认定了一件事不值得去做，就不可能做好" class="headerlink" title="NO.61 认定了一件事不值得去做，就不可能做好"></a>NO.61 认定了一件事不值得去做，就不可能做好</h4><h4 id="NO-76-你和好友爱上同一个女人时，就没有朋友可做了"><a href="#NO-76-你和好友爱上同一个女人时，就没有朋友可做了" class="headerlink" title="NO.76 你和好友爱上同一个女人时，就没有朋友可做了"></a>NO.76 你和好友爱上同一个女人时，就没有朋友可做了</h4><ol>
@@ -1146,6 +1008,54 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
       </categories>
       <tags>
         <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板</title>
+    <url>//40025.html</url>
+    <content><![CDATA[<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
+<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
+
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
+<p>输入命令</p>
+<p><code>docker logs -f qinglong</code></p>
+<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
+<span id="more"></span>
+<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
+<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
+<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
+<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
+
+<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
+
+<p>这时候访问 <a href="http://ip:port" title="http://ip:port">http://ip:port</a> 就能访问了</p>
+<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http://ip:port/admin/">http://ip:port/admin/</a></p>
+<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
+<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
+<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
+<p>任务仓库：</p>
+<pre><code>【Faker2】
+ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+
+【Faker3】
+ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
+</code></pre>
+<hr>
+<p>该文章内容部分来自于：<br><a href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>VPS</tag>
       </tags>
   </entry>
   <entry>
@@ -1318,6 +1228,96 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
       </categories>
       <tags>
         <tag>书摘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客搭建（含美化）</title>
+    <url>//50650.html</url>
+    <content><![CDATA[<h1 id="Hexo博客搭建教程（包括上传到GitHub和博客美化）"><a href="#Hexo博客搭建教程（包括上传到GitHub和博客美化）" class="headerlink" title="Hexo博客搭建教程（包括上传到GitHub和博客美化）"></a>Hexo博客搭建教程（包括上传到GitHub和博客美化）</h1><h2 id="需要的工具"><a href="#需要的工具" class="headerlink" title="需要的工具"></a>需要的工具</h2><ul>
+<li>node.js</li>
+<li>git</li>
+</ul>
+<h2 id="安装and部署"><a href="#安装and部署" class="headerlink" title="安装and部署"></a>安装and部署</h2><ol>
+<li><p>安装node.js和git<br><a href="https://nodejs.org/zh-cn/">node.js</a><br><a href="https://git-scm.com/downloads">git</a></p>
+</li>
+<li><p>安装hexo<br><code>npm install hexo -g</code><br>安装后使用<code>hexo -v</code>查看hexo是否安装完成</p>
+</li>
+<li><p>创建hexo项目文件夹作为博客的目录<br>创建完成后在该目录使用cmd命令<code>hexo init</code>初始化博客</p>
+</li>
+<li><p>使用<code>hexo generate</code>或<code>hexo g</code>生成当前的博客</p>
+</li>
+<li><p>使用<code>hexo server</code>或<code>hexo s</code>启动服务器<br>可以用<code>localhost:4000</code>访问博客（此时博客是在本地运行）</p>
+</li>
+<li><p>生成ssh密钥<br>打开Git Bash，使用以下命令配置git，（推荐在博客目录下）<br><code>git config --global user.name &quot;你的github用户的名字&quot;</code><br><code>git config --global user.name &quot;你的github用户的邮箱&quot;</code><br><code>ssh-keygen -t rsa -C &quot;你的github账户邮箱&quot;</code><br>连续三次回车<br><code>eval &quot;$(ssh-agent -s)&quot;</code>,添加到ssh-agent<br><code>ssh-add ~/.ssh/id_rsa</code>,添加生成的SSH密钥到ssh-agen<br><code>cat ~/.ssh/id_rsa.pub</code><br>复制此时显示的内容，内容应该是ssh-rsa简介</p>
+</li>
+<li><p>Ctrl+C退出后，在GitHub上新建一个新的仓库，仓库名为(你的用户名.github.io)<br>然后到仓库页面上有个setting点击后进入页面<br>页面的左侧的选项卡，部署选择添加部署键，添加密钥。</p>
+</li>
+<li><p>修改hexo配置文件<br>打开本地博客的根目录，找到_config.yml文件<br>在文件的开头处，第二部分，URL部分改成如下内容：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: https://(你的用户名).github.io/ (后面如果需要域名访问改成你的域名)</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
+
+<p>在文件的结尾处，改成如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: &#x27;git&#x27;</span><br><span class="line">  repo: &#x27;https://github.com/(你的用户名)/(你的用户名).github.io.git&#x27;</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>使用<code>hexo clean</code>清除扫描</li>
+<li>使用<code>hexo g</code>生成博客</li>
+<li>使用<code>npm install hexo-deployer-git --save</code>安装插件</li>
+<li>使用<code>hexo deploy</code>或<code>hexo d</code>将部署到GitHub上，打开你的GitHub Pages设置进入输入的url，就可以的博客了。以上两步也可以连写为<code>hexo d -g</code>。</li>
+</ol>
+<h2 id="博客美化（本文使用Fluid主题）"><a href="#博客美化（本文使用Fluid主题）" class="headerlink" title="博客美化（本文使用Fluid主题）"></a>博客美化（本文使用Fluid主题）</h2><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>Fluid 是基于 Hexo 的一款 Material Design 风格的主题</p>
+<blockquote>
+<p>TIP<br>致主题的新用户：</p>
+<p>本指南经过数个版本打磨，绝大部分的功能都有详细说明，请仔细阅读，节约自己和他人的时间；</p>
+<p>本指南中提到的：”博客配置” 指的 Hexo 博客目录下的 _config.yml，”主题配置” 指的是 theme&#x2F;fluid&#x2F;_config.yml 或者 _config.fluid.yml ，注意区分；</p>
+<p>本指南中提到的 source 目录都指的是博客目录下的 source 文件夹，不推荐修改主题内 source 目录；</p>
+<p>每次无论 <code>hexo g</code> 或 <code>hexo s</code>，都最好先使用 <code>hexo clean</code> 清除本地缓存；</p>
+<p>页面结果以本地 <code>hexo s</code> 为准，部署后的异常大部分是线上缓存原因，在确认没有报错的情况下，等待若干时间后即可正常；</p>
+<p>由于主题的不同版本会存在配置差异，本指南以最新版本为准。</p>
+</blockquote>
+<h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><p>Hexo 5.0.0 版本以上，推荐通过 npm 直接安装，进入博客目录执行命令：<br><code>npm install --save hexo-theme-fluid</code><br>然后在博客目录下创建<code>_config.fluid.yml</code>，将主题的<a href="https://github.com/fluid-dev/hexo-theme-fluid/blob/master/_config.yml">_config.yml</a><br>内容复制过去。</p>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><p>下载<a href="https://github.com/fluid-dev/hexo-theme-fluid/releases">最新release版本</a>解压到 themes 目录，并将解压出的文件夹重命名为 fluid。</p>
+<h2 id="指定主题"><a href="#指定主题" class="headerlink" title="指定主题"></a>指定主题</h2><p>如下修改 Hexo 博客目录中的 <code>_config.yml</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: fluid  # 指定主题</span><br><span class="line">language: zh-CN  # 指定语言，会影响主题显示的语言，按需修改</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建关于页"><a href="#创建关于页" class="headerlink" title="创建关于页"></a>创建关于页</h2><p>在git-bash或cmd里执行命令<br><code>hexo new page about</code><br>创建成功后修改 <code>/source/about/index.md</code>，添加 <code>layout</code> 属性。<br>修改后的文件示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标题</span><br><span class="line">layout: about</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">这里写关于页的正文，支持 Markdown, HTML</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>WARNING<br><code>layout: about</code> 必须存在，并且不能修改成其他值，否则不会显示头像等样式。</p>
+</blockquote>
+<h3 id="关于更多"><a href="#关于更多" class="headerlink" title="关于更多"></a>关于更多</h3><p>可以看<a href="https://hexo.fluid-dev.com/docs/start/">Fluid主题使用手册</a></p>
+<h2 id="添加网站运行时间"><a href="#添加网站运行时间" class="headerlink" title="添加网站运行时间"></a>添加网站运行时间</h2><p>注意缩进</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">content: &#x27;</span><br><span class="line">    &lt;a href=&quot;https://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;&lt;span&gt;Hexo&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">    &lt;i class=&quot;iconfont icon-love&quot;&gt;&lt;/i&gt;</span><br><span class="line">    &lt;a href=&quot;https://github.com/fluid-dev/hexo-theme-fluid&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;&lt;span&gt;Fluid&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;span id=&quot;timeDate&quot;&gt;载入天数...&lt;/span&gt;</span><br><span class="line">        &lt;span id=&quot;times&quot;&gt;载入时分秒...&lt;/span&gt;</span><br><span class="line">        &lt;script src=&quot;/js/duration.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&#x27;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JS文件"><a href="#JS文件" class="headerlink" title="JS文件"></a>JS文件</h4><p>如果是npm安装则在 博客目录下 <code>blog/node_modules/hexo-theme-fluid/source</code>创建 <code>duration.js</code></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">createtime</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> grt = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&quot;08/30/2021 20:00:00&quot;</span>);<span class="comment">//在此处修改你的建站时间，格式：月/日/年 时:分:秒</span></span><br><span class="line">    now.<span class="title function_">setTime</span>(now.<span class="title function_">getTime</span>() + <span class="number">250</span>);</span><br><span class="line">    days = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>;</span><br><span class="line">    dnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(days);</span><br><span class="line">    hours = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum);</span><br><span class="line">    hnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(hours);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(hnum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        hnum = <span class="string">&quot;0&quot;</span> + hnum;</span><br><span class="line">    &#125;</span><br><span class="line">    minutes = (now - grt) / <span class="number">1000</span> / <span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span><br><span class="line">    mnum = <span class="title class_">Math</span>.<span class="title function_">floor</span>(minutes);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(mnum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        mnum = <span class="string">&quot;0&quot;</span> + mnum;</span><br><span class="line">    &#125;</span><br><span class="line">    seconds = (now - grt) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span><br><span class="line">    snum = <span class="title class_">Math</span>.<span class="title function_">round</span>(seconds);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title class_">String</span>(snum).<span class="property">length</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        snum = <span class="string">&quot;0&quot;</span> + snum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;timeDate&quot;</span>).<span class="property">innerHTML</span> = <span class="string">&quot;本站已安全运行 &quot;</span> + dnum + <span class="string">&quot; 天 &quot;</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;times&quot;</span>).<span class="property">innerHTML</span> = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>, <span class="number">250</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加访客量"><a href="#添加访客量" class="headerlink" title="添加访客量"></a>添加访客量</h2><p>主题配置文件 大概431行（展示网站的 PV、UV 统计数）<br><code>enable: true</code><br><code>source: &quot;busuanzi&quot;</code><br>leancloud需要注册且设置（busuanzi不用）</p>
+<h4 id="更多样式（在主题配置下"><a href="#更多样式（在主题配置下" class="headerlink" title="更多样式（在主题配置下"></a>更多样式（在主题配置下</h4><p>custom_js:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">custom_js:</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicRibbon.min.js # 动态彩带</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Ribbon.min.js # 静态彩带</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/DynamicLine.min.js # 动态黑色线条</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/snowflake.min.js # 小雪花飘落</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/Cherry.min.js #樱花飘落</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/star.min.js # 鼠标跟随小星星</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/containsWord.min.js # 鼠标点击出字</span><br><span class="line">  # - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/love.min.js #鼠标点击出爱心</span><br></pre></td></tr></table></figure>
+
+<p>启用某个就把注释删除掉<br>custom_css:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#  - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/shubiao.css #鼠标指针</span><br><span class="line">#  - //cdn.jsdelivr.net/gh/EmoryHuang/BlogBeautify@1.1/scroll.css # 滚动条颜色</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用所购买的域名访问博客"><a href="#使用所购买的域名访问博客" class="headerlink" title="使用所购买的域名访问博客"></a>使用所购买的域名访问博客</h2><p>GitHub Pages 可使用两种类型的域名：子域名和 apex 域名。 有关不支持的自定义域名列表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">支持的自定义域类型	示例</span><br><span class="line"></span><br><span class="line">www 子域	    www.example.com  </span><br><span class="line">自定义子域	    blog.example.com</span><br><span class="line">Apex 域	            example.com</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://docs.github.com/cn/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain">管理 GitHub Pages 站点的自定义域</a><br>在主题目录下 source下创建一个文件CNAME 该文件无后辍，内容为你所解析的域名内容<br>例如：我的是yorg.top 文件内就写 yorg.top</p>
+<h2 id="配置评论"><a href="#配置评论" class="headerlink" title="配置评论"></a>配置评论</h2><p>主题文件搜索<code>Comment plugin</code>打开评论插件 类型选waline<br>配置waline</p>
+<p><a href="https://waline.js.org/">waline</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">serverURLs: &#x27;(填写你的站点)&#x27; </span><br><span class="line">emoji: [&#x27;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="本文参考："><a href="#本文参考：" class="headerlink" title="本文参考："></a>本文参考：</h2><p><a href="https://codeanime.cc/%E5%9C%A8GitHub%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2.html">在GitHub上部署hexo博客</a>【作者：codeanime】<br><a href="https://davidham3.github.io/blog/2018/02/20/%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2hexo/">在github上部署hexo</a>【作者：戴维汉姆】<br><a href="https://emoryhuang.cn/blog/1729600336.html">Hexo + Fluid 美化</a>  【作者：EmoryHuang】<br><a href="https://hexo.fluid-dev.com/docs/guide/">Hexo Fluid 用户手册</a>  </p>
+]]></content>
+      <categories>
+        <category>简易教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Github</tag>
+        <tag>博客搭建</tag>
       </tags>
   </entry>
 </search>
