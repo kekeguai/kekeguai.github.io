@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">233</span>
+            <span class="post-count">775</span>
         </span>
     </span>
 
@@ -105,7 +105,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -116,6 +116,8 @@
 
     
       
+    <div class="tocbot"></div>
+
 
 
 
@@ -129,32 +131,47 @@
 
 
       
-        <p>LibreTV是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目采用纯前端技术构建，可轻松部署在各类静态网站托管服务上。</p>
-<p><a target="_blank" rel="noopener" href="https://tv.yorg.top/">演示站：https://tv.yorg.top/</a></p>
-<p>##部署指南<br>推荐使用Vercel&#x2F;Netlify部署<span id="more"></span></p>
-<ol>
-<li>fork项目到自己的Github仓库</li>
-<li>进入Vercel新建项目</li>
-<li>从GitHub导入项目 直接部署即可，无需特殊配置。</li>
-</ol>
-<p>##Docker以及docker compose部署<br>Docker 部署</p>
-<pre><code>docker pull bestzwei/libretv:latest
-docker run -d --name libretv -p 8899:80 bestzwei/libretv:latest
-</code></pre>
-<p>Docker compose部署(默认Debian系统)<br>  <code>sudo apt install nano</code><br>  <code>nano docker-compose.yaml</code><br>docker-compose.yml内容如下：</p>
-<pre><code>version: &#39;3&#39;
-services:
-  libretv:
-    image: bestzwei/libretv:latest
-    container_name: libretv
-    ports:
-      - &quot;8899:80&quot;
-    restart: unless-stopped
-</code></pre>
-<p>输入完成后保存</p>
-<pre><code>docker-compose up -d
-</code></pre>
-<p>docker部署完可以通过访问  <code>http://localhost:8899</code>  查看效果。</p>
+        <p>LibreTV 是一个基于 Next.js 的在线视频聚合搜索与观看平台，支持多源搜索、HLS 播放、观看进度、直播&#x2F;IPTV、PWA 和亮暗主题。它只负责聚合和播放用户配置的第三方公开数据源，不自带影视内容。</p>
+<p>本文以 LibreSpark&#x2F;LibreTV 官方仓库当前版本为例，介绍使用 Docker Compose 部署的方法。<span id="more"></span></p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/LibreSpark/LibreTV">LibreSpark&#x2F;LibreTV</a></p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://libretv.is-an.org/wiki/">libretv.is-an.org&#x2F;wiki</a></p>
+<h2 id="一、准备服务器"><a href="#一、准备服务器" class="headerlink" title="一、准备服务器"></a>一、准备服务器</h2><p>建议使用 Debian 11&#x2F;12、Ubuntu 22.04&#x2F;24.04 等 Linux 系统，并准备 Docker、Docker Compose Plugin、一个域名、至少一个合法稳定的 Apple CMS 点播接口和一个自定义访问密码。</p>
+<p>检查 Docker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker --version</span><br><span class="line">docker compose version</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、使用-Docker-Compose-部署"><a href="#二、使用-Docker-Compose-部署" class="headerlink" title="二、使用 Docker Compose 部署"></a>二、使用 Docker Compose 部署</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /opt/libretv</span><br><span class="line"><span class="built_in">cd</span> /opt/libretv</span><br></pre></td></tr></table></figure>
+
+<p>创建 <code>docker-compose.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">libretv:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/librespark/libretv:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">libretv</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">PASSWORD:</span> <span class="string">&quot;请替换为一个强密码&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>替换密码后启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker compose pull</span><br><span class="line">docker compose up -d</span><br><span class="line">docker compose ps</span><br></pre></td></tr></table></figure>
+
+<p>如果服务器防火墙允许 8080 端口，访问 <code>http://服务器IP:8080</code> 即可。登录密码就是 <code>PASSWORD</code> 的值。</p>
+<h2 id="三、添加视频数据源"><a href="#三、添加视频数据源" class="headerlink" title="三、添加视频数据源"></a>三、添加视频数据源</h2><p>登录后进入“设置 → 源管理 → 点播源”，点击“添加 API”，填入第三方 Apple CMS 接口，例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://example.com/api.php/provide/vod</span><br></pre></td></tr></table></figure>
+
+<p>部分接口还需要填写详情页根地址。保存后执行源测试，再回到首页搜索影片。LibreTV 会并行请求已启用的数据源，并将同名内容合并显示。</p>
+<h2 id="四、预置数据源（可选）"><a href="#四、预置数据源（可选）" class="headerlink" title="四、预置数据源（可选）"></a>四、预置数据源（可选）</h2><p>可以在 Compose 中增加 <code>DEFAULT_SOURCES</code>，让首次访问时自动加载数据源：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">PASSWORD:</span> <span class="string">&quot;请替换为一个强密码&quot;</span></span><br><span class="line">  <span class="attr">DEFAULT_SOURCES:</span> <span class="string">&gt;-</span></span><br><span class="line">    [&#123;<span class="string">&quot;name&quot;</span><span class="string">:&quot;示例源&quot;</span>,<span class="string">&quot;url&quot;</span><span class="string">:&quot;https://example.com/api.php/provide/vod&quot;</span>&#125;]</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用 <code>DEFAULT_SUBSCRIPTIONS</code> 预置远程订阅，或使用 <code>DEFAULT_LIVE_SOURCES</code> 预置 M3U 直播源。具体格式见官方<a target="_blank" rel="noopener" href="https://libretv.is-an.org/wiki/Configuration.html">配置文档</a>和<a target="_blank" rel="noopener" href="https://libretv.is-an.org/wiki/Data-Sources.html">数据源文档</a>。</p>
+<p>修改配置后执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、配置域名和-HTTPS"><a href="#五、配置域名和-HTTPS" class="headerlink" title="五、配置域名和 HTTPS"></a>五、配置域名和 HTTPS</h2><p>公网使用时建议通过 Nginx、Caddy 或 Cloudflare 反向代理提供 HTTPS，不要长期直接暴露 8080 端口。Caddy 示例：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tv.example.com &#123;</span><br><span class="line">    reverse_proxy 127.0.0.1:8080</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将域名解析到服务器。HTTPS 很重要，因为登录密码会通过请求提交，公网 HTTP 可能被中间人窃取。</p>
+<h2 id="六、更新和备份"><a href="#六、更新和备份" class="headerlink" title="六、更新和备份"></a>六、更新和备份</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/libretv</span><br><span class="line">docker compose pull</span><br><span class="line">docker compose up -d</span><br><span class="line">docker image prune</span><br></pre></td></tr></table></figure>
+
+<p>观看记录和配置主要保存在浏览器本地。升级前进入“设置 → 数据 → 配置导入导出”，保存导出的 JSON 文件。</p>
+<h2 id="七、常见检查命令"><a href="#七、常见检查命令" class="headerlink" title="七、常见检查命令"></a>七、常见检查命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker compose logs --<span class="built_in">tail</span>=100 libretv</span><br><span class="line">curl http://127.0.0.1:8080/api/status</span><br></pre></td></tr></table></figure>
+
+<p>如果页面打不开，依次检查容器状态、8080 端口、防火墙、域名解析和反向代理配置。数据源搜索失败时，先在“源管理”中测试接口是否仍可访问。</p>
+<blockquote>
+<p>本项目不存储、不制作视频内容，仅提供第三方公开接口的聚合和播放能力。请自行确认数据源及播放内容符合当地法律法规，并尊重版权。</p>
+</blockquote>
 
       
 
