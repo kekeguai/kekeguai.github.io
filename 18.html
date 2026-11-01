@@ -140,6 +140,8 @@
 <h4 id="NO-40-有人说不是钱的问题时，多半就是钱的问题"><a href="#NO-40-有人说不是钱的问题时，多半就是钱的问题" class="headerlink" title="NO.40 有人说不是钱的问题时，多半就是钱的问题"></a>NO.40 有人说不是钱的问题时，多半就是钱的问题</h4><h4 id="NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境"><a href="#NO-41-想用诋毁他人的方式抬高自己，很快就会陷入窘境" class="headerlink" title="NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境"></a>NO.41 想用诋毁他人的方式抬高自己，很快就会陷入窘境</h4><h4 id="NO-42-让别人感受到你的善意，而不是不顾别人的自尊"><a href="#NO-42-让别人感受到你的善意，而不是不顾别人的自尊" class="headerlink" title="NO.42 让别人感受到你的善意，而不是不顾别人的自尊"></a>NO.42 让别人感受到你的善意，而不是不顾别人的自尊</h4><ol>
 <li>任何人都有缺点，都会犯错，我们只能要求自己尽量把事情做到最好，尽量不犯错，但这并不意味着要把自己摆到很高的位置，以此去要求别人，指责别人。每个人都有自尊心，尤其是在人前，谁也不愿意被批判。</li>
 </ol>
+<span id="more"></span>
+
 <h4 id="NO-43-给一个人贴上什么样的标签，他就会变成什么样的人"><a href="#NO-43-给一个人贴上什么样的标签，他就会变成什么样的人" class="headerlink" title="NO.43 给一个人贴上什么样的标签，他就会变成什么样的人"></a>NO.43 给一个人贴上什么样的标签，他就会变成什么样的人</h4><h4 id="NO-44-每个人都打算做事，但最后做的往往不是当初打算的事"><a href="#NO-44-每个人都打算做事，但最后做的往往不是当初打算的事" class="headerlink" title="NO.44 每个人都打算做事，但最后做的往往不是当初打算的事"></a>NO.44 每个人都打算做事，但最后做的往往不是当初打算的事</h4><ol>
 <li>戒掉理想的生活是什么样的？肉体虽然活着，但灵魂却死了，只是毫无目标地随波逐流，既没有固定的方向，也不知道停靠在何方。在浑浑噩噩中虚度了宝贵的光阴，荒废了青春的岁月；在做任何事时都不知道其意义何在，只是被挟裹在拥挤的人流中被动前进。</li>
 </ol>
@@ -281,9 +283,28 @@
     </ul>
     <ul class="runtime-info">
       <li>
-        运行天数: 2254
+        运行时间: <span id="site-runtime">计算中</span>
       </li>
     </ul>
+    <script>
+      (function () {
+        var output = document.getElementById('site-runtime');
+        if (!output) return;
+        var parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date()).reduce(function (result, part) {
+          result[part.type] = Number(part.value);
+          return result;
+        }, {});
+        var today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        var years = parts.year - 2020;
+        var anniversary = Date.UTC(parts.year, 7, 30);
+        if (today < anniversary) years -= 1;
+        var base = Date.UTC(2020 + years, 7, 30);
+        var days = Math.floor((today - base) / 86400000);
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+      }());
+    </script>
     <ul>
       <li>
         
@@ -328,46 +349,12 @@
   
   <ul class="nav nav-main">
     
+    
     <li class="nav-item">
       <a class="nav-item-link"
          href="/"
          
       >主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/archives"
-         
-      >全部文章</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/categories"
-         
-      >文章分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/tags"
-         
-      >全部标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/friends"
-         
-      >友情链接</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/about"
-         
-      >关于本站</a>
     </li>
     
     <li class="nav-item">
@@ -443,6 +430,7 @@
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 

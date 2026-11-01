@@ -133,14 +133,14 @@
       
         <h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
 <p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engine</code><br><code>rm -fr /var/lib/docker/</code></p>
+<span id="more"></span>
+
 <h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
 
 <p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
 <p>输入命令</p>
 <p><code>docker logs -f qinglong</code></p>
-<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板</p>
-<span id="more"></span>
-<p>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
+<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板<br>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
 <p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
 <h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
 <p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<!--more--><br>之后再一步一步执行以下命令</p>
@@ -303,9 +303,28 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
     </ul>
     <ul class="runtime-info">
       <li>
-        运行天数: 2254
+        运行时间: <span id="site-runtime">计算中</span>
       </li>
     </ul>
+    <script>
+      (function () {
+        var output = document.getElementById('site-runtime');
+        if (!output) return;
+        var parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date()).reduce(function (result, part) {
+          result[part.type] = Number(part.value);
+          return result;
+        }, {});
+        var today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        var years = parts.year - 2020;
+        var anniversary = Date.UTC(parts.year, 7, 30);
+        if (today < anniversary) years -= 1;
+        var base = Date.UTC(2020 + years, 7, 30);
+        var days = Math.floor((today - base) / 86400000);
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+      }());
+    </script>
     <ul>
       <li>
         
@@ -350,46 +369,12 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
   
   <ul class="nav nav-main">
     
+    
     <li class="nav-item">
       <a class="nav-item-link"
          href="/"
          
       >主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/archives"
-         
-      >全部文章</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/categories"
-         
-      >文章分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/tags"
-         
-      >全部标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/friends"
-         
-      >友情链接</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/about"
-         
-      >关于本站</a>
     </li>
     
     <li class="nav-item">
@@ -465,6 +450,7 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 

@@ -130,27 +130,20 @@
 
       
         <ul>
-<li>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</li>
+<li><p>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</p>
+</li>
+<li><p>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</p>
+</li>
+<li><p>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</p>
+</li>
 </ul>
 <span id="more"></span>
 
 <ul>
-<li>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</li>
-</ul>
-<!--more-->
-
-<ul>
-<li>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</li>
+<li><p>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</p>
+</li>
+<li><p>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</p>
+</li>
 </ul>
 
       
@@ -287,9 +280,28 @@
     </ul>
     <ul class="runtime-info">
       <li>
-        运行天数: 2254
+        运行时间: <span id="site-runtime">计算中</span>
       </li>
     </ul>
+    <script>
+      (function () {
+        var output = document.getElementById('site-runtime');
+        if (!output) return;
+        var parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date()).reduce(function (result, part) {
+          result[part.type] = Number(part.value);
+          return result;
+        }, {});
+        var today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        var years = parts.year - 2020;
+        var anniversary = Date.UTC(parts.year, 7, 30);
+        if (today < anniversary) years -= 1;
+        var base = Date.UTC(2020 + years, 7, 30);
+        var days = Math.floor((today - base) / 86400000);
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+      }());
+    </script>
     <ul>
       <li>
         
@@ -334,46 +346,12 @@
   
   <ul class="nav nav-main">
     
+    
     <li class="nav-item">
       <a class="nav-item-link"
          href="/"
          
       >主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/archives"
-         
-      >全部文章</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/categories"
-         
-      >文章分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/tags"
-         
-      >全部标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/friends"
-         
-      >友情链接</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/about"
-         
-      >关于本站</a>
     </li>
     
     <li class="nav-item">
@@ -449,6 +427,7 @@
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 

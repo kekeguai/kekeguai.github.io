@@ -138,6 +138,8 @@
 <blockquote>
 <p>PS：注意八位随机数也要一起复制到浏览器打开  </p>
 </blockquote>
+<span id="more"></span>
+
 <h2 id="二、安装Alist"><a href="#二、安装Alist" class="headerlink" title="二、安装Alist"></a>二、安装Alist</h2><p>打开宝塔&#x2F;Aapanel页面会跳出提示框 选择安装lnmp 默认就行 等安装完毕  </p>
 <p>看左侧选项卡选择网站&#x3D;&#x3D;&gt;添加站点&#x3D;&#x3D;&gt;域名填你解析到VPS的域名【按照图片进行操作】<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/Alist/Snipaste_2022-07-07_13-00-25.png" alt="Alist_1" title="Alist"></p>
 <p>之后进入到wwwroot&#x2F;创建的网站目录 选择终端  </p>
@@ -146,7 +148,6 @@
 </blockquote>
 <p>等待提示 YOUR_IP:5244 消息之后就成功了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Alist 安装成功！</span><br><span class="line"> </span><br><span class="line">访问地址：http://YOUR_IP:5244/</span><br><span class="line"> </span><br><span class="line">配置文件：/opt/alist/data/config.json</span><br><span class="line">初始管理密码：mI74sSab</span><br><span class="line"> </span><br><span class="line">查看状态：systemctl status alist</span><br><span class="line">启动服务：systemctl start alist</span><br><span class="line">重启服务：systemctl restart alist</span><br><span class="line">停止服务：systemctl stop alist</span><br></pre></td></tr></table></figure>
-
 
 <p>然后左侧选项卡 选择网站&#x3D;&#x3D;&gt;点击conf&#x2F;配置&#x3D;&#x3D;&gt;Reverse proxy&#x2F;反向代理<br>按照图上配置<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/Alist/Snipaste_2022-07-07_13-14-36.png" alt="Alist_1" title="Alist_2"></p>
 <h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>经过上面的配置 你已经可以打开你的域名 来访问自己的Alist程序啦~</p>
@@ -286,9 +287,28 @@
     </ul>
     <ul class="runtime-info">
       <li>
-        运行天数: 2254
+        运行时间: <span id="site-runtime">计算中</span>
       </li>
     </ul>
+    <script>
+      (function () {
+        var output = document.getElementById('site-runtime');
+        if (!output) return;
+        var parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date()).reduce(function (result, part) {
+          result[part.type] = Number(part.value);
+          return result;
+        }, {});
+        var today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        var years = parts.year - 2020;
+        var anniversary = Date.UTC(parts.year, 7, 30);
+        if (today < anniversary) years -= 1;
+        var base = Date.UTC(2020 + years, 7, 30);
+        var days = Math.floor((today - base) / 86400000);
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+      }());
+    </script>
     <ul>
       <li>
         
@@ -333,46 +353,12 @@
   
   <ul class="nav nav-main">
     
+    
     <li class="nav-item">
       <a class="nav-item-link"
          href="/"
          
       >主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/archives"
-         
-      >全部文章</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/categories"
-         
-      >文章分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/tags"
-         
-      >全部标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/friends"
-         
-      >友情链接</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/about"
-         
-      >关于本站</a>
     </li>
     
     <li class="nav-item">
@@ -448,6 +434,7 @@
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 

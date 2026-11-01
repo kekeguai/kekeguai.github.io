@@ -132,12 +132,13 @@
 
       
         <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h2 id="【索引下载已关闭，如需下载请发邮件至站长邮箱】"><a href="#【索引下载已关闭，如需下载请发邮件至站长邮箱】" class="headerlink" title="【索引下载已关闭，如需下载请发邮件至站长邮箱】"></a>【索引下载已关闭，如需下载请发邮件至站长邮箱】</h2><h3 id="1-1-Z-Library简介"><a href="#1-1-Z-Library简介" class="headerlink" title="1.1 Z-Library简介"></a>1.1 Z-Library简介</h3><p>Z-Library是一个影子图书馆和开放获取文件分享计划，用户可在此网站下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”，并在文章搜索页面上称自身是“全球最大的科学文章存储库”。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。目前Z-Library官网已经不能访问了，但暗网中还有可访问的镜像站，全部资源的离线种子包也已经有人公开出来了。</p>
+<span id="more"></span>
+
 <h3 id="1-2-Book-Searcher简介"><a href="#1-2-Book-Searcher简介" class="headerlink" title="1.2 Book-Searcher简介"></a>1.2 Book-Searcher简介</h3><p>项目介绍：搜索书籍索引，创建您的私人本地图书馆。不保存和提供文件，仅提供书籍搜索。<br>项目地址：<a target="_blank" rel="noopener" href="https://github.com/book-searcher-org/book-searcher">https://github.com/book-searcher-org/book-searcher</a></p>
 <p><img src="https://js.007.al/gh/kekeguai/blog_img@main/book-searcher/Snipaste_2023-01-16_12-50-56.png" alt="Book-searcher" title="Book-searcher">  </p>
 <p>网友分享的Demo站点：<br><a target="_blank" rel="noopener" href="https://zlib.knat.network/">https://zlib.knat.network/</a><br><a target="_blank" rel="noopener" href="https://zlib.freedit.eu/">https://zlib.freedit.eu/</a>  </p>
 <h2 id="2-搭建"><a href="#2-搭建" class="headerlink" title="2.搭建"></a>2.搭建</h2><p>以下所有服务均选择自建，我将采用Docker部署的方式，VPS系统用的是Debian 11   </p>
 <h3 id="2-1-Docker及Docker-Compose环境搭建"><a href="#2-1-Docker及Docker-Compose环境搭建" class="headerlink" title="2.1 Docker及Docker Compose环境搭建"></a>2.1 Docker及Docker Compose环境搭建</h3><h4 id="2-1-1-Docker环境搭建"><a href="#2-1-1-Docker环境搭建" class="headerlink" title="2.1.1 Docker环境搭建"></a>2.1.1 Docker环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">国外鸡：  </span><br><span class="line">curl -sSL https://get.docker.com/ | sh</span><br><span class="line"></span><br><span class="line">国内鸡：  </span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br><span class="line"></span><br><span class="line">卸载docker： </span><br><span class="line">sudo apt-get remove docker docker-engine </span><br><span class="line"></span><br><span class="line">rm -fr /var/lib/docker/</span><br></pre></td></tr></table></figure>
-
 
 <h4 id="2-1-2-Docker-Compose环境搭建"><a href="#2-1-2-Docker-Compose环境搭建" class="headerlink" title="2.1.2 Docker Compose环境搭建"></a>2.1.2 Docker Compose环境搭建</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
 
@@ -298,9 +299,28 @@
     </ul>
     <ul class="runtime-info">
       <li>
-        运行天数: 2254
+        运行时间: <span id="site-runtime">计算中</span>
       </li>
     </ul>
+    <script>
+      (function () {
+        var output = document.getElementById('site-runtime');
+        if (!output) return;
+        var parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date()).reduce(function (result, part) {
+          result[part.type] = Number(part.value);
+          return result;
+        }, {});
+        var today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        var years = parts.year - 2020;
+        var anniversary = Date.UTC(parts.year, 7, 30);
+        if (today < anniversary) years -= 1;
+        var base = Date.UTC(2020 + years, 7, 30);
+        var days = Math.floor((today - base) / 86400000);
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+      }());
+    </script>
     <ul>
       <li>
         
@@ -345,46 +365,12 @@
   
   <ul class="nav nav-main">
     
+    
     <li class="nav-item">
       <a class="nav-item-link"
          href="/"
          
       >主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/archives"
-         
-      >全部文章</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/categories"
-         
-      >文章分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/tags"
-         
-      >全部标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/friends"
-         
-      >友情链接</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/about"
-         
-      >关于本站</a>
     </li>
     
     <li class="nav-item">
@@ -460,6 +446,7 @@
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 

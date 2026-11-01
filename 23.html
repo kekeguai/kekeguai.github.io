@@ -136,6 +136,8 @@
 <li>一台VPS，并重置为Debian &#x2F; Ubuntu系统（centos7也不是不行）</li>
 <li>Telegram官方申请的APP ID和APP HASH</li>
 </ul>
+<span id="more"></span>
+
 <h3 id="通过Telegram官网获取APP-ID-和-APP-HASH"><a href="#通过Telegram官网获取APP-ID-和-APP-HASH" class="headerlink" title="通过Telegram官网获取APP ID 和 APP HASH"></a>通过Telegram官网获取APP ID 和 APP HASH</h3><ol>
 <li>打开<a target="_blank" rel="noopener" href="https://my.telegram.org/auth">官网</a></li>
 <li>输入手机号登录<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/1.png" alt="1"></li>
@@ -145,7 +147,6 @@
 <h4 id="PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"><a href="#PS-如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式" class="headerlink" title="PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式"></a>PS: 如果此步出现错误“ERROR”提示，换用美国节点并使用全局访问，不要使用规则模式</h4><p>复制APP ID和APP HASH，备用<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/TGbot/7.png" alt="7"></p>
 <h3 id="手动部署PagerMaid-Pyro"><a href="#手动部署PagerMaid-Pyro" class="headerlink" title="手动部署PagerMaid-Pyro"></a>手动部署PagerMaid-Pyro</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://github.com/TeamPGM/PagerMaid-Pyro.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
-
 
 <h3 id="手动部署PagerMaid"><a href="#手动部署PagerMaid" class="headerlink" title="手动部署PagerMaid"></a>手动部署PagerMaid</h3><p>SSH登录至VPS<br>执行以下命令，安装依赖  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Debian/Ubuntu:</span><br><span class="line">    apt-get update</span><br><span class="line">    apt-get install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br><span class="line">Centos:</span><br><span class="line">    yum update -y</span><br><span class="line">    wget install git imagemagick libzbar-dev neofetch tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim redis-server python3-pip -y</span><br><span class="line">    git clone https://gitlab.com/Xtao-Labs/pagermaid-modify.git pagermaid &amp;&amp; cd pagermaid</span><br><span class="line">    pip3 install -r requirements.txt</span><br><span class="line">    cp config.gen.yml config.yml</span><br></pre></td></tr></table></figure>
@@ -295,9 +296,28 @@
     </ul>
     <ul class="runtime-info">
       <li>
-        运行天数: 2254
+        运行时间: <span id="site-runtime">计算中</span>
       </li>
     </ul>
+    <script>
+      (function () {
+        var output = document.getElementById('site-runtime');
+        if (!output) return;
+        var parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date()).reduce(function (result, part) {
+          result[part.type] = Number(part.value);
+          return result;
+        }, {});
+        var today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        var years = parts.year - 2020;
+        var anniversary = Date.UTC(parts.year, 7, 30);
+        if (today < anniversary) years -= 1;
+        var base = Date.UTC(2020 + years, 7, 30);
+        var days = Math.floor((today - base) / 86400000);
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+      }());
+    </script>
     <ul>
       <li>
         
@@ -342,46 +362,12 @@
   
   <ul class="nav nav-main">
     
+    
     <li class="nav-item">
       <a class="nav-item-link"
          href="/"
          
       >主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/archives"
-         
-      >全部文章</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/categories"
-         
-      >文章分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/tags"
-         
-      >全部标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/friends"
-         
-      >友情链接</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/about"
-         
-      >关于本站</a>
     </li>
     
     <li class="nav-item">
@@ -457,6 +443,7 @@
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 

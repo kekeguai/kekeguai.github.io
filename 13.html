@@ -153,6 +153,8 @@
 <li><p>修改hexo配置文件<br>打开本地博客的根目录，找到_config.yml文件<br>在文件的开头处，第二部分，URL部分改成如下内容：</p>
 </li>
 </ol>
+<span id="more"></span>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## Set your site url here. For example, if you use GitHub Page, set url as &#x27;https://username.github.io/project&#x27;</span><br><span class="line">url: https://(你的用户名).github.io/ (后面如果需要域名访问改成你的域名)</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#x27;.html&#x27; from permalinks</span><br></pre></td></tr></table></figure>
 
 <p>在文件的结尾处，改成如下内容：</p>
@@ -207,7 +209,7 @@
 <p><a target="_blank" rel="noopener" href="https://waline.js.org/">waline</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">serverURLs: &#x27;(填写你的站点)&#x27; </span><br><span class="line">emoji: [&#x27;https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili&#x27;]</span><br></pre></td></tr></table></figure>
 
-<h2 id="本文参考："><a href="#本文参考：" class="headerlink" title="本文参考："></a>本文参考：</h2><p><a target="_blank" rel="noopener" href="https://codeanime.cc/%E5%9C%A8GitHub%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2.html">在GitHub上部署hexo博客</a>【作者：codeanime】<br><a target="_blank" rel="noopener" href="https://davidham3.github.io/blog/2018/02/20/%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2hexo/">在github上部署hexo</a>【作者：戴维汉姆】<br><a target="_blank" rel="noopener" href="https://emoryhuang.cn/blog/1729600336.html">Hexo + Fluid 美化</a>  【作者：EmoryHuang】<br><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">Hexo Fluid 用户手册</a>  </p>
+<h2 id="本文参考："><a href="#本文参考：" class="headerlink" title="本文参考："></a>本文参考：</h2><p><a target="_blank" rel="noopener" href="https://codeanime.cc/%E5%9C%A8GitHub%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2.html">在GitHub上部署hexo博客</a>【作者：codeanime】<br><a target="_blank" rel="noopener" href="https://davidham3.github.io/blog/2018/02/20/%E5%9C%A8github%E4%B8%8A%E9%83%A8%E7%BD%B2hexo/">在github上部署hexo</a>【作者：戴维汉姆】<br><a target="_blank" rel="noopener" href="https://emoryhuang.cn/blog/1729600336.html">Hexo + Fluid 美化</a>  【作者：EmoryHuang】<br><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">Hexo Fluid 用户手册</a></p>
 
       
 
@@ -343,9 +345,28 @@
     </ul>
     <ul class="runtime-info">
       <li>
-        运行天数: 2254
+        运行时间: <span id="site-runtime">计算中</span>
       </li>
     </ul>
+    <script>
+      (function () {
+        var output = document.getElementById('site-runtime');
+        if (!output) return;
+        var parts = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date()).reduce(function (result, part) {
+          result[part.type] = Number(part.value);
+          return result;
+        }, {});
+        var today = Date.UTC(parts.year, parts.month - 1, parts.day);
+        var years = parts.year - 2020;
+        var anniversary = Date.UTC(parts.year, 7, 30);
+        if (today < anniversary) years -= 1;
+        var base = Date.UTC(2020 + years, 7, 30);
+        var days = Math.floor((today - base) / 86400000);
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+      }());
+    </script>
     <ul>
       <li>
         
@@ -390,46 +411,12 @@
   
   <ul class="nav nav-main">
     
+    
     <li class="nav-item">
       <a class="nav-item-link"
          href="/"
          
       >主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/archives"
-         
-      >全部文章</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/categories"
-         
-      >文章分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/tags"
-         
-      >全部标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/friends"
-         
-      >友情链接</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link"
-         href="/about"
-         
-      >关于本站</a>
     </li>
     
     <li class="nav-item">
@@ -505,6 +492,7 @@
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 
