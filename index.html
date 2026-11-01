@@ -16,68 +16,74 @@
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
       <title> 咳咳怪的小站</title>
-  <meta name="generator" content="hexo-theme-ayer">
+  <meta name="generator" content="hexo-theme-ayeria">
       
-      <link rel="shortcut icon" href="/images/favicon.png" />
-       
+      <link rel="icon" type="image/png" href="/images/favicon.png" />
+      
+      <link rel="preconnect" href="https://fonts.font.im" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.font.im" crossorigin />
+      <link rel="stylesheet" href="https://fonts.font.im/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400&display=swap" />
+      
 <link rel="stylesheet" href="/dist/main.css">
 
       
 <link rel="stylesheet" href="/css/fonts/remixicon.css">
 
       
+<link rel="stylesheet" href="/css/ayeria-layout.css">
+
+      
 <link rel="stylesheet" href="/css/custom.css">
 
       
-<link rel="stylesheet" href="/css/site-info.css">
- 
       <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
        
  
 
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
-      />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+      
 
       <!-- mermaid -->
       
-      <style>
-        .swal2-styled.swal2-confirm {
-          font-size: 1.6rem;
-        }
-      </style>
+      
     </head>
-  </html>
-</html>
 
 
-<body>
+<body class="darkmode">
+  <script>
+    if (localStorage.getItem('darkmode') === '0') {
+      document.body.classList.remove('darkmode');
+    }
+  </script>
   <div id="app">
     
-      
+    
     <main class="content on">
       
 <section class="cover">
-    
-      
-      <a class="forkMe" href="https://github.com/kekeguai"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
+  
+    <a class="forkMe" href="https://github.com/kekeguai" target="_blank">
+      <img width="149" height="149" src="/images/forkme.png"
+        class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1">
+    </a>
+  
+
   <div class="cover-frame">
     <div class="bg-box">
-      <img src="/images/cover1.jpg" alt="image frame" />
+      <img src="/images/007-banner-bg.webp" alt="image frame" />
     </div>
     <div class="cover-inner text-center text-white">
-      <h1><a href="/">咳咳怪的小站</a></h1>
-      <div id="subtitle-box"><span id="subtitle">天下熙熙皆为利来，天下攘攘皆为利往。</span></div>
+      <a href="/"><h1>咳咳怪的小站</h1></a>
+      <div id="subtitle-box">
+        
+          <span id="subtitle">天下熙熙皆为利来，天下攘攘皆为利往。</span>
+        
+      </div>
       <div>
         
       </div>
     </div>
   </div>
+
   <div class="cover-learn-more">
     <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
   </div>
@@ -85,13 +91,14 @@
 
 
 
+
 <div id="main">
-  <section class="outer home-archive">
+  <section class="outer">
   
   
   
 
-<div class="notice" style="margin-top:50px">
+<div class="notice">
     <i class="ri-heart-fill"></i>
     <div class="notice-content" id="broad"></div>
 </div>
@@ -104,32 +111,6 @@
         .catch(console.error)
 </script>
 
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
   
   <article class="articles">
     
@@ -155,20 +136,34 @@
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/72.html" class="article-date">
   <time datetime="2025-04-08T11:20:00.000Z" itemprop="datePublished">2025-04-08</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <p>LibreTV是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目采用纯前端技术构建，可轻松部署在各类静态网站托管服务上。</p>
+      
+      
+
+
+      
+        <p>LibreTV是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目采用纯前端技术构建，可轻松部署在各类静态网站托管服务上。</p>
 <p><a target="_blank" rel="noopener" href="https://tv.yorg.top/">演示站：https://tv.yorg.top/</a></p>
 <p>##部署指南<br>推荐使用Vercel&#x2F;Netlify部署</p>
 <ol>
@@ -194,7 +189,9 @@ services:
 <pre><code>docker-compose up -d
 </code></pre>
 <p>docker部署完可以通过访问  <code>http://localhost:8899</code>  查看效果。</p>
- 
+
+      
+
       <!-- reward -->
       
     </div>
@@ -202,48 +199,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LibreTV/" rel="tag">LibreTV</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
-    <aside class="site-info-card" aria-label="博客信息">
-  <h2>博客信息</h2>
-  <ul>
-    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
-    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
-    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
-    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
-  </ul>
-</aside>
-<script>
-  (function () {
-    var start = new Date('2020-08-30T00:00:00');
-    var now = new Date();
-    var days = Math.max(0, Math.floor((now - start) / 86400000));
-    var years = Math.floor(days / 365);
-    var remain = days - years * 365;
-    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
-
-    function showTiming() {
-      var nav = performance.getEntriesByType('navigation')[0];
-      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
-      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
-    }
-    if (document.readyState === 'complete') showTiming();
-    else window.addEventListener('load', showTiming, { once: true });
-  })();
-</script>
-
-    
     
     <article
   id="post-70-YxVM HKECO-Luxury 4C4G 测试"
@@ -264,24 +237,39 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/70.html" class="article-date">
   <time datetime="2025-04-05T11:03:00.000Z" itemprop="datePublished">2025-04-05</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%B5%8B%E8%AF%95/">测试</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <p>感谢<a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">YxVM</a>赞助的机器HKECO-Luxury (4Cpu&#x2F;4G RAM)</p> 
-      <a class="article-more-link" href="/70.html"
-        >阅读更多...</a
-      >
-       
+      
+      
+
+
+      
+        <p>感谢<a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">YxVM</a>赞助的机器HKECO-Luxury (4Cpu&#x2F;4G RAM)</p>
+        
+        <a class="article-more-link" href="/70.html">阅读更多...</a>
+        
+      
+
       <!-- reward -->
       
     </div>
@@ -289,19 +277,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-68-本站由YxVM赞助"
@@ -322,17 +315,33 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/68.html" class="article-date">
   <time datetime="2025-01-20T09:35:00.000Z" itemprop="datePublished">2025-01-20</time>
-</a>    
-    </div>
+</a>
       
+      
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <p><a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">YxVM</a> 为你提供高性价比的VPS主机。VPS覆盖香港, 台湾，新加坡，日本，美国，韩国等地区，带宽大，流量计算灵活。<br><strong>官网地址</strong>：<a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">https://yxvm.com</a></p>
- 
+      
+      
+
+
+      
+        <p><a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">YxVM</a> 为你提供高性价比的VPS主机。VPS覆盖香港, 台湾，新加坡，日本，美国，韩国等地区，带宽大，流量计算灵活。<br><strong>官网地址</strong>：<a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">https://yxvm.com</a></p>
+
+      
+
       <!-- reward -->
       
     </div>
@@ -340,17 +349,22 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-53-NAT-Nyanpass单端隧道使用【已失效】"
@@ -371,20 +385,34 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/53.html" class="article-date">
   <time datetime="2024-02-07T10:20:00.000Z" itemprop="datePublished">2024-02-07</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <h3 id="一、添加单端"><a href="#一、添加单端" class="headerlink" title="一、添加单端"></a>一、添加单端</h3><p>名称随意，协议ws（自己决定）<br><img src="https://444410.xyz/d/BQACAgEAAxkDAAIFcWXDWYJQPiv9yZCq9SaLzOMV3TIaAAKNBAACjLkZRto0q32D3gdvNAQ" alt="添加"></p>
+      
+      
+
+
+      
+        <h3 id="一、添加单端"><a href="#一、添加单端" class="headerlink" title="一、添加单端"></a>一、添加单端</h3><p>名称随意，协议ws（自己决定）<br><img src="https://444410.xyz/d/BQACAgEAAxkDAAIFcWXDWYJQPiv9yZCq9SaLzOMV3TIaAAKNBAACjLkZRto0q32D3gdvNAQ" alt="添加"></p>
 <h3 id="二、对接"><a href="#二、对接" class="headerlink" title="二、对接"></a>二、对接</h3><p><img src="https://444410.xyz/d/BQACAgEAAxkDAAIFc2XDWdOsCieisgwlseGA6ccyk-frAAJdBQAC4twgRvigiSbakuZqNAQ" alt="对接"><br>建议直接复制一键对接（楼主debian11）<br>点击高级编辑<br>connect_address的IP应该也是可以改成域名的</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;connect_address&quot;: &quot;IP&quot;, </span><br><span class="line">    &quot;connect_port&quot;: 要使用的端口,</span><br><span class="line">    &quot;protocol&quot;: &quot;ws&quot;,</span><br><span class="line">    &quot;ws&quot;: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;udp_over_tcp&quot;: false</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="三、-更改监听端口"><a href="#三、-更改监听端口" class="headerlink" title="三、 更改监听端口"></a>三、 更改监听端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nano /opt/nyanpass/start.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -398,7 +426,9 @@ services:
 <h4 id="具体看官网文档"><a href="#具体看官网文档" class="headerlink" title="具体看官网文档"></a>具体看官网文档</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://nyanpass.pages.dev/reference/cdn/">CDN 隧道</a></li>
 </ul>
- 
+
+      
+
       <!-- reward -->
       
     </div>
@@ -406,19 +436,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAT-VPS/" rel="tag">NAT VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nyanpass/" rel="tag">Nyanpass</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/" rel="tag">简易教程</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-50-Cloudflare搭建DDNS教程"
@@ -439,20 +474,34 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/50.html" class="article-date">
   <time datetime="2023-10-22T15:11:00.000Z" itemprop="datePublished">2023-10-22</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <h3 id="自建DDNS解决域名绑定动态IP问题"><a href="#自建DDNS解决域名绑定动态IP问题" class="headerlink" title="自建DDNS解决域名绑定动态IP问题"></a>自建DDNS解决域名绑定动态IP问题</h3><ul>
+      
+      
+
+
+      
+        <h3 id="自建DDNS解决域名绑定动态IP问题"><a href="#自建DDNS解决域名绑定动态IP问题" class="headerlink" title="自建DDNS解决域名绑定动态IP问题"></a>自建DDNS解决域名绑定动态IP问题</h3><ul>
 <li>把域名接入cloudflare</li>
 <li>获取Global API Key</li>
 <li>设置用于 DDNS 解析的二级域名，流量不经过CDN(云朵变灰)</li>
@@ -473,7 +522,7 @@ services:
 <pre><code>nano cf-v4-ddns.sh
 </code></pre>
 <blockquote>
-<p>incorrect api-key results in E_UNAUTH error<br>填写 Global API Key<br>CFKEY&#x3D;<br>Username, eg: <a href="mailto:&#x75;&#x73;&#x65;&#114;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;">user@example.com</a><br>填写 CloudFlare 登陆邮箱<br>CFUSER&#x3D;<br>Zone name, eg: example.com<br>填写需要用来 DDNS 的一级域名<br>CFZONE_NAME&#x3D;(例如:google.com)<br>Hostname to update, eg: homeserver.example.com<br>填写 DDNS 的二级域名(只需填写前缀例如 hkt.google.com则需要填写hkt)<br>CFRECORD_NAME&#x3D;<br>设置完毕运行脚本</p>
+<p>incorrect api-key results in E_UNAUTH error<br>填写 Global API Key<br>CFKEY&#x3D;<br>Username, eg: <a href="mailto:&#x75;&#x73;&#x65;&#114;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;">user@example.com</a><br>填写 CloudFlare 登陆邮箱<br>CFUSER&#x3D;<br>Zone name, eg: example.com<br>填写需要用来 DDNS 的一级域名<br>CFZONE_NAME&#x3D;(例如:google.com)<br>Hostname to update, eg: homeserver.example.com<br>填写 DDNS 的二级域名(只需填写前缀例如 hkt.google.com则需要填写hkt)<br>CFRECORD_NAME&#x3D;<br>设置完毕运行脚本</p>
 </blockquote>
 <pre><code> ./cf-v4-ddns.sh
 </code></pre>
@@ -484,7 +533,9 @@ services:
 <p>将下面代码复制到定时任务中</p>
 <pre><code>*/2 * * * * /root/cf-v4-ddns.sh &gt;/dev/null 2&gt;&amp;1
 </code></pre>
- 
+
+      
+
       <!-- reward -->
       
     </div>
@@ -492,19 +543,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudFlare/" rel="tag">CloudFlare</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDNS/" rel="tag">DDNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAT-VPS/" rel="tag">NAT VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-37-Emby4.7.11.0一键开心脚本"
@@ -525,20 +581,34 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/37.html" class="article-date">
   <time datetime="2023-09-05T04:30:00.000Z" itemprop="datePublished">2023-09-05</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <p>当你开心之后如果觉得Emby做的好就应该支持正版！价格不贵，还能得到官方社区的技术支持，后续版本升级也方便。<br><img src="https://file.333361.xyz/images/emby.jpg" alt="emby"><br> <a target="_blank" rel="noopener" href="https://emby.media/premiere.html">官方正版购买链接</a></p>
+      
+      
+
+
+      
+        <p>当你开心之后如果觉得Emby做的好就应该支持正版！价格不贵，还能得到官方社区的技术支持，后续版本升级也方便。<br><img src="https://file.333361.xyz/images/emby.jpg" alt="emby"><br> <a target="_blank" rel="noopener" href="https://emby.media/premiere.html">官方正版购买链接</a></p>
 <p>开心原理：模拟官方服务器返回授权信息，返回大概是这样的：  </p>
 <pre><code>//https://mb3admin.com/admin/service/registration/validateDevice
 {&quot;cacheExpirationDays&quot;: 365,&quot;message&quot;: &quot;Device Valid&quot;,&quot;resultCode&quot;: &quot;GOOD&quot;}
@@ -552,7 +622,9 @@ services:
 </code></pre>
 <p>登陆ssh，sudo -i弄个临时root权限，直接输入上述脚本即可！</p>
 <p>转载自： <a target="_blank" rel="noopener" href="https://cangshui.net/">沧水的博客</a> » <a target="_blank" rel="noopener" href="https://cangshui.net/5138.html">群晖Emby4.7.11.0一键开心脚本</a></p>
- 
+
+      
+
       <!-- reward -->
       
     </div>
@@ -560,19 +632,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Emby/" rel="tag">Emby</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BE%A4%E6%99%96/" rel="tag">群晖</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-34-通过Origin Rules使CloudFlare CDN回源以使用任意的端口（NAT套CF教程）"
@@ -593,27 +670,43 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/34.html" class="article-date">
   <time datetime="2023-09-02T01:50:00.000Z" itemprop="datePublished">2023-09-02</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <p>在我们使用CloudFlare CDN的时候，我们只能使用CloudFlare指定的CDN的端口：（HTTP：80，8080，8880，2052，2082，2086，2095；HTTPS：443，2053，2083，2087，2096，8443）但是我们有NAT机器只能使用一些非常规的端口，但是又需要使用CloudFlare CDN（俗称套CF）的情况呢？这时候我们可以使用CloudFlare推出的Origin Rules，来让CDN回源到任意一个端口。  </p>
+      
+      
+
+
+      
+        <p>在我们使用CloudFlare CDN的时候，我们只能使用CloudFlare指定的CDN的端口：（HTTP：80，8080，8880，2052，2082，2086，2095；HTTPS：443，2053，2083，2087，2096，8443）但是我们有NAT机器只能使用一些非常规的端口，但是又需要使用CloudFlare CDN（俗称套CF）的情况呢？这时候我们可以使用CloudFlare推出的Origin Rules，来让CDN回源到任意一个端口。  </p>
 <h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="1-域名需要托管在Cloud-Flare"><a href="#1-域名需要托管在Cloud-Flare" class="headerlink" title="1.域名需要托管在Cloud Flare"></a>1.域名需要托管在Cloud Flare</h3><h3 id="2-CF的SSL-TLS设置"><a href="#2-CF的SSL-TLS设置" class="headerlink" title="2.CF的SSL&#x2F;TLS设置"></a>2.CF的SSL&#x2F;TLS设置</h3><p>SSl&#x2F;TLS设置需要为灵活或以上，如图：</p>
 <p><img src="https://www.74110.net/wp-content/uploads/2023/05/image-11-1536x548.png" alt="实测中，灵活、完全、完全（严格）都能回源，建议严格"></p>
 <h3 id="3-CF“规则”菜单中Origin-Rules的设置"><a href="#3-CF“规则”菜单中Origin-Rules的设置" class="headerlink" title="3.CF“规则”菜单中Origin Rules的设置"></a>3.CF“规则”菜单中Origin Rules的设置</h3><p>点击规则菜单下的Origin Rules，输入规则名称，字段和运算符按照下图选择，值输入完整的二级域名，点击重写到，然后输入端口号。一切准备就绪后就可以点击部署按钮。</p>
 <p><img src="https://www.74110.net/wp-content/uploads/2023/05/image-12-1536x1434.png" alt="图2"></p>
 <h3 id="4-部署之后即可从任意CFIP或域名的443端口回源至改设定端口。如果你使用的是CF15年的证书，还需要开始小黄云，切记！"><a href="#4-部署之后即可从任意CFIP或域名的443端口回源至改设定端口。如果你使用的是CF15年的证书，还需要开始小黄云，切记！" class="headerlink" title="4.部署之后即可从任意CFIP或域名的443端口回源至改设定端口。如果你使用的是CF15年的证书，还需要开始小黄云，切记！"></a>4.部署之后即可从任意CFIP或域名的443端口回源至改设定端口。如果你使用的是CF15年的证书，还需要开始小黄云，切记！</h3><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>设定好该端口回源，在科学上网时，套用Cloud Flare的CDN后，客户端的地址及端口可替换为任意CF优选的IP，使用443端口，即可用来科学上网了。本教程主要用来在非标端口的NAT机型套CF。可结合之前的《NAT VPS使用教程》一起使用</p>
 <h2 id="本文参考"><a href="#本文参考" class="headerlink" title="本文参考"></a>本文参考</h2><p><a target="_blank" rel="noopener" href="https://www.74110.net/tutorial/linux/cloudflare-origin-rules/">通过Origin Rules使CloudFlare CDN回源以使用任意的端口（NAT套CF教程）</a></p>
- 
+
+      
+
       <!-- reward -->
       
     </div>
@@ -621,19 +714,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CloudFlare/" rel="tag">CloudFlare</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAT-VPS/" rel="tag">NAT VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/" rel="tag">VPS</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-24-土耳其电子钱包入金教程（已失效）"
@@ -654,20 +752,34 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/24.html" class="article-date">
   <time datetime="2023-08-06T08:41:00.000Z" itemprop="datePublished">2023-08-06</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="土耳其电子钱包：Ozan-Oldubil"><a href="#土耳其电子钱包：Ozan-Oldubil" class="headerlink" title="土耳其电子钱包：Ozan  Oldubil"></a>土耳其电子钱包：<a target="_blank" rel="noopener" href="https://www.ozan.com/en">Ozan</a>  <a target="_blank" rel="noopener" href="https://www.oldubil.com.tr/">Oldubil</a></h1><p><img src="https://asia.one.mvimg.co/1691311419/510f13b9a8bd2fea/64cf5d3b32566.png" alt="Ozan">  </p>
+      
+      
+
+
+      
+        <h1 id="土耳其电子钱包：Ozan-Oldubil"><a href="#土耳其电子钱包：Ozan-Oldubil" class="headerlink" title="土耳其电子钱包：Ozan  Oldubil"></a>土耳其电子钱包：<a target="_blank" rel="noopener" href="https://www.ozan.com/en">Ozan</a>  <a target="_blank" rel="noopener" href="https://www.oldubil.com.tr/">Oldubil</a></h1><p><img src="https://asia.one.mvimg.co/1691311419/510f13b9a8bd2fea/64cf5d3b32566.png" alt="Ozan">  </p>
 <h4 id="Features"><a href="#Features" class="headerlink" title="Features:"></a>Features:</h4><ul>
 <li>可生成7张虚拟土耳其Visa prepaid卡  </li>
 <li>可使用IBAN充值、卡对卡转账充值  </li>
@@ -699,7 +811,9 @@ services:
 <li><strong>进行 USDT 交易，请先确认收到了钱，再确认收货。</strong></li>
 <li>Ozan和Oldubil入金基本一致，Ozan可以发送Account给卖家 【Try开头的】</li>
 </ul>
- 
+
+      
+
       <!-- reward -->
       
     </div>
@@ -707,19 +821,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ozan/" rel="tag">Ozan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9C%9F%E8%80%B3%E5%85%B6/" rel="tag">土耳其</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9C%9F%E8%80%B3%E5%85%B6%E8%99%9A%E6%8B%9F%E5%8D%A1/" rel="tag">土耳其虚拟卡</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9C%9F%E8%80%B3%E5%85%B6%E8%99%9A%E6%8B%9F%E9%92%B1%E5%8C%85/" rel="tag">土耳其虚拟钱包</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-25-小说书摘2"
@@ -740,26 +859,41 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/25.html" class="article-date">
   <time datetime="2023-07-16T04:11:00.000Z" itemprop="datePublished">2023-07-16</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E9%98%85%E8%AF%BB/">阅读</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <ul>
+      
+      
+
+
+      
+        <ul>
 <li>一、这世上只有我是真正爱你的，我会向你证明，我就是你命中注定的那个人，当然，你也是。</li>
-</ul> 
-      <a class="article-more-link" href="/25.html"
-        >阅读更多...</a
-      >
-       
+</ul>
+        
+        <a class="article-more-link" href="/25.html">阅读更多...</a>
+        
+      
+
       <!-- reward -->
       
     </div>
@@ -767,19 +901,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B9%A6%E6%91%98/" rel="tag">书摘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%85%E8%AF%BB/" rel="tag">阅读</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
     <article
   id="post-10-搭建Book-searcher（Zlib-searcher）"
@@ -800,20 +939,34 @@ services:
 
       
     </header>
-     
+    
+
+    
     <div class="article-meta">
       <a href="/10.html" class="article-date">
   <time datetime="2023-01-16T04:46:00.000Z" itemprop="datePublished">2023-01-16</time>
-</a> 
+</a>
+      
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
   </div>
-   
-    </div>
+
       
+        
+      
+    </div>
+    
+
+    
+
+    
     <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h2 id="【索引下载已关闭，如需下载请发邮件至站长邮箱】"><a href="#【索引下载已关闭，如需下载请发邮件至站长邮箱】" class="headerlink" title="【索引下载已关闭，如需下载请发邮件至站长邮箱】"></a>【索引下载已关闭，如需下载请发邮件至站长邮箱】</h2><h3 id="1-1-Z-Library简介"><a href="#1-1-Z-Library简介" class="headerlink" title="1.1 Z-Library简介"></a>1.1 Z-Library简介</h3><p>Z-Library是一个影子图书馆和开放获取文件分享计划，用户可在此网站下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”，并在文章搜索页面上称自身是“全球最大的科学文章存储库”。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。目前Z-Library官网已经不能访问了，但暗网中还有可访问的镜像站，全部资源的离线种子包也已经有人公开出来了。</p>
+      
+      
+
+
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><h2 id="【索引下载已关闭，如需下载请发邮件至站长邮箱】"><a href="#【索引下载已关闭，如需下载请发邮件至站长邮箱】" class="headerlink" title="【索引下载已关闭，如需下载请发邮件至站长邮箱】"></a>【索引下载已关闭，如需下载请发邮件至站长邮箱】</h2><h3 id="1-1-Z-Library简介"><a href="#1-1-Z-Library简介" class="headerlink" title="1.1 Z-Library简介"></a>1.1 Z-Library简介</h3><p>Z-Library是一个影子图书馆和开放获取文件分享计划，用户可在此网站下载期刊文章以及各种类型的书籍。根据Z-Library的说法，截至2022年6月12日，其共收录了10,456,034本书和84,837,646篇文章。Z-Library在其电子书搜索页面上宣称自己是“全球最大的数字图书馆”，并在文章搜索页面上称自身是“全球最大的科学文章存储库”。它原是创世纪图书馆的镜像网站，并从该图书馆获得大部分馆藏。但它的一些馆藏由用户自行上载，并且不为创世纪图书馆所收藏。该平台公开网域已于2022年11月3日遭到美国政府屏蔽。目前Z-Library官网已经不能访问了，但暗网中还有可访问的镜像站，全部资源的离线种子包也已经有人公开出来了。</p>
 <h3 id="1-2-Book-Searcher简介"><a href="#1-2-Book-Searcher简介" class="headerlink" title="1.2 Book-Searcher简介"></a>1.2 Book-Searcher简介</h3><p>项目介绍：搜索书籍索引，创建您的私人本地图书馆。不保存和提供文件，仅提供书籍搜索。<br>项目地址：<a target="_blank" rel="noopener" href="https://github.com/book-searcher-org/book-searcher">https://github.com/book-searcher-org/book-searcher</a></p>
 <p><img src="https://js.007.al/gh/kekeguai/blog_img@main/book-searcher/Snipaste_2023-01-16_12-50-56.png" alt="Book-searcher" title="Book-searcher">  </p>
 <p>网友分享的Demo站点：<br><a target="_blank" rel="noopener" href="https://zlib.knat.network/">https://zlib.knat.network/</a><br><a target="_blank" rel="noopener" href="https://zlib.freedit.eu/">https://zlib.freedit.eu/</a>  </p>
@@ -845,7 +998,9 @@ services:
 <p>注：如果没有配置IPFS网关的话，就仅能检索Z-Library资源，但不能下载。<br>这个IPFS网关你可以自己去部署，也可以用别人搭建好的。</p>
 </blockquote>
 <h2 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4. 参考资料"></a>4. 参考资料</h2><p><a target="_blank" rel="noopener" href="https://github.com/book-searcher-org/book-searcher">book-searcher</a><br><a target="_blank" rel="noopener" href="https://github.com/book-searcher-org/book-searcher/issues/72">关于索引问题</a></p>
- 
+
+      
+
       <!-- reward -->
       
     </div>
@@ -853,19 +1008,24 @@ services:
 
     <!-- copyright -->
     
+
     <footer class="article-footer">
-       
+      
+      
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Book-search/" rel="tag">Book-search</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Zlib/" rel="tag">Zlib</a></li></ul>
 
     </footer>
   </div>
 
-   
-   
+  
+
+  
+
+  <!-- [2026-03] 评论系统已从 Gitalk/Twikoo 迁移至 giscus，详见 doc/audit-report.md #1 #9 -->
+
   
 </article>
 
-    
     
   </article>
   
@@ -877,7 +1037,6 @@ services:
   </nav>
   
 </section>
-
 </div>
 
       <footer class="footer">
@@ -887,6 +1046,11 @@ services:
         Copyrights &copy;
         2015-2026
         <i class="ri-heart-fill heart_icon"></i> Kekeguai
+      </li>
+    </ul>
+    <ul class="runtime-info">
+      <li>
+        运行天数: 2254
       </li>
     </ul>
     <ul>
@@ -911,59 +1075,117 @@ services:
         
       </li>
     </ul>
+    <!-- 随机句子模块 -->
+    
   </div>
-</footer>    
+</footer>
+    
     </main>
     <div class="float_btns">
-      <div class="totop" id="totop">
+      <div class="float-btn totop" id="totop">
   <i class="ri-arrow-up-line"></i>
 </div>
 
-<div class="todark" id="todark">
+<div class="float-btn todark" id="todark">
   <i class="ri-moon-line"></i>
 </div>
 
     </div>
     <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
+      <button class="float-btn navbar-toggle"></button>
 <nav class="navbar">
-  
-  <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="咳咳怪的小站"></a>
-  </div>
   
   <ul class="nav nav-main">
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
+      <a class="nav-item-link"
+         href="/"
+         
+      >主页</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
+      <a class="nav-item-link"
+         href="/archives"
+         
+      >全部文章</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/categories">分类</a>
+      <a class="nav-item-link"
+         href="/categories"
+         
+      >文章分类</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags">标签</a>
+      <a class="nav-item-link"
+         href="/tags"
+         
+      >全部标签</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/friends">友链</a>
+      <a class="nav-item-link"
+         href="/friends"
+         
+      >友情链接</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/links">申请友链</a>
+      <a class="nav-item-link"
+         href="/about"
+         
+      >关于本站</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/about">关于</a>
+      <a class="nav-item-link"
+         href="/archives"
+         
+      >归档</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/messages">留言</a>
+      <a class="nav-item-link"
+         href="/categories"
+         
+      >分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link"
+         href="/tags"
+         
+      >标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link"
+         href="/friends"
+         
+      >友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link"
+         href="/links"
+         
+      >申请友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link"
+         href="/about"
+         
+      >关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link"
+         href="/messages"
+         
+      >留言</a>
     </li>
     
   </ul>
@@ -990,47 +1212,33 @@ services:
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
-
     </aside>
     <div id="mask"></div>
 
-<!-- #reward -->
-<div id="reward">
-  <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
-  <div class="reward-box">
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/alipay.jpg">
-      <span class="reward-type">支付宝</span>
-    </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/wechat.jpg">
-      <span class="reward-type">微信</span>
-    </div>
-    
-  </div>
-</div>
+
+
+
     
 <script src="/js/jquery-3.6.0.min.js"></script>
- 
+
+
 <script src="/js/lazyload.min.js"></script>
+
 
 <!-- Tocbot -->
 
+
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
-/>
+<link rel="stylesheet" href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css" />
 <script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
 
 <script src="/dist/main.js"></script>
 
+
 <!-- ImageViewer -->
- <!-- Root element of PhotoSwipe. Must have class pswp. -->
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -1135,23 +1343,33 @@ services:
         })
     }
     viewer_init()
-</script> 
+</script>
+
+
 <!-- MathJax -->
+
 
 <!-- Katex -->
 
-<!-- busuanzi  -->
+
+<!-- busuanzi -->
+
 
 <!-- ClickLove -->
 
+
 <!-- ClickBoom1 -->
+
 
 <!-- ClickBoom2 -->
 
+
 <!-- CodeCopy -->
- 
+
+  
 <link rel="stylesheet" href="/css/clipboard.css">
- <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+
+  <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
 <script>
   function wait(callback, seconds) {
     var timelag = null;
@@ -1205,8 +1423,11 @@ services:
     initCopyCode();
   }(window, document);
 </script>
- 
+
+
+
 <!-- CanvasBackground -->
+
 
 <script>
   if (window.mermaid) {
