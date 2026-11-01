@@ -158,18 +158,7 @@
 
 
       
-        <ul>
-<li><p>一、<br>“生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……”</p>
-</li>
-<li><p>二、<br>人总在一次次犹豫，摇摆，选择中，破碎迷雾，追溯本源，找到自己真正在意的东西。中间肯定有弯路，但无用功，同样也<span id="more"></span>是有用功。</p>
-</li>
-<li><p>三、<br>还没相遇前，我俩各自修行，为的不是要到达彼岸，而是要找到彼此；我俩各自旅行，为的不是要找到自己，而是要寻遇对方。</p>
-</li>
-<li><p>四、<br>月色千古如斯，不知换了多少人看，它只是静静的挂在天上，平淡但坚贞。——如爱情。</p>
-</li>
-<li><p>五、<br>回忆是个怪物，它让人沉沦在过去，然后轻易把人摧毁。</p>
-</li>
-</ul>
+        <p>一、 “生活不就是一个麻烦接一个麻烦嘛，其实没有必要低落，因为等你解决了这个麻烦之后，你再回头看的时候，你会特别有成就感，而且会给自己更多的认同感；所以，活在当下，努力向前，就对了……” 二、 人总在一次次犹豫，摇摆，选择中，破碎迷雾，追溯...</p>
         
         <a class="article-more-link" href="/20.html">阅读更多...</a>
         
@@ -247,12 +236,7 @@
 
 
       
-        <ul>
-<li><p>一、“你错了……我们这些人，在金钱面前，根本连做奴隶的资格都没有！……是钱把我们变成了生活的奴隶，我们是生活的奴隶，没有资格做钱的奴隶。”</p>
-</li>
-<li><p>二、夜越深，海边便越显得深邃，这种深邃不是一种禁锢，反而会解放人的思想，让人不自觉去想一些超越了生活范畴的事情，比如，爱情到底是什么？是一只彩色的蝴蝶？开了屏<span id="more"></span>的孔雀？或者，单单只是一种心花怒放的感觉；悲观一点去想：也许这个世界上并没有真正意义上的爱情，因为它已经是一种超越生命的信仰，而我们活在被欲望堆砌的世界里，终究只是一介凡人。</p>
-</li>
-<li><p>三、如果，我是无所不能的神就好了，我要用手上的裁决之杖，荡清这个世界上的一切不公平和满是罪孽之人……</p>
+        <p>一、“你错了……我们这些人，在金钱面前，根本连做奴隶的资格都没有！……是钱把我们变成了生活的奴隶，我们是生活的奴隶，没有资格做钱的奴隶。” 二、夜越深，海边便越显得深邃，这种深邃不是一种禁锢，反而会解放人的思想，让人不自觉去想一些超越了生活...</p>
         
         <a class="article-more-link" href="/22.html">阅读更多...</a>
         
@@ -330,42 +314,10 @@
 
 
       
-        <h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先准备一台VPS 安装docker:可以使用以下命令</p>
-<p>国外鸡：<br><code>curl -sSL https://get.docker.com/ | sh</code><br>国内鸡：<br><code>curl -sSL https://get.daocloud.io/docker | sh</code><br>卸载docker：<br><code>sudo apt-get remove docker docker-engin&lt;!--more--&gt;e</code><br><code>rm -fr /var/lib/docker/</code></p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit \</span><br><span class="line">  -v $PWD/ql/config:/ql/config \</span><br><span class="line">  -v $PWD/ql/log:/ql/log \</span><br><span class="line">  -v $PWD/ql/db:/ql/db \</span><br><span class="line">  -v $PWD/ql/repo:/ql/repo \</span><br><span class="line">  -v $PWD/ql/raw:/ql/raw \</span><br><span class="line">  -v $PWD/ql/scripts:/ql/scripts \</span><br><span class="line">  -v $PWD/ql/jbot:/ql/jbot \</span><br><span class="line">  -v $PWD/ql/ninja:/ql/ninja \</span><br><span class="line">  -p 5700:5700 \</span><br><span class="line">  -p 5701:5701 \</span><br><span class="line">  --name qinglong \</span><br><span class="line">  --hostname qinglong \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure>
-
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-44-57.png" alt="完成" title="完成">]上图为青龙面板搭建完成的样子**</p>
-<p>输入命令</p>
-<p><code>docker logs -f qinglong</code></p>
-<p>此命令可以查看运行日志<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_22-47-43.png" alt="日志" title="日志">]<br>当出现<strong>容器启动成功</strong>的字样再去浏览器访问面板<br>访问地址为你VPS的<em><strong>ip:5700</strong></em></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/764d9f4227f9-1.png" alt="登录" title="extra">]”)<br>根据提示去进行下一步<br><em><strong>可以跳过通知设置</strong></em></p>
-<h4 id="至此青龙面板搭建完成"><a href="#至此青龙面板搭建完成" class="headerlink" title="至此青龙面板搭建完成"></a>至此青龙面板搭建完成</h4><h1 id="以下已经失效"><a href="#以下已经失效" class="headerlink" title="以下已经失效"></a>以下已经失效</h1><h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><h4 id="搭建Ninja面板"><a href="#搭建Ninja面板" class="headerlink" title="搭建Ninja面板"></a>搭建Ninja面板</h4><p>回到VPS的SSH控制台<br>输入命令<code>docker exec -it qinglong bash</code></p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/be521cc455b6-1.png" alt="QL" title="QL">]<br>之后再一步一步执行以下命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">带#号的命令不必执行</span><br><span class="line"></span><br><span class="line">国外鸡用</span><br><span class="line">git clone https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line">国内鸡用</span><br><span class="line">git clone -b main https://ghproxy.com/https://github.com/KingRan/kingrom_ninja.git /ql/ninja</span><br><span class="line"></span><br><span class="line">cd /ql/ninja/backend</span><br><span class="line"></span><br><span class="line">pnpm install</span><br><span class="line"></span><br><span class="line">cp .env.example .env # 如有需要, 修改.env</span><br><span class="line"></span><br><span class="line">vi .env</span><br><span class="line"></span><br><span class="line">#env可修改参数为</span><br><span class="line">- `ALLOW_ADD`: 是否允许添加账号 不允许添加时则只允许已有账号登录（默认 `true`）</span><br><span class="line">- `ALLOW_NUM`: 允许添加账号的最大数量（默认 `40`）</span><br><span class="line">- `NINJA_PORT`: Ninja 运行端口（默认 `5701`）</span><br><span class="line">- `NINJA_NOTIFY`: 是否开启通知功能（默认 `true`）</span><br><span class="line">- `NINJA_UA`: 自定义 UA，默认为随机</span><br><span class="line"></span><br><span class="line">pm2 start</span><br><span class="line"></span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<p>到这一步Ninja面板搭建完成 可以访问IP:5701进入Ninja面板</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2021-12-26_23-01-06.png" alt="Ninja" title="Ninja">]</p>
-<p>将以下内容粘贴到 extra.sh（重启后自动更新并启动 Ninja）</p>
-<p>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/26a4dac92d63.png" alt="extra" title="extra">]”)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /ql/ninja/backend</span><br><span class="line">git checkout .</span><br><span class="line">git pull</span><br><span class="line">pnpm install</span><br><span class="line">pm2 start</span><br><span class="line">cp sendNotify.js /ql/scripts/sendNotify.js</span><br></pre></td></tr></table></figure>
-
-<h4 id="至此Ninja也搭建完成"><a href="#至此Ninja也搭建完成" class="headerlink" title="至此Ninja也搭建完成"></a>至此Ninja也搭建完成</h4><h1 id="搭建JDX"><a href="#搭建JDX" class="headerlink" title="搭建JDX"></a>搭建JDX</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart always -p 5705:80 -v /root/jdx/config:/jdx/config --name jdx aaron8/jdx:latest</span><br></pre></td></tr></table></figure>
-
-<p>这时候访问 <a href="http://ip:port" title="http:&#x2F;&#x2F;ip:port">http://ip:port</a> 就能访问了</p>
-<h4 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h4><p><a href="http://ip:port/admin/" title="http:&#x2F;&#x2F;ip:port&#x2F;admin&#x2F;">http://ip:port/admin/</a></p>
-<h4 id="首次登录用户名：admin-密码：-123465"><a href="#首次登录用户名：admin-密码：-123465" class="headerlink" title="首次登录用户名：admin, 密码：:123465"></a>首次登录用户名：admin, 密码：:123465</h4><hr>
-<h2 id="对接青龙"><a href="#对接青龙" class="headerlink" title="对接青龙"></a>对接青龙</h2><p>首先去青龙面板<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-35-50.png" alt="JDX" title="JDX">]</p>
-<p>然后去JDX后台管理<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/ql/Snipaste_2022-03-06_14-38-40.png" alt="JDX" title="JDX">]<br>添加如下配置就可以成功对接青龙面板了</p>
-<p>任务仓库：</p>
-<pre><code>【Faker2】
-ql repo https://github.com/shufflewzc/faker2.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-
-【Faker3】
-ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|function|utils|sendNotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql|JDSignValidator&quot; &quot;main&quot;
-</code></pre>
-<hr>
-<p>该文章内容部分来自于：<br><a target="_blank" rel="noopener" href="https://www.juan920.com/1330.html">保姆级教程之青龙2.9面板 &amp; Ninja面板CK登录以及Wskey登录 搭建教程</a></p>
-
+        <p></p>
+        
+        <a class="article-more-link" href="/21.html">阅读更多...</a>
+        
       
 
       <!-- reward -->
@@ -518,26 +470,7 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
 
 
       
-        <p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a target="_blank" rel="noopener" href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
-<p>环境安装完成后</p>
-<pre><code>#进入oneinstack&lt;!--more--&gt;
-cd oneinstack
-#添加网站
-./vhost.sh
-</code></pre>
-<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/vhost.png" alt="界面" title="vhost"><br>虚拟环境配置好后开始进行下一步 安装Typecho<br>将下面命令依次输入</p>
-<pre><code>#进入网站目录
-cd /data/wwwroot/xxx.xxxx.xxx
-#一键安装命令
-wget https://github.com/typecho/typecho/releases/download/v1.1-17.10.30-release/1.1.17.10.30.-release.tar.gz
-tar xzf 1.1.17.10.30.-release.tar.gz
-cd build
-mv * .. 
-cd ..
-rm -rf 1.1.17.10.30.-release.tar.gz build
-</code></pre>
-<p>要在phpMyAdmin中新创建一个typecho的数据库</p>
-<p>之后就可以访问你的网站 进行Typecho的安装</p>
+        <p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右 https://oneinstack.com/auto/ 环境安装完成后 #进入oneinstack&amp;lt;!--more--&amp;gt; cd oneinsta...</p>
         
         <a class="article-more-link" href="/9.html">阅读更多...</a>
         
@@ -615,18 +548,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
 
 
       
-        <ul>
-<li><p>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？</p>
-</li>
-<li><p>二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？”</p>
-</li>
-<li><p>三、我觉得人活得太贪婪，是一种罪过，是要下地狱的……因为这就是一个残缺的世界，你活在这个残缺的世界里，却处<span id="more"></span>处想着完美，就等同于作乱……这个世界不会完美的，就像月有阴晴圆缺，就像我们到了年纪，一定会死……这谁都改变不了！”</p>
-</li>
-<li><p>四、人人都曾杀死心爱之人，你不妨听听每人的方式；有人使用冰冷的眼神，有人使用热烈的表白，胆小的使用轻轻一吻，无畏的挥出尖利的刀刃。有人毁所爱时还年少，有人毁所爱时已年老；有人用欲望之手扼杀，有人靠金钱之手诱杀；最慈悲的才使用利刀，为了让死者少受折磨……”</p>
-</li>
-<li><p>五、爱情到底是什么呢？是某一瞬间的感动，是日积月累的牵挂，是心里的白鸽？说不清楚，也可能是想到那个人，就会觉得开心。反正，不要同时爱上两个人就好……那恐怕才是人生中最大的痛苦。</p>
-</li>
-</ul>
+        <p>一、爱情就是一盘棋，迷的都是当局人……其实，我们谁都不高明，谁都会陷入到自以为是的怪圈中……可是话说回来，这样的爱情才真实吧？ 二、“上帝说生活是救赎和忏悔，可到底谁需要救赎，谁又需要忏悔？” 三、我觉得人活得太贪婪，是一种罪过，是要下地狱...</p>
         
         <a class="article-more-link" href="/11.html">阅读更多...</a>
         
@@ -704,14 +626,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
 
 
       
-        <ul>
-<li><p>爱情到底是什么，又产生何处呢？我有些想不透，或许所谓的爱情只是一只彩色的蝴蝶，看起来美丽，却永远也不能接近，倘若你真的想把她攥紧在手里，她便会挣扎，然后在挣扎中摩擦掉了所有的色彩，从此苍白。</p>
-</li>
-<li><p>我好似有点明白，为什么我会如此的小心翼翼了，因为害怕触及不到她的灵魂，却擦掉了那层美丽的色彩</p>
-</li>
-<li><p>到底是什么让如<span id="more"></span>今的爱情变得这么复杂？又为什么，越来越多的人不能为了相爱两个字在一起？</p>
-</li>
-</ul>
+        <p>爱情到底是什么，又产生何处呢？我有些想不透，或许所谓的爱情只是一只彩色的蝴蝶，看起来美丽，却永远也不能接近，倘若你真的想把她攥紧在手里，她便会挣扎，然后在挣扎中摩擦掉了所有的色彩，从此苍白。 我好似有点明白，为什么我会如此的小心翼翼了，因为...</p>
         
         <a class="article-more-link" href="/5.html">阅读更多...</a>
         
