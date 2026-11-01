@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="咳咳怪, Hexo, VPS, 阅读" />
+       
+      <meta name="description" content="咳咳怪的个人博客，记录技术教程、阅读摘录与生活。" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>（VPS）利用Aria2下载Rclone转存到OneDrive |  咳咳怪的小站</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-8-（VPS）利用Aria2下载Rclone转存到OneDrive"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  （VPS）利用Aria2下载Rclone转存到OneDrive
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/8.html" class="article-date">
+  <time datetime="2021-12-30T04:53:00.000Z" itemprop="datePublished">2021-12-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">8 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>一、</p>
+<h2 id="安装Aria2"><a href="#安装Aria2" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到<a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh">一键安装Aria2</a></p>
+<p>二、</p>
+<h2 id="安装和配置-Rclone"><a href="#安装和配置-Rclone" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
+<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a target="_blank" rel="noopener" href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本"><a href="#配置自动上传脚本" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把**<br>clean.sh<strong>替换为</strong>upload.sh**。</li>
+</ul>
+<blockquote>
+<p>nano 编辑器的操作方法参见<a target="_blank" rel="noopener" href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
+</blockquote>
+<pre><code># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<h2 id="Rclone-连接-OneDrive"><a href="#Rclone-连接-OneDrive" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
+<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a target="_blank" rel="noopener" href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
+</blockquote>
+<pre><code>rclone authorize &quot;onedrive&quot;
+</code></pre>
+<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
+<pre><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+Paste the following into your remote machine ---&gt;
+{&quot;access_token&quot;:&quot;xxxxxxxx&quot;}  # 注意!复制{xxxxxxxx}整个内容，并保存好，后面需要用到
+&lt;---End paste
+</code></pre>
+<p>输入</p>
+<blockquote>
+<p><strong>rclone config</strong></p>
+</blockquote>
+<p>命令，会出现以下信息，参照下面的注释进行操作。<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-39-58.png" alt="RC1" title="RC1"></p>
+<blockquote>
+<p><strong>选27 Microsoft OneDrive</strong></p>
+</blockquote>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-16.png" alt="Rclone2"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-31.png" alt="Rclone3"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-39.png" alt="Rclone4"></p>
+<blockquote>
+<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
+</ul>
+<h1 id="网盘名称-RCLONE-配置时填写的-name"><a href="#网盘名称-RCLONE-配置时填写的-name" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
+<p><strong>drive-name&#x3D;OneDrive</strong></p>
+</blockquote>
+<ul>
+<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
+<p>service aria2 restart</p>
+</li>
+</ul>
+<h2 id="检查配置是否成功"><a href="#检查配置是否成功" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
+<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
+<p>&#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
+</li>
+<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
+</li>
+<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
+</li>
+</ul>
+<p>三、<br>部署Ar­i­aNg 页面</p>
+<pre><code># bridge 网络模式
+docker run -d \
+    --name ariang \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -p 6880:6880 \
+    p3terx/ariang
+
+# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
+docker run -d \
+    --name ariang \
+    --log-opt max-size=1m \
+    --restart unless-stopped \
+    --network host \
+    p3terx/ariang --port 6880 --ipv6
+</code></pre>
+<h2 id="AriaNg-连接-Aria2-服务端"><a href="#AriaNg-连接-Aria2-服务端" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/20181227201030.png" alt="Aria1"></p>
+<blockquote>
+<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
+</blockquote>
+<hr>
+<h2 id="AriaNg-使用注意事项"><a href="#AriaNg-使用注意事项" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
+<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug<br>，所以必要的设置需写入到 Aria2 配置文件中。</li>
+<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
+<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
+<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
+</ul>
+<hr>
+<p>本文参考的文章来自：<strong><a target="_blank" rel="noopener" href="https://p3terx.com/">P3terx</a></strong></p>
+<blockquote>
+<p>Aria2 新手入门教程<br><a target="_blank" rel="noopener" href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<br><a target="_blank" rel="noopener" href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<br><a target="_blank" rel="noopener" href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
+</blockquote>
+<hr>
+<p>一、</p>
+<h2 id="安装Aria2-1"><a href="#安装Aria2-1" class="headerlink" title="安装Aria2"></a>安装Aria2</h2><p>需要到<a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh">一键安装Aria2</a></p>
+<p>二、</p>
+<h2 id="安装和配置-Rclone-1"><a href="#安装和配置-Rclone-1" class="headerlink" title="安装和配置 Rclone"></a>安装和配置 Rclone</h2><p>RCLONE 官方提供了一键安装脚本：</p>
+<p><code>curl https://rclone.org/install.sh | sudo bash</code></p>
+<p>安装完后，输入 <code>rclone config</code> 命令进入交互式配置选项，按照提示一步一步来进行操作即可。如果你一脸懵逼，可以去看<a target="_blank" rel="noopener" href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">《Rclone 安装配置教程》</a>来了解配置的详细过程。</p>
+<h2 id="配置自动上传脚本-1"><a href="#配置自动上传脚本-1" class="headerlink" title="配置自动上传脚本"></a>配置自动上传脚本</h2><p>RCLONE 自动上传脚本由于默认不启用，所以需要手动启用。</p>
+<ul>
+<li>输入<code>nano /root/.aria2c/aria2.conf</code>打开 Aria2 配置文件进行修改。或使用Aria2 一键安装管理脚本 增强版中的手动修改选项打开配置文件进行修改。找到“下载完成后执行的命令”，把**<br>clean.sh<strong>替换为</strong>upload.sh**。</li>
+</ul>
+<blockquote>
+<p>nano 编辑器的操作方法参见<a target="_blank" rel="noopener" href="https://p3terx.com/archives/linux-nano-tutorial.html">《Linux 下适合新手的文本编辑器 nano 使用教程》</a></p>
+</blockquote>
+<pre><code># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh
+</code></pre>
+<h2 id="Rclone-连接-OneDrive-1"><a href="#Rclone-连接-OneDrive-1" class="headerlink" title="Rclone 连接 OneDrive"></a>Rclone 连接 OneDrive</h2><blockquote>
+<p><strong>获取 token</strong><br>在<strong>本地 Win­dows 电脑</strong>上下载 <a target="_blank" rel="noopener" href="https://rclone.org/downloads/">rclone</a>，然后解压出来，解压后进入文件夹，在资源管理器地址栏输入 cmd，回车就会在当前路径打开命令提示符。输入以下命令：</p>
+</blockquote>
+<pre><code>rclone authorize &quot;onedrive&quot;
+</code></pre>
+<p>接下来会弹出浏览器，要求你登录账号进行授权。授权完后命令提示符窗口会出现以下信息：</p>
+<pre><code>If your browser doesn&#39;t open automatically go to the following link: http://127.0.0.1:53682/auth
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+Paste the following into your remote machine ---&gt;
+{&quot;access_token&quot;:&quot;xxxxxxxx&quot;}  # 注意!复制{xxxxxxxx}整个内容，并保存好，后面需要用到
+&lt;---End paste
+</code></pre>
+<p>输入</p>
+<blockquote>
+<p><strong>rclone config</strong></p>
+</blockquote>
+<p>命令，会出现以下信息，参照下面的注释进行操作。<br>[<img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-39-58.png" alt="RC1" title="RC1"></p>
+<blockquote>
+<p><strong>选27 Microsoft OneDrive</strong></p>
+</blockquote>
+<p><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-16.png" alt="Rclone2"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-31.png" alt="Rclone3"><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/Snipaste_2021-12-16_19-40-39.png" alt="Rclone4"></p>
+<blockquote>
+<p><strong>至此，Rclone 已成功连接到了 OneDrive 网盘</strong></p>
+</blockquote>
+<ul>
+<li>输入<code>nano /root/.aria2c/script.conf</code>打开附加功能脚本配置文件进行修改，有中文注释，按照自己的实际情况进行修改，第一次使用只建议修改网盘名称。</li>
+</ul>
+<h1 id="网盘名称-RCLONE-配置时填写的-name-1"><a href="#网盘名称-RCLONE-配置时填写的-name-1" class="headerlink" title="网盘名称(RCLONE 配置时填写的 name)"></a>网盘名称(RCLONE 配置时填写的 name)</h1><blockquote>
+<p><strong>drive-name&#x3D;OneDrive</strong></p>
+</blockquote>
+<ul>
+<li><p>重启 Aria2 。脚本选项重启或者执行以下命令：</p>
+<p>service aria2 restart</p>
+</li>
+</ul>
+<h2 id="检查配置是否成功-1"><a href="#检查配置是否成功-1" class="headerlink" title="检查配置是否成功"></a>检查配置是否成功</h2><ul>
+<li><p>执行upload.sh脚本，提示success即代上传脚本能正常被调用，否则请检查与 RCLONE 有关的配置。</p>
+<p>&#x2F;root&#x2F;.aria2c&#x2F;upload.sh</p>
+</li>
+<li><p>打开实时日志并下载任意文件，出现上传成功信息即代表配置成功，否则请认真阅读教程并重新开始。</p>
+</li>
+<li><p>检查网盘是否存在相关文件，若不存在说明你搞错网盘了。</p>
+</li>
+</ul>
+<p>三、<br>部署Ar­i­aNg 页面</p>
+<pre><code># bridge 网络模式
+docker run -d \
+    --name ariang \
+    --restart unless-stopped \
+    --log-opt max-size=1m \
+    -p 6880:6880 \
+    p3terx/ariang
+
+# host 网络模式（如果你需要使用 IPv6 网络访问，这是最简单的方式）
+docker run -d \
+    --name ariang \
+    --log-opt max-size=1m \
+    --restart unless-stopped \
+    --network host \
+    p3terx/ariang --port 6880 --ipv6
+</code></pre>
+<h2 id="AriaNg-连接-Aria2-服务端-1"><a href="#AriaNg-连接-Aria2-服务端-1" class="headerlink" title="AriaNg 连接 Aria2 服务端"></a>AriaNg 连接 Aria2 服务端</h2><p>在 AriaNg 设置中填写相关 RPC 信息。RPC 地址对应 IP 或域名， RPC 秘钥对应配置文件 (aria2.conf) 中 rpc-secret 选项后面的参数。如果没有过修改端口，那么默认是 6800 无需修改。<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/aira/20181227201030.png" alt="Aria1"></p>
+<blockquote>
+<p>TIPS: 无法连接一般是两种情况导致的：1. 6800 端口未开放。 2. 网络不通畅。</p>
+</blockquote>
+<hr>
+<h2 id="AriaNg-使用注意事项-1"><a href="#AriaNg-使用注意事项-1" class="headerlink" title="AriaNg 使用注意事项"></a>AriaNg 使用注意事项</h2><ul>
+<li>在 AriaNg （或其它前端面板）中对 Aria2 设置的修改只会保存在内存中，不会修改配置文件，即属于临时修改，只在当前运行的进程中有效。Aria2 重启或关闭后会重新读取配置文件。这是 Aria2 的特性决定的并是不 bug<br>，所以必要的设置需写入到 Aria2 配置文件中。</li>
+<li>修改 Aria2 配置文件后，要先关闭 AriaNg 再重启 Aria2 进程，否则 AriaNg 可能会传递之前缓存的配置给 Aria2 ，这可能会导致修改的配置没有生效。理论上其它前端面板也是这样。（待讨论）</li>
+<li>HTTP 协议的 RPC 请求方式只建议使用POST，否则可能导致 BT 种子无法传递到 Aria2 服务端。</li>
+<li>BT 下载多文件时，若想取消部分文件，需先暂停任务后才能进行勾选。</li>
+</ul>
+<hr>
+<p>本文参考的文章来自：<strong><a target="_blank" rel="noopener" href="https://p3terx.com/">P3terx</a></strong></p>
+<blockquote>
+<p>Aria2 新手入门教程<br><a target="_blank" rel="noopener" href="https://p3terx.com/archives/aria2-started-guide.html">https://p3terx.com/archives/aria2-started-guide.html</a><br>Rclone 安装配置教程 - 连接 OneDrive 和 Google Drive<br><a target="_blank" rel="noopener" href="https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html">https://p3terx.com/archives/rclone-installation-and-configuration-tutorial.html</a><br>Aria2 前端面板 ( GUI、WebUI ) AriaNg 使用教程<br><a target="_blank" rel="noopener" href="https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html">https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html</a></p>
+</blockquote>
+<hr>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kekeguai.github.io/8.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aria2/" rel="tag">Aria2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/21.html" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板
+          
+        </div>
+      </a>
+    
+    
+      <a href="/9.html" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">利用OneinStack一键搭建LNMP和Typecho</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2026
+        <i class="ri-heart-fill heart_icon"></i> Kekeguai
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="咳咳怪的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">申请友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/messages">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/cross">时光机</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

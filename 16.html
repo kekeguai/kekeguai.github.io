@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="咳咳怪, Hexo, VPS, 阅读" />
+       
+      <meta name="description" content="咳咳怪的个人博客，记录技术教程、阅读摘录与生活。" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Markdown（笔记） |  咳咳怪的小站</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-16-Markdown（笔记）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Markdown（笔记）
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/16.html" class="article-date">
+  <time datetime="2022-04-24T07:00:00.000Z" itemprop="datePublished">2022-04-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%98%85%E8%AF%BB/">阅读</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">13 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="Markdown语法大全"><a href="#Markdown语法大全" class="headerlink" title="Markdown语法大全"></a>Markdown语法大全</h1><h2 id="一、-注释"><a href="#一、-注释" class="headerlink" title="一、 注释"></a>一、 注释</h2><h4 id="1-代码法"><a href="#1-代码法" class="headerlink" title="1.代码法"></a>1.代码法</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#x27;display: none&#x27;</span>&gt;</span></span></span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、html注释"><a href="#2、html注释" class="headerlink" title="2、html注释"></a>2、html注释</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--哈哈我是注释，不会在浏览器中显示。--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">哈哈我是多段注释，</span></span><br><span class="line"><span class="comment">不会在浏览器中显示。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、hack方法"><a href="#3、hack方法" class="headerlink" title="3、hack方法"></a>3、hack方法</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">//</span>]: <span class="link"># (哈哈我是最强注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">^_^</span>]: <span class="link"># (哈哈我是最萌注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">//</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">comment</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、标题"><a href="#二、标题" class="headerlink" title="二、标题"></a>二、标题</h2><p>Markdown 标题有两种格式</p>
+<h4 id="1、使用-和-标记"><a href="#1、使用-和-标记" class="headerlink" title="1、使用 &#x3D; 和 - 标记"></a>1、使用 &#x3D; 和 - 标记</h4><p>一级标题和二级标题</p>
+<p>&#x3D; 和 - 标记语法格式如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">我是一级标题</span></span><br><span class="line"><span class="section">=================</span></span><br><span class="line"></span><br><span class="line"><span class="section">我是二级标题</span></span><br><span class="line"><span class="section">-----------------</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2、使用-标记"><a href="#2、使用-标记" class="headerlink" title="2、使用 # 标记"></a>2、使用 # 标记</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、缩进、换行、空行、对齐方式"><a href="#三、缩进、换行、空行、对齐方式" class="headerlink" title="三、缩进、换行、空行、对齐方式"></a>三、缩进、换行、空行、对齐方式</h2><ul>
+<li>首行缩进<br>不同特殊占位符所占空白是不一样大的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">【1】 &amp;emsp;或&amp;#8195; //全角</span><br><span class="line">【2】 &amp;ensp;或&amp;#8194; //半角</span><br><span class="line">【3】 &amp;nbsp;或&amp;#160;  //半角之半角</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>换行<br>由于markdown编辑器的不同,可能在一行字后面，直接换行回车，也能实现换行，但是在Visual Studio Code上，想要换行必须得在一行字后面空两个格子才行。</li>
+<li>空行<br>在编辑的时候有多少个空行(只要这一行只有回车或者space没有其他的字符就算空行)，在渲染之后，只隔着一行。</li>
+<li>对齐方式</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;行中心对齐&lt;/center&gt;</span><br><span class="line">&lt;p align=&quot;left&quot;&gt;行左对齐&lt;/p&gt;</span><br><span class="line">&lt;p align=&quot;right&quot;&gt;行右对齐&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：</p>
+<center>行中心对齐</center>
+<p align="left">行左对齐</p>
+<p align="right">行右对齐</p>
+
+<h2 id="四、字体"><a href="#四、字体" class="headerlink" title="四、字体"></a>四、字体</h2><p>Markdown 可以使用以下几种字体：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*斜体文本*</span></span><br><span class="line"><span class="emphasis">_斜体文本_</span></span><br><span class="line"><span class="strong">**粗体文本**</span></span><br><span class="line"><span class="strong">__粗体文本__</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*粗斜体文本*</span>**</span></span><br><span class="line"><span class="strong">__<span class="emphasis">_粗斜体文本_</span>__</span></span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<br><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
+<h2 id="五、分割线"><a href="#五、分割线" class="headerlink" title="五、分割线"></a>五、分割线</h2><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**** * ******- - -----------</span><br></pre></td></tr></table></figure>
+
+<p>显示效果都一样</p>
+<h2 id="六、删除线"><a href="#六、删除线" class="headerlink" title="六、删除线"></a>六、删除线</h2><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是正常的  ~~我是删除线~~</span><br></pre></td></tr></table></figure>
+
+<p>我是正常的 <del>我是删除线</del></p>
+<h2 id="七、下划线"><a href="#七、下划线" class="headerlink" title="七、下划线"></a>七、下划线</h2><p>下划线可以通过 HTML 的 标签来实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;我是下划线&lt;/u&gt;</span><br></pre></td></tr></table></figure>
+
+<p><u>我是下划线</u></p>
+<h2 id="八、脚注"><a href="#八、脚注" class="headerlink" title="八、脚注"></a>八、脚注</h2><p>脚注是对文本的补充说明，Markdown 脚注的格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[^我是脚注]</span><br></pre></td></tr></table></figure>
+
+<p>以下实例演示了脚注的用法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建脚注格式类似这样 [^RUNOOB]。[^RUNOOB]: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！</span><br></pre></td></tr></table></figure>
+
+<p>演示效果如下：</p>
+<p>创建脚注格式类似这样 [^RUNOOB]。</p>
+<h2 id="九、列表"><a href="#九、列表" class="headerlink" title="九、列表"></a>九、列表</h2><p>Markdown 支持有序列表和无序列表。</p>
+<h4 id="1、无序列表"><a href="#1、无序列表" class="headerlink" title="1、无序列表"></a>1、无序列表</h4><p>无序列表使用星号(*)、加号(+)或是减号(-)作为列表标记：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 第一项* 第二项* 第三项------ 分割线 ------+ 第一项+ 第二项+ 第三项------ 分割线 ------- 第一项- 第二项- 第三项</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<p>—— 分割线 ——</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<p>—— 分割线 ——-</p>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<h4 id="2、有序列表"><a href="#2、有序列表" class="headerlink" title="2、有序列表"></a>2、有序列表</h4><p>使用数字并加上 . 号来表示，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 第一项</span><br><span class="line">2. 第二项</span><br><span class="line">3. 第三项</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<h4 id="3、列表嵌套"><a href="#3、列表嵌套" class="headerlink" title="3、列表嵌套"></a>3、列表嵌套</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. 第一项：    </span><br><span class="line">- 第一项嵌套的第一个元素    </span><br><span class="line">- 第一项嵌套的第二个元素</span><br><span class="line">2. 第二项：    </span><br><span class="line">- 第二项嵌套的第一个元素    </span><br><span class="line">- 第二项嵌套的第二个元素</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>第一项：</li>
+</ol>
+<ul>
+<li>第一项嵌套的第一个元素</li>
+<li>第一项嵌套的第二个元素</li>
+</ul>
+<ol start="2">
+<li>第二项：</li>
+</ol>
+<ul>
+<li>第二项嵌套的第一个元素</li>
+<li>第二项嵌套的第二个元素</li>
+</ul>
+<h2 id="十、区块"><a href="#十、区块" class="headerlink" title="十、区块"></a>十、区块</h2><h4 id="1、区块引用"><a href="#1、区块引用" class="headerlink" title="1、区块引用"></a>1、区块引用</h4><p>Markdown 区块引用是在段落开头使用 &gt; 符号 ，然后后面紧跟一个空格符号：<br><code>&gt; 区块引用&gt; 菜鸟教程&gt; 学的不仅是技术更是梦想</code><br>效果如下：</p>
+<blockquote>
+<p>区块引用<br>菜鸟教程<br>学的不仅是技术更是梦想</p>
+</blockquote>
+<h4 id="2、区块中使用列表"><a href="#2、区块中使用列表" class="headerlink" title="2、区块中使用列表"></a>2、区块中使用列表</h4><p>区块中使用列表实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; 区块中使用列表</span><br><span class="line">&gt; 1. 第一项</span><br><span class="line">&gt; 2. 第二项</span><br><span class="line">&gt; + 第一项</span><br><span class="line">&gt; + 第二项</span><br><span class="line">&gt; + 第三项</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<blockquote>
+<p>区块中使用列表</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+</blockquote>
+<h4 id="3、列表中使用区块"><a href="#3、列表中使用区块" class="headerlink" title="3、列表中使用区块"></a>3、列表中使用区块</h4><p>如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。</p>
+<p>区块中使用列表实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 第一项    </span><br><span class="line">&gt; 菜鸟教程    </span><br><span class="line">&gt; 学的不仅是技术更是梦想</span><br><span class="line">* 第二项</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ul>
+<li>第一项</li>
+</ul>
+<blockquote>
+<p>菜鸟教程<br>学的不仅是技术更是梦想</p>
+</blockquote>
+<ul>
+<li>第二项</li>
+</ul>
+<h4 id="4、多级引用"><a href="#4、多级引用" class="headerlink" title="4、多级引用"></a>4、多级引用</h4><p>语法说明：</p>
+<p>引用需要在被引用的文本前加上&gt;符号和空格，允许多层嵌套，也允许你偷懒只在整个段落的第一行最前面加上 &gt; 。</p>
+<p>代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 请问 Markdwon 怎么用？ - 小白&gt;&gt; 自己看教程！ - 愤青&gt; 教程在哪？ - 小白</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>请问 Markdwon 怎么用？- 小白</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li><blockquote>
+<blockquote>
+<p>自己看教程！- 愤青</p>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<p>教程在哪？- 小白</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="十一、代码"><a href="#十一、代码" class="headerlink" title="十一、代码"></a>十一、代码</h2><h4 id="1、单行代码"><a href="#1、单行代码" class="headerlink" title="1、单行代码"></a>1、单行代码</h4><p>如果是单行代码或段落上的一个函数或片段的代码可以用反引号把它包起来（<code>** **</code>），<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`printf()` 函数</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、代码区块"><a href="#2、代码区块" class="headerlink" title="2、代码区块"></a>2、代码区块</h4><p>代码区块使用三个反引号对**&#96;&#96;&#96;** 包裹一段代码，并指定一种语言（也可以不指定）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class CaseData:    &quot;&quot;&quot;这是一个存放测试用例数据的类&quot;&quot;&quot;    pass</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：<br>class CaseData:<br>“””这是一个存放测试用例数据的类”””<br>pass</p>
+<h2 id="十二、链接"><a href="#十二、链接" class="headerlink" title="十二、链接"></a>十二、链接</h2><h4 id="1、使用方法："><a href="#1、使用方法：" class="headerlink" title="1、使用方法："></a>1、使用方法：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[链接名称](链接地址)或者&lt;链接地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<p><a target="_blank" rel="noopener" href="https://yorg.top/">这是一个链接</a></p>
+<p>直接使用链接地址：<br><a target="_blank" rel="noopener" href="https://yorg.top/">https://yorg.top</a></p>
+<h4 id="2、高级链接"><a href="#2、高级链接" class="headerlink" title="2、高级链接"></a>2、高级链接</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">链接也可以用变量来代替，文档末尾附带变量地址：</span><br><span class="line">这个链接用 1 作为网址变量 [Google][1]</span><br><span class="line">这个链接用 runoob 作为网址变量 [Runoob][runoob]</span><br><span class="line">然后在文档的结尾为变量赋值（网址）  </span><br><span class="line">[1]: https://www.google.com/  </span><br><span class="line">[runoob]: https://www.runoob.com/</span><br></pre></td></tr></table></figure>
+
+<p>这个链接用 1 作为网址变量 <a target="_blank" rel="noopener" href="http://static.runoob.com/images/runoob-logo.png">Google</a><br>这个链接用 runoob 作为网址变量 [Runoob][runoob]<br>然后在文档的结尾为变量赋值（网址）<br><a target="_blank" rel="noopener" href="http://static.runoob.com/images/runoob-logo.png">1</a>: <a target="_blank" rel="noopener" href="http://www.google.com/">http://www.google.com/</a><br>[runoob]: <a target="_blank" rel="noopener" href="http://www.runoob.com/">http://www.runoob.com/</a></p>
+<h2 id="十三、图片"><a href="#十三、图片" class="headerlink" title="十三、图片"></a>十三、图片</h2><p>Markdown 图片语法格式如下<br><code>![alt 属性文本](图片地址) </code><br><code>![alt 属性文本](图片地址 &quot;可选标题&quot;)</code></p>
+<p>开头一个感叹号 !<br>接着一个方括号，里面放上图片的替代文字<br>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。<br>使用实例： </p>
+<p><img src="https://www.cnblogs.com/images/logo_small.gif" alt="RUNOOB 图标"><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB"></p>
+<p>当然，你也可以像网址那样对图片网址使用变量:  </p>
+<p>这个链接用 1 作为网址变量<br><code>![RUNOOB][1].然后在文档的结尾位变量赋值（网址）[1]: http://static.runoob.com/images/runoob-logo.png</code></p>
+<p>显示结果如下：</p>
+<p>这个链接用 1 作为网址变量 <img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB">.然后在文档的结尾位变量赋值（网址）</p>
+<p>然后在文档的结尾位变量赋值（网址）</p>
+<p>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的标签。</p>
+<p><code>&lt;img src=&quot;http://static.runoob.com/images/runoob-logo.png&quot; width=&quot;50%&quot;&gt;</code></p>
+<h2 id="十四、表格"><a href="#十四、表格" class="headerlink" title="十四、表格"></a>十四、表格</h2><p>Markdown 制作表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。</p>
+<p>语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|  表头   | 表头  ||  ----  | ----  || 单元格  | 单元格 || 单元格  | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</tbody></table>
+<p>对齐方式</p>
+<p>我们可以设置表格的对齐方式：</p>
+<p>-: 设置内容和标题栏居右对齐。<br>:- 设置内容和标题栏居左对齐。<br>:-: 设置内容和标题栏居中对齐。<br>实例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| 左对齐 | 右对齐 | 居中对齐 |</span><br><span class="line">| :-----| ----: | :----: |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br><span class="line">| 单元格 | 单元格 | 单元格 |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+<tr>
+<td align="left">单元格</td>
+<td align="right">单元格</td>
+<td align="center">单元格</td>
+</tr>
+</tbody></table>
+<h2 id="十五、高级技巧"><a href="#十五、高级技巧" class="headerlink" title="十五、高级技巧"></a>十五、高级技巧</h2><h4 id="1、支持HTML元素"><a href="#1、支持HTML元素" class="headerlink" title="1、支持HTML元素"></a>1、支持HTML元素</h4><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。</p>
+<p>目前支持的 HTML 元素有： 等 ，如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</span><br></pre></td></tr></table></figure>
+
+<p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
+<h4 id="2、转义"><a href="#2、转义" class="headerlink" title="2、转义"></a>2、转义</h4><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**文本加粗** \*\* 正常显示星号 \*\*</span><br></pre></td></tr></table></figure>
+
+<p>输出结果为：<br><strong>文本加粗</strong><br>** 正常显示星号 **<br>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线   </span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   感叹号`</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、流程图"><a href="#3、流程图" class="headerlink" title="3、流程图"></a>3、流程图</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```graph LRA--&gt;B``````sequenceDiagramA-&gt;&gt;B: How are you?B-&gt;&gt;A: Great!```</span><br></pre></td></tr></table></figure>
+
+<p>显示效果：<br><code>graph LRA--&gt;B</code><br><code>sequenceDiagramA-&gt;&gt;B: How are you?B-&gt;&gt;A: Great!</code></p>
+<h4 id="4、LaTex公式"><a href="#4、LaTex公式" class="headerlink" title="4、LaTex公式"></a>4、LaTex公式</h4><p>代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">质能守恒方程可以用一个很简洁的方程式 `$E = m c^2 $`来表达。</span><br></pre></td></tr></table></figure>
+
+<p>质能守恒方程可以用一个很简洁的方程式 <code>$E = m c^2 $</code>来表达。</p>
+<ul>
+<li>表示整行公式<br>大部分的浏览器支持的<br><code>$$ 公式 $$</code></li>
+<li>有道云笔记 使用格式，<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```mathE = mc^2```</span><br></pre></td></tr></table></figure></li>
+<li>块级公式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```mathx = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; ```</span><br><span class="line">```math[\frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125;]```</span><br></pre></td></tr></table></figure>
+
+<p><code>mathx = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} </code><br><code>math[\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}{1+\frac{e^{-8\pi}} {1+\ldots} } } }]</code></p>
+<p>访问 <a target="_blank" rel="noopener" href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">MathJax</a> 参考更多使用方法。</p>
+<h4 id="5、特殊字符"><a href="#5、特殊字符" class="headerlink" title="5、特殊字符"></a>5、特殊字符</h4><table>
+<thead>
+<tr>
+<th align="left">特殊的字符</th>
+<th align="right">描述</th>
+<th align="center">字符的代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"></td>
+<td align="right">空格符</td>
+<td align="center"><code> </code></td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="right">小于号</td>
+<td align="center"><code>&lt;</code></td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="right">大于号</td>
+<td align="center"><code> &gt;</code></td>
+</tr>
+<tr>
+<td align="left">&amp;</td>
+<td align="right">和号</td>
+<td align="center"><code>&amp;</code></td>
+</tr>
+<tr>
+<td align="left">￥</td>
+<td align="right">人民币</td>
+<td align="center"><code>¥</code></td>
+</tr>
+<tr>
+<td align="left">©</td>
+<td align="right">版权</td>
+<td align="center"><code>©</code></td>
+</tr>
+<tr>
+<td align="left">®</td>
+<td align="right">注册商标</td>
+<td align="center"><code>®</code></td>
+</tr>
+<tr>
+<td align="left">°C</td>
+<td align="right">摄氏度</td>
+<td align="center"><code>°C</code></td>
+</tr>
+<tr>
+<td align="left">±</td>
+<td align="right">正负号</td>
+<td align="center"><code> ±</code></td>
+</tr>
+<tr>
+<td align="left">×</td>
+<td align="right">乘号</td>
+<td align="center"><code>×</code></td>
+</tr>
+<tr>
+<td align="left">÷</td>
+<td align="right">除号</td>
+<td align="center"><code>÷</code></td>
+</tr>
+<tr>
+<td align="left">²</td>
+<td align="right">平方（上标²）</td>
+<td align="center"><code>²</code></td>
+</tr>
+<tr>
+<td align="left">³</td>
+<td align="right">立方（上标³）</td>
+<td align="center"><code>³</code></td>
+</tr>
+</tbody></table>
+<h2 id="十六、文字颜色、大小、字体"><a href="#十六、文字颜色、大小、字体" class="headerlink" title="十六、文字颜色、大小、字体"></a>十六、文字颜色、大小、字体</h2><h4 id="1、颜色"><a href="#1、颜色" class="headerlink" title="1、颜色"></a>1、颜色</h4><p>在markdown中采用如下方式能够控制文字的颜色：<br><code>&lt;font color=&quot;#dd0000&quot;&gt;文字颜色预览&lt;/font&gt;</code></p>
+<h4 id="2、字体大小"><a href="#2、字体大小" class="headerlink" title="2、字体大小"></a>2、字体大小</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">size为 1：&lt;font size=&quot;1&quot;&gt;size为1&lt;/font&gt;</span><br><span class="line">size为 2：&lt;font size=&quot;2&quot;&gt;size为2&lt;/font&gt;</span><br><span class="line">size为 3：&lt;font size=&quot;3&quot;&gt;size为3&lt;/font&gt;</span><br><span class="line">size为 4：&lt;font size=&quot;4&quot;&gt;size为4&lt;/font&gt;</span><br><span class="line">size为 6：&lt;font size=&quot;6&quot;&gt;size为6&lt;/font&gt;</span><br></pre></td></tr></table></figure>
+
+<p>size为 1：<font size="1">size为1</font><br>size为 2：<font size="2">size为2</font><br>size为 3：<font size="3">size为3</font><br>size为 4：<font size="4">size为4</font><br>size为 6：<font size="6">size为6</font></p>
+<h4 id="3、字体"><a href="#3、字体" class="headerlink" title="3、字体"></a>3、字体</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;font face=&quot;黑体&quot;&gt;我是黑体字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;宋体&quot;&gt;我是宋体字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;楷体&quot;&gt;我是楷体字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;微软雅黑&quot;&gt;我是微软雅黑字&lt;/font&gt; </span><br><span class="line">&lt;font face=&quot;fantasy&quot;&gt;我是fantasy字&lt;/font&gt;</span><br><span class="line">&lt;font face=&quot;Helvetica&quot;&gt;我是Helvetica字&lt;/font&gt; </span><br></pre></td></tr></table></figure>
+
+<p><font face="黑体">我是黑体字</font><br><font face="宋体">我是宋体字</font><br><font face="楷体">我是楷体字</font><br><font face="微软雅黑">我是微软雅黑字</font><br><font face="fantasy">我是fantasy字</font><br><font face="Helvetica">我是Helvetica字</font></p>
+<h4 id="4、背景色"><a href="#4、背景色" class="headerlink" title="4、背景色"></a>4、背景色</h4><p>语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line"> &lt;td bgcolor=#F4A460&gt;背景色的设置是按照十六进制颜色值：#F4A460&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line"> &lt;td bgcolor=#FF6347&gt;背景色的设置是按照十六进制颜色值：#FF6347&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line"> &lt;td bgcolor=#D8BFD8&gt;背景色的设置是按照十六进制颜色值：#D8BFD8&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line">  &lt;td bgcolor=#008080&gt;背景色的设置是按照十六进制颜色值：#008080&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br><span class="line">&lt;table&gt;</span><br><span class="line"> &lt;tr&gt;</span><br><span class="line">  &lt;td bgcolor=#FFD700&gt;背景色的设置是按照十六进制颜色值：#FFD700&lt;/td&gt;</span><br><span class="line"> &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;  </span><br></pre></td></tr></table></figure>
+
+<table>
+ <tr>
+ <td bgcolor=#F4A460>背景色的设置是按照十六进制颜色值：#F4A460</td>
+ </tr>
+</table>
+<table>
+ <tr>
+ <td bgcolor=#FF6347>背景色的设置是按照十六进制颜色值：#FF6347</td>
+ </tr>
+</table>  
+<table>
+ <tr>
+ <td bgcolor=#D8BFD8>背景色的设置是按照十六进制颜色值：#D8BFD8</td>
+ </tr>
+</table>  
+<table>
+ <tr>
+  <td bgcolor=#008080>背景色的设置是按照十六进制颜色值：#008080</td>
+ </tr>
+</table>  
+<table>
+ <tr>
+  <td bgcolor=#FFD700>背景色的设置是按照十六进制颜色值：#FFD700</td>
+ </tr>
+</table>    
+参考:
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/miki-peng/articles/12502985.html">Markdown语法大全</a>【作者】<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ebe52d2d468f">Markdown语法大全(超级版)</a>【择势量投】<br><a target="_blank" rel="noopener" href="https://codeanime.cc/Markdown%E8%AF%AD%E6%B3%95%E5%A4%A7%E5%85%A8%EF%BC%88%E7%AC%94%E8%AE%B0%EF%BC%89.html">Markdown语法大全（笔记）</a><br>【codeanime】</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kekeguai.github.io/16.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/27.html" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            《自卑与超越》
+          
+        </div>
+      </a>
+    
+    
+      <a href="/13.html" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Hexo博客搭建（含美化）</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2026
+        <i class="ri-heart-fill heart_icon"></i> Kekeguai
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="咳咳怪的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">申请友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/messages">留言</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/cross">时光机</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
