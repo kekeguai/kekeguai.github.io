@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">174</span>
+            <span class="post-count">177</span>
         </span>
     </span>
 
@@ -131,7 +131,7 @@
       
         <p>首先到下面的网站复制命令，粘贴到Linux里进行安装 时长大概15-30分钟左右<br><a target="_blank" rel="noopener" href="https://oneinstack.com/auto/">https://oneinstack.com/auto/</a><br><img src="https://js.007.al/gh/kekeguai/blog_img@main/typecho/Snipaste_2021-12-28_22-45-20.png" alt="界面" title="界面"></p>
 <p>环境安装完成后</p>
-<pre><code>#进入oneinstack
+<pre><code>#进入oneinstack&lt;!--more--&gt;
 cd oneinstack
 #添加网站
 ./vhost.sh
@@ -147,8 +147,6 @@ mv * ..
 cd ..
 rm -rf 1.1.17.10.30.-release.tar.gz build
 </code></pre>
-<span id="more"></span>
-
 <p>要在phpMyAdmin中新创建一个typecho的数据库</p>
 <p>之后就可以访问你的网站 进行Typecho的安装</p>
 
@@ -305,7 +303,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
         if (today < anniversary) years -= 1;
         var base = Date.UTC(2020 + years, 7, 30);
         var days = Math.floor((today - base) / 86400000);
-        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '天';
       }());
     </script>
     <ul>
@@ -334,6 +332,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
     
   </div>
 </footer>
+
     
     </main>
     <div class="float_btns">

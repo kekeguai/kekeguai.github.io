@@ -135,7 +135,7 @@
 
 <h4 id="2、html注释"><a href="#2、html注释" class="headerlink" title="2、html注释"></a>2、html注释</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--哈哈我是注释，不会在浏览器中显示。--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">哈哈我是多段注释，</span></span><br><span class="line"><span class="comment">不会在浏览器中显示。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="3、hack方法"><a href="#3、hack方法" class="headerlink" title="3、hack方法"></a>3、hack方法</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">//</span>]: <span class="link"># (哈哈我是最强注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">^_^</span>]: <span class="link"># (哈哈我是最萌注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">//</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">comment</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、hack方法"><a href="#3、hack方法" class="headerlink" title="3、hack方法"></a>3、hack方法</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">//</span>]: <span class="link"># (哈哈我&lt;!--more--&gt;是最强注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">^_^</span>]: <span class="link"># (哈哈我是最萌注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">//</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。)</span></span><br><span class="line">[<span class="symbol">comment</span>]: <span class="link">&lt;&gt; (哈哈我是注释，不会在浏览器中显示。</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="二、标题"><a href="#二、标题" class="headerlink" title="二、标题"></a>二、标题</h2><p>Markdown 标题有两种格式</p>
 <h4 id="1、使用-和-标记"><a href="#1、使用-和-标记" class="headerlink" title="1、使用 &#x3D; 和 - 标记"></a>1、使用 &#x3D; 和 - 标记</h4><p>一级标题和二级标题</p>
@@ -154,8 +154,6 @@
 <li>空行<br>在编辑的时候有多少个空行(只要这一行只有回车或者space没有其他的字符就算空行)，在渲染之后，只隔着一行。</li>
 <li>对齐方式</li>
 </ul>
-<span id="more"></span>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;行中心对齐&lt;/center&gt;</span><br><span class="line">&lt;p align=&quot;left&quot;&gt;行左对齐&lt;/p&gt;</span><br><span class="line">&lt;p align=&quot;right&quot;&gt;行右对齐&lt;/p&gt;</span><br></pre></td></tr></table></figure>
 
 <p>显示效果：</p>
@@ -655,7 +653,7 @@
         if (today < anniversary) years -= 1;
         var base = Date.UTC(2020 + years, 7, 30);
         var days = Math.floor((today - base) / 86400000);
-        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '天';
       }());
     </script>
     <ul>
@@ -684,6 +682,7 @@
     
   </div>
 </footer>
+
     
     </main>
     <div class="float_btns">

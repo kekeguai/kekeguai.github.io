@@ -131,9 +131,7 @@
       
         <p>LibreTV是一个轻量级、免费的在线视频搜索与观看平台，提供来自多个视频源的内容搜索与播放服务。无需注册，即开即用，支持多种设备访问。项目采用纯前端技术构建，可轻松部署在各类静态网站托管服务上。</p>
 <p><a target="_blank" rel="noopener" href="https://tv.yorg.top/">演示站：https://tv.yorg.top/</a></p>
-<p>##部署指南<br>推荐使用Vercel&#x2F;Netlify部署</p>
-<span id="more"></span>
-
+<p>##部署指南<br>推荐使用Vercel&#x2F;Netlify部署<span id="more"></span></p>
 <ol>
 <li>fork项目到自己的Github仓库</li>
 <li>进入Vercel新建项目</li>
@@ -302,7 +300,7 @@ services:
         if (today < anniversary) years -= 1;
         var base = Date.UTC(2020 + years, 7, 30);
         var days = Math.floor((today - base) / 86400000);
-        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '天';
       }());
     </script>
     <ul>
@@ -331,6 +329,7 @@ services:
     
   </div>
 </footer>
+
     
     </main>
     <div class="float_btns">

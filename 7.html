@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">501</span>
+            <span class="post-count">505</span>
         </span>
     </span>
 
@@ -132,14 +132,12 @@
 
       
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Alist是一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav，后端基于gin，前端使用react。<br>支持挂载多种网盘<br>可以使用多种方式进行搭建，本文介绍的是宝塔&#x2F;Aapanel搭建教程</p>
-<h2 id="一、安装宝塔-Aapanel"><a href="#一、安装宝塔-Aapanel" class="headerlink" title="一、安装宝塔&#x2F;Aapanel"></a>一、安装宝塔&#x2F;Aapanel</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">国外VPS  </span><br><span class="line">wget https://raw.githubusercontent.com/AaronYES/aaPanel/main/script/aapanel.sh  -O aapanel.sh &amp;&amp; chmod +x aapanel.sh &amp;&amp; clear &amp;&amp; ./aapanel.sh  </span><br><span class="line"></span><br><span class="line">国内VPS  </span><br><span class="line">wget https://ghproxy.com/https://raw.githubusercontent.com/AaronYES/aaPanel/main/script/aapanel.sh  -O aapanel.sh &amp;&amp; chmod +x aapanel.sh &amp;&amp; clear &amp;&amp; ./aapanel.sh</span><br></pre></td></tr></table></figure>
+<h2 id="一、安装宝塔-Aapanel"><a href="#一、安装宝塔-Aapanel" class="headerlink" title="一、安装宝塔&#x2F;Aapanel"></a>一、安装宝塔&#x2F;Aapanel</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">国外VPS  </span><br><span class="line">wget https://raw.githubusercont&lt;!--more--&gt;ent.com/AaronYES/aaPanel/main/script/aapanel.sh  -O aapanel.sh &amp;&amp; chmod +x aapanel.sh &amp;&amp; clear &amp;&amp; ./aapanel.sh  </span><br><span class="line"></span><br><span class="line">国内VPS  </span><br><span class="line">wget https://ghproxy.com/https://raw.githubusercontent.com/AaronYES/aaPanel/main/script/aapanel.sh  -O aapanel.sh &amp;&amp; chmod +x aapanel.sh &amp;&amp; clear &amp;&amp; ./aapanel.sh</span><br></pre></td></tr></table></figure>
 <p>安装完成宝塔&#x2F;Aapanel后 会在VPS显示给你一个链接</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aaPanel Internet Address: https://127.0.1.1:7800/8位随机数  </span><br><span class="line">username: 随机的  </span><br><span class="line">password: 随机的</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>PS：注意八位随机数也要一起复制到浏览器打开  </p>
 </blockquote>
-<span id="more"></span>
-
 <h2 id="二、安装Alist"><a href="#二、安装Alist" class="headerlink" title="二、安装Alist"></a>二、安装Alist</h2><p>打开宝塔&#x2F;Aapanel页面会跳出提示框 选择安装lnmp 默认就行 等安装完毕  </p>
 <p>看左侧选项卡选择网站&#x3D;&#x3D;&gt;添加站点&#x3D;&#x3D;&gt;域名填你解析到VPS的域名【按照图片进行操作】<br><img src="https://js.007.al/gh/kekeguai/blog_img@main/Alist/Snipaste_2022-07-07_13-00-25.png" alt="Alist_1" title="Alist"></p>
 <p>之后进入到wwwroot&#x2F;创建的网站目录 选择终端  </p>
@@ -306,7 +304,7 @@
         if (today < anniversary) years -= 1;
         var base = Date.UTC(2020 + years, 7, 30);
         var days = Math.floor((today - base) / 86400000);
-        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '天';
       }());
     </script>
     <ul>
@@ -335,6 +333,7 @@
     
   </div>
 </footer>
+
     
     </main>
     <div class="float_btns">

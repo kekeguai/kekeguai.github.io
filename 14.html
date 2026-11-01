@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">190</span>
+            <span class="post-count">193</span>
         </span>
     </span>
 
@@ -136,7 +136,7 @@
 <blockquote>
 <p>可能会出现依赖，依据提示安装即可。</p>
 </blockquote>
-<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h2><p>修改博客根目录配置文件 <code>_config.yml</code> 的 <code>permalink：</code>  </p>
+<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2.配置"></a>2.配置</h2><p>修改博客根目录配置文件 <code>_config.yml&lt;!--more--&gt;</code> 的 <code>permalink：</code>  </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: p/:abbrlink.html  # p 是自定义的前缀</span><br><span class="line">abbrlink:</span><br><span class="line">alg: crc32   #算法： crc16(default) and crc32</span><br><span class="line">rep: dec     #进制： dec(default) and hex</span><br></pre></td></tr></table></figure>
 <p>不同算法和进制生成不同的格式：  </p>
 <pre><code>crc16 &amp; hex
@@ -305,7 +305,7 @@ https://xxx.com/posts/1690090958.html
         if (today < anniversary) years -= 1;
         var base = Date.UTC(2020 + years, 7, 30);
         var days = Math.floor((today - base) / 86400000);
-        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '天';
       }());
     </script>
     <ul>
@@ -334,6 +334,7 @@ https://xxx.com/posts/1690090958.html
     
   </div>
 </footer>
+
     
     </main>
     <div class="float_btns">

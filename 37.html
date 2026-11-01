@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">254</span>
+            <span class="post-count">258</span>
         </span>
     </span>
 
@@ -131,7 +131,7 @@
       
         <p>当你开心之后如果觉得Emby做的好就应该支持正版！价格不贵，还能得到官方社区的技术支持，后续版本升级也方便。<br><img src="https://file.333361.xyz/images/emby.jpg" alt="emby"><br> <a target="_blank" rel="noopener" href="https://emby.media/premiere.html">官方正版购买链接</a></p>
 <p>开心原理：模拟官方服务器返回授权信息，返回大概是这样的：  </p>
-<pre><code>//https://mb3admin.com/admin/service/registration/validateDevice
+<pre><code>//https://mb3admin.com/admin/service/registrati&lt;!--more--&gt;on/validateDevice
 {&quot;cacheExpirationDays&quot;: 365,&quot;message&quot;: &quot;Device Valid&quot;,&quot;resultCode&quot;: &quot;GOOD&quot;}
 //https://mb3admin.com/admin/service/registration/getStatus
 {&quot;deviceStatus&quot;:&quot;0&quot;,&quot;planType&quot;:&quot;Lifetime&quot;,&quot;subscriptions&quot;:{}}
@@ -141,8 +141,6 @@
 <p>所以我们只需要把Emby程序的所有接口换成我们搭建的模拟服务器就行了！</p>
 <pre><code>wget --no-check-certificate https://github.com/kekeguai/Emby_crack/blob/main/emby-happy.sh &amp;&amp; chmod 777 emby-happy.sh &amp;&amp; bash emby-happy.sh
 </code></pre>
-<span id="more"></span>
-
 <p>登陆ssh，sudo -i弄个临时root权限，直接输入上述脚本即可！</p>
 <p>转载自： <a target="_blank" rel="noopener" href="https://cangshui.net/">沧水的博客</a> » <a target="_blank" rel="noopener" href="https://cangshui.net/5138.html">群晖Emby4.7.11.0一键开心脚本</a></p>
 
@@ -299,7 +297,7 @@
         if (today < anniversary) years -= 1;
         var base = Date.UTC(2020 + years, 7, 30);
         var days = Math.floor((today - base) / 86400000);
-        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '天';
       }());
     </script>
     <ul>
@@ -328,6 +326,7 @@
     
   </div>
 </footer>
+
     
     </main>
     <div class="float_btns">

@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">153</span>
+            <span class="post-count">156</span>
         </span>
     </span>
 
@@ -133,7 +133,7 @@
       
         <h3 id="一、添加单端"><a href="#一、添加单端" class="headerlink" title="一、添加单端"></a>一、添加单端</h3><p>名称随意，协议ws（自己决定）<br><img src="https://444410.xyz/d/BQACAgEAAxkDAAIFcWXDWYJQPiv9yZCq9SaLzOMV3TIaAAKNBAACjLkZRto0q32D3gdvNAQ" alt="添加"></p>
 <h3 id="二、对接"><a href="#二、对接" class="headerlink" title="二、对接"></a>二、对接</h3><p><img src="https://444410.xyz/d/BQACAgEAAxkDAAIFc2XDWdOsCieisgwlseGA6ccyk-frAAJdBQAC4twgRvigiSbakuZqNAQ" alt="对接"><br>建议直接复制一键对接（楼主debian11）<br>点击高级编辑<br>connect_address的IP应该也是可以改成域名的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;connect_address&quot;: &quot;IP&quot;, </span><br><span class="line">    &quot;connect_port&quot;: 要使用的端口,</span><br><span class="line">    &quot;protocol&quot;: &quot;ws&quot;,</span><br><span class="line">    &quot;ws&quot;: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;udp_over_tcp&quot;: false</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;connect_address&quot;: &quot;IP&quot;, </span><br><span class="line">    &quot;connect_port&quot;: 要使用的端口,</span><br><span class="line">    &quot;protocol&quot;:&lt;!--more--&gt; &quot;ws&quot;,</span><br><span class="line">    &quot;ws&quot;: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;udp_over_tcp&quot;: false</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="三、-更改监听端口"><a href="#三、-更改监听端口" class="headerlink" title="三、 更改监听端口"></a>三、 更改监听端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nano /opt/nyanpass/start.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>我比较喜欢用nano<br>将下面</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./rel_nodeclient -o</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -299,7 +299,7 @@
         if (today < anniversary) years -= 1;
         var base = Date.UTC(2020 + years, 7, 30);
         var days = Math.floor((today - base) / 86400000);
-        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '日';
+        output.textContent = Math.max(0, years) + '年' + Math.max(0, days) + '天';
       }());
     </script>
     <ul>
@@ -328,6 +328,7 @@
     
   </div>
 </footer>
+
     
     </main>
     <div class="float_btns">
