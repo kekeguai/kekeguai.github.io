@@ -159,7 +159,9 @@
 
       
         <p>LibreTV 是一个基于 Next.js 的在线视频聚合搜索与观看平台，支持多源搜索、HLS 播放、观看进度、直播&#x2F;IPTV、PWA 和亮暗主题。它只负责聚合和播放用户配置的第三方公开数据源，不自带影视内容。</p>
-<p>本文以 LibreSpark&#x2F;LibreTV 官方仓库当前版本为例，介绍使用 Docker Compose 部署的方法。
+<p>本文以 LibreSpark&#x2F;LibreTV 官方仓库当前版本为例，介绍使用 Docker Compose 部署的方法。<span id="more"></span></p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/LibreSpark/LibreTV">LibreSpark&#x2F;LibreTV</a></p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://libretv.is-an.org/wiki/">libretv.is-an.org&#x2F;wiki</a></p>
         
         <a class="article-more-link" href="/72.html">阅读更多...</a>
         
@@ -238,8 +240,6 @@
 
       
         <p>感谢<a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">YxVM</a>赞助的机器HKECO-Luxury (4Cpu&#x2F;4G RAM)</p>
-<h2 id="YABS"><a href="#YABS" class="headerlink" title="YABS"></a>YABS</h2><p><a target="_blank" rel="noopener" href="https://github.com/masonr/yet-another-bench-script">https://github.com/masonr/yet-another-bench-script</a></p>
-<p><strong>日期</strong>：Fri Apr 4 09:56:22 U
         
         <a class="article-more-link" href="/70.html">阅读更多...</a>
         
@@ -314,7 +314,9 @@
 
       
         <p><a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">YxVM</a> 为你提供高性价比的VPS主机。VPS覆盖香港, 台湾，新加坡，日本，美国，韩国等地区，带宽大，流量计算灵活。<br><strong>官网地址</strong>：<a target="_blank" rel="noopener" href="https://yxvm.com/aff.php?aff=632">https://yxvm.com</a></p>
-
+        
+        <a class="article-more-link" href="/68.html">阅读更多...</a>
+        
       
 
       <!-- reward -->
@@ -401,7 +403,9 @@
 <h4 id="具体看官网文档"><a href="#具体看官网文档" class="headerlink" title="具体看官网文档"></a>具体看官网文档</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://nyanpass.pages.dev/reference/cdn/">CDN 隧道</a></li>
 </ul>
-
+        
+        <a class="article-more-link" href="/53.html">阅读更多...</a>
+        
       
 
       <!-- reward -->
@@ -485,7 +489,29 @@
 <li>设置定时任务</li>
 </ul>
 <p>把域名接入cloudflare</p>
-<p>打开<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">cloudflare</a>，登陆账号添加网站按照
+<p>打开<a target="_blank" rel="noopener" href="https://dash.cloudflare.com/">cloudflare</a>，登陆账号添加网站按照<span id="more"></span>提示操作<br>获取Global API Key<br>访问 <a target="_blank" rel="noopener" href="https://dash.cloudflare.com/profile">https://dash.cloudflare.com/profile</a>在页面下方找到 Global API Key，点击右侧的 View 查看 Key，并保存下来 ，在页面下方找到 Global API Key，点击右侧的 View 查看 Key，并保存下来</p>
+<p><img src="https://s2.loli.net/2024/02/22/UbDfAxlS7eMcBQh.png" alt="ApiKey"></p>
+<p>设置用于 DDNS 解析的二级域名，流量不经过CDN(云朵变灰)</p>
+<p>添加一条A记录，例如：hkt.test.com，Proxy status设置成DNS only</p>
+<p><img src="https://s2.loli.net/2024/02/22/ZUhkzMig1btVSRG.png" alt="DDNS"></p>
+<p>下载DDNS一键脚本</p>
+<pre><code>curl https://raw.githubusercontent.com/aipeach/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh &gt; /root/cf-v4-ddns.sh &amp;&amp; chmod +x /root/cf-v4-ddns.sh
+</code></pre>
+<p>修改DDNS脚本补充你自己的信息</p>
+<pre><code>nano cf-v4-ddns.sh
+</code></pre>
+<blockquote>
+<p>incorrect api-key results in E_UNAUTH error<br>填写 Global API Key<br>CFKEY&#x3D;<br>Username, eg: <a href="mailto:&#117;&#x73;&#x65;&#114;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;">user@example.com</a><br>填写 CloudFlare 登陆邮箱<br>CFUSER&#x3D;<br>Zone name, eg: example.com<br>填写需要用来 DDNS 的一级域名<br>CFZONE_NAME&#x3D;(例如:google.com)<br>Hostname to update, eg: homeserver.example.com<br>填写 DDNS 的二级域名(只需填写前缀例如 hkt.google.com则需要填写hkt)<br>CFRECORD_NAME&#x3D;<br>设置完毕运行脚本</p>
+</blockquote>
+<pre><code> ./cf-v4-ddns.sh
+</code></pre>
+<p>首次运行脚本,输出内容会显示当前IP，进入cloudflare查看 确保IP已变更为当前IP</p>
+<p>设置定时任务（环境debian11）</p>
+<pre><code>crontab -e
+</code></pre>
+<p>将下面代码复制到定时任务中</p>
+<pre><code>*/2 * * * * /root/cf-v4-ddns.sh &gt;/dev/null 2&gt;&amp;1
+</code></pre>
         
         <a class="article-more-link" href="/50.html">阅读更多...</a>
         
@@ -577,7 +603,9 @@
 </code></pre>
 <p>登陆ssh，sudo -i弄个临时root权限，直接输入上述脚本即可！</p>
 <p>转载自： <a target="_blank" rel="noopener" href="https://cangshui.net/">沧水的博客</a> » <a target="_blank" rel="noopener" href="https://cangshui.net/5138.html">群晖Emby4.7.11.0一键开心脚本</a></p>
-
+        
+        <a class="article-more-link" href="/37.html">阅读更多...</a>
+        
       
 
       <!-- reward -->
@@ -652,7 +680,7 @@
 
 
       
-        <p>在我们使用CloudFlare CDN的时候，我们只能使用CloudFlare指定的CDN的端口：（HTTP：80，8080，8880，2052，2082，2086，2095；HTTPS：443，2053，2083，2087，2096，8443）但是我们有NAT机器只能使用一些非常规的端口，但是又需要使用CloudFlare CDN（俗称套CF）的情况呢？这时候我们可以使用CloudFlare推
+        <p>在我们使用CloudFlare CDN的时候，我们只能使用CloudFlare指定的CDN的端口：（HTTP：80，8080，8880，2052，2082，2086，2095；HTTPS：443，2053，2083，2087，2096，8443）但是我们有NAT机器只能使用一些非常规的端口，但是又需要使用CloudFlare CDN（俗称套CF）的情况呢？这时候我们可以使用CloudFlare推<span id="more"></span>出的Origin Rules，来让CDN回源到任意一个端口。  </p>
         
         <a class="article-more-link" href="/34.html">阅读更多...</a>
         
@@ -732,7 +760,11 @@
       
         <h1 id="土耳其电子钱包：Ozan-Oldubil"><a href="#土耳其电子钱包：Ozan-Oldubil" class="headerlink" title="土耳其电子钱包：Ozan  Oldubil"></a>土耳其电子钱包：<a target="_blank" rel="noopener" href="https://www.ozan.com/en">Ozan</a>  <a target="_blank" rel="noopener" href="https://www.oldubil.com.tr/">Oldubil</a></h1><p><img src="https://asia.one.mvimg.co/1691311419/510f13b9a8bd2fea/64cf5d3b32566.png" alt="Ozan">  </p>
 <h4 id="Features"><a href="#Features" class="headerlink" title="Features:"></a>Features:</h4><ul>
-<li>可生成7张虚拟土耳其Visa prepa
+<li>可生成7张虚拟土耳其Visa prepa<span id="more"></span>id卡  </li>
+<li>可使用IBAN充值、卡对卡转账充值  </li>
+<li>可绑定借记卡充值（不支持大陆卡）</li>
+<li>支持绑定土耳其App Store、Stream</li>
+</ul>
         
         <a class="article-more-link" href="/24.html">阅读更多...</a>
         
@@ -815,7 +847,23 @@
 </li>
 <li><p>二、原来大脑的记忆力如此差劲，你再珍惜再重视一个人，可当她真的消失后，你也会不知不觉中忘记她，也忘怀掉过去的点点滴滴。这到底是大脑皮层的一种自我保护的分泌？还是因为她在心中的地位没有自己想象中的那么刻骨铭心？</p>
 </li>
-<li><p>三、
+<li><p>三、<span id="more"></span>在政府任职的高低，企业总资产的排名，将直接影响着你个人的社会地位！有钱有权，自然就高人一等，可以肆无忌惮地将普通人踩在脚下！而反过来，处在底层的普通人，却一样对权力与金钱有着深深的渴望，他们期望通过任何可能实现的手段，去完成去权力或是金钱追求的梦想</p>
+</li>
+<li><p>四、天朝上国，从古至今，朋党之争与官官相护几乎是一个永恒的定律。异派相互压轧，同系相互回护，这种现象再平常不过！就算是本着明哲保身的心理，也没人愿意冒着得罪上司的危险替人强出头。</p>
+</li>
+<li><p>五、热恋的时候恨不得指天发誓，许愿海枯石烂、此志不渝然后，当热恋期过去后，对方在自己眼里的完美滤镜消失了，原本毫不介意的小缺陷就会被无限的放大化，到最后就会变成一次次争吵，直到突破了容忍度的阈值，最后闹的老死不相往来。</p>
+</li>
+<li><p>六、人就是这样，在成长的过程中，不知不觉就丢掉了本心，为了继续满足自己的欲望，不得已，只得编造出一个正当的理由来遮掩，这谎话说的多了，就连自己都深信不疑…</p>
+</li>
+<li><p>七、人总是喜新厌旧的，总是在荷尔蒙影响大脑的时候说一些自我感动的海誓山盟，可当热情退却的时候，留下的不过是满地鸡毛罢了</p>
+</li>
+<li><p>八、诺不轻许，故我不负人。诺不轻信，故人不负我。</p>
+</li>
+<li><p>九、人类的存在，本来就是一种禁忌，危险而放肆，渴望禁忌的逾越，是这种生物的本能。</p>
+</li>
+<li><p>十、感情这回事，终究还是要互相在乎，互相尊重，有共同的爱好和志趣，能够体会到对方的需要，而自己会用心去满足，才能够长久。</p>
+</li>
+</ul>
         
         <a class="article-more-link" href="/25.html">阅读更多...</a>
         
