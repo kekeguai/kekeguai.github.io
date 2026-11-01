@@ -18,7 +18,7 @@
       <title>Cloudflare搭建DDNS教程 |  咳咳怪的小站</title>
   <meta name="generator" content="hexo-theme-ayer">
       
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/images/favicon.png" />
        
 <link rel="stylesheet" href="/dist/main.css">
 
@@ -27,6 +27,9 @@
 
       
 <link rel="stylesheet" href="/css/custom.css">
+
+      
+<link rel="stylesheet" href="/css/site-info.css">
  
       <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
        
@@ -133,7 +136,7 @@
 <pre><code>nano cf-v4-ddns.sh
 </code></pre>
 <blockquote>
-<p>incorrect api-key results in E_UNAUTH error<br>填写 Global API Key<br>CFKEY&#x3D;<br>Username, eg: <a href="mailto:&#x75;&#115;&#101;&#x72;&#x40;&#101;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;">user@example.com</a><br>填写 CloudFlare 登陆邮箱<br>CFUSER&#x3D;<br>Zone name, eg: example.com<br>填写需要用来 DDNS 的一级域名<br>CFZONE_NAME&#x3D;(例如:google.com)<br>Hostname to update, eg: homeserver.example.com<br>填写 DDNS 的二级域名(只需填写前缀例如 hkt.google.com则需要填写hkt)<br>CFRECORD_NAME&#x3D;<br>设置完毕运行脚本</p>
+<p>incorrect api-key results in E_UNAUTH error<br>填写 Global API Key<br>CFKEY&#x3D;<br>Username, eg: <a href="mailto:&#117;&#x73;&#x65;&#x72;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">user@example.com</a><br>填写 CloudFlare 登陆邮箱<br>CFUSER&#x3D;<br>Zone name, eg: example.com<br>填写需要用来 DDNS 的一级域名<br>CFZONE_NAME&#x3D;(例如:google.com)<br>Hostname to update, eg: homeserver.example.com<br>填写 DDNS 的二级域名(只需填写前缀例如 hkt.google.com则需要填写hkt)<br>CFRECORD_NAME&#x3D;<br>设置完毕运行脚本</p>
 </blockquote>
 <pre><code> ./cf-v4-ddns.sh
 </code></pre>
@@ -337,12 +340,36 @@
       <a class="nav-item-link" href="/messages">留言</a>
     </li>
     
-    <li class="nav-item">
-      <a class="nav-item-link" href="/cross">时光机</a>
-    </li>
-    
   </ul>
 </nav>
+<aside class="site-info-card" aria-label="博客信息">
+  <h2>博客信息</h2>
+  <ul>
+    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
+    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
+    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
+    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
+  </ul>
+</aside>
+<script>
+  (function () {
+    var start = new Date('2020-08-30T00:00:00');
+    var now = new Date();
+    var days = Math.max(0, Math.floor((now - start) / 86400000));
+    var years = Math.floor(days / 365);
+    var remain = days - years * 365;
+    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
+
+    function showTiming() {
+      var nav = performance.getEntriesByType('navigation')[0];
+      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
+      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
+    }
+    if (document.readyState === 'complete') showTiming();
+    else window.addEventListener('load', showTiming, { once: true });
+  })();
+</script>
+
 <nav class="navbar navbar-bottom">
   <ul class="nav">
     <li class="nav-item">
@@ -365,6 +392,7 @@
   <div id="local-search-result" class="local-search-result"></div>
 </div>
 </div>
+
     </aside>
     <div id="mask"></div>
 
