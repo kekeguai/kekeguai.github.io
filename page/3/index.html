@@ -86,7 +86,7 @@
 
 
 <div id="main">
-  <section class="outer">
+  <section class="outer home-archive">
   
   
   
@@ -201,6 +201,36 @@
 </article>
 
     
+    <aside class="site-info-card" aria-label="博客信息">
+  <h2>博客信息</h2>
+  <ul>
+    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
+    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
+    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
+    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
+  </ul>
+</aside>
+<script>
+  (function () {
+    var start = new Date('2020-08-30T00:00:00');
+    var now = new Date();
+    var days = Math.max(0, Math.floor((now - start) / 86400000));
+    var years = Math.floor(days / 365);
+    var remain = days - years * 365;
+    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
+
+    function showTiming() {
+      var nav = performance.getEntriesByType('navigation')[0];
+      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
+      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
+    }
+    if (document.readyState === 'complete') showTiming();
+    else window.addEventListener('load', showTiming, { once: true });
+  })();
+</script>
+
+    
+    
     <article
   id="post-22-《世界上最爱我的人》"
   class="article article-type-post"
@@ -259,6 +289,7 @@
   
 </article>
 
+    
     
     <article
   id="post-21-利用VPS搭建青龙面板+Ninja(2022.3.6日更新搭建JDX并对接青龙面板"
@@ -323,6 +354,7 @@
   
 </article>
 
+    
     
     <article
   id="post-8-（VPS）利用Aria2下载Rclone转存到OneDrive"
@@ -569,6 +601,7 @@ docker run -d \
 </article>
 
     
+    
     <article
   id="post-9-利用OneinStack一键搭建LNMP和Typecho"
   class="article article-type-post"
@@ -642,6 +675,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
 </article>
 
     
+    
     <article
   id="post-11-《我的房客大小姐》"
   class="article article-type-post"
@@ -700,6 +734,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
   
 </article>
 
+    
     
     <article
   id="post-5-《我的二十六岁女房客》又名《天空的城》"
@@ -760,6 +795,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
 </article>
 
     
+    
     <article
   id="post-1-欢迎使用 Typecho"
   class="article article-type-post"
@@ -808,6 +844,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
 </article>
 
     
+    
   </article>
   
 
@@ -818,6 +855,7 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
   </nav>
   
 </section>
+
 </div>
 
       <footer class="footer">
@@ -908,34 +946,6 @@ rm -rf 1.1.17.10.30.-release.tar.gz build
     
   </ul>
 </nav>
-<aside class="site-info-card" aria-label="博客信息">
-  <h2>博客信息</h2>
-  <ul>
-    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
-    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
-    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
-    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
-  </ul>
-</aside>
-<script>
-  (function () {
-    var start = new Date('2020-08-30T00:00:00');
-    var now = new Date();
-    var days = Math.max(0, Math.floor((now - start) / 86400000));
-    var years = Math.floor(days / 365);
-    var remain = days - years * 365;
-    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
-
-    function showTiming() {
-      var nav = performance.getEntriesByType('navigation')[0];
-      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
-      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
-    }
-    if (document.readyState === 'complete') showTiming();
-    else window.addEventListener('load', showTiming, { once: true });
-  })();
-</script>
-
 <nav class="navbar navbar-bottom">
   <ul class="nav">
     <li class="nav-item">

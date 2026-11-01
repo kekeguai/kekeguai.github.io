@@ -86,7 +86,7 @@
 
 
 <div id="main">
-  <section class="outer">
+  <section class="outer home-archive">
   
   
   
@@ -215,6 +215,36 @@ services:
 </article>
 
     
+    <aside class="site-info-card" aria-label="博客信息">
+  <h2>博客信息</h2>
+  <ul>
+    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
+    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
+    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
+    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
+  </ul>
+</aside>
+<script>
+  (function () {
+    var start = new Date('2020-08-30T00:00:00');
+    var now = new Date();
+    var days = Math.max(0, Math.floor((now - start) / 86400000));
+    var years = Math.floor(days / 365);
+    var remain = days - years * 365;
+    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
+
+    function showTiming() {
+      var nav = performance.getEntriesByType('navigation')[0];
+      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
+      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
+    }
+    if (document.readyState === 'complete') showTiming();
+    else window.addEventListener('load', showTiming, { once: true });
+  })();
+</script>
+
+    
+    
     <article
   id="post-70-YxVM HKECO-Luxury 4C4G 测试"
   class="article article-type-post"
@@ -272,6 +302,7 @@ services:
 </article>
 
     
+    
     <article
   id="post-68-本站由YxVM赞助"
   class="article article-type-post"
@@ -319,6 +350,7 @@ services:
   
 </article>
 
+    
     
     <article
   id="post-53-NAT-Nyanpass单端隧道使用【已失效】"
@@ -387,6 +419,7 @@ services:
 </article>
 
     
+    
     <article
   id="post-50-Cloudflare搭建DDNS教程"
   class="article article-type-post"
@@ -440,7 +473,7 @@ services:
 <pre><code>nano cf-v4-ddns.sh
 </code></pre>
 <blockquote>
-<p>incorrect api-key results in E_UNAUTH error<br>填写 Global API Key<br>CFKEY&#x3D;<br>Username, eg: <a href="mailto:&#117;&#x73;&#x65;&#x72;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;">user@example.com</a><br>填写 CloudFlare 登陆邮箱<br>CFUSER&#x3D;<br>Zone name, eg: example.com<br>填写需要用来 DDNS 的一级域名<br>CFZONE_NAME&#x3D;(例如:google.com)<br>Hostname to update, eg: homeserver.example.com<br>填写 DDNS 的二级域名(只需填写前缀例如 hkt.google.com则需要填写hkt)<br>CFRECORD_NAME&#x3D;<br>设置完毕运行脚本</p>
+<p>incorrect api-key results in E_UNAUTH error<br>填写 Global API Key<br>CFKEY&#x3D;<br>Username, eg: <a href="mailto:&#x75;&#x73;&#x65;&#114;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#111;&#x6d;">user@example.com</a><br>填写 CloudFlare 登陆邮箱<br>CFUSER&#x3D;<br>Zone name, eg: example.com<br>填写需要用来 DDNS 的一级域名<br>CFZONE_NAME&#x3D;(例如:google.com)<br>Hostname to update, eg: homeserver.example.com<br>填写 DDNS 的二级域名(只需填写前缀例如 hkt.google.com则需要填写hkt)<br>CFRECORD_NAME&#x3D;<br>设置完毕运行脚本</p>
 </blockquote>
 <pre><code> ./cf-v4-ddns.sh
 </code></pre>
@@ -471,6 +504,7 @@ services:
   
 </article>
 
+    
     
     <article
   id="post-37-Emby4.7.11.0一键开心脚本"
@@ -539,6 +573,7 @@ services:
 </article>
 
     
+    
     <article
   id="post-34-通过Origin Rules使CloudFlare CDN回源以使用任意的端口（NAT套CF教程）"
   class="article article-type-post"
@@ -598,6 +633,7 @@ services:
   
 </article>
 
+    
     
     <article
   id="post-24-土耳其电子钱包入金教程（已失效）"
@@ -684,6 +720,7 @@ services:
 </article>
 
     
+    
     <article
   id="post-25-小说书摘2"
   class="article article-type-post"
@@ -742,6 +779,7 @@ services:
   
 </article>
 
+    
     
     <article
   id="post-10-搭建Book-searcher（Zlib-searcher）"
@@ -828,6 +866,7 @@ services:
 </article>
 
     
+    
   </article>
   
 
@@ -838,6 +877,7 @@ services:
   </nav>
   
 </section>
+
 </div>
 
       <footer class="footer">
@@ -928,34 +968,6 @@ services:
     
   </ul>
 </nav>
-<aside class="site-info-card" aria-label="博客信息">
-  <h2>博客信息</h2>
-  <ul>
-    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
-    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
-    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
-    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
-  </ul>
-</aside>
-<script>
-  (function () {
-    var start = new Date('2020-08-30T00:00:00');
-    var now = new Date();
-    var days = Math.max(0, Math.floor((now - start) / 86400000));
-    var years = Math.floor(days / 365);
-    var remain = days - years * 365;
-    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
-
-    function showTiming() {
-      var nav = performance.getEntriesByType('navigation')[0];
-      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
-      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
-    }
-    if (document.readyState === 'complete') showTiming();
-    else window.addEventListener('load', showTiming, { once: true });
-  })();
-</script>
-
 <nav class="navbar navbar-bottom">
   <ul class="nav">
     <li class="nav-item">

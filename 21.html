@@ -347,34 +347,6 @@ ql repo https://github.com/shufflewzc/faker3.git &quot;jd_|jx_|gua_|jddj_|jdCook
     
   </ul>
 </nav>
-<aside class="site-info-card" aria-label="博客信息">
-  <h2>博客信息</h2>
-  <ul>
-    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
-    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
-    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
-    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
-  </ul>
-</aside>
-<script>
-  (function () {
-    var start = new Date('2020-08-30T00:00:00');
-    var now = new Date();
-    var days = Math.max(0, Math.floor((now - start) / 86400000));
-    var years = Math.floor(days / 365);
-    var remain = days - years * 365;
-    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
-
-    function showTiming() {
-      var nav = performance.getEntriesByType('navigation')[0];
-      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
-      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
-    }
-    if (document.readyState === 'complete') showTiming();
-    else window.addEventListener('load', showTiming, { once: true });
-  })();
-</script>
-
 <nav class="navbar navbar-bottom">
   <ul class="nav">
     <li class="nav-item">

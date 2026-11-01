@@ -86,7 +86,7 @@
 
 
 <div id="main">
-  <section class="outer">
+  <section class="outer home-archive">
   
   
   
@@ -209,6 +209,36 @@ https://xxx.com/posts/1690090958.html
 </article>
 
     
+    <aside class="site-info-card" aria-label="博客信息">
+  <h2>博客信息</h2>
+  <ul>
+    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
+    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
+    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
+    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
+  </ul>
+</aside>
+<script>
+  (function () {
+    var start = new Date('2020-08-30T00:00:00');
+    var now = new Date();
+    var days = Math.max(0, Math.floor((now - start) / 86400000));
+    var years = Math.floor(days / 365);
+    var remain = days - years * 365;
+    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
+
+    function showTiming() {
+      var nav = performance.getEntriesByType('navigation')[0];
+      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
+      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
+    }
+    if (document.readyState === 'complete') showTiming();
+    else window.addEventListener('load', showTiming, { once: true });
+  })();
+</script>
+
+    
+    
     <article
   id="post-26-遥远的救世主"
   class="article article-type-post"
@@ -267,6 +297,7 @@ https://xxx.com/posts/1690090958.html
   
 </article>
 
+    
     
     <article
   id="post-7-Alist搭建教程"
@@ -340,6 +371,7 @@ https://xxx.com/posts/1690090958.html
   
 </article>
 
+    
     
     <article
   id="post-23-TG人形自走机器人项目PagerMaid和PagerMaid-Pyro安装"
@@ -423,6 +455,7 @@ https://xxx.com/posts/1690090958.html
 </article>
 
     
+    
     <article
   id="post-27-《自卑与超越》"
   class="article article-type-post"
@@ -481,6 +514,7 @@ https://xxx.com/posts/1690090958.html
   
 </article>
 
+    
     
     <article
   id="post-16-Markdown（笔记）"
@@ -903,6 +937,7 @@ https://xxx.com/posts/1690090958.html
 </article>
 
     
+    
     <article
   id="post-13-Hexo博客搭建（含美化）"
   class="article article-type-post"
@@ -1033,6 +1068,7 @@ https://xxx.com/posts/1690090958.html
 </article>
 
     
+    
     <article
   id="post-19-《墨菲定律》（下）"
   class="article article-type-post"
@@ -1110,6 +1146,7 @@ https://xxx.com/posts/1690090958.html
 </article>
 
     
+    
     <article
   id="post-18-《墨菲定律》（中）"
   class="article article-type-post"
@@ -1177,6 +1214,7 @@ https://xxx.com/posts/1690090958.html
   
 </article>
 
+    
     
     <article
   id="post-17-《墨菲定律》（上）"
@@ -1291,6 +1329,7 @@ https://xxx.com/posts/1690090958.html
 </article>
 
     
+    
   </article>
   
 
@@ -1301,6 +1340,7 @@ https://xxx.com/posts/1690090958.html
   </nav>
   
 </section>
+
 </div>
 
       <footer class="footer">
@@ -1391,34 +1431,6 @@ https://xxx.com/posts/1690090958.html
     
   </ul>
 </nav>
-<aside class="site-info-card" aria-label="博客信息">
-  <h2>博客信息</h2>
-  <ul>
-    <li><i class="ri-article-line"></i><span>28</span><span>文章数目</span></li>
-    <li><i class="ri-calendar-2-line"></i><span id="site-runtime">计算中</span><span>运行天数</span></li>
-    <li><i class="ri-time-line"></i><span>2025-04-08</span><span>最后活动</span></li>
-    <li><i class="ri-timer-line"></i><span id="site-response-time">测量中</span><span>响应耗时</span></li>
-  </ul>
-</aside>
-<script>
-  (function () {
-    var start = new Date('2020-08-30T00:00:00');
-    var now = new Date();
-    var days = Math.max(0, Math.floor((now - start) / 86400000));
-    var years = Math.floor(days / 365);
-    var remain = days - years * 365;
-    document.getElementById('site-runtime').textContent = years + '年' + remain + '天';
-
-    function showTiming() {
-      var nav = performance.getEntriesByType('navigation')[0];
-      var elapsed = nav ? Math.round(nav.responseStart - nav.requestStart) : 0;
-      document.getElementById('site-response-time').textContent = (elapsed > 0 ? elapsed : 1) + ' ms';
-    }
-    if (document.readyState === 'complete') showTiming();
-    else window.addEventListener('load', showTiming, { once: true });
-  })();
-</script>
-
 <nav class="navbar navbar-bottom">
   <ul class="nav">
     <li class="nav-item">
